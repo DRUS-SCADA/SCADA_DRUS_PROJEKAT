@@ -10,6 +10,7 @@ namespace SCADA_Core_WCFService
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Hello");
         }
     }
 }
