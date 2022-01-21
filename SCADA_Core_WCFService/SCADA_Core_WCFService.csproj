@@ -43,6 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnalogInput.cs" />
+    <Compile Include="AnalogOutput.cs" />
+    <Compile Include="DigitalInput.cs" />
+    <Compile Include="DigitalOutput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
