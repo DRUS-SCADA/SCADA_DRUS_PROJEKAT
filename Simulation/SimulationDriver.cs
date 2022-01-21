@@ -8,9 +8,6 @@ namespace Simulation
 {
     public class SimulationDriver
     {
-        int x = 5;
-        int y = 10;
-
-        int p = 15;
+        
     }
 }
