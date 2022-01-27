@@ -167,6 +167,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddAI.xaml.cs">
+      <DependentUpon>AddAI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddAO.xaml.cs">
+      <DependentUpon>AddAO.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddDI.xaml.cs">
+      <DependentUpon>AddDI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddDO.xaml.cs">
+      <DependentUpon>AddDO.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -178,6 +190,22 @@
     <Compile Include="SCADA.xaml.cs">
       <DependentUpon>SCADA.xaml</DependentUpon>
     </Compile>
+    <Page Include="AddAI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddAO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddDO.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

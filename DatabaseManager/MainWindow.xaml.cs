@@ -38,7 +38,7 @@ namespace DatabaseManager
                MessageBox.Show("Username or password are incorrect!");
             }else
             {
-               SCADA scada = new SCADA();
+               SCADA scada = new SCADA(token);
                scada.ShowDialog();
             }
         }
@@ -65,7 +65,7 @@ namespace DatabaseManager
 
         private void TextBox_LostFocus2(object sender, RoutedEventArgs e)
         {
-            PasswordId.Password = "";
+            PasswordId.Password = PasswordId.Password;
         }
         
     }
