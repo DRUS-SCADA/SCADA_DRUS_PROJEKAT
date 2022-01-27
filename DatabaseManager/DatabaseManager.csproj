@@ -258,6 +258,13 @@
     <Resource Include="Images\account_icon.png" />
     <Resource Include="Images\password.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Alarmicon.jpg" />
+    <Resource Include="Images\deleteAlarm.png" />
+    <Resource Include="Images\deleteIcon.png" />
+    <Resource Include="Images\details.png" />
+    <Resource Include="Images\plusIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

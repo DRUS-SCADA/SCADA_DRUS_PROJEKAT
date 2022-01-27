@@ -32,15 +32,66 @@ namespace DatabaseManager
             string username1 = username.Text;
             string password = Password.Password;
             string passwordRepeat = ConfirmPassword.Password;
-            if (password == passwordRepeat)
+            if (ValidateInput() == true)
             {
-                MainWindow.proxy.Registration(name, surname, username1, password);
-                this.Close();
-            }else
-            {
-                MessageBox.Show("Passwords are not matched!");
+                if (password == passwordRepeat)
+                {
+                    string validateusername=MainWindow.proxy.Registration(name, surname, username1, password);
+                    if (validateusername == "Uspesno registrovanje")
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("User with this username already exists");
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Passwords are not matched!");
+                }
             }
+         
             
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private bool ValidateInput()
+        {
+            if(FirstName.Text.Length == 0 || LastName.Text.Length==0 || username.Text.Length==0 || Password.Password.Length==0 || ConfirmPassword.Password.Length==0)
+            {
+                if (FirstName.Text.Length == 0)
+                {
+                    FirstName.BorderBrush = Brushes.Red;
+                }
+                if (LastName.Text.Length == 0)
+                {
+                    LastName.BorderBrush = Brushes.Red;
+                }
+                if (username.Text.Length == 0)
+                {
+                    username.BorderBrush = Brushes.Red;
+                }
+                if (Password.Password.Length == 0)
+                {
+                    Password.BorderBrush= Brushes.Red;
+                }
+                if (ConfirmPassword.Password.Length == 0)
+                {
+                    ConfirmPassword.BorderBrush = Brushes.Red;
+                }
+
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

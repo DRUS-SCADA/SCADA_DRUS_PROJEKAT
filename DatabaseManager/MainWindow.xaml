@@ -15,7 +15,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="450" Width="380" >
+        Title="" Height="450" Width="380" >
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -35,7 +35,7 @@
 
 
             <StackPanel VerticalAlignment="Center" >
-                <TextBlock Text="Modern Design"
+                <TextBlock Text="SCADA System"
                            FontWeight="Light"
                            FontFamily="helvetica"
                            FontSize="22"
