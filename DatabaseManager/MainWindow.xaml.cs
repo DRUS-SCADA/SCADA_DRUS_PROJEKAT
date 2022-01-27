@@ -30,7 +30,7 @@ namespace DatabaseManager
         private void LoginClick(object sender, RoutedEventArgs e)
         {
             string username = Username.Text;
-            string password = Password.Password;
+            string password = PasswordId.Password;
             string token = proxy.Login(username, password);
 
             if (token == "Neuspesno logovanje")
@@ -58,5 +58,15 @@ namespace DatabaseManager
         {
             Username.Text = Username.Text == string.Empty ? "Username" : Username.Text;
         }
+        private void TextBox_GotFocus2(object sender, RoutedEventArgs e)
+        {
+            PasswordId.Password = "";
+        }
+
+        private void TextBox_LostFocus2(object sender, RoutedEventArgs e)
+        {
+            PasswordId.Password = "Password";
+        }
+        
     }
 }

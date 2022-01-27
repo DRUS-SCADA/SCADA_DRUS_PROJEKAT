@@ -80,11 +80,14 @@
 
 
                 <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                    <PasswordBox Name ="Password" FontFamily="Helvetica"
+                    <PasswordBox Name ="PasswordId" FontFamily="Helvetica"
                              FontWeight="Light"
+                             PasswordChar="*"
                              Password="Password" 
                              FontSize="20"
                              HorizontalAlignment="Center"
+                             GotFocus="TextBox_GotFocus2"
+                             LostFocus="TextBox_LostFocus2"
                              Foreground="White"
                              Background="Transparent"
                              BorderThickness="0"
@@ -93,11 +96,13 @@
                              Opacity="0.5"
                              Height="25"
                              Margin="63,0,0,0"/>
+                    <TextBox Name="passwordTxtBox" Visibility="Collapsed"/>
                     <iconPacks:PackIconMaterial Kind="Key" 
                                                 VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"/>
                 </StackPanel>
+                
                 <Border Width="250"
                         Height="2"
                         Background="White"
