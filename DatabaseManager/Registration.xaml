@@ -4,36 +4,62 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatabaseManager"
+        xmlns:iconPacks ="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         Title="Registration" Height="450" Width="800">
     <Grid>
-        <Label Content="First name" HorizontalAlignment="Left" Margin="100,58,0,0" VerticalAlignment="Top" Width="128" Height="25" FontFamily="Helvetica" FontWeight="Light" FontSize="16" />
-        <TextBox x:Name="FirstName"  HorizontalAlignment="Left" Height="25" Margin="239,58,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="172" FontFamily="Ink Free" FontSize="16">
+
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="DeepSkyBlue" Offset="0.0"/>
+                    <GradientStop Color="Lavender" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <iconPacks:PackIconMaterial Kind="Network" 
+                                                VerticalAlignment="Center" 
+                                                HorizontalAlignment="Center" 
+                                                Foreground="White" Height="45" Margin="617,92,118.6,283" Width="58" RenderTransformOrigin="5.834,-0.4"/>
+
+        <Label Content="First name" HorizontalAlignment="Left" Margin="100,58,0,0" VerticalAlignment="Top" Width="128" Height="25" FontFamily="Helvetica" FontWeight="Light" FontSize="16" Foreground="White"/>
+        <TextBox x:Name="FirstName"  HorizontalAlignment="Left" Height="25" Margin="243,58,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="172" FontFamily="Helvetica" FontSize="16" Foreground="White">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFC1D9E4" Opacity="0.5"/>
+                <SolidColorBrush Color="White" Opacity="0.5"/>
             </TextBox.Background>
         </TextBox>
 
-        <Label Content="Last name" HorizontalAlignment="Left" Margin="100,111,0,0" VerticalAlignment="Top" Height="26" Width="128" FontFamily="Helvetica" FontWeight="Light" FontSize="16" />
-        <TextBox x:Name="LastName"  HorizontalAlignment="Left" Height="26" Margin="239,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="172" FontFamily="Ink Free" FontSize="16">
+        <Label Content="Last name" HorizontalAlignment="Left" Margin="100,111,0,0" VerticalAlignment="Top" Height="26" Width="128" FontFamily="Helvetica" FontWeight="Light" FontSize="16" Foreground="White"/>
+        <TextBox x:Name="LastName"  HorizontalAlignment="Left" Height="26" Margin="243,111,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="172" FontFamily="Helvetica" FontSize="16" Foreground="White">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFC1D9E4" Opacity="0.5"/>
+                <SolidColorBrush Color="White" Opacity="0.5"/>
             </TextBox.Background>
         </TextBox>
 
-        <Label Content="Username" HorizontalAlignment="Left" Margin="100,163,0,0" VerticalAlignment="Top" Height="26" Width="128" FontFamily="Helvetica" FontWeight="Light" FontSize="16" />
-        <TextBox Name="username"  HorizontalAlignment="Left" Height="26" Margin="239,163,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="172" FontFamily="Ink Free" FontSize="16">
+        <Label Content="Username" HorizontalAlignment="Left" Margin="100,163,0,0" VerticalAlignment="Top" Height="26" Width="128" FontFamily="Helvetica" FontWeight="Light" FontSize="16" Foreground="White" />
+        <TextBox Name="username"  HorizontalAlignment="Left" Height="26" Margin="243,163,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="172" FontFamily="Helvetica" FontSize="16" Foreground="White">
             <TextBox.Background>
-                <SolidColorBrush Color="#FFC1D9E4" Opacity="0.5"/>
+                <SolidColorBrush Color="White" Opacity="0.5"/>
             </TextBox.Background>
         </TextBox>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="100,225,0,0" VerticalAlignment="Top" Height="26" Width="128" FontFamily="Helvetica" FontWeight="Light" FontSize="16" />
-       
-        <Label Content="Confirm password" HorizontalAlignment="Left" Margin="90,292,0,0" VerticalAlignment="Top" Height="26" Width="138" FontFamily="Helvetica" FontWeight="Light" FontSize="16" />
-        
-        <Button Content="Confirm" Click ="Registration_Click"  HorizontalAlignment="Left" Margin="615,137,0,0" VerticalAlignment="Top" Width="75"/>
-        <PasswordBox x:Name="Password" HorizontalAlignment="Left" Margin="239,225,0,0" VerticalAlignment="Top" Width="172" Height="26"/>
-        <PasswordBox x:Name="ConfirmPassword" HorizontalAlignment="Left" Margin="239,292,0,0" VerticalAlignment="Top" Width="172" Height="26"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="100,225,0,0" VerticalAlignment="Top" Height="26" Width="128" FontFamily="Helvetica" FontWeight="Light" FontSize="16" Foreground="White" />
+
+        <Label Content="Confirm password"  HorizontalAlignment="Left" Margin="100,278,0,0" VerticalAlignment="Top" Height="26" Width="138" FontFamily="Helvetica" FontWeight="Light" FontSize="16" Foreground="White"/>
+
+        <Button Content="Confirm" Click ="Registration_Click"  HorizontalAlignment="Left" Margin="581,163,0,0" VerticalAlignment="Top" Width="130" Background="DeepSkyBlue" Foreground="White" Height="52"/>
+        <PasswordBox x:Name="Password"  HorizontalAlignment="Left" Margin="243,225,0,0" VerticalAlignment="Top" Width="172" Height="26">
+            <PasswordBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.5"/>
+            </PasswordBox.Background>
+        </PasswordBox>
+
+        <PasswordBox x:Name="ConfirmPassword" HorizontalAlignment="Left" Margin="243,278,0,0" VerticalAlignment="Top" Width="172" Height="26">
+            <PasswordBox.Background>
+                <SolidColorBrush Color="White" Opacity="0.5"/>
+            </PasswordBox.Background>
+        </PasswordBox>
+
 
     </Grid>
 </Window>

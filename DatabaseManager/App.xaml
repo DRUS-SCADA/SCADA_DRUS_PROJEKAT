@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:DatabaseManager"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+
+                
+
+
+            </ResourceDictionary.MergedDictionaries>
+
+        </ResourceDictionary>
          
     </Application.Resources>
 </Application>
