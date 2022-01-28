@@ -182,9 +182,44 @@
                                                 VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 
                                                 Foreground="SlateGray" Height="24" Margin="580,23.8,214.2,17" Width="25" RenderTransformOrigin="0.525,1.2" Grid.Row="1"/>
-        <Button Content="Change Password" Click="PasswordChange" Foreground="DarkBlue" Background="White"  HorizontalAlignment="Left" Margin="416,33.8,0,0" VerticalAlignment="Top" Width="145" Grid.Row="1" Height="21"/>
-        <Button Content="Delete profile" Click ="ProfileDelete" Foreground="DarkBlue" Background="White" HorizontalAlignment="Left" Margin="416,9.8,0,0" VerticalAlignment="Top" Width="145" Grid.Row="1" Height="21"/>
-
+        <Button Margin="452,17.8,276.2,34" Content="Delete Profile" Click="ProfileDelete" Cursor="Hand" Grid.Row="1">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <TextBlock TextDecorations="Underline">
+                <ContentPresenter />
+                    </TextBlock>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Foreground" Value="Blue" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Margin="452,36.8,239.2,15" Content="Change Password" Click="PasswordChange" Cursor="Hand" Grid.Row="1">
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <TextBlock TextDecorations="Underline"><InlineUIContainer>
+                            <ContentPresenter />
+                        </InlineUIContainer></TextBlock>
+                </ControlTemplate>
+            </Button.Template>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Foreground" Value="Blue" />
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Foreground" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
 
 
 
