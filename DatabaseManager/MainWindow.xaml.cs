@@ -65,7 +65,7 @@ namespace DatabaseManager
 
         private void TextBox_LostFocus2(object sender, RoutedEventArgs e)
         {
-            PasswordId.Password = "Password";
+            PasswordId.Password = PasswordId.Password;
         }
         
     }
