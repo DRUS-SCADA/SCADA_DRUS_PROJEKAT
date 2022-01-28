@@ -35,11 +35,11 @@ namespace DatabaseManager
 
             if (token == "Neuspesno logovanje")
             {
-                MessageBox.Show("Username or password are incorrect!");
+               MessageBox.Show("Username or password are incorrect!");
             }else
             {
-                SCADA scada = new SCADA();
-                scada.ShowDialog();
+               SCADA scada = new SCADA(token);
+               scada.ShowDialog();
             }
         }
 
