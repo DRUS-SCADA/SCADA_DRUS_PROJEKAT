@@ -177,8 +177,7 @@
                                                 VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White" Margin="732,24,21,23" Grid.Row="1" Width="64" Height="17"/>
-
-
+        
 
 
     </Grid>
