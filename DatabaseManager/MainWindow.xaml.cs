@@ -27,6 +27,20 @@ namespace DatabaseManager
             InitializeComponent();
 
         }
+        public string GetUsername
+        {
+            get
+            {
+                return Username.Text;
+            }
+        }
+        public string GetPassword
+        {
+            get
+            {
+                return PasswordId.Password;
+            }
+        }
 
         private void LoginClick(object sender, RoutedEventArgs e)
         {

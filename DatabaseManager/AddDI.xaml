@@ -26,14 +26,14 @@
                 </Border.Background>
             </Border>
 
-            <Label Content="ADD DIGITAL INPUT" FontSize="25" FontStyle="Oblique" HorizontalAlignment="Left" Margin="93,21,0,0" VerticalAlignment="Top" Width="236" Height="52"/>
+            <Label Content="ADD DIGITAL INPUT" FontFamily="Helvetica" FontSize="25" FontStyle="Oblique" HorizontalAlignment="Left" Margin="93,21,0,0" VerticalAlignment="Top" Width="236" Height="52"/>
             <TextBox Name="Idbox" HorizontalAlignment="Left" Height="37" Margin="177,96,0,0" TextWrapping="Wrap" Text="{Binding Path=id_name}" VerticalAlignment="Top" Width="184"/>
-            <Label Content="ID:" HorizontalAlignment="Left" Margin="84,96,0,0" VerticalAlignment="Top" Height="37" Width="27"/>
-            <Label Content="Description:" HorizontalAlignment="Left" Margin="84,156,0,0" VerticalAlignment="Top"/>
+            <Label Content="ID:" HorizontalAlignment="Left" FontFamily="Helvetica" Margin="84,96,0,0" VerticalAlignment="Top" Height="37" Width="27"/>
+            <Label Content="Description:" HorizontalAlignment="Left" FontFamily="Helvetica" Margin="84,156,0,0" VerticalAlignment="Top"/>
             <TextBox Name="Descriptionbox" HorizontalAlignment="Left" Height="37" Margin="177,156,0,0" TextWrapping="Wrap" Text="{Binding Path=description}" VerticalAlignment="Top" Width="184"/>
-            <Label Content="IO Adress:" HorizontalAlignment="Left" Margin="84,216,0,0" VerticalAlignment="Top"/>
+            <Label Content="IO Adress:" FontFamily="Helvetica" HorizontalAlignment="Left" Margin="84,216,0,0" VerticalAlignment="Top"/>
             <ComboBox Name="IOCombo" SelectedItem="{Binding Path=ioadress}" HorizontalAlignment="Left" Margin="177,216,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
-            <Label Content="Scan Time:" HorizontalAlignment="Left" Margin="84,276,0,0" VerticalAlignment="Top"/>
+            <Label Content="Scan Time:"  FontFamily="Helvetica" HorizontalAlignment="Left" Margin="84,276,0,0" VerticalAlignment="Top"/>
             <TextBox Name="Scanbox" HorizontalAlignment="Left" Height="37" Margin="177,276,0,0" TextWrapping="Wrap" Text="{Binding Path=scantime}" VerticalAlignment="Top" Width="184"/>
             <Label Content="s" HorizontalAlignment="Left" Margin="366,276,0,0" VerticalAlignment="Top"/>
             <Button Content="Add" HorizontalAlignment="Left" Margin="84,351,0,0" VerticalAlignment="Top" Width="97" />
