@@ -19,16 +19,13 @@ namespace DatabaseManager
     /// </summary>
     public partial class SCADA : Window
     {
-
+        MainWindow main = new MainWindow();
         string token1;
         public SCADA(string token)
         {
             InitializeComponent();
             token1 = token;
-            
         }
-
-       
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
@@ -52,8 +49,6 @@ namespace DatabaseManager
                 AddAO addAO = new AddAO();
                 addAO.ShowDialog();
             }
-          
-
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
@@ -66,6 +61,8 @@ namespace DatabaseManager
             bool logout = MainWindow.proxy.Logout(token1);
             if (logout == true)
             {
+                main.TextBox_GotFocus2(sender,e);
+                main.TextBox_GotFocus(sender, e);
                 this.Close();
             }
             else

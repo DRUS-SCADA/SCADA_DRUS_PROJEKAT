@@ -25,6 +25,7 @@ namespace DatabaseManager
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void LoginClick(object sender, RoutedEventArgs e)
@@ -49,21 +50,21 @@ namespace DatabaseManager
             registration.ShowDialog();
 
         }
-        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        public void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {
             Username.Text = Username.Text == "Username" ? string.Empty : Username.Text;
         }
 
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        public void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
             Username.Text = Username.Text == string.Empty ? "Username" : Username.Text;
         }
-        private void TextBox_GotFocus2(object sender, RoutedEventArgs e)
+        public void TextBox_GotFocus2(object sender, RoutedEventArgs e)
         {
             PasswordId.Password = "";
         }
 
-        private void TextBox_LostFocus2(object sender, RoutedEventArgs e)
+        public void TextBox_LostFocus2(object sender, RoutedEventArgs e)
         {
             PasswordId.Password = PasswordId.Password;
         }
