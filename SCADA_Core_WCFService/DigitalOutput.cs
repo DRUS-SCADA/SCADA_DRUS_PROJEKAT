@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SCADA_Core_WCFService
+namespace SCADACore
 {
     public class DigitalOutput
     {

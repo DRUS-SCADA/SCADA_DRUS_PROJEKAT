@@ -5,7 +5,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SCADA_Core_WCFService
+namespace SCADACore
 {
    [ServiceContract]
    public interface IAuthentication

@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5BE65D3D-5EEB-4DF8-AED7-EF6AE12A6973}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SCADA_Core_WCFService</RootNamespace>
-    <AssemblyName>SCADA_Core_WCFService</AssemblyName>
+    <RootNamespace>SCADACore</RootNamespace>
+    <AssemblyName>SCADACore</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
