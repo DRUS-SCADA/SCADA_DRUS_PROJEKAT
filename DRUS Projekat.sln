@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulation", "Simulation\Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager", "DatabaseManager\DatabaseManager.csproj", "{8E3212C3-4999-417C-94DE-FDC11B891A15}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trending_App", "Trending_App\Trending_App.csproj", "{DD8C8580-7E88-4C87-A9A0-60225C6574C4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{8E3212C3-4999-417C-94DE-FDC11B891A15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E3212C3-4999-417C-94DE-FDC11B891A15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E3212C3-4999-417C-94DE-FDC11B891A15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD8C8580-7E88-4C87-A9A0-60225C6574C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD8C8580-7E88-4C87-A9A0-60225C6574C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD8C8580-7E88-4C87-A9A0-60225C6574C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD8C8580-7E88-4C87-A9A0-60225C6574C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

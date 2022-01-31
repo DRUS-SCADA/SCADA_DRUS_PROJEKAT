@@ -91,10 +91,7 @@ namespace DatabaseManager
                     MessageBox.Show("Something went wrong, try again");
                 }
             }
-            else
-            {
-
-            }
+          
         }
 
         private void PasswordChange(object sender, RoutedEventArgs e)
