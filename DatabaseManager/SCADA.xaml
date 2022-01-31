@@ -87,7 +87,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Binding="{Binding TagName}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="IO Adress" Binding="{Binding Address}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAddress}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Initial Value" Binding="{Binding InitialValue}" IsReadOnly="True" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
