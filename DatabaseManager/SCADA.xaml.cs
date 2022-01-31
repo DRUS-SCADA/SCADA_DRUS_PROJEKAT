@@ -35,21 +35,25 @@ namespace DatabaseManager
             {
                 AddDI addDI = new AddDI();
                 addDI.ShowDialog();
+                
             }
             else if (Tab1.SelectedIndex == 1)
             {
                 AddDO addDO = new AddDO();
                 addDO.ShowDialog();
+                
             }
             else if (Tab1.SelectedIndex == 2)
             {
                 AddAI addAI = new AddAI();
                 addAI.ShowDialog();
+                
             }
             else 
             {
                 AddAO addAO = new AddAO();
                 addAO.ShowDialog();
+                
             }
         }
 

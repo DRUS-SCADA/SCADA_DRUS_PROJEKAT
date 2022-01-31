@@ -20,6 +20,7 @@ namespace DatabaseManager
     /// </summary>
     public partial class AddDO : Window
     {
+        
         public AddDO()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace DatabaseManager
         private void Close_click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            
         }
 
         private void AddDO_Click(object sender, RoutedEventArgs e)
@@ -43,6 +45,8 @@ namespace DatabaseManager
             MainWindow.proxy2.AddDO(digitalOutput);
 
             this.Close();
+            
+            
         }
     }
 }

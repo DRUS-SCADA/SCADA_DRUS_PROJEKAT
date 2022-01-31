@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseManager.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,26 @@ namespace DatabaseManager
         public AddAO()
         {
             InitializeComponent();
+            this.IoCombo.ItemsSource = new List<string>() { "ADDR005", "ADDR006", "ADDR007", "ADDR008" };
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            string tag = Idbox.Text;
+            string desc = Descriptionbox.Text;
+            string combo = IoCombo.Text;
+            double initialValue = Convert.ToDouble(Valuebox.Text);
+            double low = Convert.ToDouble(LowLimit.Text);
+            double high = Convert.ToDouble(HighLimit.Text);
+            AnalogOutput analogOutput = new AnalogOutput { TagName=tag, Description=desc, HighLimit=high, LowLimit=low, InitialValue=initialValue, IOAdress=combo };
+            MainWindow.proxy2.AddAO(analogOutput);
+
+            this.Close();
+        }
+
+        private void Close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
