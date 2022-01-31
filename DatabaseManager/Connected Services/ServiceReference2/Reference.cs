@@ -178,6 +178,18 @@ namespace DatabaseManager.ServiceReference2 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TagNameField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string addressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string description1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double initialValue1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string tagName1Field;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -249,6 +261,58 @@ namespace DatabaseManager.ServiceReference2 {
                 if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
                     this.TagNameField = value;
                     this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string address {
+            get {
+                return this.addressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.addressField, value) != true)) {
+                    this.addressField = value;
+                    this.RaisePropertyChanged("address");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Name="description")]
+        public string description1 {
+            get {
+                return this.description1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.description1Field, value) != true)) {
+                    this.description1Field = value;
+                    this.RaisePropertyChanged("description1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Name="initialValue")]
+        public double initialValue1 {
+            get {
+                return this.initialValue1Field;
+            }
+            set {
+                if ((this.initialValue1Field.Equals(value) != true)) {
+                    this.initialValue1Field = value;
+                    this.RaisePropertyChanged("initialValue1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Name="tagName")]
+        public string tagName1 {
+            get {
+                return this.tagName1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.tagName1Field, value) != true)) {
+                    this.tagName1Field = value;
+                    this.RaisePropertyChanged("tagName1");
                 }
             }
         }
