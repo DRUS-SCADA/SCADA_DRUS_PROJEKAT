@@ -15,16 +15,16 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Label Content="ADD ANALOG OUTPUT" FontSize="25" FontFamily="Helvetica" FontStyle="Oblique" HorizontalAlignment="Left" Margin="88,22,0,0" VerticalAlignment="Top" Width="273" Height="52"/>
+        <Label Content="ADD ANALOG OUTPUT" FontSize="25" FontFamily="Helvetica"  Foreground="White" FontStyle="Oblique" HorizontalAlignment="Left" Margin="88,22,0,0" VerticalAlignment="Top" Width="273" Height="52"/>
         <TextBox Name="Idbox" HorizontalAlignment="Left" Height="37" Margin="177,96,0,0" TextWrapping="Wrap" Text="{Binding Path=Id_name}" VerticalAlignment="Top" Width="184"/>
-        <Label Content="ID:" FontFamily="Helvetica" HorizontalAlignment="Left" Margin="84,96,0,0" VerticalAlignment="Top" Height="37" Width="27"/>
-        <Label Content="Description:" FontFamily="Helvetica" HorizontalAlignment="Left" Margin="84,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tag Name:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,96,0,0" VerticalAlignment="Top" Height="37" Width="84"/>
+        <Label Content="Description:" FontFamily="Helvetica" FontSize="16" Foreground="White"  HorizontalAlignment="Left" Margin="84,156,0,0" VerticalAlignment="Top"/>
         <TextBox Name="Descriptionbox" HorizontalAlignment="Left" Height="37" Margin="177,156,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="184"/>
-        <Label Content="IO Adress:"  FontFamily="Helvetica" HorizontalAlignment="Left" Margin="84,216,0,0" VerticalAlignment="Top"/>
+        <Label Content="IO Adress:"  FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,216,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="IoCombo" SelectedItem="{Binding Path=ioadress}" HorizontalAlignment="Left" Margin="177,216,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
-        <Label Content="Initial Value:" FontFamily="Helvetica" HorizontalAlignment="Left" Margin="84,276,0,0" VerticalAlignment="Top"/>
+        <Label Content="Initial Value:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,276,0,0" VerticalAlignment="Top"/>
         <TextBox Name="Valuebox" HorizontalAlignment="Left" Height="37" Margin="177,276,0,0" TextWrapping="Wrap" Text="{Binding Path=InitialValue}" VerticalAlignment="Top" Width="184"/>
-        <Label Content="Units:" FontFamily="Helvetica" HorizontalAlignment="Left" Margin="84,336,0,0" VerticalAlignment="Top"/>
+        <Label Content="Units:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,336,0,0" VerticalAlignment="Top"/>
         <TextBox Name="Unitbox" HorizontalAlignment="Left" Height="37" Margin="177,336,0,0" TextWrapping="Wrap" Text="{Binding Path=Units}" VerticalAlignment="Top" Width="184"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="84,414,0,0" VerticalAlignment="Top" Width="84"  RenderTransformOrigin="-0.393,1.397"/>
         <Button Content="Cancel" Style="{DynamicResource MaterialDesignRaisedButton}"
