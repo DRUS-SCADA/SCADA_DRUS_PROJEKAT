@@ -18,17 +18,17 @@
         </Border>
 
         <Label Content="ADD ANALOG INPUT" FontFamily="Helvetica" FontSize="25" Foreground="White" FontStyle="Oblique" HorizontalAlignment="Left" Margin="95,24,0,0" VerticalAlignment="Top" Width="266" Height="52"/>
-        <TextBox Name="Idbox" HorizontalAlignment="Left" Height="37" Margin="177,96,0,0" TextWrapping="Wrap" Text="{Binding Path=Id_name}" VerticalAlignment="Top" Width="184"/>
+        <TextBox Name="Idbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,96,0,0" TextWrapping="Wrap" Text="{Binding Path=Id_name}" VerticalAlignment="Top" Width="184"/>
         <Label Content="Tag Name:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,96,0,0" VerticalAlignment="Top" Height="37" Width="88"/>
         <Label Content="Description:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,156,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="Descriptionbox" HorizontalAlignment="Left" Height="37" Margin="177,156,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="184"/>
+        <TextBox Name="Descriptionbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,156,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="184"/>
         <Label Content="IO Adress:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,216,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="IOBox" SelectedItem="{Binding Path=ioadress}" HorizontalAlignment="Left" Margin="177,216,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
+        <ComboBox Name="IOBox" SelectedItem="{Binding Path=ioadress}" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Margin="177,216,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
         <Label Content="Scan Time:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,276,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="Scanbox" HorizontalAlignment="Left" Height="37" Margin="177,276,0,0" TextWrapping="Wrap" Text="{Binding Path=ScanTime}" VerticalAlignment="Top" Width="184"/>
+        <TextBox Name="Scanbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,276,0,0" TextWrapping="Wrap" Text="{Binding Path=ScanTime}" VerticalAlignment="Top" Width="184"/>
         <Label Content="s" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="366,276,0,0" VerticalAlignment="Top"/>
         <Label Content="Units:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,336,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="Unitbox" HorizontalAlignment="Left" Height="37" Margin="177,336,0,0" TextWrapping="Wrap" Text="{Binding Path=Units}" VerticalAlignment="Top" Width="184"/>
+        <TextBox Name="Unitbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,336,0,0" TextWrapping="Wrap" Text="{Binding Path=Units}" VerticalAlignment="Top" Width="184"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="95,415,0,0" VerticalAlignment="Top" Width="84"  RenderTransformOrigin="0.472,-0.045"/>
         <Button Content="Cancel" Style="{DynamicResource MaterialDesignRaisedButton}"
         HorizontalAlignment="Left" Background="IndianRed" Margin="246,415,0,0" VerticalAlignment="Top" Width="84"/>
