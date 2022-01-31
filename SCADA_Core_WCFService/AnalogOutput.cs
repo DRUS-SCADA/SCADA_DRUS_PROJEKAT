@@ -1,18 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SCADACore
 {
+    [DataContract]
     public class AnalogOutput
     {
+        [DataMember]
+        [Key]
+        public int Id { get; set; }
+        [DataMember]
         public string TagName { get; set; }
+        [DataMember]
         public string Description { get; set; }
+        [DataMember]
         public string IOAdress { get; set; }
+        [DataMember]
         public double InitialValue { get; set; }
+        [DataMember]
         public double LowLimit { get; set; }
+        [DataMember]
         public double HighLimit { get; set; }
 
         public AnalogOutput() { }
@@ -26,5 +39,6 @@ namespace SCADACore
             this.HighLimit = high;
             this.LowLimit = low;
         }
+
     }
 }

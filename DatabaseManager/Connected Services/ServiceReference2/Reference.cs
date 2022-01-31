@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabaseManager.ServiceReference1 {
+namespace DatabaseManager.ServiceReference2 {
     using System.Runtime.Serialization;
     using System;
     
@@ -264,7 +264,7 @@ namespace DatabaseManager.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IAuthentication")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IAuthentication")]
     public interface IAuthentication {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthentication/Registration", ReplyAction="http://tempuri.org/IAuthentication/RegistrationResponse")]
@@ -299,12 +299,12 @@ namespace DatabaseManager.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAuthenticationChannel : DatabaseManager.ServiceReference1.IAuthentication, System.ServiceModel.IClientChannel {
+    public interface IAuthenticationChannel : DatabaseManager.ServiceReference2.IAuthentication, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AuthenticationClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference1.IAuthentication>, DatabaseManager.ServiceReference1.IAuthentication {
+    public partial class AuthenticationClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference2.IAuthentication>, DatabaseManager.ServiceReference2.IAuthentication {
         
         public AuthenticationClient() {
         }
@@ -367,29 +367,29 @@ namespace DatabaseManager.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IDatabaseManager")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IDatabaseManager")]
     public interface IDatabaseManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAO", ReplyAction="http://tempuri.org/IDatabaseManager/AddAOResponse")]
-        void AddAO(DatabaseManager.ServiceReference1.AnalogOutput AO);
+        void AddAO(DatabaseManager.ServiceReference2.AnalogOutput AO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAO", ReplyAction="http://tempuri.org/IDatabaseManager/AddAOResponse")]
-        System.Threading.Tasks.Task AddAOAsync(DatabaseManager.ServiceReference1.AnalogOutput AO);
+        System.Threading.Tasks.Task AddAOAsync(DatabaseManager.ServiceReference2.AnalogOutput AO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDO", ReplyAction="http://tempuri.org/IDatabaseManager/AddDOResponse")]
-        void AddDO(DatabaseManager.ServiceReference1.DigitalOutput DO);
+        void AddDO(DatabaseManager.ServiceReference2.DigitalOutput DO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDO", ReplyAction="http://tempuri.org/IDatabaseManager/AddDOResponse")]
-        System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO);
+        System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference2.DigitalOutput DO);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDatabaseManagerChannel : DatabaseManager.ServiceReference1.IDatabaseManager, System.ServiceModel.IClientChannel {
+    public interface IDatabaseManagerChannel : DatabaseManager.ServiceReference2.IDatabaseManager, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DatabaseManagerClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference1.IDatabaseManager>, DatabaseManager.ServiceReference1.IDatabaseManager {
+    public partial class DatabaseManagerClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference2.IDatabaseManager>, DatabaseManager.ServiceReference2.IDatabaseManager {
         
         public DatabaseManagerClient() {
         }
@@ -410,19 +410,19 @@ namespace DatabaseManager.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public void AddAO(DatabaseManager.ServiceReference1.AnalogOutput AO) {
+        public void AddAO(DatabaseManager.ServiceReference2.AnalogOutput AO) {
             base.Channel.AddAO(AO);
         }
         
-        public System.Threading.Tasks.Task AddAOAsync(DatabaseManager.ServiceReference1.AnalogOutput AO) {
+        public System.Threading.Tasks.Task AddAOAsync(DatabaseManager.ServiceReference2.AnalogOutput AO) {
             return base.Channel.AddAOAsync(AO);
         }
         
-        public void AddDO(DatabaseManager.ServiceReference1.DigitalOutput DO) {
+        public void AddDO(DatabaseManager.ServiceReference2.DigitalOutput DO) {
             base.Channel.AddDO(DO);
         }
         
-        public System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO) {
+        public System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference2.DigitalOutput DO) {
             return base.Channel.AddDOAsync(DO);
         }
     }

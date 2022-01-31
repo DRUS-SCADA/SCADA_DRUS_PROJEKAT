@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SCADACore
 {
-    public class TagProcessing:IAuthentication
+    public class TagProcessing:IAuthentication, IDatabaseManager
     {
         #region IAuthentication
         private static Dictionary<string, User> autentificated_users = new Dictionary<string, User>();
@@ -182,6 +182,25 @@ namespace SCADACore
         {
             return autentificated_users.ContainsKey(token);
 
+        }
+        #endregion
+        #region IDatabaseManager
+        public void AddAO(AnalogOutput AO)
+        {
+            using (var db = new TagContext())
+            {
+                db.analogOutputs.Add(AO);
+                db.SaveChanges();
+            }
+        }
+
+        public void AddDO(DigitalOutput DO)
+        {
+            using (var db = new TagContext())
+            {
+                db.digitalOutputs.Add(DO);
+                db.SaveChanges();
+            }
         }
         #endregion
     }

@@ -144,6 +144,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <Compile Include="AnalogInput.cs" />
     <Compile Include="AnalogOutput.cs" />
+    <Compile Include="TagContext.cs" />
     <Compile Include="DigitalInput.cs" />
     <Compile Include="DigitalOutput.cs" />
     <Compile Include="IAuthentication.cs" />

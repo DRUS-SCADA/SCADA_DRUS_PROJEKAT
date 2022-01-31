@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseManager.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,23 @@ namespace DatabaseManager
         public AddDO()
         {
             InitializeComponent();
+            this.IOcombo.ItemsSource = new List<string>() { "ADDR010" };
+        }
+        
+
+        private void Close_click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void AddDO_Click(object sender, RoutedEventArgs e)
+        {
+            string tag = Idbox.Text;
+            string desc = Descriptionbox.Text;
+            string combo = IOcombo.Text;
+            double initialValue = Convert.ToDouble(Valuebox.Text);
+            //DigitalOutput digitalOutput = new DigitalOutput(tag, desc, combo, initialValue);
+            //MainWindow.proxy2.AddDO(digitalOutput);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace DatabaseManager
             {
                 if (password == passwordRepeat)
                 {
-                    string validateusername=MainWindow.proxy.Registration(name, surname, username1, password);
+                    string validateusername = MainWindow.proxy.Registration(name, surname, username1, password);
                     if (validateusername == "Uspesno registrovanje")
                     {
                         this.Close();

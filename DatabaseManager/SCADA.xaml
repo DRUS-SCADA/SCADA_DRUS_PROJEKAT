@@ -85,11 +85,10 @@
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id_name}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Id" Binding="{Binding TagName}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="IO Adress" Binding="{Binding ioadress}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="IO Adress" Binding="{Binding Address}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Initial Value" Binding="{Binding InitialValue}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn IsReadOnly="False" Header="Value"  Binding="{Binding Values}" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="82eda1ea-9865-4f3f-aba4-f3431384b59e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1049d4ac-3f20-461e-9136-0c417bec4ef4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,13 +19,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:4000/AutentificationService/mex" Protocol="mex" SourceId="1" />
+    <MetadataSource Address="http://localhost:4000/DatabaseManagerService/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="c0e36d84-1fbb-4884-aa67-5781e8e8f5e9" SourceId="1" SourceUrl="http://localhost:4000/AutentificationService/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="959daca2-207d-4ea8-a12f-417ae7ab1222" SourceId="1" SourceUrl="http://localhost:4000/AutentificationService/mex" />
-    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2e3ae4e2-0c3b-4253-94c3-452fd14e6409" SourceId="1" SourceUrl="http://localhost:4000/AutentificationService/mex" />
-    <MetadataFile FileName="SCADACore.xsd" MetadataType="Schema" ID="db22d5bb-cbc2-4c24-b3a6-b1afdd18a2fa" SourceId="1" SourceUrl="http://localhost:4000/AutentificationService/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="57b69384-11ea-4bac-ba13-c94324a90ec1" SourceId="1" SourceUrl="http://localhost:4000/DatabaseManagerService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="818928d3-395f-4958-b883-5ec5a337cd6d" SourceId="1" SourceUrl="http://localhost:4000/DatabaseManagerService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="3d6137e4-b66f-4d02-a655-ede0927dcf6a" SourceId="1" SourceUrl="http://localhost:4000/DatabaseManagerService/mex" />
+    <MetadataFile FileName="SCADACore.xsd" MetadataType="Schema" ID="42f5a42b-f684-46d4-aca9-0be44f755dfb" SourceId="1" SourceUrl="http://localhost:4000/DatabaseManagerService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

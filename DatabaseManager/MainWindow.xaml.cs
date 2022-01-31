@@ -22,6 +22,8 @@ namespace DatabaseManager
     public partial class MainWindow : Window
     {
         public static AuthenticationClient proxy = new AuthenticationClient();
+        public static DatabaseManagerClient proxy2 = new DatabaseManagerClient();
+        
         public MainWindow()
         {
             InitializeComponent();

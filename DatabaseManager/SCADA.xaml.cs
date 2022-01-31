@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DatabaseManager.ServiceReference2;
 
 namespace DatabaseManager
 {
@@ -19,6 +20,7 @@ namespace DatabaseManager
     /// </summary>
     public partial class SCADA : Window
     {
+        DigitalOutput SelectedDO { get; set; }
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
         string token1;
         public SCADA(string token)
@@ -61,8 +63,7 @@ namespace DatabaseManager
             bool logout = MainWindow.proxy.Logout(token1);
             if (logout == true)
             {
-                //main.TextBox_GotFocus2(sender,e);
-                //main.TextBox_GotFocus(sender, e);
+                mw.TextBox_GotFocus2(sender,e);
                 this.Close();
             }
             else
@@ -73,27 +74,27 @@ namespace DatabaseManager
 
         private void ProfileDelete(object sender, RoutedEventArgs e)
         {
-                MessageBoxResult mbr = MessageBox.Show("Are you sure you want to delete this profile? ", "Delete", MessageBoxButton.YesNo);
-                if (mbr == MessageBoxResult.Yes)
+            MessageBoxResult mbr = MessageBox.Show("Are you sure you want to delete this profile? ", "Delete", MessageBoxButton.YesNo);
+            if (mbr == MessageBoxResult.Yes)
+            {
+                string username = mw.GetUsername;
+                string password = mw.GetPassword;
+
+                bool delete = MainWindow.proxy.DeleteProfile(username, password);
+                if (delete == true)
                 {
-                    string username = mw.GetUsername;
-                    string password = mw.GetPassword;
-                      
-                    bool delete = MainWindow.proxy.DeleteProfile(username,password);
-                    if (delete == true)
-                    {
-                        MessageBox.Show("Profile succesfully deleted!");
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Something went wrong, try again");
-                    }
+                    MessageBox.Show("Profile succesfully deleted!");
+                    this.Close();
                 }
                 else
                 {
-
+                    MessageBox.Show("Something went wrong, try again");
                 }
+            }
+            else
+            {
+
+            }
         }
 
         private void PasswordChange(object sender, RoutedEventArgs e)
