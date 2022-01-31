@@ -55,6 +55,7 @@ namespace DatabaseManager
                MessageBox.Show("Username or password are incorrect!");
             }else
             {
+               this.Hide();    
                SCADA scada = new SCADA(token);
                scada.ShowDialog();
             }

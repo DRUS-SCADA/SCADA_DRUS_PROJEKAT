@@ -56,6 +56,7 @@ namespace DatabaseManager
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            mw.Show();
         }
 
         public void Logout_Click(object sender, RoutedEventArgs e)
@@ -65,6 +66,7 @@ namespace DatabaseManager
             {
                 mw.TextBox_GotFocus2(sender,e);
                 this.Close();
+                mw.Show();
             }
             else
             {
@@ -85,16 +87,14 @@ namespace DatabaseManager
                 {
                     MessageBox.Show("Profile succesfully deleted!");
                     this.Close();
+                    mw.Show();
                 }
                 else
                 {
                     MessageBox.Show("Something went wrong, try again");
                 }
             }
-            else
-            {
-
-            }
+          
         }
 
         private void PasswordChange(object sender, RoutedEventArgs e)

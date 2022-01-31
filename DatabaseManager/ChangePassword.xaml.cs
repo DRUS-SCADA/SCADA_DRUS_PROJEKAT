@@ -27,11 +27,11 @@ namespace DatabaseManager
 
         private void PasswordChangeClick(object sender, RoutedEventArgs e)
         {
-            if (OldPassword.Text == mw.GetPassword)
+            if (OldPassword.Password == mw.GetPassword)
             {
                 string username = mw.GetUsername;
-                string newPassword = NewPassword.Text;
-                string indicate = MainWindow.proxy.ChangePassword(username, OldPassword.Text, newPassword);
+                string newPassword = NewPassword.Password;
+                string indicate = MainWindow.proxy.ChangePassword(username, OldPassword.Password, newPassword);
                 if (indicate == "Uspesna promena passworda")
                 {
                     MessageBox.Show("Password succesfully changed!");
