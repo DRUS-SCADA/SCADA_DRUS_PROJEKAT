@@ -38,7 +38,7 @@ namespace SCADACore
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        public string tagName
+        /*public string tagName
         {
             get { return TagName; }
             set
@@ -79,6 +79,6 @@ namespace SCADACore
         private void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+        }*/
     }
 }

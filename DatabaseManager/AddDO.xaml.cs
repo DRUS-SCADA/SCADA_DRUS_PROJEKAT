@@ -38,8 +38,8 @@ namespace DatabaseManager
             string desc = Descriptionbox.Text;
             string combo = IOcombo.Text;
             double initialValue = Convert.ToDouble(Valuebox.Text);
-            //DigitalOutput digitalOutput = new DigitalOutput(tag, desc, combo, initialValue);
-            //MainWindow.proxy2.AddDO(digitalOutput);
+            DigitalOutput digitalOutput = new DigitalOutput() { TagName = tag, Description = desc, IOAdress = combo, InitialValue = initialValue };
+            MainWindow.proxy2.AddDO(digitalOutput);
         }
     }
 }
