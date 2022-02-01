@@ -164,31 +164,19 @@ namespace DatabaseManager.ServiceReference2 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IOAdressField;
+        private string IO_AdressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double InitialValueField;
+        private string descriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TagNameField;
+        private double initial_ValueField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string addressField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string description1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double initialValue1Field;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string tagName1Field;
+        private string tag_nameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -201,27 +189,14 @@ namespace DatabaseManager.ServiceReference2 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
+        public string IO_Adress {
             get {
-                return this.DescriptionField;
+                return this.IO_AdressField;
             }
             set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string IOAdress {
-            get {
-                return this.IOAdressField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IOAdressField, value) != true)) {
-                    this.IOAdressField = value;
-                    this.RaisePropertyChanged("IOAdress");
+                if ((object.ReferenceEquals(this.IO_AdressField, value) != true)) {
+                    this.IO_AdressField = value;
+                    this.RaisePropertyChanged("IO_Adress");
                 }
             }
         }
@@ -240,79 +215,40 @@ namespace DatabaseManager.ServiceReference2 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double InitialValue {
+        public string description {
             get {
-                return this.InitialValueField;
+                return this.descriptionField;
             }
             set {
-                if ((this.InitialValueField.Equals(value) != true)) {
-                    this.InitialValueField = value;
-                    this.RaisePropertyChanged("InitialValue");
+                if ((object.ReferenceEquals(this.descriptionField, value) != true)) {
+                    this.descriptionField = value;
+                    this.RaisePropertyChanged("description");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TagName {
+        public double initial_Value {
             get {
-                return this.TagNameField;
+                return this.initial_ValueField;
             }
             set {
-                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
-                    this.TagNameField = value;
-                    this.RaisePropertyChanged("TagName");
+                if ((this.initial_ValueField.Equals(value) != true)) {
+                    this.initial_ValueField = value;
+                    this.RaisePropertyChanged("initial_Value");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string address {
+        public string tag_name {
             get {
-                return this.addressField;
+                return this.tag_nameField;
             }
             set {
-                if ((object.ReferenceEquals(this.addressField, value) != true)) {
-                    this.addressField = value;
-                    this.RaisePropertyChanged("address");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Name="description")]
-        public string description1 {
-            get {
-                return this.description1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.description1Field, value) != true)) {
-                    this.description1Field = value;
-                    this.RaisePropertyChanged("description1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Name="initialValue")]
-        public double initialValue1 {
-            get {
-                return this.initialValue1Field;
-            }
-            set {
-                if ((this.initialValue1Field.Equals(value) != true)) {
-                    this.initialValue1Field = value;
-                    this.RaisePropertyChanged("initialValue1");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Name="tagName")]
-        public string tagName1 {
-            get {
-                return this.tagName1Field;
-            }
-            set {
-                if ((object.ReferenceEquals(this.tagName1Field, value) != true)) {
-                    this.tagName1Field = value;
-                    this.RaisePropertyChanged("tagName1");
+                if ((object.ReferenceEquals(this.tag_nameField, value) != true)) {
+                    this.tag_nameField = value;
+                    this.RaisePropertyChanged("tag_name");
                 }
             }
         }
@@ -445,6 +381,30 @@ namespace DatabaseManager.ServiceReference2 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDO", ReplyAction="http://tempuri.org/IDatabaseManager/AddDOResponse")]
         System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference2.DigitalOutput DO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse")]
+        DatabaseManager.ServiceReference2.DigitalOutput[] LoadDataToGrid();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse")]
+        System.Threading.Tasks.Task<DatabaseManager.ServiceReference2.DigitalOutput[]> LoadDataToGridAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeDO", ReplyAction="http://tempuri.org/IDatabaseManager/removeDOResponse")]
+        void removeDO(DatabaseManager.ServiceReference2.DigitalOutput DO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeDO", ReplyAction="http://tempuri.org/IDatabaseManager/removeDOResponse")]
+        System.Threading.Tasks.Task removeDOAsync(DatabaseManager.ServiceReference2.DigitalOutput DO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeAO", ReplyAction="http://tempuri.org/IDatabaseManager/removeAOResponse")]
+        void removeAO(DatabaseManager.ServiceReference2.AnalogOutput AO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeAO", ReplyAction="http://tempuri.org/IDatabaseManager/removeAOResponse")]
+        System.Threading.Tasks.Task removeAOAsync(DatabaseManager.ServiceReference2.AnalogOutput AO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAO", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAOResponse")]
+        DatabaseManager.ServiceReference2.AnalogOutput[] LoadDataToGridAO();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAO", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAOResponse")]
+        System.Threading.Tasks.Task<DatabaseManager.ServiceReference2.AnalogOutput[]> LoadDataToGridAOAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -488,6 +448,38 @@ namespace DatabaseManager.ServiceReference2 {
         
         public System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference2.DigitalOutput DO) {
             return base.Channel.AddDOAsync(DO);
+        }
+        
+        public DatabaseManager.ServiceReference2.DigitalOutput[] LoadDataToGrid() {
+            return base.Channel.LoadDataToGrid();
+        }
+        
+        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference2.DigitalOutput[]> LoadDataToGridAsync() {
+            return base.Channel.LoadDataToGridAsync();
+        }
+        
+        public void removeDO(DatabaseManager.ServiceReference2.DigitalOutput DO) {
+            base.Channel.removeDO(DO);
+        }
+        
+        public System.Threading.Tasks.Task removeDOAsync(DatabaseManager.ServiceReference2.DigitalOutput DO) {
+            return base.Channel.removeDOAsync(DO);
+        }
+        
+        public void removeAO(DatabaseManager.ServiceReference2.AnalogOutput AO) {
+            base.Channel.removeAO(AO);
+        }
+        
+        public System.Threading.Tasks.Task removeAOAsync(DatabaseManager.ServiceReference2.AnalogOutput AO) {
+            return base.Channel.removeAOAsync(AO);
+        }
+        
+        public DatabaseManager.ServiceReference2.AnalogOutput[] LoadDataToGridAO() {
+            return base.Channel.LoadDataToGridAO();
+        }
+        
+        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference2.AnalogOutput[]> LoadDataToGridAOAsync() {
+            return base.Channel.LoadDataToGridAOAsync();
         }
     }
 }

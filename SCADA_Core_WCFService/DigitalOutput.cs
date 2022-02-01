@@ -10,75 +10,72 @@ using System.Threading.Tasks;
 namespace SCADACore
 {
     [DataContract]
-    public class DigitalOutput 
+    public class DigitalOutput
     {
         public DigitalOutput() { }
-        public DigitalOutput(string name, string description, string address, double initialValue)
+        /*public DigitalOutput(string name, string description, string address, double initialValue)
         {
             TagName = name;
             Description = description;
             IOAdress = address;
             InitialValue = initialValue;
-        }
+        }*/
 
         [DataMember]
         [Key]
         public int Id { get; set; }
         [DataMember]
-        public string TagName { get; set; }
+        public string tag_name { get; set; }
 
         [DataMember]
-        public string Description { get; set; }
+        public string description { get; set; }
         [DataMember]
-        public string IOAdress { get; set; }
+        public string IO_Adress { get; set; }
 
         [DataMember]
-        public double InitialValue { get; set; }
+        public double initial_Value { get; set; }
 
         //public event PropertyChangedEventHandler PropertyChanged;
 
-
-        //public string tagName
-        //{
-        //    get { return TagName; }
-        //    set
-        //    {
-        //        TagName = value;
-        //        OnPropertyChanged("TagName");
-        //    }
-        //}
-        //public string description
-        //{
-        //    get { return Description; }
-        //    set
-        //    {
-        //        Description = value;
-        //        OnPropertyChanged("Description");
-        //    }
-        //}
-
-        //public string address
-        //{
-        //    get { return IOAdress; }
-        //    set
-        //    {
-        //        IOAdress = value;
-        //        OnPropertyChanged("Address");
-        //    }
-        //}
-
-        //public double initialValue
-        //{
-        //    get { return InitialValue; }
-        //    set
-        //    {
-        //        InitialValue = value;
-        //        OnPropertyChanged("InitialValue");
-        //    }
-        //}
-        //private void OnPropertyChanged(string name)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        //}
+        /*public string TagName
+        {
+            get { return tag_name; }
+            set
+            {
+                tag_name = value;
+                OnPropertyChanged("TagName");
+            }
+        }
+        public string Description
+        {
+            get { return description; }
+            set
+            {
+                description = value;
+                OnPropertyChanged("Description");
+            }
+        }
+        public string Address
+        {
+            get { return IO_Adress; }
+            set
+            {
+                IO_Adress = value;
+                OnPropertyChanged("Address");
+            }
+        }
+        public double InitialValue
+        {
+            get { return initial_Value; }
+            set
+            {
+                initial_Value = value;
+                OnPropertyChanged("InitialValue");
+            }
+        }
+        private void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }*/
     }
 }

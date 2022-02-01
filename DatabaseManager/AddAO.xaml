@@ -16,18 +16,18 @@
             </Border.Background>
         </Border>
         <Label Content="ADD ANALOG OUTPUT" FontSize="25" FontFamily="Helvetica"  Foreground="White" FontStyle="Oblique" HorizontalAlignment="Left" Margin="88,22,0,0" VerticalAlignment="Top" Width="273" Height="52"/>
-        <TextBox Name="Idbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,96,0,0" TextWrapping="Wrap" Text="{Binding Path=Id_name}" VerticalAlignment="Top" Width="184"/>
+        <TextBox Name="Idbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,96,0,0" TextWrapping="Wrap" Text="{Binding Path=TagName}" VerticalAlignment="Top" Width="184"/>
         <Label Content="Tag Name:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,96,0,0" VerticalAlignment="Top" Height="37" Width="84"/>
         <Label Content="Description:" FontFamily="Helvetica" FontSize="16" Foreground="White"  HorizontalAlignment="Left" Margin="84,156,0,0" VerticalAlignment="Top"/>
         <TextBox Name="Descriptionbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,156,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="184"/>
         <Label Content="IO Adress:"  FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,216,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="IoCombo" SelectedItem="{Binding Path=ioadress}" HorizontalAlignment="Left" BorderBrush="White" Margin="177,216,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
+        <ComboBox Name="IoCombo" SelectedItem="{Binding Path=IOAdress}" HorizontalAlignment="Left" BorderBrush="White" Margin="177,216,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
         <Label Content="Initial Value:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,276,0,0" VerticalAlignment="Top"/>
         <TextBox Name="Valuebox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,276,0,0" TextWrapping="Wrap" Text="{Binding Path=InitialValue}" VerticalAlignment="Top" Width="184"/>
         <Label Content="Low Limit:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,336,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="LowLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,336,0,0" TextWrapping="Wrap" Text="{Binding Path=Units}" VerticalAlignment="Top" Width="184"/>
+        <TextBox Name="LowLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,336,0,0" TextWrapping="Wrap" Text="{Binding Path=LowLimit}" VerticalAlignment="Top" Width="184"/>
         <Label Content="High Limit:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,396,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="HighLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,396,0,0" TextWrapping="Wrap" Text="{Binding Path=Units}" VerticalAlignment="Top" Width="184"/>
+        <TextBox Name="HighLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,396,0,0" TextWrapping="Wrap" Text="{Binding Path=HighLimit}" VerticalAlignment="Top" Width="184"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="84,470,0,0" VerticalAlignment="Top" Width="84" Click="Add_Click" RenderTransformOrigin="-0.393,1.397"/>
         <Button Content="Cancel" Style="{DynamicResource MaterialDesignRaisedButton}"
       HorizontalAlignment="Left" Background="IndianRed" Click="Close_Click" Margin="242,470,0,0" VerticalAlignment="Top" Width="84" />

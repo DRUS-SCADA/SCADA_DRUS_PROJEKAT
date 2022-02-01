@@ -16,10 +16,16 @@ namespace SCADACore
         //void AddDI(DigitalInput DI);
         [OperationContract]
         void AddDO(DigitalOutput DO);
-        /*void removeAI(AnalogInput AI);
-        void removeAO(AnalogOutput AO);
-        void removeDI(DigitalInput DI);
+        [OperationContract]
+        IEnumerable<DigitalOutput> LoadDataToGrid();
+        [OperationContract]
         void removeDO(DigitalOutput DO);
+        [OperationContract]
+        void removeAO(AnalogOutput AO);
+        [OperationContract]
+        IEnumerable<AnalogOutput> LoadDataToGridAO();
+        /*void removeAI(AnalogInput AI);
+        void removeDI(DigitalInput DI);
         void turnONscanDigital(DigitalInput DI);
         void turnONscanAnalog(AnalogInput AI);
         void turnOFFscanDigital(DigitalInput DI);

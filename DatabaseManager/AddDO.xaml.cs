@@ -20,11 +20,11 @@ namespace DatabaseManager
     /// </summary>
     public partial class AddDO : Window
     {
-        
+        public DigitalOutput digitalOutput = new DigitalOutput();
         public AddDO()
         {
             InitializeComponent();
-            
+            this.DataContext = digitalOutput;
             this.IOcombo.ItemsSource = new List<string>() { "ADDR010" };
         }
         
@@ -41,11 +41,10 @@ namespace DatabaseManager
             string desc = Descriptionbox.Text;
             string combo = IOcombo.Text;
             double initialValue = Convert.ToDouble(Valuebox.Text);
-            DigitalOutput digitalOutput = new DigitalOutput { TagName = tag, Description = desc, IOAdress = combo, InitialValue = initialValue };
+            DigitalOutput digitalOutput = new DigitalOutput { tag_name = tag, description = desc, IO_Adress = combo, initial_Value = initialValue };
             MainWindow.proxy2.AddDO(digitalOutput);
 
             this.Close();
-            
             
         }
     }

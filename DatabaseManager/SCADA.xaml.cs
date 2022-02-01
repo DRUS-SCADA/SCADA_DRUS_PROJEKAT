@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DatabaseManager.ServiceReference2;
 using DatabaseManager.ServiceReference1;
 
 namespace DatabaseManager
@@ -21,8 +20,9 @@ namespace DatabaseManager
     /// </summary>
     public partial class SCADA : Window
     {
-        //DigitalOutput SelectedDO { get; set; }
-        
+        public DigitalOutput SelectedDO { get; set; }
+        public AnalogOutput SelectedAO { get; set; }
+       
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
         string token1;
         
@@ -30,8 +30,9 @@ namespace DatabaseManager
         {
             InitializeComponent();
             token1 = token;
-            
 
+            dataGrid1.ItemsSource = MainWindow.proxy2.LoadDataToGrid();
+            dataGrid3.ItemsSource = MainWindow.proxy2.LoadDataToGridAO();
             this.DataContext = this;
             
         }
@@ -48,7 +49,8 @@ namespace DatabaseManager
             {
                 AddDO addDO = new AddDO();
                 addDO.ShowDialog();
-                
+                dataGrid1.ItemsSource = MainWindow.proxy2.LoadDataToGrid();
+
             }
             else if (Tab1.SelectedIndex == 2)
             {
@@ -60,7 +62,8 @@ namespace DatabaseManager
             {
                 AddAO addAO = new AddAO();
                 addAO.ShowDialog();
-                
+                dataGrid3.ItemsSource = MainWindow.proxy2.LoadDataToGridAO();
+
             }
         }
 
@@ -112,6 +115,29 @@ namespace DatabaseManager
         {
             ChangePassword changePass = new ChangePassword();
             changePass.Show();
+        }
+
+        private void RemoveDO(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult mbr = MessageBox.Show("Are you sure you want to delete this output? ", "Delete", MessageBoxButton.YesNo);
+
+            if (mbr == MessageBoxResult.Yes)
+            {
+                MainWindow.proxy2.removeDO(SelectedDO);
+                dataGrid1.ItemsSource = MainWindow.proxy2.LoadDataToGrid();
+
+            }
+        }
+        private void RemoveAO(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult mbr = MessageBox.Show("Are you sure you want to delete this output? ", "Delete", MessageBoxButton.YesNo);
+
+            if (mbr == MessageBoxResult.Yes)
+            {
+                MainWindow.proxy2.removeAO(SelectedAO);
+                dataGrid3.ItemsSource = MainWindow.proxy2.LoadDataToGridAO();
+
+            }
         }
     }
 }

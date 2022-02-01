@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SCADACore
 {
-    public class TagProcessing:IAuthentication, IDatabaseManager
+    public class TagProcessing : IAuthentication, IDatabaseManager
     {
         #region IAuthentication
         private static Dictionary<string, User> autentificated_users = new Dictionary<string, User>();
@@ -16,7 +17,7 @@ namespace SCADACore
         {
             string encrypted_password = EncryptData(password);
             string encrypted_username = EncryptData(username);
-            
+
 
             User user = new User(name, surname, encrypted_username, encrypted_password);
 
@@ -41,7 +42,7 @@ namespace SCADACore
             string encryptedPassword = EncryptData(password);
             string encryptedUsername = EncryptData(username);
 
-            bool help_variable = false; 
+            bool help_variable = false;
 
             using (var db = new UserContext())
             {
@@ -199,6 +200,49 @@ namespace SCADACore
             using (var db = new TagContext())
             {
                 db.digitalOutputs.Add(DO);
+                db.SaveChanges();
+            }
+        }
+        #endregion
+        #region HelpMethods
+        public IEnumerable<DigitalOutput> LoadDataToGrid()
+        {
+            using (var db = new TagContext())
+            {
+                db.digitalOutputs.Load();
+                return db.digitalOutputs.Local;
+            }
+            
+        }
+        public IEnumerable<AnalogOutput> LoadDataToGridAO()
+        {
+            using (var db = new TagContext())
+            {
+                db.analogOutputs.Load();
+                return db.analogOutputs.Local;
+            }
+
+        }
+        #endregion
+
+        #region RemoveTags
+        public void removeDO(DigitalOutput DO)
+        {
+            using (var db = new TagContext())
+            {
+                db.digitalOutputs.Attach(DO);
+                db.digitalOutputs.Remove(DO);
+                db.SaveChanges();
+            }
+            
+        }
+        
+        public void removeAO(AnalogOutput AO)
+        {
+            using (var db = new TagContext())
+            {
+                db.analogOutputs.Attach(AO);
+                db.analogOutputs.Remove(AO);
                 db.SaveChanges();
             }
         }

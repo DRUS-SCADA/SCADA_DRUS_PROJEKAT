@@ -55,7 +55,7 @@
                 <StackPanel>
                     <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="Silver"  IsReadOnly="True">
                         <DataGrid.Resources>
-                            <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
+                            <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png" />
                         </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Id" Width="*"/>
@@ -85,15 +85,15 @@
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding TagName}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAddress}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Initial Value" Binding="{Binding InitialValue}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Tag name" Binding="{Binding tag_name}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding description}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IO_Adress}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Initial Value" Binding="{Binding initial_Value}" IsReadOnly="True" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="deleteBtn1" Background="{StaticResource DeleteBtnImage}"  Height="30" Width="30"/>
+                                            <Button Name="deleteBtn1" Click="RemoveDO" Background="{StaticResource DeleteBtnImage}"  Height="30" Width="30"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -140,17 +140,17 @@
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id_name}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="IO Adress" Binding="{Binding ioadress}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Units" Binding="{Binding Units}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Initial Value" Binding="{Binding InitialValue}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn IsReadOnly="False" Header="Value" Binding="{Binding Values}" Width="*"/>
+                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAdress}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Initial Value" Binding="{Binding InitialValue}" IsReadOnly="False" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="deleteBtn3" Background="{StaticResource DeleteBtnImage}"  Height="30" Width="30"/>
+                                            <Button Name="deleteBtn3" Click="RemoveAO" Background="{StaticResource DeleteBtnImage}"  Height="30" Width="30"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
