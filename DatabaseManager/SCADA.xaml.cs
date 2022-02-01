@@ -22,7 +22,9 @@ namespace DatabaseManager
     {
         public DigitalOutput SelectedDO { get; set; }
         public AnalogOutput SelectedAO { get; set; }
-       
+
+        public static Dictionary<string, bool> adress = new Dictionary<string, bool> { ["ADDR005"] = false, ["ADDR006"] = false, ["ADDR007"] = false, ["ADDR008"] = false };
+
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
         string token1;
         

@@ -20,10 +20,21 @@ namespace DatabaseManager
     /// </summary>
     public partial class AddAO : Window
     {
+        
+        public List<string> IOAdress = new List<string>();
+
         public AddAO()
         {
             InitializeComponent();
-            this.IoCombo.ItemsSource = new List<string>() { "ADDR005", "ADDR006", "ADDR007", "ADDR008" };
+
+            foreach(var d in SCADA.adress.Keys)
+            {
+                if (SCADA.adress[d]==false)
+                {
+                    IOAdress.Add(d);
+                }
+            }
+            this.IoCombo.ItemsSource = IOAdress;
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -31,6 +42,7 @@ namespace DatabaseManager
             string tag = Idbox.Text;
             string desc = Descriptionbox.Text;
             string combo = IoCombo.Text;
+            SCADA.adress[combo] = true;
             double initialValue = Convert.ToDouble(Valuebox.Text);
             double low = Convert.ToDouble(LowLimit.Text);
             double high = Convert.ToDouble(HighLimit.Text);
