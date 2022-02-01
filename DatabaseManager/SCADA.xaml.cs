@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DatabaseManager.ServiceReference2;
+using DatabaseManager.ServiceReference1;
 
 namespace DatabaseManager
 {
@@ -20,13 +21,19 @@ namespace DatabaseManager
     /// </summary>
     public partial class SCADA : Window
     {
-        DigitalOutput SelectedDO { get; set; }
+        //DigitalOutput SelectedDO { get; set; }
+        
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
         string token1;
+        
         public SCADA(string token)
         {
             InitializeComponent();
             token1 = token;
+            
+
+            this.DataContext = this;
+            
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
