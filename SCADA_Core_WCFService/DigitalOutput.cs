@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace SCADACore
 {
     [DataContract]
-    public class DigitalOutput : INotifyPropertyChanged
+    public class DigitalOutput 
     {
         public DigitalOutput() { }
         public DigitalOutput(string name, string description, string address, double initialValue)
@@ -35,50 +35,50 @@ namespace SCADACore
         [DataMember]
         public double InitialValue { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
 
-        public string tagName
-        {
-            get { return TagName; }
-            set
-            {
-                TagName = value;
-                OnPropertyChanged("TagName");
-            }
-        }
-        public string description
-        {
-            get { return Description; }
-            set
-            {
-                Description = value;
-                OnPropertyChanged("Description");
-            }
-        }
+        //public string tagName
+        //{
+        //    get { return TagName; }
+        //    set
+        //    {
+        //        TagName = value;
+        //        OnPropertyChanged("TagName");
+        //    }
+        //}
+        //public string description
+        //{
+        //    get { return Description; }
+        //    set
+        //    {
+        //        Description = value;
+        //        OnPropertyChanged("Description");
+        //    }
+        //}
 
-        public string address
-        {
-            get { return IOAdress; }
-            set
-            {
-                IOAdress = value;
-                OnPropertyChanged("Address");
-            }
-        }
+        //public string address
+        //{
+        //    get { return IOAdress; }
+        //    set
+        //    {
+        //        IOAdress = value;
+        //        OnPropertyChanged("Address");
+        //    }
+        //}
 
-        public double initialValue
-        {
-            get { return InitialValue; }
-            set
-            {
-                InitialValue = value;
-                OnPropertyChanged("InitialValue");
-            }
-        }
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+        //public double initialValue
+        //{
+        //    get { return InitialValue; }
+        //    set
+        //    {
+        //        InitialValue = value;
+        //        OnPropertyChanged("InitialValue");
+        //    }
+        //}
+        //private void OnPropertyChanged(string name)
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        //}
     }
 }
