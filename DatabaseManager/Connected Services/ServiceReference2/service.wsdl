@@ -37,23 +37,29 @@
   <wsdl:message name="IAuthentication_Logout_OutputMessage">
     <wsdl:part name="parameters" element="tns:LogoutResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_AddAI_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_AddAI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAIResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatabaseManager_AddAO_InputMessage">
     <wsdl:part name="parameters" element="tns:AddAO" />
   </wsdl:message>
   <wsdl:message name="IDatabaseManager_AddAO_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddAOResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_AddDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_AddDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDIResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatabaseManager_AddDO_InputMessage">
     <wsdl:part name="parameters" element="tns:AddDO" />
   </wsdl:message>
   <wsdl:message name="IDatabaseManager_AddDO_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddDOResponse" />
-  </wsdl:message>
-  <wsdl:message name="IDatabaseManager_LoadDataToGrid_InputMessage">
-    <wsdl:part name="parameters" element="tns:LoadDataToGrid" />
-  </wsdl:message>
-  <wsdl:message name="IDatabaseManager_LoadDataToGrid_OutputMessage">
-    <wsdl:part name="parameters" element="tns:LoadDataToGridResponse" />
   </wsdl:message>
   <wsdl:message name="IDatabaseManager_removeDO_InputMessage">
     <wsdl:part name="parameters" element="tns:removeDO" />
@@ -67,11 +73,65 @@
   <wsdl:message name="IDatabaseManager_removeAO_OutputMessage">
     <wsdl:part name="parameters" element="tns:removeAOResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_removeAI_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeAI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_removeAI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeAIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_removeDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:removeDI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_removeDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:removeDIResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatabaseManager_LoadDataToGridAO_InputMessage">
     <wsdl:part name="parameters" element="tns:LoadDataToGridAO" />
   </wsdl:message>
   <wsdl:message name="IDatabaseManager_LoadDataToGridAO_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoadDataToGridAOResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadDataToGrid_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDataToGrid" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadDataToGrid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDataToGridResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadDataToGridAI_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDataToGridAI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadDataToGridAI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDataToGridAIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadDataToGridDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDataToGridDI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadDataToGridDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDataToGridDIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_SaveChanges_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChanges" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_SaveChanges_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_SaveChangesDO_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangesDO" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_SaveChangesDO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangesDOResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_SaveChangesAI_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangesAI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_SaveChangesAI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangesAIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_SaveChangesDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangesDI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_SaveChangesDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveChangesDIResponse" />
   </wsdl:message>
   <wsdl:portType name="IAuthentication">
     <wsdl:operation name="Registration">
@@ -96,17 +156,21 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IDatabaseManager">
+    <wsdl:operation name="AddAI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/AddAI" message="tns:IDatabaseManager_AddAI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/AddAIResponse" message="tns:IDatabaseManager_AddAI_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddAO">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/AddAO" message="tns:IDatabaseManager_AddAO_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/AddAOResponse" message="tns:IDatabaseManager_AddAO_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/AddDI" message="tns:IDatabaseManager_AddDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/AddDIResponse" message="tns:IDatabaseManager_AddDI_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddDO">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/AddDO" message="tns:IDatabaseManager_AddDO_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/AddDOResponse" message="tns:IDatabaseManager_AddDO_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="LoadDataToGrid">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid" message="tns:IDatabaseManager_LoadDataToGrid_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse" message="tns:IDatabaseManager_LoadDataToGrid_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="removeDO">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/removeDO" message="tns:IDatabaseManager_removeDO_InputMessage" />
@@ -116,9 +180,45 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/removeAO" message="tns:IDatabaseManager_removeAO_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/removeAOResponse" message="tns:IDatabaseManager_removeAO_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="removeAI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/removeAI" message="tns:IDatabaseManager_removeAI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/removeAIResponse" message="tns:IDatabaseManager_removeAI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="removeDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/removeDI" message="tns:IDatabaseManager_removeDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/removeDIResponse" message="tns:IDatabaseManager_removeDI_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="LoadDataToGridAO">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAO" message="tns:IDatabaseManager_LoadDataToGridAO_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAOResponse" message="tns:IDatabaseManager_LoadDataToGridAO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDataToGrid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid" message="tns:IDatabaseManager_LoadDataToGrid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse" message="tns:IDatabaseManager_LoadDataToGrid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDataToGridAI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAI" message="tns:IDatabaseManager_LoadDataToGridAI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAIResponse" message="tns:IDatabaseManager_LoadDataToGridAI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadDataToGridDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridDI" message="tns:IDatabaseManager_LoadDataToGridDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridDIResponse" message="tns:IDatabaseManager_LoadDataToGridDI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveChanges">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChanges" message="tns:IDatabaseManager_SaveChanges_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesResponse" message="tns:IDatabaseManager_SaveChanges_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangesDO">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesDO" message="tns:IDatabaseManager_SaveChangesDO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesDOResponse" message="tns:IDatabaseManager_SaveChangesDO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangesAI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesAI" message="tns:IDatabaseManager_SaveChangesAI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesAIResponse" message="tns:IDatabaseManager_SaveChangesAI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangesDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesDI" message="tns:IDatabaseManager_SaveChangesDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesDIResponse" message="tns:IDatabaseManager_SaveChangesDI_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuthentication" type="tns:IAuthentication">
@@ -171,6 +271,15 @@
   </wsdl:binding>
   <wsdl:binding name="BasicHttpBinding_IDatabaseManager" type="tns:IDatabaseManager">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddAI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/AddAI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddAO">
       <soap:operation soapAction="http://tempuri.org/IDatabaseManager/AddAO" style="document" />
       <wsdl:input>
@@ -180,8 +289,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddDO">
-      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/AddDO" style="document" />
+    <wsdl:operation name="AddDI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/AddDI" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -189,8 +298,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LoadDataToGrid">
-      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/LoadDataToGrid" style="document" />
+    <wsdl:operation name="AddDO">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/AddDO" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -216,8 +325,89 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="removeAI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/removeAI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="removeDI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/removeDI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LoadDataToGridAO">
       <soap:operation soapAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDataToGrid">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/LoadDataToGrid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDataToGridAI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadDataToGridDI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/LoadDataToGridDI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveChanges">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/SaveChanges" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangesDO">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/SaveChangesDO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangesAI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/SaveChangesAI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveChangesDI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/SaveChangesDI" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

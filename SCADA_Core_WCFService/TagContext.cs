@@ -11,5 +11,7 @@ namespace SCADACore
     {
         public DbSet<AnalogOutput> analogOutputs { get; set; }
         public DbSet<DigitalOutput> digitalOutputs { get; set; }
+        public DbSet<AnalogInput> analogInputs { get; set; }
+        public DbSet<DigitalInput> digitalInputs { get; set; }
     }
 }

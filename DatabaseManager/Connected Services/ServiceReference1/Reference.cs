@@ -15,6 +15,179 @@ namespace DatabaseManager.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AnalogInput", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    [System.SerializableAttribute()]
+    public partial class AnalogInput : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double HighLimitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IOAdressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double LowLimitField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ONOFF_scanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ScanTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UnitsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double HighLimit {
+            get {
+                return this.HighLimitField;
+            }
+            set {
+                if ((this.HighLimitField.Equals(value) != true)) {
+                    this.HighLimitField = value;
+                    this.RaisePropertyChanged("HighLimit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IOAdress {
+            get {
+                return this.IOAdressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IOAdressField, value) != true)) {
+                    this.IOAdressField = value;
+                    this.RaisePropertyChanged("IOAdress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double LowLimit {
+            get {
+                return this.LowLimitField;
+            }
+            set {
+                if ((this.LowLimitField.Equals(value) != true)) {
+                    this.LowLimitField = value;
+                    this.RaisePropertyChanged("LowLimit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ONOFF_scan {
+            get {
+                return this.ONOFF_scanField;
+            }
+            set {
+                if ((this.ONOFF_scanField.Equals(value) != true)) {
+                    this.ONOFF_scanField = value;
+                    this.RaisePropertyChanged("ONOFF_scan");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double ScanTime {
+            get {
+                return this.ScanTimeField;
+            }
+            set {
+                if ((this.ScanTimeField.Equals(value) != true)) {
+                    this.ScanTimeField = value;
+                    this.RaisePropertyChanged("ScanTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Units {
+            get {
+                return this.UnitsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UnitsField, value) != true)) {
+                    this.UnitsField = value;
+                    this.RaisePropertyChanged("Units");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AnalogOutput", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
     [System.SerializableAttribute()]
     public partial class AnalogOutput : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -127,6 +300,131 @@ namespace DatabaseManager.ServiceReference1 {
                 if ((this.LowLimitField.Equals(value) != true)) {
                     this.LowLimitField = value;
                     this.RaisePropertyChanged("LowLimit");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DigitalInput", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    [System.SerializableAttribute()]
+    public partial class DigitalInput : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IOAdressField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ONOFF_scanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ScanTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IOAdress {
+            get {
+                return this.IOAdressField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IOAdressField, value) != true)) {
+                    this.IOAdressField = value;
+                    this.RaisePropertyChanged("IOAdress");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ONOFF_scan {
+            get {
+                return this.ONOFF_scanField;
+            }
+            set {
+                if ((this.ONOFF_scanField.Equals(value) != true)) {
+                    this.ONOFF_scanField = value;
+                    this.RaisePropertyChanged("ONOFF_scan");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double ScanTime {
+            get {
+                return this.ScanTimeField;
+            }
+            set {
+                if ((this.ScanTimeField.Equals(value) != true)) {
+                    this.ScanTimeField = value;
+                    this.RaisePropertyChanged("ScanTime");
                 }
             }
         }
@@ -370,23 +668,29 @@ namespace DatabaseManager.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IDatabaseManager")]
     public interface IDatabaseManager {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAI", ReplyAction="http://tempuri.org/IDatabaseManager/AddAIResponse")]
+        void AddAI(DatabaseManager.ServiceReference1.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAI", ReplyAction="http://tempuri.org/IDatabaseManager/AddAIResponse")]
+        System.Threading.Tasks.Task AddAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAO", ReplyAction="http://tempuri.org/IDatabaseManager/AddAOResponse")]
         void AddAO(DatabaseManager.ServiceReference1.AnalogOutput AO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAO", ReplyAction="http://tempuri.org/IDatabaseManager/AddAOResponse")]
         System.Threading.Tasks.Task AddAOAsync(DatabaseManager.ServiceReference1.AnalogOutput AO);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDI", ReplyAction="http://tempuri.org/IDatabaseManager/AddDIResponse")]
+        void AddDI(DatabaseManager.ServiceReference1.DigitalInput DI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDI", ReplyAction="http://tempuri.org/IDatabaseManager/AddDIResponse")]
+        System.Threading.Tasks.Task AddDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDO", ReplyAction="http://tempuri.org/IDatabaseManager/AddDOResponse")]
         void AddDO(DatabaseManager.ServiceReference1.DigitalOutput DO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDO", ReplyAction="http://tempuri.org/IDatabaseManager/AddDOResponse")]
         System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse")]
-        DatabaseManager.ServiceReference1.DigitalOutput[] LoadDataToGrid();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse")]
-        System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalOutput[]> LoadDataToGridAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeDO", ReplyAction="http://tempuri.org/IDatabaseManager/removeDOResponse")]
         void removeDO(DatabaseManager.ServiceReference1.DigitalOutput DO);
@@ -400,11 +704,65 @@ namespace DatabaseManager.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeAO", ReplyAction="http://tempuri.org/IDatabaseManager/removeAOResponse")]
         System.Threading.Tasks.Task removeAOAsync(DatabaseManager.ServiceReference1.AnalogOutput AO);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeAI", ReplyAction="http://tempuri.org/IDatabaseManager/removeAIResponse")]
+        void removeAI(DatabaseManager.ServiceReference1.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeAI", ReplyAction="http://tempuri.org/IDatabaseManager/removeAIResponse")]
+        System.Threading.Tasks.Task removeAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeDI", ReplyAction="http://tempuri.org/IDatabaseManager/removeDIResponse")]
+        void removeDI(DatabaseManager.ServiceReference1.DigitalInput DI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeDI", ReplyAction="http://tempuri.org/IDatabaseManager/removeDIResponse")]
+        System.Threading.Tasks.Task removeDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAO", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAOResponse")]
         DatabaseManager.ServiceReference1.AnalogOutput[] LoadDataToGridAO();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAO", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAOResponse")]
         System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.AnalogOutput[]> LoadDataToGridAOAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse")]
+        DatabaseManager.ServiceReference1.DigitalOutput[] LoadDataToGrid();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse")]
+        System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalOutput[]> LoadDataToGridAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAI", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAIResponse")]
+        DatabaseManager.ServiceReference1.AnalogInput[] LoadDataToGridAI();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAI", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAIResponse")]
+        System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.AnalogInput[]> LoadDataToGridAIAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridDI", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridDIResponse")]
+        DatabaseManager.ServiceReference1.DigitalInput[] LoadDataToGridDI();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridDI", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridDIResponse")]
+        System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalInput[]> LoadDataToGridDIAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChanges", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesResponse")]
+        void SaveChanges(DatabaseManager.ServiceReference1.AnalogOutput AO, double change);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChanges", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesResponse")]
+        System.Threading.Tasks.Task SaveChangesAsync(DatabaseManager.ServiceReference1.AnalogOutput AO, double change);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesDO", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesDOResponse")]
+        void SaveChangesDO(DatabaseManager.ServiceReference1.DigitalOutput DO, double change);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesDO", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesDOResponse")]
+        System.Threading.Tasks.Task SaveChangesDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO, double change);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesAI", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesAIResponse")]
+        void SaveChangesAI(DatabaseManager.ServiceReference1.AnalogInput AI, bool change);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesAI", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesAIResponse")]
+        System.Threading.Tasks.Task SaveChangesAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI, bool change);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesDI", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesDIResponse")]
+        void SaveChangesDI(DatabaseManager.ServiceReference1.DigitalInput DI, bool change);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesDI", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesDIResponse")]
+        System.Threading.Tasks.Task SaveChangesDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI, bool change);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -434,6 +792,14 @@ namespace DatabaseManager.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
+        public void AddAI(DatabaseManager.ServiceReference1.AnalogInput AI) {
+            base.Channel.AddAI(AI);
+        }
+        
+        public System.Threading.Tasks.Task AddAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI) {
+            return base.Channel.AddAIAsync(AI);
+        }
+        
         public void AddAO(DatabaseManager.ServiceReference1.AnalogOutput AO) {
             base.Channel.AddAO(AO);
         }
@@ -442,20 +808,20 @@ namespace DatabaseManager.ServiceReference1 {
             return base.Channel.AddAOAsync(AO);
         }
         
+        public void AddDI(DatabaseManager.ServiceReference1.DigitalInput DI) {
+            base.Channel.AddDI(DI);
+        }
+        
+        public System.Threading.Tasks.Task AddDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI) {
+            return base.Channel.AddDIAsync(DI);
+        }
+        
         public void AddDO(DatabaseManager.ServiceReference1.DigitalOutput DO) {
             base.Channel.AddDO(DO);
         }
         
         public System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO) {
             return base.Channel.AddDOAsync(DO);
-        }
-        
-        public DatabaseManager.ServiceReference1.DigitalOutput[] LoadDataToGrid() {
-            return base.Channel.LoadDataToGrid();
-        }
-        
-        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalOutput[]> LoadDataToGridAsync() {
-            return base.Channel.LoadDataToGridAsync();
         }
         
         public void removeDO(DatabaseManager.ServiceReference1.DigitalOutput DO) {
@@ -474,12 +840,84 @@ namespace DatabaseManager.ServiceReference1 {
             return base.Channel.removeAOAsync(AO);
         }
         
+        public void removeAI(DatabaseManager.ServiceReference1.AnalogInput AI) {
+            base.Channel.removeAI(AI);
+        }
+        
+        public System.Threading.Tasks.Task removeAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI) {
+            return base.Channel.removeAIAsync(AI);
+        }
+        
+        public void removeDI(DatabaseManager.ServiceReference1.DigitalInput DI) {
+            base.Channel.removeDI(DI);
+        }
+        
+        public System.Threading.Tasks.Task removeDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI) {
+            return base.Channel.removeDIAsync(DI);
+        }
+        
         public DatabaseManager.ServiceReference1.AnalogOutput[] LoadDataToGridAO() {
             return base.Channel.LoadDataToGridAO();
         }
         
         public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.AnalogOutput[]> LoadDataToGridAOAsync() {
             return base.Channel.LoadDataToGridAOAsync();
+        }
+        
+        public DatabaseManager.ServiceReference1.DigitalOutput[] LoadDataToGrid() {
+            return base.Channel.LoadDataToGrid();
+        }
+        
+        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalOutput[]> LoadDataToGridAsync() {
+            return base.Channel.LoadDataToGridAsync();
+        }
+        
+        public DatabaseManager.ServiceReference1.AnalogInput[] LoadDataToGridAI() {
+            return base.Channel.LoadDataToGridAI();
+        }
+        
+        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.AnalogInput[]> LoadDataToGridAIAsync() {
+            return base.Channel.LoadDataToGridAIAsync();
+        }
+        
+        public DatabaseManager.ServiceReference1.DigitalInput[] LoadDataToGridDI() {
+            return base.Channel.LoadDataToGridDI();
+        }
+        
+        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalInput[]> LoadDataToGridDIAsync() {
+            return base.Channel.LoadDataToGridDIAsync();
+        }
+        
+        public void SaveChanges(DatabaseManager.ServiceReference1.AnalogOutput AO, double change) {
+            base.Channel.SaveChanges(AO, change);
+        }
+        
+        public System.Threading.Tasks.Task SaveChangesAsync(DatabaseManager.ServiceReference1.AnalogOutput AO, double change) {
+            return base.Channel.SaveChangesAsync(AO, change);
+        }
+        
+        public void SaveChangesDO(DatabaseManager.ServiceReference1.DigitalOutput DO, double change) {
+            base.Channel.SaveChangesDO(DO, change);
+        }
+        
+        public System.Threading.Tasks.Task SaveChangesDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO, double change) {
+            return base.Channel.SaveChangesDOAsync(DO, change);
+        }
+        
+        public void SaveChangesAI(DatabaseManager.ServiceReference1.AnalogInput AI, bool change) {
+            base.Channel.SaveChangesAI(AI, change);
+        }
+        
+        public System.Threading.Tasks.Task SaveChangesAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI, bool change) {
+            return base.Channel.SaveChangesAIAsync(AI, change);
+        }
+        
+        public void SaveChangesDI(DatabaseManager.ServiceReference1.DigitalInput DI, bool change) {
+            base.Channel.SaveChangesDI(DI, change);
+        }
+        
+        public System.Threading.Tasks.Task SaveChangesDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI, bool change) {
+            return base.Channel.SaveChangesDIAsync(DI, change);
         }
     }
 }

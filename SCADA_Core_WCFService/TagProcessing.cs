@@ -128,6 +128,7 @@ namespace SCADACore
             return autentificated_users.Remove(token);
         }
         #endregion
+
         #region Encrypt Methods
         private string EncryptData(string valueToEncrypt)
         {
@@ -185,7 +186,8 @@ namespace SCADACore
 
         }
         #endregion
-        #region IDatabaseManager
+
+        #region Add Tags
         public void AddAO(AnalogOutput AO)
         {
             using (var db = new TagContext())
@@ -203,7 +205,25 @@ namespace SCADACore
                 db.SaveChanges();
             }
         }
+
+        public void AddAI(AnalogInput AI)
+        {
+            using (var db = new TagContext())
+            {
+                db.analogInputs.Add(AI);
+                db.SaveChanges();
+            }
+        }
+        public void AddDI(DigitalInput DI)
+        {
+            using (var db = new TagContext())
+            {
+                db.digitalInputs.Add(DI);
+                db.SaveChanges();
+            }
+        }
         #endregion
+
         #region HelpMethods
         public IEnumerable<DigitalOutput> LoadDataToGrid()
         {
@@ -221,7 +241,79 @@ namespace SCADACore
                 db.analogOutputs.Load();
                 return db.analogOutputs.Local;
             }
+        }
+        public IEnumerable<AnalogInput> LoadDataToGridAI()
+        {
+            using (var db = new TagContext())
+            {
+                db.analogInputs.Load();
+                return db.analogInputs.Local;
+            }
+        }
+        public IEnumerable<DigitalInput> LoadDataToGridDI()
+        {
+            using (var db = new TagContext())
+            {
+                db.digitalInputs.Load();
+                return db.digitalInputs.Local;
+            }
+        }
+        public void SaveChanges(AnalogOutput AO,double change)
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var i in db.analogOutputs)
+                {
+                    if(i.Id == AO.Id)
+                    {
+                        i.InitialValue = change;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+        public void SaveChangesDO(DigitalOutput DO, double change)
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var i in db.digitalOutputs)
+                {
+                    if (i.Id == DO.Id)
+                    {
+                        i.initial_Value = change;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+        public void SaveChangesAI(AnalogInput AI, bool change)
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var i in db.analogInputs)
+                {
+                    if (i.Id == AI.Id)
+                    {
+                        i.ONOFF_scan = change;
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
 
+        public void SaveChangesDI(DigitalInput DI, bool change)
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var i in db.digitalInputs)
+                {
+                    if (i.Id == DI.Id)
+                    {
+                        i.ONOFF_scan = change;
+                    }
+                }
+                db.SaveChanges();
+            }
         }
         #endregion
 
@@ -243,6 +335,25 @@ namespace SCADACore
             {
                 db.analogOutputs.Attach(AO);
                 db.analogOutputs.Remove(AO);
+                db.SaveChanges();
+            }
+        }
+
+        public void removeAI(AnalogInput AI)
+        {
+            using (var db = new TagContext())
+            {
+                db.analogInputs.Attach(AI);
+                db.analogInputs.Remove(AI);
+                db.SaveChanges();
+            }
+        }
+        public void removeDI(DigitalInput DI)
+        {
+            using (var db = new TagContext())
+            {
+                db.digitalInputs.Attach(DI);
+                db.digitalInputs.Remove(DI);
                 db.SaveChanges();
             }
         }

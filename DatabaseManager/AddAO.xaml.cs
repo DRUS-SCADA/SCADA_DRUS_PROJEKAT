@@ -27,9 +27,9 @@ namespace DatabaseManager
         {
             InitializeComponent();
 
-            foreach(var d in SCADA.adress.Keys)
+            foreach(var d in SCADA.adressAO.Keys)
             {
-                if (SCADA.adress[d]==false)
+                if (SCADA.adressAO[d]==false)
                 {
                     IOAdress.Add(d);
                 }
@@ -42,10 +42,10 @@ namespace DatabaseManager
             string tag = Idbox.Text;
             string desc = Descriptionbox.Text;
             string combo = IoCombo.Text;
-            SCADA.adress[combo] = true;
             double initialValue = Convert.ToDouble(Valuebox.Text);
             double low = Convert.ToDouble(LowLimit.Text);
             double high = Convert.ToDouble(HighLimit.Text);
+            SCADA.adressAO[combo] = true;
             AnalogOutput analogOutput = new AnalogOutput { TagName=tag, Description=desc, HighLimit=high, LowLimit=low, InitialValue=initialValue, IOAdress=combo };
             MainWindow.proxy2.AddAO(analogOutput);
 

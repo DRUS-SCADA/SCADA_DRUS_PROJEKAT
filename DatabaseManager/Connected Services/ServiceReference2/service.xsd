@@ -78,10 +78,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddAI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q1:AnalogInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAIResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddAO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AO" nillable="true" type="q1:AnalogOutput" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AO" nillable="true" type="q2:AnalogOutput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -90,10 +102,22 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddDI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q3:DigitalInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDIResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddDO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DO" nillable="true" type="q2:DigitalOutput" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DO" nillable="true" type="q4:DigitalOutput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -102,22 +126,10 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="LoadDataToGrid">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="LoadDataToGridResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="LoadDataToGridResult" nillable="true" type="q3:ArrayOfDigitalOutput" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="removeDO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DO" nillable="true" type="q4:DigitalOutput" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DO" nillable="true" type="q5:DigitalOutput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -129,11 +141,35 @@
   <xs:element name="removeAO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AO" nillable="true" type="q5:AnalogOutput" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AO" nillable="true" type="q6:AnalogOutput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="removeAOResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeAI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q7:AnalogInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeAIResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeDI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q8:DigitalInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="removeDIResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -146,8 +182,96 @@
   <xs:element name="LoadDataToGridAOResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="LoadDataToGridAOResult" nillable="true" type="q6:ArrayOfAnalogOutput" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="LoadDataToGridAOResult" nillable="true" type="q9:ArrayOfAnalogOutput" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDataToGrid">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDataToGridResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="LoadDataToGridResult" nillable="true" type="q10:ArrayOfDigitalOutput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDataToGridAI">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDataToGridAIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="LoadDataToGridAIResult" nillable="true" type="q11:ArrayOfAnalogInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDataToGridDI">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDataToGridDIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="LoadDataToGridDIResult" nillable="true" type="q12:ArrayOfDigitalInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveChanges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AO" nillable="true" type="q13:AnalogOutput" />
+        <xs:element minOccurs="0" name="change" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveChangesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveChangesDO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DO" nillable="true" type="q14:DigitalOutput" />
+        <xs:element minOccurs="0" name="change" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveChangesDOResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveChangesAI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q15:AnalogInput" />
+        <xs:element minOccurs="0" name="change" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveChangesAIResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveChangesDI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q16:DigitalInput" />
+        <xs:element minOccurs="0" name="change" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveChangesDIResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

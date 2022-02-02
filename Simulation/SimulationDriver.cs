@@ -26,6 +26,8 @@ namespace Simulation
             addressValues.Add("ADDR008", 0);
             addressValues.Add("ADDR009", 0);
             addressValues.Add("ADDR010", 0);
+            addressValues.Add("ADDR011", 0);
+            addressValues.Add("ADDR012", 0);
         }
 
         public void StartPLCSimulator()
@@ -73,6 +75,17 @@ namespace Simulation
                     {
                         addressValues["ADDR009"] = 0;
                     }
+
+                    if (addressValues["ADDR010"] == 0)
+                    {
+                        addressValues["ADDR010"] = 1;
+                    }
+                    else
+                    {
+                        addressValues["ADDR010"] = 0;
+                    }
+
+
                 }
 
                 //... 

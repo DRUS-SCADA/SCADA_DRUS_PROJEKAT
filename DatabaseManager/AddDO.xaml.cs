@@ -20,12 +20,19 @@ namespace DatabaseManager
     /// </summary>
     public partial class AddDO : Window
     {
-        public DigitalOutput digitalOutput = new DigitalOutput();
+        public List<string> IOAdress = new List<string>();
         public AddDO()
         {
             InitializeComponent();
-            this.DataContext = digitalOutput;
-            this.IOcombo.ItemsSource = new List<string>() { "ADDR010" };
+
+            foreach (var d in SCADA.adressDO.Keys)
+            {
+                if (SCADA.adressDO[d] == false)
+                {
+                    IOAdress.Add(d);
+                }
+            }
+            this.IOcombo.ItemsSource = IOAdress;
         }
         
 
@@ -41,6 +48,7 @@ namespace DatabaseManager
             string desc = Descriptionbox.Text;
             string combo = IOcombo.Text;
             double initialValue = Convert.ToDouble(Valuebox.Text);
+            SCADA.adressDO[combo] = true;
             DigitalOutput digitalOutput = new DigitalOutput { tag_name = tag, description = desc, IO_Adress = combo, initial_Value = initialValue };
             MainWindow.proxy2.AddDO(digitalOutput);
 

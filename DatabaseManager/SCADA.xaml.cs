@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,14 @@ namespace DatabaseManager
     {
         public DigitalOutput SelectedDO { get; set; }
         public AnalogOutput SelectedAO { get; set; }
+        public AnalogInput SelectedAI { get; set; }
+        public DigitalInput SelectedDI { get; set; }
 
-        public static Dictionary<string, bool> adress = new Dictionary<string, bool> { ["ADDR005"] = false, ["ADDR006"] = false, ["ADDR007"] = false, ["ADDR008"] = false };
+        public static Dictionary<string, bool> adressAO = new Dictionary<string, bool> { ["ADDR005"] = false, ["ADDR006"] = false, ["ADDR007"] = false, ["ADDR008"] = false };
+        public static Dictionary<string, bool> adressAI = new Dictionary<string, bool> { ["ADDR001"] = false, ["ADDR002"] = false, ["ADDR003"] = false, ["ADDR004"] = false };
+        public static Dictionary<string, bool> adressDO = new Dictionary<string, bool> { ["ADDR011"] = false, ["ADDR012"] = false};
+        public static Dictionary<string, bool> adressDI = new Dictionary<string, bool> { ["ADDR009"] = false, ["ADDR010"] = false};
+
 
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
         string token1;
@@ -33,7 +40,9 @@ namespace DatabaseManager
             InitializeComponent();
             token1 = token;
 
+            dataGrid.ItemsSource = MainWindow.proxy2.LoadDataToGridDI();
             dataGrid1.ItemsSource = MainWindow.proxy2.LoadDataToGrid();
+            dataGrid2.ItemsSource = MainWindow.proxy2.LoadDataToGridAI();
             dataGrid3.ItemsSource = MainWindow.proxy2.LoadDataToGridAO();
             this.DataContext = this;
             
@@ -45,7 +54,8 @@ namespace DatabaseManager
             {
                 AddDI addDI = new AddDI();
                 addDI.ShowDialog();
-                
+                dataGrid.ItemsSource = MainWindow.proxy2.LoadDataToGridDI();
+
             }
             else if (Tab1.SelectedIndex == 1)
             {
@@ -58,7 +68,8 @@ namespace DatabaseManager
             {
                 AddAI addAI = new AddAI();
                 addAI.ShowDialog();
-                
+                dataGrid2.ItemsSource = MainWindow.proxy2.LoadDataToGridAI();
+
             }
             else 
             {
@@ -126,6 +137,7 @@ namespace DatabaseManager
             if (mbr == MessageBoxResult.Yes)
             {
                 MainWindow.proxy2.removeDO(SelectedDO);
+                adressDO[SelectedDO.IO_Adress] = false;
                 dataGrid1.ItemsSource = MainWindow.proxy2.LoadDataToGrid();
 
             }
@@ -137,9 +149,61 @@ namespace DatabaseManager
             if (mbr == MessageBoxResult.Yes)
             {
                 MainWindow.proxy2.removeAO(SelectedAO);
+                adressAO[SelectedAO.IOAdress] = false;
                 dataGrid3.ItemsSource = MainWindow.proxy2.LoadDataToGridAO();
 
             }
+        }
+
+        private void RemoveAI(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult mbr = MessageBox.Show("Are you sure you want to delete this input? ", "Delete", MessageBoxButton.YesNo);
+
+            if (mbr == MessageBoxResult.Yes)
+            {
+                MainWindow.proxy2.removeAI(SelectedAI);
+                adressAI[SelectedAI.IOAdress] = false;
+                dataGrid2.ItemsSource = MainWindow.proxy2.LoadDataToGridAI();
+
+            }
+        }
+
+        private void RemoveDI(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult mbr = MessageBox.Show("Are you sure you want to delete this input? ", "Delete", MessageBoxButton.YesNo);
+
+            if (mbr == MessageBoxResult.Yes)
+            {
+                MainWindow.proxy2.removeDI(SelectedDI);
+                adressDI[SelectedDI.IOAdress] = false;
+                dataGrid.ItemsSource = MainWindow.proxy2.LoadDataToGridDI();
+
+            }
+        }
+        private void SaveClick(object sender, RoutedEventArgs e)
+        {
+            double change = SelectedAO.InitialValue;
+            MainWindow.proxy2.SaveChanges(SelectedAO, change);
+        }
+
+        private void SaveClickAI(object sender, RoutedEventArgs e)
+        {
+            bool change = SelectedAI.ONOFF_scan;
+            MainWindow.proxy2.SaveChangesAI(SelectedAI, change);
+        }
+        private void SaveClickDO(object sender, RoutedEventArgs e)
+        {
+            double change = SelectedDO.initial_Value;
+            MainWindow.proxy2.SaveChangesDO(SelectedDO, change);
+        }
+        private void SaveClickDI(object sender, RoutedEventArgs e)
+        {
+            bool change = SelectedDI.ONOFF_scan;
+            MainWindow.proxy2.SaveChangesDI(SelectedDI, change);
+        }
+        private void WindowClosing(object sender, CancelEventArgs e)
+        {
+            
         }
     }
 }

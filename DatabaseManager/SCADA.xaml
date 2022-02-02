@@ -53,21 +53,45 @@
             </TabControl.Resources>
             <TabItem Name="DI" Header="DI">
                 <StackPanel>
-                    <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="Silver"  IsReadOnly="True">
+                    <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="Silver" SelectedItem="{Binding SelectedDI}" IsReadOnly="True">
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png" />
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Width="*"/>
-                            <DataGridTextColumn Header="Description"  Width="*"/>
+                            <DataGridTextColumn Header="Tag name" Width="*" Binding="{Binding Path=TagName}"/>
+                            <DataGridTextColumn Header="Description"  Width="*" Binding="{Binding Path=Description}"/>
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding scantime}" Width="*"/>-->
-                            <DataGridTextColumn Header="IO Adress"  Width="*"/>
-                            <DataGridTextColumn Header="Value"  Width="*"/>
+                            <DataGridTextColumn Header="IO Adress"  Width="*" Binding="{Binding Path=IOAdress}"/>
+                            <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan ,UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="False" Width="*" />
+                            <!---<DataGridTextColumn Header="Value"  Width="*"/>-->
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="deleteBtn" Background="{StaticResource DeleteBtnImage}" Height="30" Width="30"/>
+                                            <Button Width="30"
+                                                    Height="30"
+                                                    Background="Transparent"
+                                                    Padding="0"
+                                                    HorizontalAlignment="Right"
+                                                    Click="RemoveDI"
+                                                    VerticalAlignment="Center"
+                                                    Style="{x:Null}">
+                                                <Button.Content>
+                                                    <iconPacks:PackIconMaterial Kind="Delete"/>
+                                                </Button.Content>
+                                            </Button>
+                                            <Button Width="30"
+                                                    Height="30"
+                                                    Background="Transparent"
+                                                    Padding="0"
+                                                    HorizontalAlignment="Right"
+                                                    Click="SaveClickDI"
+                                                    VerticalAlignment="Center"
+                                                    Style="{x:Null}">
+                                                <Button.Content>
+                                                    <iconPacks:PackIconMaterial Kind="ContentSave"/>
+                                                </Button.Content>
+                                            </Button>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -88,12 +112,35 @@
                             <DataGridTextColumn Header="Tag name" Binding="{Binding tag_name}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding description}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="IO Adress" Binding="{Binding IO_Adress}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Initial Value" Binding="{Binding initial_Value}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Initial Value" Binding="{Binding initial_Value}" IsReadOnly="False" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="deleteBtn1" Click="RemoveDO" Background="{StaticResource DeleteBtnImage}"  Height="30" Width="30"/>
+                                            <Button Width="30"
+                                                    Height="30"
+                                                    Background="Transparent"
+                                                    Padding="0"
+                                                    HorizontalAlignment="Right"
+                                                    Click="RemoveDO"
+                                                    VerticalAlignment="Center"
+                                                    Style="{x:Null}">
+                                                <Button.Content>
+                                                    <iconPacks:PackIconMaterial Kind="Delete"/>
+                                                </Button.Content>
+                                            </Button>
+                                            <Button Width="30"
+                                                    Height="30"
+                                                    Background="Transparent"
+                                                    Padding="0"
+                                                    HorizontalAlignment="Right"
+                                                    Click="SaveClickDO"
+                                                    VerticalAlignment="Center"
+                                                    Style="{x:Null}">
+                                                <Button.Content>
+                                                    <iconPacks:PackIconMaterial Kind="ContentSave"/>
+                                                </Button.Content>
+                                            </Button>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -111,19 +158,43 @@
                             <ImageBrush x:Key="DetailsBtnImage" ImageSource="/Images/details.png"/>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id_name}" Width="*"/>
+                            <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding ScanTime}" Width="*"/>-->
-                            <DataGridTextColumn Header="IO Adress" Binding="{Binding ioadress}" Width="*"/>
+                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAdress}" Width="*"/>
                             <DataGridTextColumn Header="Units" Binding="{Binding Units}" Width="*"/>
-                            <DataGridTextColumn Header="Alarms" Binding="{Binding State}" Width="*"/>
-                            <DataGridTextColumn Header="Value" Binding="{Binding Values,StringFormat=N2}" Width="*"/>
+                            <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" Width="*"/>
+                            <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" Width="*"/>
+                            <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="False" Width="*" />
+                            <!--<DataGridTextColumn Header="Value" Binding="{Binding Values,StringFormat=N2}" Width="*"/>-->
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="deleteBtn2" Background="{StaticResource DeleteBtnImage}" Height="30" Width="30"/>
-                                            <Button Name="detailsBtn" Background="{StaticResource DetailsBtnImage}"  Height="30" Width="30"/>
+                                            <Button Width="30"
+                                                    Height="30"
+                                                    Background="Transparent"
+                                                    Padding="0"
+                                                    HorizontalAlignment="Right"
+                                                    Click="RemoveAI"
+                                                    VerticalAlignment="Center"
+                                                    Style="{x:Null}">
+                                                <Button.Content>
+                                                    <iconPacks:PackIconMaterial Kind="Delete"/>
+                                                </Button.Content>
+                                            </Button>
+                                            <Button Width="30"
+                                                    Height="30"
+                                                    Background="Transparent"
+                                                    Padding="0"
+                                                    HorizontalAlignment="Right"
+                                                    Click="SaveClickAI"
+                                                    VerticalAlignment="Center"
+                                                    Style="{x:Null}">
+                                                <Button.Content>
+                                                    <iconPacks:PackIconMaterial Kind="ContentSave"/>
+                                                </Button.Content>
+                                            </Button>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -150,7 +221,31 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <Button Name="deleteBtn3" Click="RemoveAO" Background="{StaticResource DeleteBtnImage}"  Height="30" Width="30"/>
+                                            <Button Width="30"
+                                                    Height="30"
+                                                    Background="Transparent"
+                                                    Padding="0"
+                                                    HorizontalAlignment="Right"
+                                                    Click="RemoveAO"
+                                                    VerticalAlignment="Center"
+                                                    Style="{x:Null}">
+                                                <Button.Content>
+                                                    <iconPacks:PackIconMaterial Kind="Delete"/>
+                                                </Button.Content>
+                                            </Button>
+                                            <Button Width="30"
+                                                    Height="30"
+                                                    Background="Transparent"
+                                                    Padding="0"
+                                                    HorizontalAlignment="Right"
+                                                    Click="SaveClick"
+                                                    VerticalAlignment="Center"
+                                                    Style="{x:Null}">
+                                                <Button.Content>
+                                                    <iconPacks:PackIconMaterial Kind="ContentSave"/>
+                                                </Button.Content>
+                                            </Button>
+
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
