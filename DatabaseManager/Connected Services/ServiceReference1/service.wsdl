@@ -133,6 +133,36 @@
   <wsdl:message name="IDatabaseManager_SaveChangesDI_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveChangesDIResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_Simulation_InputMessage">
+    <wsdl:part name="parameters" element="tns:Simulation" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_Simulation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SimulationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_Simulation1_InputMessage">
+    <wsdl:part name="parameters" element="tns:Simulation1" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_Simulation1_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Simulation1Response" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadThreadDi_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadThreadDi" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadThreadDi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadThreadDiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadThreadAi_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadThreadAi" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadThreadAi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadThreadAiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_startPLC_InputMessage">
+    <wsdl:part name="parameters" element="tns:startPLC" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_startPLC_OutputMessage">
+    <wsdl:part name="parameters" element="tns:startPLCResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAuthentication">
     <wsdl:operation name="Registration">
       <wsdl:input wsaw:Action="http://tempuri.org/IAuthentication/Registration" message="tns:IAuthentication_Registration_InputMessage" />
@@ -219,6 +249,26 @@
     <wsdl:operation name="SaveChangesDI">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesDI" message="tns:IDatabaseManager_SaveChangesDI_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesDIResponse" message="tns:IDatabaseManager_SaveChangesDI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Simulation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/Simulation" message="tns:IDatabaseManager_Simulation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/SimulationResponse" message="tns:IDatabaseManager_Simulation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Simulation1">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/Simulation1" message="tns:IDatabaseManager_Simulation1_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/Simulation1Response" message="tns:IDatabaseManager_Simulation1_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadThreadDi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/LoadThreadDi" message="tns:IDatabaseManager_LoadThreadDi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/LoadThreadDiResponse" message="tns:IDatabaseManager_LoadThreadDi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadThreadAi">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/LoadThreadAi" message="tns:IDatabaseManager_LoadThreadAi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/LoadThreadAiResponse" message="tns:IDatabaseManager_LoadThreadAi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="startPLC">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/startPLC" message="tns:IDatabaseManager_startPLC_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/startPLCResponse" message="tns:IDatabaseManager_startPLC_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuthentication" type="tns:IAuthentication">
@@ -408,6 +458,51 @@
     </wsdl:operation>
     <wsdl:operation name="SaveChangesDI">
       <soap:operation soapAction="http://tempuri.org/IDatabaseManager/SaveChangesDI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Simulation">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/Simulation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Simulation1">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/Simulation1" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadThreadDi">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/LoadThreadDi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadThreadAi">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/LoadThreadAi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="startPLC">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/startPLC" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

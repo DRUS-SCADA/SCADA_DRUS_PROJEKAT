@@ -55,7 +55,7 @@
                 <StackPanel>
                     <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="Silver"  IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Width="*"/>
+                            <DataGridTextColumn Header="Tag name" Width="*"/>
                             <DataGridTextColumn Header="Description"  Width="*"/>
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding scantime}" Width="*"/>-->
                             <DataGridTextColumn Header="IO Adress"  Width="*"/>
@@ -69,7 +69,7 @@
                 <StackPanel>
                     <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="Silver"  IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Binding="{Binding Id_name}" Width="*"/>
+                            <DataGridTextColumn Header="Tag name" Binding="{Binding Id_name}" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding ScanTime}" Width="*"/>-->
                             <DataGridTextColumn Header="IO Adress" Binding="{Binding ioadress}" Width="*"/>

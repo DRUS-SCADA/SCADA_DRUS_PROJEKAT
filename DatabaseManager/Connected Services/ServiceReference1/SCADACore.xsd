@@ -2,6 +2,7 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SCADACore" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SCADACore" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:complexType name="AnalogInput">
     <xs:sequence>
+      <xs:element minOccurs="0" name="AnalogValue" type="xs:double" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="HighLimit" type="xs:double" />
       <xs:element minOccurs="0" name="IOAdress" nillable="true" type="xs:string" />
@@ -29,11 +30,13 @@
   <xs:complexType name="DigitalInput">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DigitalValue" type="xs:double" />
       <xs:element minOccurs="0" name="IOAdress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="ONOFF_scan" type="xs:boolean" />
       <xs:element minOccurs="0" name="ScanTime" type="xs:double" />
       <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="digitalValue" type="xs:double" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="DigitalInput" nillable="true" type="tns:DigitalInput" />

@@ -42,5 +42,15 @@ namespace SCADACore
         void SaveChangesAI(AnalogInput AI, bool change);
         [OperationContract]
         void SaveChangesDI(DigitalInput DI, bool change);
+        [OperationContract]
+        void Simulation(DigitalInput DI);
+        [OperationContract]
+        void Simulation1(AnalogInput AI);
+        [OperationContract]
+        void LoadThreadDi();
+        [OperationContract]
+        void LoadThreadAi();
+        [OperationContract]
+        void startPLC();
     }
 }

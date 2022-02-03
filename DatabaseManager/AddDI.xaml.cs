@@ -43,7 +43,7 @@ namespace DatabaseManager
             SCADA.adressDI[combo] = true;
             DigitalInput digitalInput = new DigitalInput { TagName = tag, Description = desc, ONOFF_scan = onoff, IOAdress = combo};
             MainWindow.proxy2.AddDI(digitalInput);
-
+            
             this.Close();
         }
 

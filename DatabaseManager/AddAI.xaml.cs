@@ -46,7 +46,7 @@ namespace DatabaseManager
             SCADA.adressAI[combo] = true;
             AnalogInput analogInput = new AnalogInput { TagName = tag, Description = desc, HighLimit = high, LowLimit = low,  IOAdress = combo, Units = units, ONOFF_scan = onoff};
             MainWindow.proxy2.AddAI(analogInput);
-
+            
             this.Close();
 
         }

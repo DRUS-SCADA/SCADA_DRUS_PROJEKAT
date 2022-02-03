@@ -23,6 +23,9 @@ namespace DatabaseManager.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double AnalogValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -56,6 +59,19 @@ namespace DatabaseManager.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double AnalogValue {
+            get {
+                return this.AnalogValueField;
+            }
+            set {
+                if ((this.AnalogValueField.Equals(value) != true)) {
+                    this.AnalogValueField = value;
+                    this.RaisePropertyChanged("AnalogValue");
+                }
             }
         }
         
@@ -340,6 +356,9 @@ namespace DatabaseManager.ServiceReference1 {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double DigitalValueField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IOAdressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -353,6 +372,9 @@ namespace DatabaseManager.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double digitalValue1Field;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -373,6 +395,19 @@ namespace DatabaseManager.ServiceReference1 {
                 if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
                     this.DescriptionField = value;
                     this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double DigitalValue {
+            get {
+                return this.DigitalValueField;
+            }
+            set {
+                if ((this.DigitalValueField.Equals(value) != true)) {
+                    this.DigitalValueField = value;
+                    this.RaisePropertyChanged("DigitalValue");
                 }
             }
         }
@@ -438,6 +473,19 @@ namespace DatabaseManager.ServiceReference1 {
                 if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
                     this.TagNameField = value;
                     this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Name="digitalValue")]
+        public double digitalValue1 {
+            get {
+                return this.digitalValue1Field;
+            }
+            set {
+                if ((this.digitalValue1Field.Equals(value) != true)) {
+                    this.digitalValue1Field = value;
+                    this.RaisePropertyChanged("digitalValue1");
                 }
             }
         }
@@ -763,6 +811,36 @@ namespace DatabaseManager.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesDI", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesDIResponse")]
         System.Threading.Tasks.Task SaveChangesDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI, bool change);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/Simulation", ReplyAction="http://tempuri.org/IDatabaseManager/SimulationResponse")]
+        void Simulation(DatabaseManager.ServiceReference1.DigitalInput DI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/Simulation", ReplyAction="http://tempuri.org/IDatabaseManager/SimulationResponse")]
+        System.Threading.Tasks.Task SimulationAsync(DatabaseManager.ServiceReference1.DigitalInput DI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/Simulation1", ReplyAction="http://tempuri.org/IDatabaseManager/Simulation1Response")]
+        void Simulation1(DatabaseManager.ServiceReference1.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/Simulation1", ReplyAction="http://tempuri.org/IDatabaseManager/Simulation1Response")]
+        System.Threading.Tasks.Task Simulation1Async(DatabaseManager.ServiceReference1.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadThreadDi", ReplyAction="http://tempuri.org/IDatabaseManager/LoadThreadDiResponse")]
+        void LoadThreadDi();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadThreadDi", ReplyAction="http://tempuri.org/IDatabaseManager/LoadThreadDiResponse")]
+        System.Threading.Tasks.Task LoadThreadDiAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadThreadAi", ReplyAction="http://tempuri.org/IDatabaseManager/LoadThreadAiResponse")]
+        void LoadThreadAi();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadThreadAi", ReplyAction="http://tempuri.org/IDatabaseManager/LoadThreadAiResponse")]
+        System.Threading.Tasks.Task LoadThreadAiAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/startPLC", ReplyAction="http://tempuri.org/IDatabaseManager/startPLCResponse")]
+        void startPLC();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/startPLC", ReplyAction="http://tempuri.org/IDatabaseManager/startPLCResponse")]
+        System.Threading.Tasks.Task startPLCAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -918,6 +996,46 @@ namespace DatabaseManager.ServiceReference1 {
         
         public System.Threading.Tasks.Task SaveChangesDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI, bool change) {
             return base.Channel.SaveChangesDIAsync(DI, change);
+        }
+        
+        public void Simulation(DatabaseManager.ServiceReference1.DigitalInput DI) {
+            base.Channel.Simulation(DI);
+        }
+        
+        public System.Threading.Tasks.Task SimulationAsync(DatabaseManager.ServiceReference1.DigitalInput DI) {
+            return base.Channel.SimulationAsync(DI);
+        }
+        
+        public void Simulation1(DatabaseManager.ServiceReference1.AnalogInput AI) {
+            base.Channel.Simulation1(AI);
+        }
+        
+        public System.Threading.Tasks.Task Simulation1Async(DatabaseManager.ServiceReference1.AnalogInput AI) {
+            return base.Channel.Simulation1Async(AI);
+        }
+        
+        public void LoadThreadDi() {
+            base.Channel.LoadThreadDi();
+        }
+        
+        public System.Threading.Tasks.Task LoadThreadDiAsync() {
+            return base.Channel.LoadThreadDiAsync();
+        }
+        
+        public void LoadThreadAi() {
+            base.Channel.LoadThreadAi();
+        }
+        
+        public System.Threading.Tasks.Task LoadThreadAiAsync() {
+            return base.Channel.LoadThreadAiAsync();
+        }
+        
+        public void startPLC() {
+            base.Channel.startPLC();
+        }
+        
+        public System.Threading.Tasks.Task startPLCAsync() {
+            return base.Channel.startPLCAsync();
         }
     }
 }

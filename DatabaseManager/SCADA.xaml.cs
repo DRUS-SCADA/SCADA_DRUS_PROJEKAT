@@ -31,7 +31,6 @@ namespace DatabaseManager
         public static Dictionary<string, bool> adressDO = new Dictionary<string, bool> { ["ADDR011"] = false, ["ADDR012"] = false};
         public static Dictionary<string, bool> adressDI = new Dictionary<string, bool> { ["ADDR009"] = false, ["ADDR010"] = false};
 
-
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
         string token1;
         
@@ -39,10 +38,12 @@ namespace DatabaseManager
         {
             InitializeComponent();
             token1 = token;
-
+            MainWindow.proxy2.startPLC();
             dataGrid.ItemsSource = MainWindow.proxy2.LoadDataToGridDI();
+            MainWindow.proxy2.LoadThreadDi();
             dataGrid1.ItemsSource = MainWindow.proxy2.LoadDataToGrid();
             dataGrid2.ItemsSource = MainWindow.proxy2.LoadDataToGridAI();
+            MainWindow.proxy2.LoadThreadAi();
             dataGrid3.ItemsSource = MainWindow.proxy2.LoadDataToGridAO();
             this.DataContext = this;
             

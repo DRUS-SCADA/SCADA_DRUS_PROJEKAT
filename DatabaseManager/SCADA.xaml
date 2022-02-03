@@ -53,7 +53,7 @@
             </TabControl.Resources>
             <TabItem Name="DI" Header="DI">
                 <StackPanel>
-                    <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="Silver" SelectedItem="{Binding SelectedDI}" IsReadOnly="True">
+                    <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="LightBlue" SelectedItem="{Binding SelectedDI}" IsReadOnly="True">
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png" />
                         </DataGrid.Resources>
@@ -63,7 +63,7 @@
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding scantime}" Width="*"/>-->
                             <DataGridTextColumn Header="IO Adress"  Width="*" Binding="{Binding Path=IOAdress}"/>
                             <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan ,UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="False" Width="*" />
-                            <!---<DataGridTextColumn Header="Value"  Width="*"/>-->
+                            <DataGridTextColumn Header="Value" Binding="{Binding Path=DigitalValue}" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -104,7 +104,7 @@
             </TabItem>
             <TabItem Name="DO" Header="DO">
                 <StackPanel>
-                    <DataGrid Name="dataGrid1"  CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedDO}" Background="Silver">
+                    <DataGrid Name="dataGrid1"   CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedDO}" Background="LightBlue">
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
                         </DataGrid.Resources>
@@ -152,7 +152,7 @@
             </TabItem>
             <TabItem Name="AI" Header="AI">
                 <StackPanel>
-                    <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="Silver"  IsReadOnly="True">
+                    <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="LightBlue"  IsReadOnly="True">
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="Images/deleteIcon.png"/>
                             <ImageBrush x:Key="DetailsBtnImage" ImageSource="/Images/details.png"/>
@@ -166,7 +166,7 @@
                             <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" Width="*"/>
                             <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" Width="*"/>
                             <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="False" Width="*" />
-                            <!--<DataGridTextColumn Header="Value" Binding="{Binding Values,StringFormat=N2}" Width="*"/>-->
+                            <DataGridTextColumn Header="Value" Binding="{Binding AnalogValue,StringFormat=N2}" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -206,7 +206,7 @@
             </TabItem>
             <TabItem Name="AO" Header="AO">
                 <StackPanel>
-                    <DataGrid Name="dataGrid3" CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAO}" Background="Silver"  >
+                    <DataGrid Name="dataGrid3" CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAO}" Background="LightBlue"  >
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
                         </DataGrid.Resources>

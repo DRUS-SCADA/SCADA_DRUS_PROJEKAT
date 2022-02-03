@@ -4,14 +4,20 @@ using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Simulation;
 
 namespace SCADACore
 {
     public class TagProcessing : IAuthentication, IDatabaseManager
     {
-        #region IAuthentication
+        public static SimulationDriver PLC = new SimulationDriver();
         private static Dictionary<string, User> autentificated_users = new Dictionary<string, User>();
+        public static Dictionary<string, Thread> dictDi = new Dictionary<string, Thread>();
+        public static Dictionary<string, Thread> dictAi = new Dictionary<string, Thread>();
+
+        #region IAuthentication
 
         public string Registration(string name, string surname, string username, string password)
         {
@@ -188,6 +194,7 @@ namespace SCADACore
         #endregion
 
         #region Add Tags
+        
         public void AddAO(AnalogOutput AO)
         {
             using (var db = new TagContext())
@@ -211,8 +218,13 @@ namespace SCADACore
             using (var db = new TagContext())
             {
                 db.analogInputs.Add(AI);
-                db.SaveChanges();
+                db.SaveChanges(); 
+                Thread thread = new Thread(() => Simulation1(AI));
+                dictAi.Add(AI.TagName, thread);
+                thread.Start();
             }
+
+            
         }
         public void AddDI(DigitalInput DI)
         {
@@ -220,7 +232,11 @@ namespace SCADACore
             {
                 db.digitalInputs.Add(DI);
                 db.SaveChanges();
+                Thread thread = new Thread(() => Simulation(DI));
+                dictDi.Add(DI.TagName, thread);
+                thread.Start();
             }
+            
         }
         #endregion
 
@@ -315,6 +331,10 @@ namespace SCADACore
                 db.SaveChanges();
             }
         }
+        public void startPLC()
+        {
+            PLC.StartPLCSimulator();
+        }
         #endregion
 
         #region RemoveTags
@@ -341,20 +361,71 @@ namespace SCADACore
 
         public void removeAI(AnalogInput AI)
         {
+            
             using (var db = new TagContext())
             {
+                dictAi[AI.TagName].Abort();
                 db.analogInputs.Attach(AI);
                 db.analogInputs.Remove(AI);
                 db.SaveChanges();
             }
+            
         }
         public void removeDI(DigitalInput DI)
         {
+            
             using (var db = new TagContext())
             {
+                dictDi[DI.TagName].Abort();
                 db.digitalInputs.Attach(DI);
                 db.digitalInputs.Remove(DI);
                 db.SaveChanges();
+            }
+        }
+        #endregion
+
+        #region PLC simulation methods
+        public void Simulation(DigitalInput di)
+        {
+            while (true)
+            {
+                di.DigitalValue = PLC.GetValue(di.IOAdress);
+                Thread.Sleep(Convert.ToInt32(di.ScanTime) * 1000);
+            }
+        }
+
+        public void Simulation1(AnalogInput ai)
+        {
+            while (true)
+            {
+                ai.AnalogValue = PLC.GetValue(ai.IOAdress);
+                Thread.Sleep(Convert.ToInt32(ai.ScanTime) * 1000);
+            }
+        }
+
+        public void LoadThreadDi()
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var d in db.digitalInputs)
+                {
+                    Thread thread1 = new Thread(() => Simulation(d));
+                    dictDi.Add(d.TagName, thread1);
+                    thread1.Start();
+                }
+            }
+        }
+
+        public void LoadThreadAi()
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var a in db.analogInputs)
+                {
+                    Thread thread2 = new Thread(() => Simulation1(a));
+                    dictAi.Add(a.TagName, thread2);
+                    thread2.Start();
+                }
             }
         }
         #endregion

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -30,6 +31,10 @@ namespace SCADACore
         public double HighLimit { get; set; }
         [DataMember]
         public string Units { get; set; }
+        [DataMember]
+        public double AnalogValue { get; set; }
+
+        //public event PropertyChangedEventHandler PropertyChanged;
 
         public AnalogInput() { }
 
@@ -44,5 +49,19 @@ namespace SCADACore
             this.HighLimit = high;
             this.Units = units;
         }
+        /*[DataMember]
+        public double AnalogValue
+        {
+            get { return analogValue; }
+            set
+            {
+                analogValue = value;
+                OnPropertyChanged("AnalogValue");
+            }
+        }
+        private void OnPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }*/
     }
 }
