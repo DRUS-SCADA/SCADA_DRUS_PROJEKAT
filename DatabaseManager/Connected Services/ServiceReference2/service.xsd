@@ -328,4 +328,28 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="SubscriberInitialization">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubscriberInitializationResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnValueReceived">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q19:AnalogInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnValueReceived1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q20:DigitalInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

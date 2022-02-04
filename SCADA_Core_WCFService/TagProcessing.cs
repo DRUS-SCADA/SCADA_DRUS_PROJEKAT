@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Security.Cryptography;
+using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,12 +11,17 @@ using Simulation;
 
 namespace SCADACore
 {
-    public class TagProcessing : IAuthentication, IDatabaseManager
+    public class TagProcessing : IAuthentication, IDatabaseManager, ITrending
     {
         public static SimulationDriver PLC = new SimulationDriver();
         private static Dictionary<string, User> autentificated_users = new Dictionary<string, User>();
         public static Dictionary<string, Thread> dictDi = new Dictionary<string, Thread>();
         public static Dictionary<string, Thread> dictAi = new Dictionary<string, Thread>();
+        static ITrendingCallback proxy = null;
+        delegate void ValueHandler(AnalogInput AI);
+        delegate void ValueHandler1(DigitalInput DI);
+        static event ValueHandler valueReceived = null;
+        static event ValueHandler1 valueReceived1 = null;
 
         #region IAuthentication
 
@@ -223,8 +229,6 @@ namespace SCADACore
                 dictAi.Add(AI.TagName, thread);
                 thread.Start();
             }
-
-            
         }
         public void AddDI(DigitalInput DI)
         {
@@ -236,7 +240,6 @@ namespace SCADACore
                 dictDi.Add(DI.TagName, thread);
                 thread.Start();
             }
-            
         }
         #endregion
 
@@ -389,8 +392,9 @@ namespace SCADACore
         {
             while (true)
             {
-                di.DigitalValue = PLC.GetValue(di.IOAdress);
+                di.digitalValue = PLC.GetValue(di.IOAdress);
                 Thread.Sleep(Convert.ToInt32(di.ScanTime) * 1000);
+                valueReceived1?.Invoke(di);
             }
         }
 
@@ -400,6 +404,7 @@ namespace SCADACore
             {
                 ai.AnalogValue = PLC.GetValue(ai.IOAdress);
                 Thread.Sleep(Convert.ToInt32(ai.ScanTime) * 1000);
+                valueReceived?.Invoke(ai);
             }
         }
 
@@ -427,6 +432,15 @@ namespace SCADACore
                     thread2.Start();
                 }
             }
+        }
+        #endregion
+
+        #region PubSub 
+        public void SubscriberInitialization()
+        {
+            proxy = OperationContext.Current.GetCallbackChannel<ITrendingCallback>();
+            valueReceived += proxy.OnValueReceived;
+            valueReceived1 += proxy.OnValueReceived1;
         }
         #endregion
     }

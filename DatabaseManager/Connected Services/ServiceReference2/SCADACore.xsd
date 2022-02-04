@@ -30,7 +30,6 @@
   <xs:complexType name="DigitalInput">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DigitalValue" type="xs:double" />
       <xs:element minOccurs="0" name="IOAdress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="ONOFF_scan" type="xs:boolean" />

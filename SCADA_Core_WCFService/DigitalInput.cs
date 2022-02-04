@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace SCADACore
 {
     [DataContract]
-    public class DigitalInput: INotifyPropertyChanged
+    public class DigitalInput
     {
         [DataMember]
         [Key]
@@ -26,9 +26,8 @@ namespace SCADACore
         [DataMember]
         public bool ONOFF_scan {get; set;}
         [DataMember]
-        public double digitalValue;
+        public double digitalValue { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
         public DigitalInput() { }
 
         public DigitalInput (string name, string description, string address, double scanTime, bool onoff)
@@ -39,19 +38,6 @@ namespace SCADACore
             this.ScanTime = scanTime;
             this.ONOFF_scan = onoff;
         }
-        [DataMember]
-        public double DigitalValue
-        {
-            get { return digitalValue; }
-            set
-            {
-                digitalValue = value;
-                OnPropertyChanged("DigitalValue");
-            }
-        }
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+       
     }
 }

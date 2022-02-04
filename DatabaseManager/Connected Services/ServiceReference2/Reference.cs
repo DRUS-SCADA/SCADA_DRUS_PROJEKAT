@@ -356,9 +356,6 @@ namespace DatabaseManager.ServiceReference2 {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double DigitalValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string IOAdressField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -374,7 +371,7 @@ namespace DatabaseManager.ServiceReference2 {
         private string TagNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double digitalValue1Field;
+        private double digitalValueField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -395,19 +392,6 @@ namespace DatabaseManager.ServiceReference2 {
                 if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
                     this.DescriptionField = value;
                     this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double DigitalValue {
-            get {
-                return this.DigitalValueField;
-            }
-            set {
-                if ((this.DigitalValueField.Equals(value) != true)) {
-                    this.DigitalValueField = value;
-                    this.RaisePropertyChanged("DigitalValue");
                 }
             }
         }
@@ -477,15 +461,15 @@ namespace DatabaseManager.ServiceReference2 {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(Name="digitalValue")]
-        public double digitalValue1 {
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double digitalValue {
             get {
-                return this.digitalValue1Field;
+                return this.digitalValueField;
             }
             set {
-                if ((this.digitalValue1Field.Equals(value) != true)) {
-                    this.digitalValue1Field = value;
-                    this.RaisePropertyChanged("digitalValue1");
+                if ((this.digitalValueField.Equals(value) != true)) {
+                    this.digitalValueField = value;
+                    this.RaisePropertyChanged("digitalValue");
                 }
             }
         }
@@ -1036,6 +1020,64 @@ namespace DatabaseManager.ServiceReference2 {
         
         public System.Threading.Tasks.Task startPLCAsync() {
             return base.Channel.startPLCAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.ITrending", CallbackContract=typeof(DatabaseManager.ServiceReference2.ITrendingCallback))]
+    public interface ITrending {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrending/SubscriberInitialization", ReplyAction="http://tempuri.org/ITrending/SubscriberInitializationResponse")]
+        void SubscriberInitialization();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrending/SubscriberInitialization", ReplyAction="http://tempuri.org/ITrending/SubscriberInitializationResponse")]
+        System.Threading.Tasks.Task SubscriberInitializationAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITrendingCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnValueReceived")]
+        void OnValueReceived(DatabaseManager.ServiceReference2.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnValueReceived1")]
+        void OnValueReceived1(DatabaseManager.ServiceReference2.DigitalInput DI);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface ITrendingChannel : DatabaseManager.ServiceReference2.ITrending, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class TrendingClient : System.ServiceModel.DuplexClientBase<DatabaseManager.ServiceReference2.ITrending>, DatabaseManager.ServiceReference2.ITrending {
+        
+        public TrendingClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public TrendingClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public TrendingClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TrendingClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public TrendingClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void SubscriberInitialization() {
+            base.Channel.SubscriberInitialization();
+        }
+        
+        public System.Threading.Tasks.Task SubscriberInitializationAsync() {
+            return base.Channel.SubscriberInitializationAsync();
         }
     }
 }

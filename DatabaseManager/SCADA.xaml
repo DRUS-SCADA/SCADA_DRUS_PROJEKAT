@@ -63,7 +63,7 @@
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding scantime}" Width="*"/>-->
                             <DataGridTextColumn Header="IO Adress"  Width="*" Binding="{Binding Path=IOAdress}"/>
                             <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan ,UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="False" Width="*" />
-                            <DataGridTextColumn Header="Value" Binding="{Binding Path=DigitalValue}" Width="*"/>
+                            
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -166,7 +166,7 @@
                             <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" Width="*"/>
                             <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" Width="*"/>
                             <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="False" Width="*" />
-                            <DataGridTextColumn Header="Value" Binding="{Binding AnalogValue,StringFormat=N2}" Width="*"/>
+                            
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

@@ -55,11 +55,11 @@
                 <StackPanel>
                     <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="Silver"  IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Tag name" Width="*"/>
-                            <DataGridTextColumn Header="Description"  Width="*"/>
+                            <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="*"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding scantime}" Width="*"/>-->
-                            <DataGridTextColumn Header="IO Adress"  Width="*"/>
-                            <DataGridTextColumn Header="Value"  Width="*"/>
+                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAdress}" Width="*"/>
+                            <DataGridTextColumn Header="Value" Binding="{Binding digitalValue}" Width="*"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
@@ -69,13 +69,14 @@
                 <StackPanel>
                     <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="Silver"  IsReadOnly="True">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Tag name" Binding="{Binding Id_name}" Width="*"/>
+                            <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding ScanTime}" Width="*"/>-->
-                            <DataGridTextColumn Header="IO Adress" Binding="{Binding ioadress}" Width="*"/>
+                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAdress}" Width="*"/>
                             <DataGridTextColumn Header="Units" Binding="{Binding Units}" Width="*"/>
-                            <DataGridTextColumn Header="Alarms" Binding="{Binding State}" Width="*"/>
-                            <DataGridTextColumn Header="Value" Binding="{Binding Values,StringFormat=N2}" Width="*"/>
+                            <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" Width="*"/>
+                            <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" Width="*"/>
+                            <DataGridTextColumn Header="Value" Binding="{Binding AnalogValue,StringFormat=N2}" Width="*"/>
 
                         </DataGrid.Columns>
                     </DataGrid>
