@@ -257,6 +257,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\ServiceReference1\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReference1\DatabaseManager.ServiceReference1.AnalogInput.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -277,6 +280,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference1\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference2\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ServiceReference2\DatabaseManager.ServiceReference2.AnalogInput.datasource">

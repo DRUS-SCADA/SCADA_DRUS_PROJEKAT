@@ -26,6 +26,7 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="818928d3-395f-4958-b883-5ec5a337cd6d" SourceId="1" SourceUrl="http://localhost:4000/DatabaseManagerService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="3d6137e4-b66f-4d02-a655-ede0927dcf6a" SourceId="1" SourceUrl="http://localhost:4000/DatabaseManagerService/mex" />
     <MetadataFile FileName="SCADACore.xsd" MetadataType="Schema" ID="42f5a42b-f684-46d4-aca9-0be44f755dfb" SourceId="1" SourceUrl="http://localhost:4000/DatabaseManagerService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="26877184-279b-47a4-b954-d53739d299c9" SourceId="1" SourceUrl="http://localhost:4000/DatabaseManagerService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

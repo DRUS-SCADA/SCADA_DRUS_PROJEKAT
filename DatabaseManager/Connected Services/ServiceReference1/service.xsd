@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.datacontract.org/2004/07/SCADACore" />
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="Registration">
     <xs:complexType>
       <xs:sequence>
@@ -328,6 +329,62 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="loadAdressAI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AI" nillable="true" type="q19:ArrayOfKeyValueOfstringboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loadAdressAIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressAIResult" nillable="true" type="q20:ArrayOfKeyValueOfstringboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loadAdressDI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DI" nillable="true" type="q21:ArrayOfKeyValueOfstringboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loadAdressDIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressDIResult" nillable="true" type="q22:ArrayOfKeyValueOfstringboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loadAdressAO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AO" nillable="true" type="q23:ArrayOfKeyValueOfstringboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loadAdressAOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressAOResult" nillable="true" type="q24:ArrayOfKeyValueOfstringboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loadAdressDO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DO" nillable="true" type="q25:ArrayOfKeyValueOfstringboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="loadAdressDOResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressDOResult" nillable="true" type="q26:ArrayOfKeyValueOfstringboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SubscriberInitialization">
     <xs:complexType>
       <xs:sequence />
@@ -341,14 +398,28 @@
   <xs:element name="OnValueReceived">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q19:AnalogInput" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q27:AnalogInput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="OnValueReceived1">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q20:DigitalInput" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q28:DigitalInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnRemoveDI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q29:DigitalInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnRemoveAI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q30:AnalogInput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

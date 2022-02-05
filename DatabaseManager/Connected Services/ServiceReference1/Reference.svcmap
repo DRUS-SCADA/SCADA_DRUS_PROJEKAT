@@ -26,6 +26,7 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="959daca2-207d-4ea8-a12f-417ae7ab1222" SourceId="1" SourceUrl="http://localhost:4000/AutentificationService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2e3ae4e2-0c3b-4253-94c3-452fd14e6409" SourceId="1" SourceUrl="http://localhost:4000/AutentificationService/mex" />
     <MetadataFile FileName="SCADACore.xsd" MetadataType="Schema" ID="db22d5bb-cbc2-4c24-b3a6-b1afdd18a2fa" SourceId="1" SourceUrl="http://localhost:4000/AutentificationService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="2b8384e2-a7ff-49bc-ad90-ee47948e667b" SourceId="1" SourceUrl="http://localhost:4000/AutentificationService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

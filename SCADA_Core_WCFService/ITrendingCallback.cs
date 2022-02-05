@@ -13,5 +13,9 @@ namespace SCADACore
         void OnValueReceived(AnalogInput AI);
         [OperationContract(IsOneWay = true)]
         void OnValueReceived1(DigitalInput DI);
+        [OperationContract(IsOneWay = true)]
+        void OnRemoveDI(DigitalInput DI);
+        [OperationContract(IsOneWay = true)]
+        void OnRemoveAI(AnalogInput AI);
     }
 }

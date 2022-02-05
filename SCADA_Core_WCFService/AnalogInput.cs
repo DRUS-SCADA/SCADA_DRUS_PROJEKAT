@@ -34,7 +34,6 @@ namespace SCADACore
         [DataMember]
         public double AnalogValue { get; set; }
 
-        //public event PropertyChangedEventHandler PropertyChanged;
 
         public AnalogInput() { }
 
@@ -49,19 +48,5 @@ namespace SCADACore
             this.HighLimit = high;
             this.Units = units;
         }
-        /*[DataMember]
-        public double AnalogValue
-        {
-            get { return analogValue; }
-            set
-            {
-                analogValue = value;
-                OnPropertyChanged("AnalogValue");
-            }
-        }
-        private void OnPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }*/
     }
 }

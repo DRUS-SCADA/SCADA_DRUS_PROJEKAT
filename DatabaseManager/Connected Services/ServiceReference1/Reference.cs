@@ -825,6 +825,30 @@ namespace DatabaseManager.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/startPLC", ReplyAction="http://tempuri.org/IDatabaseManager/startPLCResponse")]
         System.Threading.Tasks.Task startPLCAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAI", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAIResponse")]
+        System.Collections.Generic.Dictionary<string, bool> loadAdressAI(System.Collections.Generic.Dictionary<string, bool> AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAI", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAIResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAIAsync(System.Collections.Generic.Dictionary<string, bool> AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDI", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDIResponse")]
+        System.Collections.Generic.Dictionary<string, bool> loadAdressDI(System.Collections.Generic.Dictionary<string, bool> DI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDI", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDIResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDIAsync(System.Collections.Generic.Dictionary<string, bool> DI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAO", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAOResponse")]
+        System.Collections.Generic.Dictionary<string, bool> loadAdressAO(System.Collections.Generic.Dictionary<string, bool> AO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAO", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAOResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAOAsync(System.Collections.Generic.Dictionary<string, bool> AO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDO", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDOResponse")]
+        System.Collections.Generic.Dictionary<string, bool> loadAdressDO(System.Collections.Generic.Dictionary<string, bool> DO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDO", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDOResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDOAsync(System.Collections.Generic.Dictionary<string, bool> DO);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1021,6 +1045,38 @@ namespace DatabaseManager.ServiceReference1 {
         public System.Threading.Tasks.Task startPLCAsync() {
             return base.Channel.startPLCAsync();
         }
+        
+        public System.Collections.Generic.Dictionary<string, bool> loadAdressAI(System.Collections.Generic.Dictionary<string, bool> AI) {
+            return base.Channel.loadAdressAI(AI);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAIAsync(System.Collections.Generic.Dictionary<string, bool> AI) {
+            return base.Channel.loadAdressAIAsync(AI);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, bool> loadAdressDI(System.Collections.Generic.Dictionary<string, bool> DI) {
+            return base.Channel.loadAdressDI(DI);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDIAsync(System.Collections.Generic.Dictionary<string, bool> DI) {
+            return base.Channel.loadAdressDIAsync(DI);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, bool> loadAdressAO(System.Collections.Generic.Dictionary<string, bool> AO) {
+            return base.Channel.loadAdressAO(AO);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAOAsync(System.Collections.Generic.Dictionary<string, bool> AO) {
+            return base.Channel.loadAdressAOAsync(AO);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, bool> loadAdressDO(System.Collections.Generic.Dictionary<string, bool> DO) {
+            return base.Channel.loadAdressDO(DO);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDOAsync(System.Collections.Generic.Dictionary<string, bool> DO) {
+            return base.Channel.loadAdressDOAsync(DO);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1042,6 +1098,12 @@ namespace DatabaseManager.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnValueReceived1")]
         void OnValueReceived1(DatabaseManager.ServiceReference1.DigitalInput DI);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnRemoveDI")]
+        void OnRemoveDI(DatabaseManager.ServiceReference1.DigitalInput DI);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnRemoveAI")]
+        void OnRemoveAI(DatabaseManager.ServiceReference1.AnalogInput AI);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

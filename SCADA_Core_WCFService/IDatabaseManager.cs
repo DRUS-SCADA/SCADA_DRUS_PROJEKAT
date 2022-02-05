@@ -52,5 +52,13 @@ namespace SCADACore
         void LoadThreadAi();
         [OperationContract]
         void startPLC();
+        [OperationContract]
+        Dictionary<string, bool> loadAdressAI(Dictionary<string,bool> AI);
+        [OperationContract]
+        Dictionary<string, bool> loadAdressDI(Dictionary<string, bool> DI);
+        [OperationContract]
+        Dictionary<string, bool> loadAdressAO(Dictionary<string, bool> AO);
+        [OperationContract]
+        Dictionary<string, bool> loadAdressDO(Dictionary<string, bool> DO);
     }
 }

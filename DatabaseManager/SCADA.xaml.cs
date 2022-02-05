@@ -42,10 +42,15 @@ namespace DatabaseManager
             MainWindow.proxy2.startPLC();
             dataGrid.ItemsSource = MainWindow.proxy2.LoadDataToGridDI();
             MainWindow.proxy2.LoadThreadDi();
+            adressDI = MainWindow.proxy2.loadAdressDI(adressDI);
             dataGrid1.ItemsSource = MainWindow.proxy2.LoadDataToGrid();
+            adressDO = MainWindow.proxy2.loadAdressDO(adressDO);
             dataGrid2.ItemsSource = MainWindow.proxy2.LoadDataToGridAI();
             MainWindow.proxy2.LoadThreadAi();
+            adressAI = MainWindow.proxy2.loadAdressAI(adressAI);
             dataGrid3.ItemsSource = MainWindow.proxy2.LoadDataToGridAO();
+            adressAO = MainWindow.proxy2.loadAdressAO(adressAO);
+
             this.DataContext = this;
             
         }

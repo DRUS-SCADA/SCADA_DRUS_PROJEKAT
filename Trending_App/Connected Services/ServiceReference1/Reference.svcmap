@@ -26,6 +26,7 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="bc6204c5-60be-45b1-9528-b250cf315a99" SourceId="1" SourceUrl="http://localhost:4000/TrendingService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="95f8b2fb-d459-4f3b-9f26-a46f63e6dfef" SourceId="1" SourceUrl="http://localhost:4000/TrendingService/mex" />
     <MetadataFile FileName="SCADACore.xsd" MetadataType="Schema" ID="e458847e-9080-4168-991d-7983a47ddae2" SourceId="1" SourceUrl="http://localhost:4000/TrendingService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="66aefa89-3df5-447e-abce-fd3eb944f0fd" SourceId="1" SourceUrl="http://localhost:4000/TrendingService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

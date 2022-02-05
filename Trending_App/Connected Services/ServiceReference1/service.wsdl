@@ -195,11 +195,58 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ITrending_OnRemoveDI_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_ITrending_OnRemoveAI_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import namespace="http://schemas.datacontract.org/2004/07/SCADACore" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAuthentication_Registration_InputMessage">
@@ -358,6 +405,30 @@
   <wsdl:message name="IDatabaseManager_startPLC_OutputMessage">
     <wsdl:part name="parameters" element="tns:startPLCResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAI_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressDI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressDIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAO_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAO" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAOResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressDO_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressDO" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressDO_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressDOResponse" />
+  </wsdl:message>
   <wsdl:message name="ITrending_SubscriberInitialization_InputMessage">
     <wsdl:part name="parameters" element="tns:SubscriberInitialization" />
   </wsdl:message>
@@ -369,6 +440,12 @@
   </wsdl:message>
   <wsdl:message name="ITrending_OnValueReceived1_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OnValueReceived1" />
+  </wsdl:message>
+  <wsdl:message name="ITrending_OnRemoveDI_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnRemoveDI" />
+  </wsdl:message>
+  <wsdl:message name="ITrending_OnRemoveAI_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OnRemoveAI" />
   </wsdl:message>
   <wsdl:portType name="IAuthentication">
     <wsdl:operation name="Registration">
@@ -477,6 +554,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/startPLC" message="tns:IDatabaseManager_startPLC_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/startPLCResponse" message="tns:IDatabaseManager_startPLC_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="loadAdressAI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAI" message="tns:IDatabaseManager_loadAdressAI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAIResponse" message="tns:IDatabaseManager_loadAdressAI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDI" message="tns:IDatabaseManager_loadAdressDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDIResponse" message="tns:IDatabaseManager_loadAdressDI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressAO">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAO" message="tns:IDatabaseManager_loadAdressAO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAOResponse" message="tns:IDatabaseManager_loadAdressAO_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressDO">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDO" message="tns:IDatabaseManager_loadAdressDO_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDOResponse" message="tns:IDatabaseManager_loadAdressDO_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ITrending">
     <wsdl:operation name="SubscriberInitialization">
@@ -488,6 +581,12 @@
     </wsdl:operation>
     <wsdl:operation name="OnValueReceived1">
       <wsdl:output wsaw:Action="http://tempuri.org/ITrending/OnValueReceived1" message="tns:ITrending_OnValueReceived1_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnRemoveDI">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrending/OnRemoveDI" message="tns:ITrending_OnRemoveDI_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OnRemoveAI">
+      <wsdl:output wsaw:Action="http://tempuri.org/ITrending/OnRemoveAI" message="tns:ITrending_OnRemoveAI_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAuthentication" type="tns:IAuthentication">
@@ -729,6 +828,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="loadAdressAI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressAI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressDI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressDI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressAO">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressAO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressDO">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressDO" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WSDualHttpBinding_ITrending" type="tns:ITrending">
     <wsp:PolicyReference URI="#WSDualHttpBinding_ITrending_policy" />
@@ -755,6 +890,20 @@
       <soap12:operation soapAction="http://tempuri.org/ITrending/OnValueReceived1" style="document" />
       <wsdl:output>
         <wsp:PolicyReference URI="#WSDualHttpBinding_ITrending_OnValueReceived1_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnRemoveDI">
+      <soap12:operation soapAction="http://tempuri.org/ITrending/OnRemoveDI" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ITrending_OnRemoveDI_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OnRemoveAI">
+      <soap12:operation soapAction="http://tempuri.org/ITrending/OnRemoveAI" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_ITrending_OnRemoveAI_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

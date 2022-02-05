@@ -20,8 +20,12 @@ namespace SCADACore
         static ITrendingCallback proxy = null;
         delegate void ValueHandler(AnalogInput AI);
         delegate void ValueHandler1(DigitalInput DI);
+        delegate void RemoveHandler(AnalogInput AI);
+        delegate void RemoveHandler1(DigitalInput DI);
         static event ValueHandler valueReceived = null;
         static event ValueHandler1 valueReceived1 = null;
+        static event RemoveHandler valueRemoved = null;
+        static event RemoveHandler1 valueRemoved1 = null;
 
         #region IAuthentication
 
@@ -338,6 +342,50 @@ namespace SCADACore
         {
             PLC.StartPLCSimulator();
         }
+        public Dictionary<string, bool> loadAdressAI(Dictionary<string, bool>AI)
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var i in db.analogInputs)
+                {
+                    AI[i.IOAdress] = true;
+                }
+            }
+            return AI;
+        }
+        public Dictionary<string, bool> loadAdressAO(Dictionary<string, bool> AO)
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var i in db.analogOutputs)
+                {
+                    AO[i.IOAdress] = true;
+                }
+            }
+            return AO;
+        }
+        public Dictionary<string, bool> loadAdressDI(Dictionary<string, bool> DI)
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var i in db.digitalInputs)
+                {
+                    DI[i.IOAdress] = true;
+                }
+            }
+            return DI;
+        }
+        public Dictionary<string, bool> loadAdressDO(Dictionary<string, bool> DO)
+        {
+            using (var db = new TagContext())
+            {
+                foreach (var i in db.digitalOutputs)
+                {
+                    DO[i.IO_Adress] = true;
+                }
+            }
+            return DO;
+        }
         #endregion
 
         #region RemoveTags
@@ -369,8 +417,10 @@ namespace SCADACore
             {
                 dictAi[AI.TagName].Abort();
                 db.analogInputs.Attach(AI);
+                valueRemoved?.Invoke(AI);
                 db.analogInputs.Remove(AI);
                 db.SaveChanges();
+                
             }
             
         }
@@ -381,6 +431,7 @@ namespace SCADACore
             {
                 dictDi[DI.TagName].Abort();
                 db.digitalInputs.Attach(DI);
+                valueRemoved1?.Invoke(DI);
                 db.digitalInputs.Remove(DI);
                 db.SaveChanges();
             }
@@ -392,9 +443,22 @@ namespace SCADACore
         {
             while (true)
             {
+                using (var db = new TagContext())
+                {
+                    foreach (var i in db.digitalInputs)
+                    {
+                        if (i.Id == di.Id)
+                        {
+                            di.ONOFF_scan = i.ONOFF_scan;
+                        }
+                    }
+                }
                 di.digitalValue = PLC.GetValue(di.IOAdress);
                 Thread.Sleep(Convert.ToInt32(di.ScanTime) * 1000);
-                valueReceived1?.Invoke(di);
+                if (di.ONOFF_scan == true)
+                {
+                    valueReceived1?.Invoke(di);
+                }
             }
         }
 
@@ -402,9 +466,22 @@ namespace SCADACore
         {
             while (true)
             {
+                using (var db = new TagContext())
+                {
+                    foreach (var i in db.analogInputs)
+                    {
+                        if (i.Id == ai.Id)
+                        {
+                            ai.ONOFF_scan = i.ONOFF_scan;
+                        }
+                    }
+                }
                 ai.AnalogValue = PLC.GetValue(ai.IOAdress);
                 Thread.Sleep(Convert.ToInt32(ai.ScanTime) * 1000);
-                valueReceived?.Invoke(ai);
+                if (ai.ONOFF_scan == true)
+                {
+                    valueReceived?.Invoke(ai);
+                }
             }
         }
 
@@ -441,6 +518,8 @@ namespace SCADACore
             proxy = OperationContext.Current.GetCallbackChannel<ITrendingCallback>();
             valueReceived += proxy.OnValueReceived;
             valueReceived1 += proxy.OnValueReceived1;
+            valueRemoved += proxy.OnRemoveAI;
+            valueRemoved1 += proxy.OnRemoveDI;
         }
         #endregion
     }
