@@ -87,5 +87,23 @@ namespace Trending_App
                 }
             }
         }
+        public void OnClearAI()
+        {
+            foreach (var i in MainWindow.analogInputs.ToList())
+            {
+                MainWindow.analogInputs.Remove(i); 
+                MainWindow.analogInputs.Clear();
+            }
+            
+        }
+        public void OnClearDI()
+        {
+            foreach (var i in MainWindow.digitalInputs.ToList())
+            {
+                MainWindow.digitalInputs.Remove(i);
+                MainWindow.digitalInputs.Clear();
+            }
+            
+        }
     }
 }

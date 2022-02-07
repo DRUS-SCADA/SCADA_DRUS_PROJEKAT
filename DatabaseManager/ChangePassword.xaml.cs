@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace DatabaseManager
 {
     /// <summary>
@@ -19,10 +20,14 @@ namespace DatabaseManager
     /// </summary>
     public partial class ChangePassword : Window
     {
+        string token1;
+        SCADA scada1;
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
-        public ChangePassword()
+        public ChangePassword(string token, SCADA scada)
         {
             InitializeComponent();
+            scada1 = scada;
+            token1 = token;
         }
 
         private void PasswordChangeClick(object sender, RoutedEventArgs e)
@@ -36,8 +41,12 @@ namespace DatabaseManager
                 {
                     MessageBox.Show("Password succesfully changed!");
                     this.Close();
-                    
-                }else
+                    MainWindow.proxy.Logout(token1);
+                    MainWindow.proxy2.clearData();
+                    scada1.Close();
+                    mw.ShowDialog();
+                }
+                else
                 {
                     MessageBox.Show("Password was not changed");
                 }

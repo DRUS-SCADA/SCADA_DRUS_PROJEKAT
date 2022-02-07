@@ -17,5 +17,9 @@ namespace SCADACore
         void OnRemoveDI(DigitalInput DI);
         [OperationContract(IsOneWay = true)]
         void OnRemoveAI(AnalogInput AI);
+        [OperationContract(IsOneWay = true)]
+        void OnClearAI();
+        [OperationContract(IsOneWay = true)]
+        void OnClearDI();
     }
 }

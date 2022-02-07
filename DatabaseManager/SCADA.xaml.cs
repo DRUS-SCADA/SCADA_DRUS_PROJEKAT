@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DatabaseManager.ServiceReference1;
 
+
 namespace DatabaseManager
 {
     /// <summary>
@@ -26,6 +27,7 @@ namespace DatabaseManager
         public AnalogOutput SelectedAO { get; set; }
         public AnalogInput SelectedAI { get; set; }
         public DigitalInput SelectedDI { get; set; }
+
 
         public static Dictionary<string, bool> adressAO = new Dictionary<string, bool> { ["ADDR005"] = false, ["ADDR006"] = false, ["ADDR007"] = false, ["ADDR008"] = false };
         public static Dictionary<string, bool> adressAI = new Dictionary<string, bool> { ["ADDR001"] = false, ["ADDR002"] = false, ["ADDR003"] = false, ["ADDR004"] = false };
@@ -98,6 +100,7 @@ namespace DatabaseManager
             bool logout = MainWindow.proxy.Logout(token1);
             if (logout == true)
             {
+                MainWindow.proxy2.clearData();
                 mw.TextBox_GotFocus2(sender,e);
                 this.Close();
                 mw.Show();
@@ -119,6 +122,8 @@ namespace DatabaseManager
                 bool delete = MainWindow.proxy.DeleteProfile(username, password);
                 if (delete == true)
                 {
+                    MainWindow.proxy.Logout(token1);
+                    MainWindow.proxy2.clearData();
                     MessageBox.Show("Profile succesfully deleted!");
                     this.Close();
                     mw.Show();
@@ -133,7 +138,7 @@ namespace DatabaseManager
 
         private void PasswordChange(object sender, RoutedEventArgs e)
         {
-            ChangePassword changePass = new ChangePassword();
+            ChangePassword changePass = new ChangePassword(token1, this);
             changePass.Show();
         }
 

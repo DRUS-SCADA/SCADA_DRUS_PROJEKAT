@@ -385,6 +385,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="clearData">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="clearDataResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SubscriberInitialization">
     <xs:complexType>
       <xs:sequence />
@@ -421,6 +431,16 @@
       <xs:sequence>
         <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q30:AnalogInput" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnClearAI">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnClearDI">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

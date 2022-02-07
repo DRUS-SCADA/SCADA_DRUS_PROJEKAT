@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.ServiceModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Simulation;
 
 namespace SCADACore
@@ -22,10 +26,12 @@ namespace SCADACore
         delegate void ValueHandler1(DigitalInput DI);
         delegate void RemoveHandler(AnalogInput AI);
         delegate void RemoveHandler1(DigitalInput DI);
+        delegate void ClearGrid();
         static event ValueHandler valueReceived = null;
         static event ValueHandler1 valueReceived1 = null;
         static event RemoveHandler valueRemoved = null;
         static event RemoveHandler1 valueRemoved1 = null;
+        static event ClearGrid clearGrid = null;
 
         #region IAuthentication
 
@@ -141,6 +147,19 @@ namespace SCADACore
 
         public bool Logout(string token)
         {
+            using (var db = new TagContext())
+            {
+                foreach (var i in db.digitalInputs)
+                {
+                    dictDi[i.TagName].Abort();
+                    dictDi.Remove(i.TagName);
+                }
+                foreach (var j in db.analogInputs)
+                {
+                    dictAi[j.TagName].Abort();
+                    dictAi.Remove(j.TagName);
+                }
+            }
             return autentificated_users.Remove(token);
         }
         #endregion
@@ -204,7 +223,7 @@ namespace SCADACore
         #endregion
 
         #region Add Tags
-        
+
         public void AddAO(AnalogOutput AO)
         {
             using (var db = new TagContext())
@@ -228,7 +247,7 @@ namespace SCADACore
             using (var db = new TagContext())
             {
                 db.analogInputs.Add(AI);
-                db.SaveChanges(); 
+                db.SaveChanges();
                 Thread thread = new Thread(() => Simulation1(AI));
                 dictAi.Add(AI.TagName, thread);
                 thread.Start();
@@ -248,6 +267,7 @@ namespace SCADACore
         #endregion
 
         #region HelpMethods
+        
         public IEnumerable<DigitalOutput> LoadDataToGrid()
         {
             using (var db = new TagContext())
@@ -416,6 +436,7 @@ namespace SCADACore
             using (var db = new TagContext())
             {
                 dictAi[AI.TagName].Abort();
+                dictAi.Remove(AI.TagName);
                 db.analogInputs.Attach(AI);
                 valueRemoved?.Invoke(AI);
                 db.analogInputs.Remove(AI);
@@ -430,6 +451,7 @@ namespace SCADACore
             using (var db = new TagContext())
             {
                 dictDi[DI.TagName].Abort();
+                dictDi.Remove(DI.TagName);
                 db.digitalInputs.Attach(DI);
                 valueRemoved1?.Invoke(DI);
                 db.digitalInputs.Remove(DI);
@@ -520,7 +542,14 @@ namespace SCADACore
             valueReceived1 += proxy.OnValueReceived1;
             valueRemoved += proxy.OnRemoveAI;
             valueRemoved1 += proxy.OnRemoveDI;
+            clearGrid += proxy.OnClearAI;
+            clearGrid += proxy.OnClearDI;
         }
+        public void clearData()
+        {
+            clearGrid?.Invoke();
+        }
+        
         #endregion
     }
 }

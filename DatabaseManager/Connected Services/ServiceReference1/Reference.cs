@@ -849,6 +849,12 @@ namespace DatabaseManager.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDO", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDOResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDOAsync(System.Collections.Generic.Dictionary<string, bool> DO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/clearData", ReplyAction="http://tempuri.org/IDatabaseManager/clearDataResponse")]
+        void clearData();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/clearData", ReplyAction="http://tempuri.org/IDatabaseManager/clearDataResponse")]
+        System.Threading.Tasks.Task clearDataAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1077,6 +1083,14 @@ namespace DatabaseManager.ServiceReference1 {
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDOAsync(System.Collections.Generic.Dictionary<string, bool> DO) {
             return base.Channel.loadAdressDOAsync(DO);
         }
+        
+        public void clearData() {
+            base.Channel.clearData();
+        }
+        
+        public System.Threading.Tasks.Task clearDataAsync() {
+            return base.Channel.clearDataAsync();
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1104,6 +1118,12 @@ namespace DatabaseManager.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnRemoveAI")]
         void OnRemoveAI(DatabaseManager.ServiceReference1.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnClearAI")]
+        void OnClearAI();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnClearDI")]
+        void OnClearDI();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
