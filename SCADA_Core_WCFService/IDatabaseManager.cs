@@ -62,5 +62,9 @@ namespace SCADACore
         Dictionary<string, bool> loadAdressDO(Dictionary<string, bool> DO);
         [OperationContract]
         void clearData();
+        [OperationContract]
+        void WriteXML();
+        [OperationContract]
+        void ReadXML();
     }
 }

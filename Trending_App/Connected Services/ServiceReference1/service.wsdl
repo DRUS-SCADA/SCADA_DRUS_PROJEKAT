@@ -481,6 +481,18 @@
   <wsdl:message name="IDatabaseManager_clearData_OutputMessage">
     <wsdl:part name="parameters" element="tns:clearDataResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_WriteXML_InputMessage">
+    <wsdl:part name="parameters" element="tns:WriteXML" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_WriteXML_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WriteXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_ReadXML_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadXML" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_ReadXML_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadXMLResponse" />
+  </wsdl:message>
   <wsdl:message name="ITrending_SubscriberInitialization_InputMessage">
     <wsdl:part name="parameters" element="tns:SubscriberInitialization" />
   </wsdl:message>
@@ -631,6 +643,14 @@
     <wsdl:operation name="clearData">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/clearData" message="tns:IDatabaseManager_clearData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/clearDataResponse" message="tns:IDatabaseManager_clearData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WriteXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/WriteXML" message="tns:IDatabaseManager_WriteXML_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/WriteXMLResponse" message="tns:IDatabaseManager_WriteXML_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadXML">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/ReadXML" message="tns:IDatabaseManager_ReadXML_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/ReadXMLResponse" message="tns:IDatabaseManager_ReadXML_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ITrending">
@@ -934,6 +954,24 @@
     </wsdl:operation>
     <wsdl:operation name="clearData">
       <soap:operation soapAction="http://tempuri.org/IDatabaseManager/clearData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WriteXML">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/WriteXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadXML">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/ReadXML" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

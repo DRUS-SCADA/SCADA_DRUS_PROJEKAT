@@ -855,6 +855,18 @@ namespace DatabaseManager.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/clearData", ReplyAction="http://tempuri.org/IDatabaseManager/clearDataResponse")]
         System.Threading.Tasks.Task clearDataAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/WriteXML", ReplyAction="http://tempuri.org/IDatabaseManager/WriteXMLResponse")]
+        void WriteXML();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/WriteXML", ReplyAction="http://tempuri.org/IDatabaseManager/WriteXMLResponse")]
+        System.Threading.Tasks.Task WriteXMLAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ReadXML", ReplyAction="http://tempuri.org/IDatabaseManager/ReadXMLResponse")]
+        void ReadXML();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ReadXML", ReplyAction="http://tempuri.org/IDatabaseManager/ReadXMLResponse")]
+        System.Threading.Tasks.Task ReadXMLAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1090,6 +1102,22 @@ namespace DatabaseManager.ServiceReference1 {
         
         public System.Threading.Tasks.Task clearDataAsync() {
             return base.Channel.clearDataAsync();
+        }
+        
+        public void WriteXML() {
+            base.Channel.WriteXML();
+        }
+        
+        public System.Threading.Tasks.Task WriteXMLAsync() {
+            return base.Channel.WriteXMLAsync();
+        }
+        
+        public void ReadXML() {
+            base.Channel.ReadXML();
+        }
+        
+        public System.Threading.Tasks.Task ReadXMLAsync() {
+            return base.Channel.ReadXMLAsync();
         }
     }
     

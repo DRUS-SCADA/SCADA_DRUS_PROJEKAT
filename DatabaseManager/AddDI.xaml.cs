@@ -40,8 +40,9 @@ namespace DatabaseManager
             string desc = Descriptionbox.Text;
             string combo = IOCombo.Text;
             bool onoff = Convert.ToBoolean(ONOFF_scan.IsChecked);
+            double scanTime = Convert.ToDouble(Scanbox.Text);
             SCADA.adressDI[combo] = true;
-            DigitalInput digitalInput = new DigitalInput { TagName = tag, Description = desc, ONOFF_scan = onoff, IOAdress = combo};
+            DigitalInput digitalInput = new DigitalInput { TagName = tag, Description = desc, ONOFF_scan = onoff, IOAdress = combo, ScanTime = scanTime};
             MainWindow.proxy2.AddDI(digitalInput);
             
             this.Close();

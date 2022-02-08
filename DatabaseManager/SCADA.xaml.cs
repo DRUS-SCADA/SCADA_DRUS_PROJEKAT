@@ -41,6 +41,7 @@ namespace DatabaseManager
         {
             InitializeComponent();
             token1 = token;
+            //MainWindow.proxy2.ReadXML();
             MainWindow.proxy2.startPLC();
             dataGrid.ItemsSource = MainWindow.proxy2.LoadDataToGridDI();
             MainWindow.proxy2.LoadThreadDi();
@@ -91,6 +92,8 @@ namespace DatabaseManager
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow.proxy.Logout(token1);
+            MainWindow.proxy2.WriteXML();
             this.Close();
             mw.Show();
         }
