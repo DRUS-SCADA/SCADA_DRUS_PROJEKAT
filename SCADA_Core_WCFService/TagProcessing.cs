@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
@@ -38,6 +39,10 @@ namespace SCADACore
         public static List<AnalogOutput> analogOutputs = new List<AnalogOutput>();
         public static List<DigitalInput> digitalInputs = new List<DigitalInput>();
         public static List<DigitalOutput> digitalOutputs = new List<DigitalOutput>();
+        public static ObservableCollection<AnalogInput> analogInputsObservable = new ObservableCollection<AnalogInput>();
+        public static ObservableCollection<AnalogOutput> analogOutputsObservable = new ObservableCollection<AnalogOutput>();
+        public static ObservableCollection<DigitalInput> digitalInputsObservable = new ObservableCollection<DigitalInput>();
+        public static ObservableCollection<DigitalOutput> digitalOutputsObservable = new ObservableCollection<DigitalOutput>();
 
         #region IAuthentication
 
@@ -220,7 +225,7 @@ namespace SCADACore
 
         public void AddAO(AnalogOutput AO)
         {
-            analogOutputs.Add(AO);
+            analogOutputsObservable.Add(AO);
             using (var db = new TagContext())
             {
                 db.analogOutputs.Add(AO);
@@ -230,7 +235,7 @@ namespace SCADACore
 
         public void AddDO(DigitalOutput DO)
         {
-            digitalOutputs.Add(DO);
+            digitalOutputsObservable.Add(DO);
             using (var db = new TagContext())
             {
                 db.digitalOutputs.Add(DO);
@@ -240,7 +245,7 @@ namespace SCADACore
 
         public void AddAI(AnalogInput AI)
         {
-            analogInputs.Add(AI);
+            analogInputsObservable.Add(AI);
             using (var db = new TagContext())
             {
                 db.analogInputs.Add(AI);
@@ -252,7 +257,7 @@ namespace SCADACore
         }
         public void AddDI(DigitalInput DI)
         {
-            digitalInputs.Add(DI);
+            digitalInputsObservable.Add(DI);
             using (var db = new TagContext())
             {
                 db.digitalInputs.Add(DI);
@@ -317,7 +322,15 @@ namespace SCADACore
         }
         public void SaveChanges(AnalogOutput AO,double change)
         {
-            AO.InitialValue = change;
+            foreach (var i in analogOutputsObservable.ToList())
+            {
+                if (i.TagName == AO.TagName)
+                {
+                    i.InitialValue = change;
+                    break;
+                }
+            }
+            /*AO.InitialValue = change;
             using (var db = new TagContext())
             {
                 foreach (var i in db.analogOutputs)
@@ -328,11 +341,19 @@ namespace SCADACore
                     }
                 }
                 db.SaveChanges();
-            }
+            }*/
         }
         public void SaveChangesDO(DigitalOutput DO, double change)
         {
-            DO.initial_Value = change;
+            foreach (var i in digitalOutputsObservable.ToList())
+            {
+                if (i.tag_name == DO.tag_name)
+                {
+                    i.initial_Value = change;
+                    break;
+                }
+            }
+            /*DO.initial_Value = change;
             using (var db = new TagContext())
             {
                 foreach (var i in db.digitalOutputs)
@@ -343,11 +364,19 @@ namespace SCADACore
                     }
                 }
                 db.SaveChanges();
-            }
+            }*/
         }
         public void SaveChangesAI(AnalogInput AI, bool change)
         {
-            AI.ONOFF_scan = change;
+            foreach (var i in analogInputsObservable.ToList())
+            {
+                if (i.TagName == AI.TagName)
+                {
+                    i.ONOFF_scan = change;
+                    break;
+                }
+            }
+            /*AI.ONOFF_scan = change;
             using (var db = new TagContext())
             {
                 foreach (var i in db.analogInputs)
@@ -358,12 +387,20 @@ namespace SCADACore
                     }
                 }
                 db.SaveChanges();
-            }
+            }*/
         }
 
         public void SaveChangesDI(DigitalInput DI, bool change)
         {
-            DI.ONOFF_scan = change;
+            foreach (var i in digitalInputsObservable.ToList())
+            {
+                if (i.TagName == DI.TagName)
+                {
+                    i.ONOFF_scan = change;
+                    break;
+                }
+            }
+            /*DI.ONOFF_scan = change;
             using (var db = new TagContext())
             {
                 foreach (var i in db.digitalInputs)
@@ -374,7 +411,7 @@ namespace SCADACore
                     }
                 }
                 db.SaveChanges();
-            }
+            }*/
         }
         public void startPLC()
         {
@@ -429,11 +466,11 @@ namespace SCADACore
         #region RemoveTags
         public void removeDO(DigitalOutput DO)
         {
-            foreach (var i in digitalOutputs)
+            foreach (var i in digitalOutputsObservable.ToList())
             {
                 if (i.tag_name == DO.tag_name)
                 {
-                    digitalOutputs.Remove(i);
+                    digitalOutputsObservable.Remove(i);
                     break;
                 }
             }
@@ -449,11 +486,11 @@ namespace SCADACore
         
         public void removeAO(AnalogOutput AO)
         {
-            foreach (var i in analogOutputs)
+            foreach (var i in analogOutputsObservable.ToList())
             {
                 if (i.TagName == AO.TagName)
                 {
-                    analogOutputs.Remove(i);
+                    analogOutputsObservable.Remove(i);
                     break;
                 }
             }
@@ -467,11 +504,11 @@ namespace SCADACore
 
         public void removeAI(AnalogInput AI)
         {
-            foreach (var i in analogInputs)
+            foreach (var i in analogInputsObservable.ToList())
             {
                 if (i.TagName == AI.TagName)
                 {
-                    analogInputs.Remove(i);
+                    analogInputsObservable.Remove(i);
                     break;
                 }
             }
@@ -487,11 +524,11 @@ namespace SCADACore
         }
         public void removeDI(DigitalInput DI)
         {
-            foreach (var i in digitalInputs)
+            foreach (var i in digitalInputsObservable.ToList())
             {
                 if (i.TagName == DI.TagName)
                 {
-                    digitalInputs.Remove(i);
+                    digitalInputsObservable.Remove(i);
                     break;
                 }
             }
@@ -512,16 +549,6 @@ namespace SCADACore
         {
             while (true)
             {
-                using (var db = new TagContext())
-                {
-                    foreach (var i in db.digitalInputs)
-                    {
-                        if (i.Id == di.Id)
-                        {
-                            di.ONOFF_scan = i.ONOFF_scan;
-                        }
-                    }
-                }
                 di.digitalValue = PLC.GetValue(di.IOAdress);
                 Thread.Sleep(Convert.ToInt32(di.ScanTime) * 1000);
                 if (di.ONOFF_scan == true)
@@ -535,16 +562,6 @@ namespace SCADACore
         {
             while (true)
             {
-                using (var db = new TagContext())
-                {
-                    foreach (var i in db.analogInputs)
-                    {
-                        if (i.Id == ai.Id)
-                        {
-                            ai.ONOFF_scan = i.ONOFF_scan;
-                        }
-                    }
-                }
                 ai.AnalogValue = PLC.GetValue(ai.IOAdress);
                 Thread.Sleep(Convert.ToInt32(ai.ScanTime) * 1000);
                 if (ai.ONOFF_scan == true)
@@ -605,7 +622,7 @@ namespace SCADACore
             XDocument document = new XDocument(
                 new XElement("RootName",
                 new XElement("AnalogInputs",
-                    (from analogInput in analogInputs
+                    (from analogInput in analogInputsObservable.ToList()
                      select new XElement("AnalogInput",
                           new XElement("TagName", analogInput.TagName),
                           new XElement("Description", analogInput.Description),
@@ -620,7 +637,7 @@ namespace SCADACore
                                          ),
 
                 new XElement("AnalogOutputs",
-                    (from analogOutput in analogOutputs
+                    (from analogOutput in analogOutputsObservable.ToList()
                      select new XElement("AnalogOutput",
                           new XElement("TagName", analogOutput.TagName),
                           new XElement("Description", analogOutput.Description),
@@ -632,7 +649,7 @@ namespace SCADACore
                             )
                                          ),
                 new XElement("DigitalInputs",
-                    (from digitalInput in digitalInputs
+                    (from digitalInput in digitalInputsObservable.ToList()
                      select new XElement("DigitalInput",
                           new XElement("TagName", digitalInput.TagName),
                           new XElement("Description", digitalInput.Description),
@@ -643,7 +660,7 @@ namespace SCADACore
                             )
                                          ),
                 new XElement("DigitalOutputs",
-                    (from digitalOutput in digitalOutputs
+                    (from digitalOutput in digitalOutputsObservable.ToList()
                      select new XElement("DigitalOutput",
                           new XElement("TagName", digitalOutput.tag_name),
                           new XElement("Description", digitalOutput.description),

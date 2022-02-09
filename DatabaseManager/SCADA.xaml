@@ -62,7 +62,7 @@
                             <DataGridTextColumn Header="Description"  Width="*" Binding="{Binding Path=Description}"/>
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding scantime}" Width="*"/>-->
                             <DataGridTextColumn Header="IO Adress"  Width="*" Binding="{Binding Path=IOAdress}"/>
-                            <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan ,UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="False" Width="*" />
+                            <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan ,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  IsReadOnly="False" Width="*" />
                             
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -112,7 +112,7 @@
                             <DataGridTextColumn Header="Tag name" Binding="{Binding tag_name}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding description}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="IO Adress" Binding="{Binding IO_Adress}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Initial Value" Binding="{Binding initial_Value, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="*"/>
+                            <DataGridTextColumn Header="Initial Value" Binding="{Binding initial_Value, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" IsReadOnly="False" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -165,7 +165,7 @@
                             <DataGridTextColumn Header="Units" Binding="{Binding Units}" Width="*"/>
                             <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" Width="*"/>
                             <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" Width="*"/>
-                            <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="False" Width="*" />
+                            <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"  IsReadOnly="False" Width="*" />
                             
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -216,7 +216,7 @@
                             <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAdress}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Initial Value" Binding="{Binding InitialValue,UpdateSourceTrigger=PropertyChanged}" IsReadOnly="False" Width="*"/>
+                            <DataGridTextColumn Header="Initial Value" Binding="{Binding InitialValue,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" IsReadOnly="False" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
