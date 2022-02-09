@@ -15,6 +15,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 using Simulation;
+using System.Xml.XPath;
 
 namespace SCADACore
 {
@@ -35,10 +36,6 @@ namespace SCADACore
         static event RemoveHandler valueRemoved = null;
         static event RemoveHandler1 valueRemoved1 = null;
         static event ClearGrid clearGrid = null;
-        public static List<AnalogInput> analogInputs = new List<AnalogInput>();
-        public static List<AnalogOutput> analogOutputs = new List<AnalogOutput>();
-        public static List<DigitalInput> digitalInputs = new List<DigitalInput>();
-        public static List<DigitalOutput> digitalOutputs = new List<DigitalOutput>();
         public static ObservableCollection<AnalogInput> analogInputsObservable = new ObservableCollection<AnalogInput>();
         public static ObservableCollection<AnalogOutput> analogOutputsObservable = new ObservableCollection<AnalogOutput>();
         public static ObservableCollection<DigitalInput> digitalInputsObservable = new ObservableCollection<DigitalInput>();
@@ -226,46 +223,26 @@ namespace SCADACore
         public void AddAO(AnalogOutput AO)
         {
             analogOutputsObservable.Add(AO);
-            using (var db = new TagContext())
-            {
-                db.analogOutputs.Add(AO);
-                db.SaveChanges();
-            }
         }
 
         public void AddDO(DigitalOutput DO)
         {
             digitalOutputsObservable.Add(DO);
-            using (var db = new TagContext())
-            {
-                db.digitalOutputs.Add(DO);
-                db.SaveChanges();
-            }
         }
 
         public void AddAI(AnalogInput AI)
         {
             analogInputsObservable.Add(AI);
-            using (var db = new TagContext())
-            {
-                db.analogInputs.Add(AI);
-                db.SaveChanges();
-                Thread thread = new Thread(() => Simulation1(AI));
-                dictAi.Add(AI.TagName, thread);
-                thread.Start();
-            }
+            Thread thread = new Thread(() => Simulation1(AI));
+            dictAi.Add(AI.TagName, thread);
+            thread.Start();
         }
         public void AddDI(DigitalInput DI)
         {
             digitalInputsObservable.Add(DI);
-            using (var db = new TagContext())
-            {
-                db.digitalInputs.Add(DI);
-                db.SaveChanges();
-                Thread thread = new Thread(() => Simulation(DI));
-                dictDi.Add(DI.TagName, thread);
-                thread.Start();
-            }
+            Thread thread = new Thread(() => Simulation(DI));
+            dictDi.Add(DI.TagName, thread);
+            thread.Start();
         }
         #endregion
 
@@ -273,52 +250,34 @@ namespace SCADACore
         
         public void clearDictionaries()
         {
-            using (var db = new TagContext())
+            foreach (var i in digitalInputsObservable.ToList())
             {
-                foreach (var i in db.digitalInputs)
-                {
-                    dictDi[i.TagName].Abort();
-                    dictDi.Remove(i.TagName);
-                }
-                foreach (var j in db.analogInputs)
-                {
-                    dictAi[j.TagName].Abort();
-                    dictAi.Remove(j.TagName);
-                }
+                dictDi[i.TagName].Abort();
+                dictDi.Remove(i.TagName);
             }
+            foreach (var j in analogInputsObservable.ToList())
+            {
+                dictAi[j.TagName].Abort();
+                dictAi.Remove(j.TagName);
+            }
+
         }
         public IEnumerable<DigitalOutput> LoadDataToGrid()
         {
-            using (var db = new TagContext())
-            {
-                db.digitalOutputs.Load();
-                return db.digitalOutputs.Local;
-            }
+            return digitalOutputsObservable;
             
         }
         public IEnumerable<AnalogOutput> LoadDataToGridAO()
         {
-            using (var db = new TagContext())
-            {
-                db.analogOutputs.Load();
-                return db.analogOutputs.Local;
-            }
+            return analogOutputsObservable;
         }
         public IEnumerable<AnalogInput> LoadDataToGridAI()
         {
-            using (var db = new TagContext())
-            {
-                db.analogInputs.Load();
-                return db.analogInputs.Local;
-            }
+            return analogInputsObservable;
         }
         public IEnumerable<DigitalInput> LoadDataToGridDI()
         {
-            using (var db = new TagContext())
-            {
-                db.digitalInputs.Load();
-                return db.digitalInputs.Local;
-            }
+            return digitalInputsObservable;
         }
         public void SaveChanges(AnalogOutput AO,double change)
         {
@@ -330,18 +289,6 @@ namespace SCADACore
                     break;
                 }
             }
-            /*AO.InitialValue = change;
-            using (var db = new TagContext())
-            {
-                foreach (var i in db.analogOutputs)
-                {
-                    if(i.Id == AO.Id)
-                    {
-                        i.InitialValue = change;
-                    }
-                }
-                db.SaveChanges();
-            }*/
         }
         public void SaveChangesDO(DigitalOutput DO, double change)
         {
@@ -353,18 +300,6 @@ namespace SCADACore
                     break;
                 }
             }
-            /*DO.initial_Value = change;
-            using (var db = new TagContext())
-            {
-                foreach (var i in db.digitalOutputs)
-                {
-                    if (i.Id == DO.Id)
-                    {
-                        i.initial_Value = change;
-                    }
-                }
-                db.SaveChanges();
-            }*/
         }
         public void SaveChangesAI(AnalogInput AI, bool change)
         {
@@ -376,18 +311,6 @@ namespace SCADACore
                     break;
                 }
             }
-            /*AI.ONOFF_scan = change;
-            using (var db = new TagContext())
-            {
-                foreach (var i in db.analogInputs)
-                {
-                    if (i.Id == AI.Id)
-                    {
-                        i.ONOFF_scan = change;
-                    }
-                }
-                db.SaveChanges();
-            }*/
         }
 
         public void SaveChangesDI(DigitalInput DI, bool change)
@@ -400,18 +323,6 @@ namespace SCADACore
                     break;
                 }
             }
-            /*DI.ONOFF_scan = change;
-            using (var db = new TagContext())
-            {
-                foreach (var i in db.digitalInputs)
-                {
-                    if (i.Id == DI.Id)
-                    {
-                        i.ONOFF_scan = change;
-                    }
-                }
-                db.SaveChanges();
-            }*/
         }
         public void startPLC()
         {
@@ -419,48 +330,39 @@ namespace SCADACore
         }
         public Dictionary<string, bool> loadAdressAI(Dictionary<string, bool>AI)
         {
-            using (var db = new TagContext())
+            foreach (var i in analogInputsObservable.ToList())
             {
-                foreach (var i in db.analogInputs)
-                {
-                    AI[i.IOAdress] = true;
-                }
+                AI[i.IOAdress] = true;
             }
             return AI;
         }
         public Dictionary<string, bool> loadAdressAO(Dictionary<string, bool> AO)
         {
-            using (var db = new TagContext())
+            foreach (var i in analogOutputsObservable.ToList())
             {
-                foreach (var i in db.analogOutputs)
-                {
-                    AO[i.IOAdress] = true;
-                }
+                AO[i.IOAdress] = true;
             }
             return AO;
         }
         public Dictionary<string, bool> loadAdressDI(Dictionary<string, bool> DI)
         {
-            using (var db = new TagContext())
+            foreach (var i in digitalInputsObservable.ToList())
             {
-                foreach (var i in db.digitalInputs)
-                {
-                    DI[i.IOAdress] = true;
-                }
+                DI[i.IOAdress] = true;
             }
             return DI;
+
         }
         public Dictionary<string, bool> loadAdressDO(Dictionary<string, bool> DO)
         {
-            using (var db = new TagContext())
+            foreach (var i in digitalOutputsObservable.ToList())
             {
-                foreach (var i in db.digitalOutputs)
-                {
-                    DO[i.IO_Adress] = true;
-                }
+                DO[i.IO_Adress] = true;
             }
             return DO;
+
         }
+        
         #endregion
 
         #region RemoveTags
@@ -474,14 +376,6 @@ namespace SCADACore
                     break;
                 }
             }
-            
-            using (var db = new TagContext())
-            {
-                db.digitalOutputs.Attach(DO);
-                db.digitalOutputs.Remove(DO);
-                db.SaveChanges();
-            }
-            
         }
         
         public void removeAO(AnalogOutput AO)
@@ -494,16 +388,12 @@ namespace SCADACore
                     break;
                 }
             }
-            using (var db = new TagContext())
-            {
-                db.analogOutputs.Attach(AO);
-                db.analogOutputs.Remove(AO);
-                db.SaveChanges();
-            }
         }
 
         public void removeAI(AnalogInput AI)
         {
+            dictAi[AI.TagName].Abort();
+            dictAi.Remove(AI.TagName);
             foreach (var i in analogInputsObservable.ToList())
             {
                 if (i.TagName == AI.TagName)
@@ -512,18 +402,12 @@ namespace SCADACore
                     break;
                 }
             }
-            using (var db = new TagContext())
-            {
-                dictAi[AI.TagName].Abort();
-                dictAi.Remove(AI.TagName);
-                db.analogInputs.Attach(AI);
-                valueRemoved?.Invoke(AI);
-                db.analogInputs.Remove(AI);
-                db.SaveChanges();
-            }
+            valueRemoved?.Invoke(AI);
         }
         public void removeDI(DigitalInput DI)
         {
+            dictDi[DI.TagName].Abort();
+            dictDi.Remove(DI.TagName);
             foreach (var i in digitalInputsObservable.ToList())
             {
                 if (i.TagName == DI.TagName)
@@ -532,15 +416,7 @@ namespace SCADACore
                     break;
                 }
             }
-            using (var db = new TagContext())
-            {
-                dictDi[DI.TagName].Abort();
-                dictDi.Remove(DI.TagName);
-                db.digitalInputs.Attach(DI);
-                valueRemoved1?.Invoke(DI);
-                db.digitalInputs.Remove(DI);
-                db.SaveChanges();
-            }
+            valueRemoved1?.Invoke(DI);
         }
         #endregion
 
@@ -573,27 +449,21 @@ namespace SCADACore
 
         public void LoadThreadDi()
         {
-            using (var db = new TagContext())
+            foreach (var d in digitalInputsObservable.ToList())
             {
-                foreach (var d in db.digitalInputs)
-                {
-                    Thread thread1 = new Thread(() => Simulation(d));
-                    dictDi.Add(d.TagName, thread1);
-                    thread1.Start();
-                }
+                Thread thread1 = new Thread(() => Simulation(d));
+                dictDi.Add(d.TagName, thread1);
+                thread1.Start();
             }
         }
 
         public void LoadThreadAi()
         {
-            using (var db = new TagContext())
+            foreach (var a in analogInputsObservable.ToList())
             {
-                foreach (var a in db.analogInputs)
-                {
-                    Thread thread2 = new Thread(() => Simulation1(a));
-                    dictAi.Add(a.TagName, thread2);
-                    thread2.Start();
-                }
+                Thread thread2 = new Thread(() => Simulation1(a));
+                dictAi.Add(a.TagName, thread2);
+                thread2.Start();
             }
         }
         #endregion
@@ -617,6 +487,102 @@ namespace SCADACore
         #endregion
 
         #region XML
+        private void UpdateAIxml(List<AnalogInput>analogInputs)
+        {
+            if (analogInputsObservable.Count == 0)
+            {
+                foreach (var i in analogInputs)
+                {
+                    if (analogInputsObservable.Count != 0)
+                    {
+                        foreach (var j in analogInputsObservable.ToList())
+                        {
+                            if (i.TagName != j.TagName)
+                            {
+                                analogInputsObservable.Add(i);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        analogInputsObservable.Add(i);
+                    }
+                }
+            }
+        }
+        private void UpdateAOxml(List<AnalogOutput> analogOutputs)
+        {
+            if (analogOutputsObservable.Count == 0)
+            {
+                foreach (var i in analogOutputs)
+                {
+                    if (analogOutputsObservable.Count != 0)
+                    {
+                        foreach (var j in analogOutputsObservable.ToList())
+                        {
+                            if (i.TagName != j.TagName)
+                            {
+                                analogOutputsObservable.Add(i);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        analogOutputsObservable.Add(i);
+                    }
+                }
+            }
+        }
+        private void UpdateDIxml(List<DigitalInput> digitalInputs)
+        {
+            if (digitalInputsObservable.Count == 0)
+            {
+                foreach (var i in digitalInputs)
+                {
+                    if (digitalInputsObservable.Count != 0)
+                    {
+                        foreach (var j in digitalInputsObservable.ToList())
+                        {
+                            if (i.TagName != j.TagName)
+                            {
+                                digitalInputsObservable.Add(i);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        digitalInputsObservable.Add(i);
+                    }
+                }
+            }
+        }
+        private void UpdateDOxml(List<DigitalOutput> digitalOutputs)
+        {
+            if (digitalOutputsObservable.Count == 0)
+            {
+                foreach (var i in digitalOutputs)
+                {
+                    if (digitalOutputsObservable.Count != 0)
+                    {
+                        foreach (var j in digitalOutputsObservable.ToList())
+                        {
+                            if (i.tag_name != j.tag_name)
+                            {
+                                digitalOutputsObservable.Add(i);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        digitalOutputsObservable.Add(i);
+                    }
+                }
+            }
+        }
         public void WriteXML()
         {
             XDocument document = new XDocument(
@@ -624,14 +590,14 @@ namespace SCADACore
                 new XElement("AnalogInputs",
                     (from analogInput in analogInputsObservable.ToList()
                      select new XElement("AnalogInput",
-                          new XElement("TagName", analogInput.TagName),
-                          new XElement("Description", analogInput.Description),
-                          new XElement("IOAdress", analogInput.IOAdress),
-                          new XElement("Units", analogInput.Units),
-                          new XElement("HighLimit", analogInput.HighLimit),
-                          new XElement("LowLimit", analogInput.LowLimit),
-                          new XElement("ScanTime", analogInput.ScanTime),
-                          new XElement("ONOFFscan", analogInput.ONOFF_scan)
+                          new XAttribute("TagName", analogInput.TagName),
+                          new XAttribute("Description", analogInput.Description),
+                          new XAttribute("IOAdress", analogInput.IOAdress),
+                          new XAttribute("Units", analogInput.Units),
+                          new XAttribute("HighLimit", analogInput.HighLimit),
+                          new XAttribute("LowLimit", analogInput.LowLimit),
+                          new XAttribute("ScanTime", analogInput.ScanTime),
+                          new XAttribute("ONOFFscan", analogInput.ONOFF_scan)
                     )
                             )
                                          ),
@@ -639,33 +605,33 @@ namespace SCADACore
                 new XElement("AnalogOutputs",
                     (from analogOutput in analogOutputsObservable.ToList()
                      select new XElement("AnalogOutput",
-                          new XElement("TagName", analogOutput.TagName),
-                          new XElement("Description", analogOutput.Description),
-                          new XElement("IOAdress", analogOutput.IOAdress),
-                          new XElement("HighLimit", analogOutput.HighLimit),
-                          new XElement("LowLimit", analogOutput.LowLimit),
-                          new XElement("InitialValue", analogOutput.InitialValue)
+                          new XAttribute("TagName", analogOutput.TagName),
+                          new XAttribute("Description", analogOutput.Description),
+                          new XAttribute("IOAdress", analogOutput.IOAdress),
+                          new XAttribute("HighLimit", analogOutput.HighLimit),
+                          new XAttribute("LowLimit", analogOutput.LowLimit),
+                          new XAttribute("InitialValue", analogOutput.InitialValue)
                     )
                             )
                                          ),
                 new XElement("DigitalInputs",
                     (from digitalInput in digitalInputsObservable.ToList()
                      select new XElement("DigitalInput",
-                          new XElement("TagName", digitalInput.TagName),
-                          new XElement("Description", digitalInput.Description),
-                          new XElement("IOAdress", digitalInput.IOAdress),
-                          new XElement("ScanTime", digitalInput.ScanTime),
-                          new XElement("ONOFFscan", digitalInput.ONOFF_scan)
+                          new XAttribute("TagName", digitalInput.TagName),
+                          new XAttribute("Description", digitalInput.Description),
+                          new XAttribute("IOAdress", digitalInput.IOAdress),
+                          new XAttribute("ScanTime", digitalInput.ScanTime),
+                          new XAttribute("ONOFFscan", digitalInput.ONOFF_scan)
                     )
                             )
                                          ),
                 new XElement("DigitalOutputs",
                     (from digitalOutput in digitalOutputsObservable.ToList()
                      select new XElement("DigitalOutput",
-                          new XElement("TagName", digitalOutput.tag_name),
-                          new XElement("Description", digitalOutput.description),
-                          new XElement("IOAdress", digitalOutput.IO_Adress),
-                          new XElement("InitialValue", digitalOutput.initial_Value)
+                          new XAttribute("TagName", digitalOutput.tag_name),
+                          new XAttribute("Description", digitalOutput.description),
+                          new XAttribute("IOAdress", digitalOutput.IO_Adress),
+                          new XAttribute("InitialValue", digitalOutput.initial_Value)
                     )
                             )
                                          )
@@ -677,49 +643,64 @@ namespace SCADACore
 
         public void ReadXML()
         {
-            XElement element = XElement.Load(@"D:\scadaConfig.xml");
-            analogInputs = (from ai in element.Elements("AnalogInput")
-                            select new AnalogInput
-                            {
-                                TagName = ai.Attribute("TagName").Value,
-                                Description = ai.Attribute("Description").Value,
-                                IOAdress = ai.Attribute("IOAdress").Value,
-                                Units = ai.Attribute("Units").Value,
-                                HighLimit = double.Parse(ai.Attribute("HighLimit").Value),
-                                LowLimit = double.Parse(ai.Attribute("LowLimit").Value),
-                                ScanTime = double.Parse(ai.Attribute("ScanTime").Value),
-                                ONOFF_scan = bool.Parse(ai.Attribute("ONOFFscan").Value)
-                            }).ToList();
+            string path = @"D:\scadaConfig.xml";
+            
+            if(File.Exists(path))
+            {
+                XElement element = XElement.Load(path);
+                List<AnalogInput> analogInputs = new List<AnalogInput>();
+                List<AnalogOutput> analogOutputs = new List<AnalogOutput>();
+                List<DigitalInput> digitalInputs = new List<DigitalInput>();
+                List<DigitalOutput> digitalOutputs = new List<DigitalOutput>();
 
-            digitalInputs = (from di in element.Elements("DigitalInput")
-                             select new DigitalInput
-                             {
-                                 TagName = di.Attribute("TagName").Value,
-                                 Description = di.Attribute("Description").Value,
-                                 IOAdress = di.Attribute("IOAdress").Value,
-                                 ScanTime = double.Parse(di.Attribute("ScanTime").Value),
-                                 ONOFF_scan = bool.Parse(di.Attribute("ONOFFscan").Value)
-                             }).ToList();
+                analogInputs = (from ai in element.Descendants("AnalogInput")
+                                select new AnalogInput
+                                {
+                                    TagName = ai.Attribute("TagName").Value,
+                                    Description = ai.Attribute("Description").Value,
+                                    IOAdress = ai.Attribute("IOAdress").Value,
+                                    Units = ai.Attribute("Units").Value,
+                                    HighLimit = double.Parse(ai.Attribute("HighLimit").Value),
+                                    LowLimit = double.Parse(ai.Attribute("LowLimit").Value),
+                                    ScanTime = double.Parse(ai.Attribute("ScanTime").Value),
+                                    ONOFF_scan = bool.Parse(ai.Attribute("ONOFFscan").Value)
+                                }).ToList();
 
-            analogOutputs = (from ao in element.Elements("AnalogOutput")
-                             select new AnalogOutput
-                             {
-                                 TagName = ao.Attribute("TagName").Value,
-                                 Description = ao.Attribute("Description").Value,
-                                 IOAdress = ao.Attribute("IOAdress").Value,
-                                 HighLimit = double.Parse(ao.Attribute("HighLimit").Value),
-                                 LowLimit = double.Parse(ao.Attribute("LowLimit").Value),
-                                 InitialValue = double.Parse(ao.Attribute("InitialValue").Value)
-                             }).ToList();
+                digitalInputs = (from di in element.Descendants("DigitalInput")
+                                 select new DigitalInput
+                                 {
+                                     TagName = di.Attribute("TagName").Value,
+                                     Description = di.Attribute("Description").Value,
+                                     IOAdress = di.Attribute("IOAdress").Value,
+                                     ScanTime = double.Parse(di.Attribute("ScanTime").Value),
+                                     ONOFF_scan = bool.Parse(di.Attribute("ONOFFscan").Value)
+                                 }).ToList();
 
-            digitalOutputs = (from doo in element.Elements("DigitalOutput")
-                              select new DigitalOutput
-                              {
-                                  tag_name = doo.Attribute("TagName").Value,
-                                  description = doo.Attribute("Description").Value,
-                                  IO_Adress = doo.Attribute("IOAdress").Value,
-                                  initial_Value = double.Parse(doo.Attribute("InitialValue").Value)
-                              }).ToList();
+                analogOutputs = (from ao in element.Descendants("AnalogOutput")
+                                 select new AnalogOutput
+                                 {
+                                     TagName = ao.Attribute("TagName").Value,
+                                     Description = ao.Attribute("Description").Value,
+                                     IOAdress = ao.Attribute("IOAdress").Value,
+                                     HighLimit = double.Parse(ao.Attribute("HighLimit").Value),
+                                     LowLimit = double.Parse(ao.Attribute("LowLimit").Value),
+                                     InitialValue = double.Parse(ao.Attribute("InitialValue").Value)
+                                 }).ToList();
+
+                digitalOutputs = (from doo in element.Descendants("DigitalOutput")
+                                  select new DigitalOutput
+                                  {
+                                      tag_name = doo.Attribute("TagName").Value,
+                                      description = doo.Attribute("Description").Value,
+                                      IO_Adress = doo.Attribute("IOAdress").Value,
+                                      initial_Value = double.Parse(doo.Attribute("InitialValue").Value)
+                                  }).ToList();
+
+                UpdateAIxml(analogInputs);
+                UpdateAOxml(analogOutputs);
+                UpdateDIxml(digitalInputs);
+                UpdateDOxml(digitalOutputs);
+            }
         }
         #endregion
     }

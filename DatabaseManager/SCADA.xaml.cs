@@ -41,7 +41,7 @@ namespace DatabaseManager
         {
             InitializeComponent();
             token1 = token;
-            //MainWindow.proxy2.ReadXML();
+            MainWindow.proxy2.ReadXML();
             MainWindow.proxy2.startPLC();
             dataGrid.ItemsSource = MainWindow.proxy2.LoadDataToGridDI();
             MainWindow.proxy2.LoadThreadDi();
@@ -55,7 +55,6 @@ namespace DatabaseManager
             adressAO = MainWindow.proxy2.loadAdressAO(adressAO);
 
             this.DataContext = this;
-            
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
@@ -65,34 +64,31 @@ namespace DatabaseManager
                 AddDI addDI = new AddDI();
                 addDI.ShowDialog();
                 dataGrid.ItemsSource = MainWindow.proxy2.LoadDataToGridDI();
-
             }
             else if (Tab1.SelectedIndex == 1)
             {
                 AddDO addDO = new AddDO();
                 addDO.ShowDialog();
                 dataGrid1.ItemsSource = MainWindow.proxy2.LoadDataToGrid();
-
             }
             else if (Tab1.SelectedIndex == 2)
             {
                 AddAI addAI = new AddAI();
                 addAI.ShowDialog();
                 dataGrid2.ItemsSource = MainWindow.proxy2.LoadDataToGridAI();
-
             }
             else 
             {
                 AddAO addAO = new AddAO();
                 addAO.ShowDialog();
                 dataGrid3.ItemsSource = MainWindow.proxy2.LoadDataToGridAO();
-
             }
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             MainWindow.proxy.Logout(token1);
+            MainWindow.proxy2.clearData();
             MainWindow.proxy2.WriteXML();
             this.Close();
             mw.Show();
@@ -136,7 +132,6 @@ namespace DatabaseManager
                     MessageBox.Show("Something went wrong, try again");
                 }
             }
-          
         }
 
         private void PasswordChange(object sender, RoutedEventArgs e)
@@ -154,7 +149,6 @@ namespace DatabaseManager
                 MainWindow.proxy2.removeDO(SelectedDO);
                 adressDO[SelectedDO.IO_Adress] = false;
                 dataGrid1.ItemsSource = MainWindow.proxy2.LoadDataToGrid();
-
             }
         }
         private void RemoveAO(object sender, RoutedEventArgs e)
@@ -166,7 +160,6 @@ namespace DatabaseManager
                 MainWindow.proxy2.removeAO(SelectedAO);
                 adressAO[SelectedAO.IOAdress] = false;
                 dataGrid3.ItemsSource = MainWindow.proxy2.LoadDataToGridAO();
-
             }
         }
 
@@ -179,7 +172,6 @@ namespace DatabaseManager
                 MainWindow.proxy2.removeAI(SelectedAI);
                 adressAI[SelectedAI.IOAdress] = false;
                 dataGrid2.ItemsSource = MainWindow.proxy2.LoadDataToGridAI();
-
             }
         }
 
@@ -192,7 +184,6 @@ namespace DatabaseManager
                 MainWindow.proxy2.removeDI(SelectedDI);
                 adressDI[SelectedDI.IOAdress] = false;
                 dataGrid.ItemsSource = MainWindow.proxy2.LoadDataToGridDI();
-
             }
         }
         private void SaveClick(object sender, RoutedEventArgs e)

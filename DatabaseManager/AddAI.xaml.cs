@@ -49,7 +49,6 @@ namespace DatabaseManager
             MainWindow.proxy2.AddAI(analogInput);
             
             this.Close();
-
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
