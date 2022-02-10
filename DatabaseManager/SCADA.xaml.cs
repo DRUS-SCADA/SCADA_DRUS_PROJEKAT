@@ -28,7 +28,6 @@ namespace DatabaseManager
         public AnalogInput SelectedAI { get; set; }
         public DigitalInput SelectedDI { get; set; }
 
-
         public static Dictionary<string, bool> adressAO = new Dictionary<string, bool> { ["ADDR005"] = false, ["ADDR006"] = false, ["ADDR007"] = false, ["ADDR008"] = false };
         public static Dictionary<string, bool> adressAI = new Dictionary<string, bool> { ["ADDR001"] = false, ["ADDR002"] = false, ["ADDR003"] = false, ["ADDR004"] = false };
         public static Dictionary<string, bool> adressDO = new Dictionary<string, bool> { ["ADDR011"] = false, ["ADDR012"] = false};
@@ -99,6 +98,7 @@ namespace DatabaseManager
             bool logout = MainWindow.proxy.Logout(token1);
             if (logout == true)
             {
+                MainWindow.proxy2.WriteXML();
                 MainWindow.proxy2.clearData();
                 mw.TextBox_GotFocus2(sender,e);
                 this.Close();
@@ -121,6 +121,7 @@ namespace DatabaseManager
                 bool delete = MainWindow.proxy.DeleteProfile(username, password);
                 if (delete == true)
                 {
+                    MainWindow.proxy2.WriteXML();
                     MainWindow.proxy.Logout(token1);
                     MainWindow.proxy2.clearData();
                     MessageBox.Show("Profile succesfully deleted!");
@@ -207,7 +208,6 @@ namespace DatabaseManager
             {
                 MessageBox.Show("Digital value must be 0 or 1");
             }
-            
         }
         private void SaveClickDI(object sender, RoutedEventArgs e)
         {
@@ -216,7 +216,14 @@ namespace DatabaseManager
         }
         private void WindowClosing(object sender, CancelEventArgs e)
         {
-            
+            MessageBoxResult mbr = MessageBox.Show("Do you want to save data? ", "Save", MessageBoxButton.YesNo);
+            if (mbr == MessageBoxResult.Yes)
+            {
+                MainWindow.proxy2.WriteXML();
+                MainWindow.proxy.Logout(token1);
+                MainWindow.proxy2.clearData();
+                Application.Current.Shutdown();
+            }
         }
     }
 }

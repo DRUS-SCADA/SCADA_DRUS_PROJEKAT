@@ -65,7 +65,6 @@ namespace DatabaseManager
         {
             Registration registration = new Registration();
             registration.ShowDialog();
-
         }
         public void TextBox_GotFocus(object sender, RoutedEventArgs e)
         {

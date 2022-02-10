@@ -493,21 +493,7 @@ namespace SCADACore
             {
                 foreach (var i in analogInputs)
                 {
-                    if (analogInputsObservable.Count != 0)
-                    {
-                        foreach (var j in analogInputsObservable.ToList())
-                        {
-                            if (i.TagName != j.TagName)
-                            {
-                                analogInputsObservable.Add(i);
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        analogInputsObservable.Add(i);
-                    }
+                    analogInputsObservable.Add(i);
                 }
             }
         }
@@ -517,21 +503,7 @@ namespace SCADACore
             {
                 foreach (var i in analogOutputs)
                 {
-                    if (analogOutputsObservable.Count != 0)
-                    {
-                        foreach (var j in analogOutputsObservable.ToList())
-                        {
-                            if (i.TagName != j.TagName)
-                            {
-                                analogOutputsObservable.Add(i);
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        analogOutputsObservable.Add(i);
-                    }
+                    analogOutputsObservable.Add(i);
                 }
             }
         }
@@ -541,21 +513,7 @@ namespace SCADACore
             {
                 foreach (var i in digitalInputs)
                 {
-                    if (digitalInputsObservable.Count != 0)
-                    {
-                        foreach (var j in digitalInputsObservable.ToList())
-                        {
-                            if (i.TagName != j.TagName)
-                            {
-                                digitalInputsObservable.Add(i);
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        digitalInputsObservable.Add(i);
-                    }
+                    digitalInputsObservable.Add(i);
                 }
             }
         }
@@ -565,21 +523,7 @@ namespace SCADACore
             {
                 foreach (var i in digitalOutputs)
                 {
-                    if (digitalOutputsObservable.Count != 0)
-                    {
-                        foreach (var j in digitalOutputsObservable.ToList())
-                        {
-                            if (i.tag_name != j.tag_name)
-                            {
-                                digitalOutputsObservable.Add(i);
-                                break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        digitalOutputsObservable.Add(i);
-                    }
+                    digitalOutputsObservable.Add(i);
                 }
             }
         }
@@ -638,7 +582,6 @@ namespace SCADACore
                                                 ));
             
             document.Save(@"D:\scadaConfig.xml");
-
         }
 
         public void ReadXML()
