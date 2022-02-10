@@ -51,7 +51,7 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Name="DI" Header="DI">
+            <TabItem Name="DI" Header="Digital inputs">
                 <StackPanel>
                     <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="LightBlue" SelectedItem="{Binding SelectedDI}" IsReadOnly="True">
                         <DataGrid.Resources>
@@ -102,7 +102,7 @@
                 </StackPanel>
 
             </TabItem>
-            <TabItem Name="DO" Header="DO">
+            <TabItem Name="DO" Header="Digital outputs">
                 <StackPanel>
                     <DataGrid Name="dataGrid1"   CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedDO}" Background="LightBlue">
                         <DataGrid.Resources>
@@ -150,7 +150,7 @@
                     </DataGrid>
                 </StackPanel>
             </TabItem>
-            <TabItem Name="AI" Header="AI">
+            <TabItem Name="AI" Header="Analog inputs">
                 <StackPanel>
                     <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="LightBlue"  IsReadOnly="True">
                         <DataGrid.Resources>
@@ -204,7 +204,7 @@
                     </DataGrid>
                 </StackPanel>
             </TabItem>
-            <TabItem Name="AO" Header="AO">
+            <TabItem Name="AO" Header="Analog outputs">
                 <StackPanel>
                     <DataGrid Name="dataGrid3" CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAO}" Background="LightBlue"  >
                         <DataGrid.Resources>

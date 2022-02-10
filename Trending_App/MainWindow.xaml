@@ -51,9 +51,9 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Name="DI" Header="DI">
+            <TabItem Name="DI" Header="Digital inputs">
                 <StackPanel>
-                    <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="Silver"  IsReadOnly="True">
+                    <DataGrid Name="dataGrid"  AutoGenerateColumns="False" IsReadOnly="True" Background="LightBlue">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
@@ -65,9 +65,9 @@
                 </StackPanel>
 
             </TabItem>
-            <TabItem Name="AI" Header="AI">
+            <TabItem Name="AI" Header="Analog inputs">
                 <StackPanel>
-                    <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="Silver"  IsReadOnly="True">
+                    <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="LightBlue"  IsReadOnly="True">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
