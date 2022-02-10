@@ -21,6 +21,7 @@ namespace DatabaseManager
     public partial class AddDO : Window
     {
         public List<string> IOAdress = new List<string>();
+        public List<string> initialValues = new List<string>() { "0", "1"};
         public AddDO()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace DatabaseManager
                 }
             }
             this.IOcombo.ItemsSource = IOAdress;
+            this.Valuebox.ItemsSource = initialValues;
         }
         
 
@@ -44,16 +46,48 @@ namespace DatabaseManager
 
         private void AddDO_Click(object sender, RoutedEventArgs e)
         {
-            string tag = Idbox.Text;
-            string desc = Descriptionbox.Text;
-            string combo = IOcombo.Text;
-            double initialValue = Convert.ToDouble(Valuebox.Text);
-            SCADA.adressDO[combo] = true;
-            DigitalOutput digitalOutput = new DigitalOutput { tag_name = tag, description = desc, IO_Adress = combo, initial_Value = initialValue };
-            MainWindow.proxy2.AddDO(digitalOutput);
+            if(ValidateInput() == true)
+            {
+                double initialValue = Convert.ToDouble(Valuebox.Text);
+                string tag = Idbox.Text;
+                string desc = Descriptionbox.Text;
+                string combo = IOcombo.Text;
+                SCADA.adressDO[combo] = true;
+                DigitalOutput digitalOutput = new DigitalOutput { tag_name = tag, description = desc, IO_Adress = combo, initial_Value = initialValue };
+                MainWindow.proxy2.AddDO(digitalOutput);
 
-            this.Close();
-            
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Inputs are not valid!");
+            }
+        }
+        private bool ValidateInput()
+        {
+            if (Idbox.Text.Length == 0 || Descriptionbox.Text.Length == 0 || IOcombo.Text.Length == 0 || Valuebox.Text.Length == 0 || Idbox.Text.Trim().Equals("") || Descriptionbox.Text.Trim().Equals(""))
+            {
+                if (Idbox.Text.Length == 0)
+                {
+                    Idbox.BorderBrush = Brushes.Red;
+                }
+                if (Descriptionbox.Text.Length == 0)
+                {
+                    Descriptionbox.BorderBrush = Brushes.Red;
+                }
+                if (Valuebox.Text.Length == 0)
+                {
+                    Valuebox.BorderBrush = Brushes.Red;
+                }
+                if(IOcombo.Text.Length ==0)
+                {
+                    IOcombo.BorderBrush = Brushes.Red;
+                }
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

@@ -36,21 +36,62 @@ namespace DatabaseManager
 
         private void AddDI_Click(object sender, RoutedEventArgs e)
         {
-            string tag = Idbox.Text;
-            string desc = Descriptionbox.Text;
-            string combo = IOCombo.Text;
-            bool onoff = Convert.ToBoolean(ONOFF_scan.IsChecked);
-            double scanTime = Convert.ToDouble(Scanbox.Text);
-            SCADA.adressDI[combo] = true;
-            DigitalInput digitalInput = new DigitalInput { TagName = tag, Description = desc, ONOFF_scan = onoff, IOAdress = combo, ScanTime = scanTime};
-            MainWindow.proxy2.AddDI(digitalInput);
-            
-            this.Close();
+            if (ValidateInput() == true)
+            {
+                double scanTime;
+                if(Double.TryParse(Scanbox.Text,out scanTime))
+                {
+                    string tag = Idbox.Text;
+                    string desc = Descriptionbox.Text;
+                    string combo = IOCombo.Text;
+                    bool onoff = Convert.ToBoolean(ONOFF_scan.IsChecked);
+
+                    SCADA.adressDI[combo] = true;
+                    DigitalInput digitalInput = new DigitalInput { TagName = tag, Description = desc, ONOFF_scan = onoff, IOAdress = combo, ScanTime = scanTime };
+                    MainWindow.proxy2.AddDI(digitalInput);
+
+                    this.Close();
+                }else
+                {
+                    Scanbox.BorderBrush = Brushes.Red;
+                    MessageBox.Show("Scan time must be a number!");
+                }
+            }else
+            {
+                MessageBox.Show("Inputs are not valid!");
+            }
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private bool ValidateInput()
+        {
+            if (Idbox.Text.Length == 0 || Descriptionbox.Text.Length == 0 || IOCombo.Text.Length == 0 || Scanbox.Text.Length == 0 || Idbox.Text.Trim().Equals("") || Descriptionbox.Text.Trim().Equals(""))
+            {
+                if (Idbox.Text.Length == 0)
+                {
+                    Idbox.BorderBrush = Brushes.Red;
+                }
+                if (Descriptionbox.Text.Length == 0)
+                {
+                    Descriptionbox.BorderBrush = Brushes.Red;
+                }
+                if (Scanbox.Text.Length == 0)
+                {
+                    Scanbox.BorderBrush = Brushes.Red;
+                }
+                if (IOCombo.Text.Length == 0)
+                {
+                    IOCombo.BorderBrush = Brushes.Red;
+                }
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

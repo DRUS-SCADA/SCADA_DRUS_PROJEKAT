@@ -36,21 +36,29 @@ namespace DatabaseManager
             {
                 if (password == passwordRepeat)
                 {
-                    string validateusername = MainWindow.proxy.Registration(name, surname, username1, password);
-                    if (validateusername == "Uspesno registrovanje")
+                    if(ValidateInput1() == true)
                     {
-                        this.Close();
-                    }
-                    else
+                        string validateusername = MainWindow.proxy.Registration(name, surname, username1, password);
+                        if (validateusername == "Uspesno registrovanje")
+                        {
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("User with this username already exists");
+                        }
+                    }else
                     {
-                        MessageBox.Show("User with this username already exists");
+                        MessageBox.Show("Password must have at least 6 characters!");
                     }
-                    
                 }
                 else
                 {
                     MessageBox.Show("Passwords are not matched!");
                 }
+            }else
+            {
+                MessageBox.Show("Inputs are not valid!");
             }
          
             
@@ -63,7 +71,7 @@ namespace DatabaseManager
 
         private bool ValidateInput()
         {
-            if(FirstName.Text.Length == 0 || LastName.Text.Length==0 || username.Text.Length==0 || Password.Password.Length==0 || ConfirmPassword.Password.Length==0)
+            if(FirstName.Text.Length == 0 || LastName.Text.Length==0 || username.Text.Length==0 || Password.Password.Length==0 || ConfirmPassword.Password.Length==0 || FirstName.Text.Trim().Equals("") || LastName.Text.Trim().Equals("") || username.Text.Trim().Equals("") || Password.Password.Trim().Equals("") || ConfirmPassword.Password.Trim().Equals(""))
             {
                 if (FirstName.Text.Length == 0)
                 {
@@ -92,6 +100,14 @@ namespace DatabaseManager
             {
                 return true;
             }
+        }
+        private bool ValidateInput1()
+        {
+            if (Password.Password.Length < 6)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

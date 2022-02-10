@@ -32,28 +32,66 @@ namespace DatabaseManager
 
         private void PasswordChangeClick(object sender, RoutedEventArgs e)
         {
-            if (OldPassword.Password == mw.GetPassword)
+            if(ValidateInput()==true)
             {
-                string username = mw.GetUsername;
-                string newPassword = NewPassword.Password;
-                string indicate = MainWindow.proxy.ChangePassword(username, OldPassword.Password, newPassword);
-                if (indicate == "Uspesna promena passworda")
+                if (ValidateInput1()== true)
                 {
-                    MessageBox.Show("Password succesfully changed!");
-                    this.Close();
-                    MainWindow.proxy.Logout(token1);
-                    MainWindow.proxy2.clearData();
-                    scada1.Close();
-                    mw.ShowDialog();
-                }
-                else
+                    if (OldPassword.Password == mw.GetPassword)
+                    {
+                        string username = mw.GetUsername;
+                        string newPassword = NewPassword.Password;
+                        string indicate = MainWindow.proxy.ChangePassword(username, OldPassword.Password, newPassword);
+                        if (indicate == "Uspesna promena passworda")
+                        {
+                            MessageBox.Show("Password succesfully changed!");
+                            this.Close();
+                            MainWindow.proxy.Logout(token1);
+                            MainWindow.proxy2.clearData();
+                            scada1.Close();
+                            mw.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Password was not changed");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Old password is wrong!");
+                    }
+                } else
                 {
-                    MessageBox.Show("Password was not changed");
+                    MessageBox.Show("Password must have at least 6 characters");
                 }
             }else
             {
-                MessageBox.Show("Old password is wrong!");
+                MessageBox.Show("New password is incorrect");
             }
+            
+        }
+
+        private bool ValidateInput()
+        {
+            if (NewPassword.Password.Length == 0 || NewPassword.Password.Trim().Equals("") )
+            {
+                if (NewPassword.Password.Length == 0)
+                {
+                    NewPassword.BorderBrush = Brushes.Red;
+                }
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        private bool ValidateInput1()
+        {
+            if (NewPassword.Password.Length < 6)
+            {
+                return false;
+            }
+            return true;
         }
         private void CancelClick(object sender, RoutedEventArgs e)
         {

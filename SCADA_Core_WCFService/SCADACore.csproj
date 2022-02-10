@@ -158,7 +158,6 @@
     <Compile Include="AnalogOutput.cs" />
     <Compile Include="ITrending.cs" />
     <Compile Include="ITrendingCallback.cs" />
-    <Compile Include="TagContext.cs" />
     <Compile Include="DigitalInput.cs" />
     <Compile Include="DigitalOutput.cs" />
     <Compile Include="IAuthentication.cs" />

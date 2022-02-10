@@ -112,7 +112,7 @@
                             <DataGridTextColumn Header="Tag name" Binding="{Binding tag_name}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding description}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="IO Adress" Binding="{Binding IO_Adress}" IsReadOnly="True" Width="*"/>
-                            <DataGridTextColumn Header="Initial Value" Binding="{Binding initial_Value, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" IsReadOnly="False" Width="*"/>
+                            <DataGridTextColumn Header="Initial Value" Binding ="{Binding initial_Value, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" IsReadOnly="False" Width="*"/>
                             <DataGridTemplateColumn Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

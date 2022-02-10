@@ -200,7 +200,14 @@ namespace DatabaseManager
         private void SaveClickDO(object sender, RoutedEventArgs e)
         {
             double change = SelectedDO.initial_Value;
-            MainWindow.proxy2.SaveChangesDO(SelectedDO, change);
+            if (change == 0 || change == 1 )
+            {
+                MainWindow.proxy2.SaveChangesDO(SelectedDO, change);
+            }else
+            {
+                MessageBox.Show("Digital value must be 0 or 1");
+            }
+            
         }
         private void SaveClickDI(object sender, RoutedEventArgs e)
         {
