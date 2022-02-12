@@ -154,8 +154,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alarm.cs" />
     <Compile Include="AnalogInput.cs" />
     <Compile Include="AnalogOutput.cs" />
+    <Compile Include="DITag.cs" />
     <Compile Include="ITrending.cs" />
     <Compile Include="ITrendingCallback.cs" />
     <Compile Include="DigitalInput.cs" />
@@ -164,6 +166,8 @@
     <Compile Include="IDatabaseManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AITag.cs" />
+    <Compile Include="TagContext.cs" />
     <Compile Include="TagProcessing.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserContext.cs" />

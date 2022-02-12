@@ -430,6 +430,12 @@ namespace SCADACore
                 if (di.ONOFF_scan == true)
                 {
                     valueReceived1?.Invoke(di);
+                    DITag tag = new DITag { Value = di.digitalValue, TagName = di.TagName, TimeStamp = DateTime.Now };
+                    using (var db = new TagContext())
+                    {
+                        db.DITags.Add(tag);
+                        db.SaveChanges();
+                    }
                 }
             }
         }
@@ -443,6 +449,12 @@ namespace SCADACore
                 if (ai.ONOFF_scan == true)
                 {
                     valueReceived?.Invoke(ai);
+                    AITag tag = new AITag { Value = ai.AnalogValue, TagName = ai.TagName, TimeStamp = DateTime.Now };
+                    using (var db = new TagContext())
+                    {
+                        db.AITags.Add(tag);
+                        db.SaveChanges();
+                    }
                 }
             }
         }
