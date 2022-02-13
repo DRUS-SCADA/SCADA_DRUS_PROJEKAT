@@ -170,6 +170,9 @@
     <Compile Include="AddAI.xaml.cs">
       <DependentUpon>AddAI.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddAlarm.xaml.cs">
+      <DependentUpon>AddAlarm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddAO.xaml.cs">
       <DependentUpon>AddAO.xaml</DependentUpon>
     </Compile>
@@ -192,6 +195,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="ListOfAlarms.xaml.cs">
+      <DependentUpon>ListOfAlarms.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
@@ -199,6 +205,10 @@
       <DependentUpon>SCADA.xaml</DependentUpon>
     </Compile>
     <Page Include="AddAI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddAlarm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListOfAlarms.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -260,6 +274,9 @@
     <None Include="Connected Services\ServiceReference1\Arrays.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference1\DatabaseManager.ServiceReference1.Alarm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference1\DatabaseManager.ServiceReference1.AnalogInput.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -284,6 +301,9 @@
     </None>
     <None Include="Connected Services\ServiceReference2\Arrays.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReference2\DatabaseManager.ServiceReference2.Alarm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReference2\DatabaseManager.ServiceReference2.AnalogInput.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

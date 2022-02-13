@@ -15,9 +15,9 @@ namespace SCADACore
     }
    public enum Priorities
     {
-        value1 = 1,
-        value2 = 2,
-        value3 = 3
+        ONE = 1,
+        TWO = 2,
+        THREE = 3
     }
     [DataContract]
     public class Alarm

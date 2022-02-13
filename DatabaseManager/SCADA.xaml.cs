@@ -92,6 +92,27 @@ namespace DatabaseManager
             this.Close();
             mw.Show();
         }
+        private void AlarmClick(object sender, RoutedEventArgs e)
+        {
+            if (Tab1.SelectedIndex == 2 && !dataGrid2.Items.IsEmpty)
+            {
+                AddAlarm addAlarm = new AddAlarm();
+                addAlarm.ShowDialog();
+            }
+            else if (Tab1.SelectedIndex != 2)
+            {
+                MessageBox.Show("You can add new alarm just for AI Tag!");
+            }
+            else
+            {
+                MessageBox.Show("You can add new alarm just after adding at least one AI Tag!");
+            }
+        }
+        private void OpenAlarms(object sender, RoutedEventArgs e)
+        {
+            ListOfAlarms listOfAlarms = new ListOfAlarms(SelectedAI);
+            listOfAlarms.ShowDialog();
+        }
 
         public void Logout_Click(object sender, RoutedEventArgs e)
         {

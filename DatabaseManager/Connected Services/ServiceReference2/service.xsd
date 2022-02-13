@@ -223,10 +223,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="LoadDataToGridAlarm">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoadDataToGridAlarmResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="LoadDataToGridAlarmResult" nillable="true" type="q13:ArrayOfAlarm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SaveChanges">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AO" nillable="true" type="q13:AnalogOutput" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AO" nillable="true" type="q14:AnalogOutput" />
         <xs:element minOccurs="0" name="change" type="xs:double" />
       </xs:sequence>
     </xs:complexType>
@@ -239,7 +251,7 @@
   <xs:element name="SaveChangesDO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DO" nillable="true" type="q14:DigitalOutput" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DO" nillable="true" type="q15:DigitalOutput" />
         <xs:element minOccurs="0" name="change" type="xs:double" />
       </xs:sequence>
     </xs:complexType>
@@ -252,7 +264,7 @@
   <xs:element name="SaveChangesAI">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q15:AnalogInput" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q16:AnalogInput" />
         <xs:element minOccurs="0" name="change" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
@@ -265,7 +277,7 @@
   <xs:element name="SaveChangesDI">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q16:DigitalInput" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q17:DigitalInput" />
         <xs:element minOccurs="0" name="change" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
@@ -278,7 +290,7 @@
   <xs:element name="Simulation">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q17:DigitalInput" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q18:DigitalInput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -290,7 +302,7 @@
   <xs:element name="Simulation1">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q18:AnalogInput" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q19:AnalogInput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -332,56 +344,56 @@
   <xs:element name="loadAdressAI">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AI" nillable="true" type="q19:ArrayOfKeyValueOfstringboolean" />
+        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AI" nillable="true" type="q20:ArrayOfKeyValueOfstringboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="loadAdressAIResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressAIResult" nillable="true" type="q20:ArrayOfKeyValueOfstringboolean" />
+        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressAIResult" nillable="true" type="q21:ArrayOfKeyValueOfstringboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="loadAdressDI">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DI" nillable="true" type="q21:ArrayOfKeyValueOfstringboolean" />
+        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DI" nillable="true" type="q22:ArrayOfKeyValueOfstringboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="loadAdressDIResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressDIResult" nillable="true" type="q22:ArrayOfKeyValueOfstringboolean" />
+        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressDIResult" nillable="true" type="q23:ArrayOfKeyValueOfstringboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="loadAdressAO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AO" nillable="true" type="q23:ArrayOfKeyValueOfstringboolean" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="AO" nillable="true" type="q24:ArrayOfKeyValueOfstringboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="loadAdressAOResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressAOResult" nillable="true" type="q24:ArrayOfKeyValueOfstringboolean" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressAOResult" nillable="true" type="q25:ArrayOfKeyValueOfstringboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="loadAdressDO">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DO" nillable="true" type="q25:ArrayOfKeyValueOfstringboolean" />
+        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="DO" nillable="true" type="q26:ArrayOfKeyValueOfstringboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="loadAdressDOResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressDOResult" nillable="true" type="q26:ArrayOfKeyValueOfstringboolean" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="loadAdressDOResult" nillable="true" type="q27:ArrayOfKeyValueOfstringboolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -415,6 +427,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddAlarm">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="alarm" nillable="true" type="q28:Alarm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAlarmResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SubscriberInitialization">
     <xs:complexType>
       <xs:sequence />
@@ -428,28 +452,28 @@
   <xs:element name="OnValueReceived">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q27:AnalogInput" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q29:AnalogInput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="OnValueReceived1">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q28:DigitalInput" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q30:DigitalInput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="OnRemoveDI">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q29:DigitalInput" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="DI" nillable="true" type="q31:DigitalInput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="OnRemoveAI">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q30:AnalogInput" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="AI" nillable="true" type="q32:AnalogInput" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

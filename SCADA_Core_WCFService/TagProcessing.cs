@@ -40,6 +40,7 @@ namespace SCADACore
         public static ObservableCollection<AnalogOutput> analogOutputsObservable = new ObservableCollection<AnalogOutput>();
         public static ObservableCollection<DigitalInput> digitalInputsObservable = new ObservableCollection<DigitalInput>();
         public static ObservableCollection<DigitalOutput> digitalOutputsObservable = new ObservableCollection<DigitalOutput>();
+        public static ObservableCollection<Alarm> Alarms = new ObservableCollection<Alarm>();
 
         #region IAuthentication
 
@@ -278,6 +279,10 @@ namespace SCADACore
         public IEnumerable<DigitalInput> LoadDataToGridDI()
         {
             return digitalInputsObservable;
+        }
+        public IEnumerable<Alarm> LoadDataToGridAlarm()
+        {
+            return Alarms;
         }
         public void SaveChanges(AnalogOutput AO,double change)
         {
@@ -656,6 +661,13 @@ namespace SCADACore
                 UpdateDIxml(digitalInputs);
                 UpdateDOxml(digitalOutputs);
             }
+        }
+        #endregion
+
+        #region Alarms
+        public void AddAlarm(Alarm alarm)
+        {
+            Alarms.Add(alarm);
         }
         #endregion
     }

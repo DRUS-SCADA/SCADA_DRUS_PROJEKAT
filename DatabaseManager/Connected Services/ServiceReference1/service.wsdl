@@ -397,6 +397,12 @@
   <wsdl:message name="IDatabaseManager_LoadDataToGridDI_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoadDataToGridDIResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadDataToGridAlarm_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDataToGridAlarm" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_LoadDataToGridAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadDataToGridAlarmResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatabaseManager_SaveChanges_InputMessage">
     <wsdl:part name="parameters" element="tns:SaveChanges" />
   </wsdl:message>
@@ -493,6 +499,12 @@
   <wsdl:message name="IDatabaseManager_ReadXML_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReadXMLResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_AddAlarm_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlarm" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_AddAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlarmResponse" />
+  </wsdl:message>
   <wsdl:message name="ITrending_SubscriberInitialization_InputMessage">
     <wsdl:part name="parameters" element="tns:SubscriberInitialization" />
   </wsdl:message>
@@ -588,6 +600,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridDI" message="tns:IDatabaseManager_LoadDataToGridDI_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridDIResponse" message="tns:IDatabaseManager_LoadDataToGridDI_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="LoadDataToGridAlarm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarm" message="tns:IDatabaseManager_LoadDataToGridAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarmResponse" message="tns:IDatabaseManager_LoadDataToGridAlarm_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SaveChanges">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChanges" message="tns:IDatabaseManager_SaveChanges_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/SaveChangesResponse" message="tns:IDatabaseManager_SaveChanges_OutputMessage" />
@@ -651,6 +667,10 @@
     <wsdl:operation name="ReadXML">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/ReadXML" message="tns:IDatabaseManager_ReadXML_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/ReadXMLResponse" message="tns:IDatabaseManager_ReadXML_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAlarm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/AddAlarm" message="tns:IDatabaseManager_AddAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/AddAlarmResponse" message="tns:IDatabaseManager_AddAlarm_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ITrending">
@@ -835,6 +855,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="LoadDataToGridAlarm">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SaveChanges">
       <soap:operation soapAction="http://tempuri.org/IDatabaseManager/SaveChanges" style="document" />
       <wsdl:input>
@@ -972,6 +1001,15 @@
     </wsdl:operation>
     <wsdl:operation name="ReadXML">
       <soap:operation soapAction="http://tempuri.org/IDatabaseManager/ReadXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlarm">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/AddAlarm" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

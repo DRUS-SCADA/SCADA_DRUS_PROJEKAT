@@ -35,6 +35,8 @@ namespace SCADACore
         [OperationContract]
         IEnumerable<DigitalInput> LoadDataToGridDI();
         [OperationContract]
+        IEnumerable<Alarm> LoadDataToGridAlarm();
+        [OperationContract]
         void SaveChanges(AnalogOutput AO, double change);
         [OperationContract]
         void SaveChangesDO(DigitalOutput DO, double change);
@@ -66,5 +68,7 @@ namespace SCADACore
         void WriteXML();
         [OperationContract]
         void ReadXML();
+        [OperationContract]
+        void AddAlarm(Alarm alarm);
     }
 }
