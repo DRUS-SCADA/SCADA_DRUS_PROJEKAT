@@ -35,7 +35,7 @@ namespace SCADACore
         [OperationContract]
         IEnumerable<DigitalInput> LoadDataToGridDI();
         [OperationContract]
-        IEnumerable<Alarm> LoadDataToGridAlarm();
+        IEnumerable<Alarm> LoadDataToGridAlarm(AnalogInput AI);
         [OperationContract]
         void SaveChanges(AnalogOutput AO, double change);
         [OperationContract]
@@ -63,12 +63,26 @@ namespace SCADACore
         [OperationContract]
         Dictionary<string, bool> loadAdressDO(Dictionary<string, bool> DO);
         [OperationContract]
+        Dictionary<string, bool> loadAdressAIfree(Dictionary<string, bool> AI);
+        [OperationContract]
+        Dictionary<string, bool> loadAdressDIfree(Dictionary<string, bool> DI);
+        [OperationContract]
+        Dictionary<string, bool> loadAdressAOfree(Dictionary<string, bool> AO);
+        [OperationContract]
+        Dictionary<string, bool> loadAdressDOfree(Dictionary<string, bool> DO);
+        [OperationContract]
         void clearData();
         [OperationContract]
         void WriteXML();
         [OperationContract]
         void ReadXML();
         [OperationContract]
-        void AddAlarm(Alarm alarm);
+        void RemoveAlarm(Alarm alarm, AnalogInput AI);
+        [OperationContract]
+        void AddAlarmToAI(Alarm alarm, AnalogInput AI);
+        [OperationContract]
+        void ClearCollections();
+        [OperationContract]
+        void ClearDictionaries();
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DatabaseManager.ServiceReference1;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,6 +84,10 @@ namespace DatabaseManager
         public void TextBox_LostFocus2(object sender, RoutedEventArgs e)
         {
             PasswordId.Password = PasswordId.Password;
+        }
+        private void WindowClosing(object sender, CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
         
     }

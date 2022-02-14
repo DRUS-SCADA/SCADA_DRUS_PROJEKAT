@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -33,9 +34,14 @@ namespace SCADACore
         public string Units { get; set; }
         [DataMember]
         public double AnalogValue { get; set; }
+        [DataMember]
+        public ObservableCollection<Alarm> Alarms { get; set; }
 
 
-        public AnalogInput() { }
+        public AnalogInput()
+        {
+            this.Alarms = new ObservableCollection<Alarm>();
+        }
 
         public AnalogInput(string name, string description, string address, double scanTime, bool onoff, double low, double high, string units)
         {

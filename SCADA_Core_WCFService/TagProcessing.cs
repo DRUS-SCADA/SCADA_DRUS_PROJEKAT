@@ -40,7 +40,6 @@ namespace SCADACore
         public static ObservableCollection<AnalogOutput> analogOutputsObservable = new ObservableCollection<AnalogOutput>();
         public static ObservableCollection<DigitalInput> digitalInputsObservable = new ObservableCollection<DigitalInput>();
         public static ObservableCollection<DigitalOutput> digitalOutputsObservable = new ObservableCollection<DigitalOutput>();
-        public static ObservableCollection<Alarm> Alarms = new ObservableCollection<Alarm>();
 
         #region IAuthentication
 
@@ -48,7 +47,6 @@ namespace SCADACore
         {
             string encrypted_password = EncryptData(password);
             string encrypted_username = EncryptData(username);
-
 
             User user = new User(name, surname, encrypted_username, encrypted_password);
 
@@ -64,7 +62,6 @@ namespace SCADACore
                     return "Neuspesno registrovanje";
                 }
             }
-
             return "Uspesno registrovanje";
         }
 
@@ -84,8 +81,6 @@ namespace SCADACore
                         try
                         {
                             db.Users.Remove(user);
-
-
                             help_variable = true;
                         }
                         catch (Exception e)
@@ -94,9 +89,7 @@ namespace SCADACore
                         }
                     }
                 }
-
                 db.SaveChanges();
-
             }
 
             if (help_variable == true)
@@ -123,7 +116,6 @@ namespace SCADACore
                     }
                 }
             }
-
             return "Neuspesno logovanje";
         }
 
@@ -156,7 +148,6 @@ namespace SCADACore
 
         public bool Logout(string token)
         {
-            clearDictionaries();
             return autentificated_users.Remove(token);
         }
         #endregion
@@ -215,7 +206,6 @@ namespace SCADACore
         private bool IsUserAutenticated(string token)
         {
             return autentificated_users.ContainsKey(token);
-
         }
         #endregion
 
@@ -248,8 +238,26 @@ namespace SCADACore
         #endregion
 
         #region HelpMethods
-        
-        public void clearDictionaries()
+        public void ClearCollections()
+        {
+            foreach (var i in analogInputsObservable.ToList())
+            {
+                analogInputsObservable.Remove(i);
+            }
+            foreach (var i in analogOutputsObservable.ToList())
+            {
+                analogOutputsObservable.Remove(i);
+            }
+            foreach (var i in digitalInputsObservable.ToList())
+            {
+                digitalInputsObservable.Remove(i);
+            }
+            foreach (var i in digitalOutputsObservable.ToList())
+            {
+                digitalOutputsObservable.Remove(i);
+            }
+        }
+        public void ClearDictionaries()
         {
             foreach (var i in digitalInputsObservable.ToList())
             {
@@ -261,7 +269,6 @@ namespace SCADACore
                 dictAi[j.TagName].Abort();
                 dictAi.Remove(j.TagName);
             }
-
         }
         public IEnumerable<DigitalOutput> LoadDataToGrid()
         {
@@ -280,9 +287,16 @@ namespace SCADACore
         {
             return digitalInputsObservable;
         }
-        public IEnumerable<Alarm> LoadDataToGridAlarm()
+        public IEnumerable<Alarm> LoadDataToGridAlarm(AnalogInput AI)
         {
-            return Alarms;
+            foreach (var i in analogInputsObservable)
+            {
+                if (i.TagName == AI.TagName)
+                {
+                    return i.Alarms;
+                }
+            }
+            return null;
         }
         public void SaveChanges(AnalogOutput AO,double change)
         {
@@ -329,10 +343,6 @@ namespace SCADACore
                 }
             }
         }
-        public void startPLC()
-        {
-            PLC.StartPLCSimulator();
-        }
         public Dictionary<string, bool> loadAdressAI(Dictionary<string, bool>AI)
         {
             foreach (var i in analogInputsObservable.ToList())
@@ -356,7 +366,6 @@ namespace SCADACore
                 DI[i.IOAdress] = true;
             }
             return DI;
-
         }
         public Dictionary<string, bool> loadAdressDO(Dictionary<string, bool> DO)
         {
@@ -365,9 +374,40 @@ namespace SCADACore
                 DO[i.IO_Adress] = true;
             }
             return DO;
-
         }
-        
+        public Dictionary<string, bool> loadAdressAIfree(Dictionary<string, bool> AI)
+        {
+            foreach (var i in analogInputsObservable.ToList())
+            {
+                AI[i.IOAdress] = false;
+            }
+            return AI;
+        }
+        public Dictionary<string, bool> loadAdressAOfree(Dictionary<string, bool> AO)
+        {
+            foreach (var i in analogOutputsObservable.ToList())
+            {
+                AO[i.IOAdress] = false;
+            }
+            return AO;
+        }
+        public Dictionary<string, bool> loadAdressDIfree(Dictionary<string, bool> DI)
+        {
+            foreach (var i in digitalInputsObservable.ToList())
+            {
+                DI[i.IOAdress] = false;
+            }
+            return DI;
+        }
+        public Dictionary<string, bool> loadAdressDOfree(Dictionary<string, bool> DO)
+        {
+            foreach (var i in digitalOutputsObservable.ToList())
+            {
+                DO[i.IO_Adress] = false;
+            }
+            return DO;
+        }
+
         #endregion
 
         #region RemoveTags
@@ -426,6 +466,10 @@ namespace SCADACore
         #endregion
 
         #region PLC simulation methods
+        public void startPLC()
+        {
+            PLC.StartPLCSimulator();
+        }
         public void Simulation(DigitalInput di)
         {
             while (true)
@@ -655,7 +699,7 @@ namespace SCADACore
                                       IO_Adress = doo.Attribute("IOAdress").Value,
                                       initial_Value = double.Parse(doo.Attribute("InitialValue").Value)
                                   }).ToList();
-
+                //Help methods
                 UpdateAIxml(analogInputs);
                 UpdateAOxml(analogOutputs);
                 UpdateDIxml(digitalInputs);
@@ -665,9 +709,33 @@ namespace SCADACore
         #endregion
 
         #region Alarms
-        public void AddAlarm(Alarm alarm)
+        public void AddAlarmToAI(Alarm alarm, AnalogInput analogInput) 
         {
-            Alarms.Add(alarm);
+            foreach (var i in analogInputsObservable.ToList())
+            {
+                if(i.TagName == analogInput.TagName)
+                {
+                    i.Alarms.Add(alarm);
+                    break;
+                }
+            }
+        }
+        public void RemoveAlarm(Alarm alarm, AnalogInput analogInput)
+        {
+            foreach (var i in analogInputsObservable)
+            {
+                if (i.TagName == analogInput.TagName)
+                {
+                    foreach(var j in i.Alarms.ToList())
+                    {
+                        if(j.TagName == alarm.TagName && j.Priorities==alarm.Priorities && j.Types==alarm.Types && j.Treshold == alarm.Treshold)
+                        {
+                            i.Alarms.Remove(j);
+                            break;
+                        }
+                    }
+                }
+            }
         }
         #endregion
     }

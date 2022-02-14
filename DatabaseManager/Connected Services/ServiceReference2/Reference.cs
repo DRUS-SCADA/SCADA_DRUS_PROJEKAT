@@ -23,6 +23,9 @@ namespace DatabaseManager.ServiceReference2 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference2.Alarm[] AlarmsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AnalogValueField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -59,6 +62,19 @@ namespace DatabaseManager.ServiceReference2 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference2.Alarm[] Alarms {
+            get {
+                return this.AlarmsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AlarmsField, value) != true)) {
+                    this.AlarmsField = value;
+                    this.RaisePropertyChanged("Alarms");
+                }
             }
         }
         
@@ -200,6 +216,124 @@ namespace DatabaseManager.ServiceReference2 {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
         }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Alarm", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    [System.SerializableAttribute()]
+    public partial class Alarm : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference2.Priorities PrioritiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TresholdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference2.Types TypesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference2.Priorities Priorities {
+            get {
+                return this.PrioritiesField;
+            }
+            set {
+                if ((this.PrioritiesField.Equals(value) != true)) {
+                    this.PrioritiesField = value;
+                    this.RaisePropertyChanged("Priorities");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Treshold {
+            get {
+                return this.TresholdField;
+            }
+            set {
+                if ((this.TresholdField.Equals(value) != true)) {
+                    this.TresholdField = value;
+                    this.RaisePropertyChanged("Treshold");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference2.Types Types {
+            get {
+                return this.TypesField;
+            }
+            set {
+                if ((this.TypesField.Equals(value) != true)) {
+                    this.TypesField = value;
+                    this.RaisePropertyChanged("Types");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Priorities", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    public enum Priorities : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ONE = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TWO = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        THREE = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Types", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    public enum Types : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LOW = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        HIGH = 1,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -593,124 +727,6 @@ namespace DatabaseManager.ServiceReference2 {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Alarm", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
-    [System.SerializableAttribute()]
-    public partial class Alarm : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.ServiceReference2.Priorities PrioritiesField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TagNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double TresholdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.ServiceReference2.Types TypesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.ServiceReference2.Priorities Priorities {
-            get {
-                return this.PrioritiesField;
-            }
-            set {
-                if ((this.PrioritiesField.Equals(value) != true)) {
-                    this.PrioritiesField = value;
-                    this.RaisePropertyChanged("Priorities");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TagName {
-            get {
-                return this.TagNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
-                    this.TagNameField = value;
-                    this.RaisePropertyChanged("TagName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Treshold {
-            get {
-                return this.TresholdField;
-            }
-            set {
-                if ((this.TresholdField.Equals(value) != true)) {
-                    this.TresholdField = value;
-                    this.RaisePropertyChanged("Treshold");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.ServiceReference2.Types Types {
-            get {
-                return this.TypesField;
-            }
-            set {
-                if ((this.TypesField.Equals(value) != true)) {
-                    this.TypesField = value;
-                    this.RaisePropertyChanged("Types");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Priorities", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
-    public enum Priorities : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        ONE = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        TWO = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        THREE = 3,
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Types", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
-    public enum Types : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        LOW = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        HIGH = 1,
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IAuthentication")]
     public interface IAuthentication {
@@ -891,10 +907,10 @@ namespace DatabaseManager.ServiceReference2 {
         System.Threading.Tasks.Task<DatabaseManager.ServiceReference2.DigitalInput[]> LoadDataToGridDIAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarmResponse")]
-        DatabaseManager.ServiceReference2.Alarm[] LoadDataToGridAlarm();
+        DatabaseManager.ServiceReference2.Alarm[] LoadDataToGridAlarm(DatabaseManager.ServiceReference2.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarmResponse")]
-        System.Threading.Tasks.Task<DatabaseManager.ServiceReference2.Alarm[]> LoadDataToGridAlarmAsync();
+        System.Threading.Tasks.Task<DatabaseManager.ServiceReference2.Alarm[]> LoadDataToGridAlarmAsync(DatabaseManager.ServiceReference2.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChanges", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesResponse")]
         void SaveChanges(DatabaseManager.ServiceReference2.AnalogOutput AO, double change);
@@ -974,6 +990,30 @@ namespace DatabaseManager.ServiceReference2 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDO", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDOResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDOAsync(System.Collections.Generic.Dictionary<string, bool> DO);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAIfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAIfreeResponse")]
+        System.Collections.Generic.Dictionary<string, bool> loadAdressAIfree(System.Collections.Generic.Dictionary<string, bool> AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAIfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAIfreeResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAIfreeAsync(System.Collections.Generic.Dictionary<string, bool> AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDIfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDIfreeResponse")]
+        System.Collections.Generic.Dictionary<string, bool> loadAdressDIfree(System.Collections.Generic.Dictionary<string, bool> DI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDIfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDIfreeResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDIfreeAsync(System.Collections.Generic.Dictionary<string, bool> DI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAOfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAOfreeResponse")]
+        System.Collections.Generic.Dictionary<string, bool> loadAdressAOfree(System.Collections.Generic.Dictionary<string, bool> AO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAOfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAOfreeResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAOfreeAsync(System.Collections.Generic.Dictionary<string, bool> AO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDOfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDOfreeResponse")]
+        System.Collections.Generic.Dictionary<string, bool> loadAdressDOfree(System.Collections.Generic.Dictionary<string, bool> DO);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDOfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDOfreeResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDOfreeAsync(System.Collections.Generic.Dictionary<string, bool> DO);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/clearData", ReplyAction="http://tempuri.org/IDatabaseManager/clearDataResponse")]
         void clearData();
         
@@ -992,11 +1032,29 @@ namespace DatabaseManager.ServiceReference2 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ReadXML", ReplyAction="http://tempuri.org/IDatabaseManager/ReadXMLResponse")]
         System.Threading.Tasks.Task ReadXMLAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/AddAlarmResponse")]
-        void AddAlarm(DatabaseManager.ServiceReference2.Alarm alarm);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/RemoveAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/RemoveAlarmResponse")]
+        void RemoveAlarm(DatabaseManager.ServiceReference2.Alarm alarm, DatabaseManager.ServiceReference2.AnalogInput AI);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/AddAlarmResponse")]
-        System.Threading.Tasks.Task AddAlarmAsync(DatabaseManager.ServiceReference2.Alarm alarm);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/RemoveAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/RemoveAlarmResponse")]
+        System.Threading.Tasks.Task RemoveAlarmAsync(DatabaseManager.ServiceReference2.Alarm alarm, DatabaseManager.ServiceReference2.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAlarmToAI", ReplyAction="http://tempuri.org/IDatabaseManager/AddAlarmToAIResponse")]
+        void AddAlarmToAI(DatabaseManager.ServiceReference2.Alarm alarm, DatabaseManager.ServiceReference2.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAlarmToAI", ReplyAction="http://tempuri.org/IDatabaseManager/AddAlarmToAIResponse")]
+        System.Threading.Tasks.Task AddAlarmToAIAsync(DatabaseManager.ServiceReference2.Alarm alarm, DatabaseManager.ServiceReference2.AnalogInput AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ClearCollections", ReplyAction="http://tempuri.org/IDatabaseManager/ClearCollectionsResponse")]
+        void ClearCollections();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ClearCollections", ReplyAction="http://tempuri.org/IDatabaseManager/ClearCollectionsResponse")]
+        System.Threading.Tasks.Task ClearCollectionsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ClearDictionaries", ReplyAction="http://tempuri.org/IDatabaseManager/ClearDictionariesResponse")]
+        void ClearDictionaries();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ClearDictionaries", ReplyAction="http://tempuri.org/IDatabaseManager/ClearDictionariesResponse")]
+        System.Threading.Tasks.Task ClearDictionariesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1122,12 +1180,12 @@ namespace DatabaseManager.ServiceReference2 {
             return base.Channel.LoadDataToGridDIAsync();
         }
         
-        public DatabaseManager.ServiceReference2.Alarm[] LoadDataToGridAlarm() {
-            return base.Channel.LoadDataToGridAlarm();
+        public DatabaseManager.ServiceReference2.Alarm[] LoadDataToGridAlarm(DatabaseManager.ServiceReference2.AnalogInput AI) {
+            return base.Channel.LoadDataToGridAlarm(AI);
         }
         
-        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference2.Alarm[]> LoadDataToGridAlarmAsync() {
-            return base.Channel.LoadDataToGridAlarmAsync();
+        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference2.Alarm[]> LoadDataToGridAlarmAsync(DatabaseManager.ServiceReference2.AnalogInput AI) {
+            return base.Channel.LoadDataToGridAlarmAsync(AI);
         }
         
         public void SaveChanges(DatabaseManager.ServiceReference2.AnalogOutput AO, double change) {
@@ -1234,6 +1292,38 @@ namespace DatabaseManager.ServiceReference2 {
             return base.Channel.loadAdressDOAsync(DO);
         }
         
+        public System.Collections.Generic.Dictionary<string, bool> loadAdressAIfree(System.Collections.Generic.Dictionary<string, bool> AI) {
+            return base.Channel.loadAdressAIfree(AI);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAIfreeAsync(System.Collections.Generic.Dictionary<string, bool> AI) {
+            return base.Channel.loadAdressAIfreeAsync(AI);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, bool> loadAdressDIfree(System.Collections.Generic.Dictionary<string, bool> DI) {
+            return base.Channel.loadAdressDIfree(DI);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDIfreeAsync(System.Collections.Generic.Dictionary<string, bool> DI) {
+            return base.Channel.loadAdressDIfreeAsync(DI);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, bool> loadAdressAOfree(System.Collections.Generic.Dictionary<string, bool> AO) {
+            return base.Channel.loadAdressAOfree(AO);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAOfreeAsync(System.Collections.Generic.Dictionary<string, bool> AO) {
+            return base.Channel.loadAdressAOfreeAsync(AO);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, bool> loadAdressDOfree(System.Collections.Generic.Dictionary<string, bool> DO) {
+            return base.Channel.loadAdressDOfree(DO);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressDOfreeAsync(System.Collections.Generic.Dictionary<string, bool> DO) {
+            return base.Channel.loadAdressDOfreeAsync(DO);
+        }
+        
         public void clearData() {
             base.Channel.clearData();
         }
@@ -1258,12 +1348,36 @@ namespace DatabaseManager.ServiceReference2 {
             return base.Channel.ReadXMLAsync();
         }
         
-        public void AddAlarm(DatabaseManager.ServiceReference2.Alarm alarm) {
-            base.Channel.AddAlarm(alarm);
+        public void RemoveAlarm(DatabaseManager.ServiceReference2.Alarm alarm, DatabaseManager.ServiceReference2.AnalogInput AI) {
+            base.Channel.RemoveAlarm(alarm, AI);
         }
         
-        public System.Threading.Tasks.Task AddAlarmAsync(DatabaseManager.ServiceReference2.Alarm alarm) {
-            return base.Channel.AddAlarmAsync(alarm);
+        public System.Threading.Tasks.Task RemoveAlarmAsync(DatabaseManager.ServiceReference2.Alarm alarm, DatabaseManager.ServiceReference2.AnalogInput AI) {
+            return base.Channel.RemoveAlarmAsync(alarm, AI);
+        }
+        
+        public void AddAlarmToAI(DatabaseManager.ServiceReference2.Alarm alarm, DatabaseManager.ServiceReference2.AnalogInput AI) {
+            base.Channel.AddAlarmToAI(alarm, AI);
+        }
+        
+        public System.Threading.Tasks.Task AddAlarmToAIAsync(DatabaseManager.ServiceReference2.Alarm alarm, DatabaseManager.ServiceReference2.AnalogInput AI) {
+            return base.Channel.AddAlarmToAIAsync(alarm, AI);
+        }
+        
+        public void ClearCollections() {
+            base.Channel.ClearCollections();
+        }
+        
+        public System.Threading.Tasks.Task ClearCollectionsAsync() {
+            return base.Channel.ClearCollectionsAsync();
+        }
+        
+        public void ClearDictionaries() {
+            base.Channel.ClearDictionaries();
+        }
+        
+        public System.Threading.Tasks.Task ClearDictionariesAsync() {
+            return base.Channel.ClearDictionariesAsync();
         }
     }
     

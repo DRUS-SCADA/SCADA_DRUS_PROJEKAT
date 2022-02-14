@@ -10,7 +10,7 @@
     <Grid>
 
         <Button Content="Close" Style="{DynamicResource MaterialDesignRaisedButton}" Background="IndianRed" HorizontalAlignment="Left" Margin="355,369,0,0" VerticalAlignment="Top" Width="90" Click="CloseClick" Height="41"/>
-        <DataGrid Name="dataAlarm" SelectedItem="{Binding SelectedAlarm}" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="326" Margin="38,24,0,0" VerticalAlignment="Top" Width="726">
+        <DataGrid Name="dataAlarm" SelectedItem="{Binding SelectedAlarm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="326" Margin="38,24,0,0" VerticalAlignment="Top" Width="726">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Types" Binding="{Binding Types}" Width="*"/>
                 <DataGridTextColumn Header="Treshold" Binding="{Binding Treshold}"   Width="*"/>
@@ -19,20 +19,9 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Name="addBtnAlarm" Background="Transparent" 
-                                        Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{x:Null}" Click="addBtnAlarm_Click" Height="30" Width="30">
-                                    <Button.Content>
-                                        <iconPacks:PackIconMaterial Kind="Plus"/>
-                                    </Button.Content>
-                                </Button>
-                                <Button Name="deleteBtnAlarm" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{x:Null}" Background="Transparent" Click="deleteBtnAlarm_Click" Height="30" Width="30">
+                                <Button Name="deleteBtnAlarm_Click" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{x:Null}" Background="Transparent" Click="deleteBtnAlarm_Click" Height="30" Width="30">
                                     <Button.Content>
                                         <iconPacks:PackIconMaterial Kind="Minus"/>
-                                    </Button.Content>
-                                </Button>
-                                <Button Name="deleteBtnAlarmBase"  Background="Transparent" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{x:Null}" Click="deleteBtnAlarmBase_Click" Height="30" Width="30">
-                                    <Button.Content>
-                                        <iconPacks:PackIconMaterial Kind="Delete"/>
                                     </Button.Content>
                                 </Button>
                             </StackPanel>

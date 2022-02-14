@@ -20,11 +20,13 @@ namespace DatabaseManager
     /// </summary>
     public partial class AddAlarm : Window
     {
-        public AddAlarm()
+        public AnalogInput SelectedAI { get; set; }
+        public AddAlarm(AnalogInput SelectedAI)
         {
             InitializeComponent();
             this.Type.ItemsSource = new List<string> { "High", "Low" };
             this.Priority.ItemsSource = new List<string> { "1", "2", "3" };
+            this.SelectedAI = SelectedAI;
         }
 
         private void CloseClick(object sender, RoutedEventArgs e)
@@ -60,8 +62,8 @@ namespace DatabaseManager
                     {
                         typeHelp = Types.LOW;
                     }
-                    Alarm alarm = new Alarm { Treshold = treshold, Types = typeHelp, Priorities = helpEnum };
-                    MainWindow.proxy2.AddAlarm(alarm);
+                    Alarm alarm = new Alarm {TagName = SelectedAI.TagName, Treshold = treshold, Types = typeHelp, Priorities = helpEnum };
+                    MainWindow.proxy2.AddAlarmToAI(alarm, SelectedAI);
                     this.Close();
                 }
                 else

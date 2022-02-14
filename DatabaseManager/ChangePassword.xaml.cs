@@ -45,11 +45,7 @@ namespace DatabaseManager
                         {
                             MessageBox.Show("Password succesfully changed!");
                             this.Close();
-                            MainWindow.proxy.Logout(token1);
-                            MainWindow.proxy2.WriteXML();
-                            MainWindow.proxy2.clearData();
                             scada1.Close();
-                            mw.ShowDialog();
                         }
                         else
                         {
@@ -68,7 +64,6 @@ namespace DatabaseManager
             {
                 MessageBox.Show("New password is incorrect");
             }
-            
         }
 
         private bool ValidateInput()

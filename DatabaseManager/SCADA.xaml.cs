@@ -86,17 +86,13 @@ namespace DatabaseManager
 
         private void Close_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.proxy.Logout(token1);
-            MainWindow.proxy2.clearData();
-            MainWindow.proxy2.WriteXML();
             this.Close();
-            mw.Show();
         }
         private void AlarmClick(object sender, RoutedEventArgs e)
         {
             if (Tab1.SelectedIndex == 2 && !dataGrid2.Items.IsEmpty)
             {
-                AddAlarm addAlarm = new AddAlarm();
+                AddAlarm addAlarm = new AddAlarm(SelectedAI);
                 addAlarm.ShowDialog();
             }
             else if (Tab1.SelectedIndex != 2)
@@ -116,19 +112,8 @@ namespace DatabaseManager
 
         public void Logout_Click(object sender, RoutedEventArgs e)
         {
-            bool logout = MainWindow.proxy.Logout(token1);
-            if (logout == true)
-            {
-                MainWindow.proxy2.WriteXML();
-                MainWindow.proxy2.clearData();
-                mw.TextBox_GotFocus2(sender,e);
-                this.Close();
-                mw.Show();
-            }
-            else
-            {
-                MessageBox.Show("You cant logout");
-            }
+            mw.TextBox_GotFocus2(sender, e);
+            this.Close();
         }
 
         private void ProfileDelete(object sender, RoutedEventArgs e)
@@ -142,12 +127,8 @@ namespace DatabaseManager
                 bool delete = MainWindow.proxy.DeleteProfile(username, password);
                 if (delete == true)
                 {
-                    MainWindow.proxy2.WriteXML();
-                    MainWindow.proxy.Logout(token1);
-                    MainWindow.proxy2.clearData();
                     MessageBox.Show("Profile succesfully deleted!");
                     this.Close();
-                    mw.Show();
                 }
                 else
                 {
@@ -237,13 +218,26 @@ namespace DatabaseManager
         }
         private void WindowClosing(object sender, CancelEventArgs e)
         {
-            MessageBoxResult mbr = MessageBox.Show("Do you want to save data? ", "Save", MessageBoxButton.YesNo);
-            if (mbr == MessageBoxResult.Yes)
+            MainWindow.proxy.Logout(token1);
+            MessageBoxResult mbr2 = MessageBox.Show("Do you want to save data? ", "Save", MessageBoxButton.YesNo);
+            if (mbr2 == MessageBoxResult.Yes)
             {
+                MainWindow.proxy2.ClearDictionaries();
                 MainWindow.proxy2.WriteXML();
-                MainWindow.proxy.Logout(token1);
                 MainWindow.proxy2.clearData();
-                Application.Current.Shutdown();
+                MainWindow.proxy2.ClearCollections();
+                mw.Show();
+            }else
+            {
+                MainWindow.proxy2.clearData();
+                adressAI = MainWindow.proxy2.loadAdressAIfree(adressAI);
+                adressAO = MainWindow.proxy2.loadAdressAOfree(adressAO);
+                adressDI = MainWindow.proxy2.loadAdressDIfree(adressDI);
+                adressDO = MainWindow.proxy2.loadAdressDOfree(adressDO);
+                MainWindow.proxy2.ClearCollections();
+                MainWindow.proxy2.ClearDictionaries();
+                MainWindow.proxy2.WriteXML();
+                mw.Show();
             }
         }
     }

@@ -26,19 +26,13 @@ namespace DatabaseManager
         {
             InitializeComponent();
             this.SelectedAI = SelectedAI;
-            dataAlarm.ItemsSource = MainWindow.proxy2.LoadDataToGridAlarm(); 
-        }
-        private void addBtnAlarm_Click(object sender, RoutedEventArgs e)
-        {
-            
+            dataAlarm.ItemsSource = MainWindow.proxy2.LoadDataToGridAlarm(SelectedAI);
+            this.DataContext = this;
         }
         private void deleteBtnAlarm_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-        private void deleteBtnAlarmBase_Click(object sender, RoutedEventArgs e)
-        {
-
+            MainWindow.proxy2.RemoveAlarm(SelectedAlarm, SelectedAI);
+            dataAlarm.ItemsSource = MainWindow.proxy2.LoadDataToGridAlarm(SelectedAI);
         }
         private void CloseClick(object sender, RoutedEventArgs e)
         {

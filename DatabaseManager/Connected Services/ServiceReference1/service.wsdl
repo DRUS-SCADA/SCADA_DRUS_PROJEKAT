@@ -481,6 +481,30 @@
   <wsdl:message name="IDatabaseManager_loadAdressDO_OutputMessage">
     <wsdl:part name="parameters" element="tns:loadAdressDOResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAIfree_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAIfree" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAIfree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAIfreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressDIfree_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressDIfree" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressDIfree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressDIfreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAOfree_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAOfree" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAOfree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAOfreeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressDOfree_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressDOfree" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressDOfree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressDOfreeResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatabaseManager_clearData_InputMessage">
     <wsdl:part name="parameters" element="tns:clearData" />
   </wsdl:message>
@@ -499,11 +523,29 @@
   <wsdl:message name="IDatabaseManager_ReadXML_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReadXMLResponse" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseManager_AddAlarm_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddAlarm" />
+  <wsdl:message name="IDatabaseManager_RemoveAlarm_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAlarm" />
   </wsdl:message>
-  <wsdl:message name="IDatabaseManager_AddAlarm_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddAlarmResponse" />
+  <wsdl:message name="IDatabaseManager_RemoveAlarm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveAlarmResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_AddAlarmToAI_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlarmToAI" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_AddAlarmToAI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddAlarmToAIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_ClearCollections_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCollections" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_ClearCollections_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearCollectionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_ClearDictionaries_InputMessage">
+    <wsdl:part name="parameters" element="tns:ClearDictionaries" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_ClearDictionaries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ClearDictionariesResponse" />
   </wsdl:message>
   <wsdl:message name="ITrending_SubscriberInitialization_InputMessage">
     <wsdl:part name="parameters" element="tns:SubscriberInitialization" />
@@ -656,6 +698,22 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDO" message="tns:IDatabaseManager_loadAdressDO_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDOResponse" message="tns:IDatabaseManager_loadAdressDO_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="loadAdressAIfree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAIfree" message="tns:IDatabaseManager_loadAdressAIfree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAIfreeResponse" message="tns:IDatabaseManager_loadAdressAIfree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressDIfree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDIfree" message="tns:IDatabaseManager_loadAdressDIfree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDIfreeResponse" message="tns:IDatabaseManager_loadAdressDIfree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressAOfree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAOfree" message="tns:IDatabaseManager_loadAdressAOfree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAOfreeResponse" message="tns:IDatabaseManager_loadAdressAOfree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressDOfree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDOfree" message="tns:IDatabaseManager_loadAdressDOfree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDOfreeResponse" message="tns:IDatabaseManager_loadAdressDOfree_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="clearData">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/clearData" message="tns:IDatabaseManager_clearData_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/clearDataResponse" message="tns:IDatabaseManager_clearData_OutputMessage" />
@@ -668,9 +726,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/ReadXML" message="tns:IDatabaseManager_ReadXML_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/ReadXMLResponse" message="tns:IDatabaseManager_ReadXML_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddAlarm">
-      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/AddAlarm" message="tns:IDatabaseManager_AddAlarm_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/AddAlarmResponse" message="tns:IDatabaseManager_AddAlarm_OutputMessage" />
+    <wsdl:operation name="RemoveAlarm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/RemoveAlarm" message="tns:IDatabaseManager_RemoveAlarm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/RemoveAlarmResponse" message="tns:IDatabaseManager_RemoveAlarm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAlarmToAI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/AddAlarmToAI" message="tns:IDatabaseManager_AddAlarmToAI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/AddAlarmToAIResponse" message="tns:IDatabaseManager_AddAlarmToAI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearCollections">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/ClearCollections" message="tns:IDatabaseManager_ClearCollections_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/ClearCollectionsResponse" message="tns:IDatabaseManager_ClearCollections_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ClearDictionaries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/ClearDictionaries" message="tns:IDatabaseManager_ClearDictionaries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/ClearDictionariesResponse" message="tns:IDatabaseManager_ClearDictionaries_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="ITrending">
@@ -981,6 +1051,42 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="loadAdressAIfree">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressAIfree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressDIfree">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressDIfree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressAOfree">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressAOfree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressDOfree">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressDOfree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="clearData">
       <soap:operation soapAction="http://tempuri.org/IDatabaseManager/clearData" style="document" />
       <wsdl:input>
@@ -1008,8 +1114,35 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddAlarm">
-      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/AddAlarm" style="document" />
+    <wsdl:operation name="RemoveAlarm">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/RemoveAlarm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAlarmToAI">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/AddAlarmToAI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearCollections">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/ClearCollections" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ClearDictionaries">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/ClearDictionaries" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

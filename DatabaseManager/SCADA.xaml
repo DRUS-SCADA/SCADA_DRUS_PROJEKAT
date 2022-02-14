@@ -16,7 +16,6 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Closing="WindowClosing"
-
         Title="" Height="450" Width="825.301">
     <Grid >
         <Grid.ColumnDefinitions>
@@ -62,7 +61,7 @@
                             <DataGridTextColumn Header="Tag name" Width="*" Binding="{Binding Path=TagName}"/>
                             <DataGridTextColumn Header="Description"  Width="*" Binding="{Binding Path=Description}"/>
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding scantime}" Width="*"/>-->
-                            <DataGridTextColumn Header="IO Adress"  Width="*" Binding="{Binding Path=IOAdress}"/>
+                            <DataGridTextColumn Header="IO Adress"  Width="1.5*" Binding="{Binding Path=IOAdress}"/>
                             <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan ,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  IsReadOnly="False" Width="*" />
 
                             <DataGridTemplateColumn Width="*">
@@ -168,7 +167,7 @@
                             <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" Width="*"/>
                             <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"  IsReadOnly="False" Width="*" />
 
-                            <DataGridTemplateColumn Width="1.3*">
+                            <DataGridTemplateColumn Width="1.8*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -194,6 +193,18 @@
                                                     Style="{x:Null}">
                                                 <Button.Content>
                                                     <iconPacks:PackIconMaterial Kind="ContentSave"/>
+                                                </Button.Content>
+                                            </Button>
+                                            <Button Width="30"
+                                                    Height="30"
+                                                    Background="Transparent"
+                                                    Padding="0"
+                                                    HorizontalAlignment="Right"
+                                                    Click="AlarmClick"
+                                                    VerticalAlignment="Center"
+                                                    Style="{x:Null}">
+                                                <Button.Content>
+                                                    <iconPacks:PackIconMaterial Kind="Plus"/>
                                                 </Button.Content>
                                             </Button>
                                             <Button Width="30"
@@ -274,7 +285,7 @@
          HorizontalAlignment="Left"  VerticalAlignment="Center" Click="Add_Click" Margin="10,0,10,0" Width="75" />
             <Button Content="Close" Style="{DynamicResource MaterialDesignRaisedButton}"
            HorizontalAlignment="Left" Background="IndianRed" Click="Close_Click" VerticalAlignment="Center" Width="75" RenderTransformOrigin="0.38,0.547" Margin="0,16" />
-            <Button Content="Add Alarm" Style="{DynamicResource MaterialDesignRaisedButton}" Background="MediumSpringGreen" HorizontalAlignment="Left"  VerticalAlignment="Center" Width="100" Margin="10,16,0,16.8" Click="AlarmClick" Height="32"/>
+            
         </StackPanel>
         <Button Content="Logout" Click="Logout_Click"  Style="{DynamicResource MaterialDesignRaisedButton}"
                 HorizontalAlignment="Right" HorizontalContentAlignment="Left" Background="LightGray" VerticalAlignment="Center" Width="96" RenderTransformOrigin="0.38,0.547" Margin="0,17,37,16" Grid.Row="1" Height="31" />

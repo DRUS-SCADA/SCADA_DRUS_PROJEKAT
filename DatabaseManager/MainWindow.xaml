@@ -8,6 +8,7 @@
         xmlns:local="clr-namespace:DatabaseManager"
         mc:Ignorable="d"
         WindowStartupLocation="Manual" 
+        Closing="WindowClosing"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"

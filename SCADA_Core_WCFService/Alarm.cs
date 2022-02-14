@@ -32,5 +32,6 @@ namespace SCADACore
         public double Treshold { get; set; }
         [DataMember]
         public string TagName { get; set; }
+        public Alarm () { }
     }
 }
