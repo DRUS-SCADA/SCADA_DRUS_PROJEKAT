@@ -12,6 +12,7 @@
       <xs:element minOccurs="0" name="LowLimit" type="xs:double" />
       <xs:element minOccurs="0" name="ONOFF_scan" type="xs:boolean" />
       <xs:element minOccurs="0" name="ScanTime" type="xs:double" />
+      <xs:element minOccurs="0" name="States" type="tns:States" />
       <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Units" nillable="true" type="xs:string" />
     </xs:sequence>
@@ -25,7 +26,9 @@
   <xs:element name="ArrayOfAlarm" nillable="true" type="tns:ArrayOfAlarm" />
   <xs:complexType name="Alarm">
     <xs:sequence>
+      <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Priorities" type="tns:Priorities" />
+      <xs:element minOccurs="0" name="State" type="tns:State" />
       <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Treshold" type="xs:double" />
       <xs:element minOccurs="0" name="Types" type="tns:Types" />
@@ -58,6 +61,13 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="Priorities" nillable="true" type="tns:Priorities" />
+  <xs:simpleType name="State">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="IN" />
+      <xs:enumeration value="OUT" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="State" nillable="true" type="tns:State" />
   <xs:simpleType name="Types">
     <xs:restriction base="xs:string">
       <xs:enumeration value="LOW" />
@@ -65,6 +75,13 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="Types" nillable="true" type="tns:Types" />
+  <xs:simpleType name="States">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REGULAR" />
+      <xs:enumeration value="ALARM" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="States" nillable="true" type="tns:States" />
   <xs:complexType name="AnalogOutput">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />

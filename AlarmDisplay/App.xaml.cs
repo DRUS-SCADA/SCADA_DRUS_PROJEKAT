@@ -5,17 +5,13 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using DatabaseManager.ServiceReference2;
 
-namespace DatabaseManager
+namespace AlarmDisplay
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
-        public void App_Exit(object sender, ExitEventArgs e)
-        {
-        }
     }
 }

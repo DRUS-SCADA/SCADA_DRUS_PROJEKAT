@@ -62,7 +62,7 @@ namespace DatabaseManager
                     {
                         typeHelp = Types.LOW;
                     }
-                    Alarm alarm = new Alarm {TagName = SelectedAI.TagName, Treshold = treshold, Types = typeHelp, Priorities = helpEnum };
+                    Alarm alarm = new Alarm {TagName = SelectedAI.TagName, Treshold = treshold, Types = typeHelp, Priorities = helpEnum, State = State.OUT};
                     MainWindow.proxy2.AddAlarmToAI(alarm, SelectedAI);
                     this.Close();
                 }

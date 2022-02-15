@@ -19,18 +19,23 @@ using System.Xml.XPath;
 
 namespace SCADACore
 {
-    public class TagProcessing : IAuthentication, IDatabaseManager, ITrending
+    public class TagProcessing : IAuthentication, IDatabaseManager, ITrending, IAlarmDisplay
     {
         public static SimulationDriver PLC = new SimulationDriver();
         private static Dictionary<string, User> autentificated_users = new Dictionary<string, User>();
         public static Dictionary<string, Thread> dictDi = new Dictionary<string, Thread>();
         public static Dictionary<string, Thread> dictAi = new Dictionary<string, Thread>();
         static ITrendingCallback proxy = null;
+        static IAlarmDisplayCallback proxy2 = null;
         delegate void ValueHandler(AnalogInput AI);
         delegate void ValueHandler1(DigitalInput DI);
         delegate void RemoveHandler(AnalogInput AI);
         delegate void RemoveHandler1(DigitalInput DI);
         delegate void ClearGrid();
+        delegate void AlarmActivate(Alarm alarm, int count);
+        delegate void AlarmStop(Alarm alarm);
+        static event AlarmActivate activateAlarm = null;
+        static event AlarmStop stopAlarm = null;
         static event ValueHandler valueReceived = null;
         static event ValueHandler1 valueReceived1 = null;
         static event RemoveHandler valueRemoved = null;
@@ -504,6 +509,67 @@ namespace SCADACore
                         db.AITags.Add(tag);
                         db.SaveChanges();
                     }
+                    if(ai.Alarms.Count == 0)
+                    {
+                        ai.States = States.REGULAR;
+                    }
+                    bool[] isAlarm = new bool[ai.Alarms.Count];
+                    for (int i = 0; i < isAlarm.Count(); i++)
+                    {
+                        isAlarm[i] = false;
+                    }
+                    if (ai.Alarms.Count != 0)
+                    {
+                        for(int a = 0; a < ai.Alarms.Count; a++)
+                        {
+                            int count;
+                            if(ai.Alarms[a].Priorities == Priorities.ONE)
+                            {
+                                count = 1;
+                            }else if (ai.Alarms[a].Priorities == Priorities.TWO)
+                            {
+                                count = 2;
+                            }else
+                            {
+                                count = 3;
+                            }
+                            if(ai.Alarms[a].Types == Types.HIGH)
+                            {
+                                if(ai.AnalogValue > ai.Alarms[a].Treshold)
+                                {
+                                    isAlarm[a] = true;
+
+                                    if (ai.Alarms[a].State == State.OUT)
+                                    {
+                                        ai.Alarms[a].State = State.IN;
+                                        ai.Alarms[a].DateTime = DateTime.Now;
+                                        activateAlarm?.Invoke(ai.Alarms[a], count);
+                                    }
+                                }
+                            }else if (ai.Alarms[a].Types == Types.LOW)
+                            {
+                                if(ai.AnalogValue < ai.Alarms[a].Treshold)
+                                {
+                                    isAlarm[a] = true;
+                                    if(ai.Alarms[a].State == State.OUT)
+                                    {
+                                        ai.Alarms[a].State = State.IN;
+                                        ai.Alarms[a].DateTime = DateTime.Now;
+                                        activateAlarm?.Invoke(ai.Alarms[a], count);
+                                    }
+                                }
+                            }
+                            if(!isAlarm[a])
+                            {
+                                if (ai.Alarms[a].State == State.IN)
+                                {
+                                    ai.Alarms[a].State = State.OUT;
+                                    ai.Alarms[a].DateTime = DateTime.Now;
+                                    stopAlarm?.Invoke(ai.Alarms[a]);
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -543,6 +609,12 @@ namespace SCADACore
         public void clearData()
         {
             clearGrid?.Invoke();
+        }
+        public void SubscriberInitialization2()
+        {
+            proxy2 = OperationContext.Current.GetCallbackChannel<IAlarmDisplayCallback>();
+            activateAlarm += proxy2.OnAlarmActivate;
+            stopAlarm += proxy2.OnAlarmStop;
         }
 
         #endregion

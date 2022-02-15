@@ -15,7 +15,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
 
-        Title="" Height="450" Width="825.301">
+        Title="Trending application" Height="450" Width="825.301">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -87,9 +87,5 @@
 
         <Button Content="Close" Style="{DynamicResource MaterialDesignRaisedButton}"
          HorizontalAlignment="Left" Background="IndianRed" Click="Close_Click" VerticalAlignment="Center" Width="97" RenderTransformOrigin="0.38,0.547" Margin="370,10,0,10" Grid.Row="1" Height="44" />
-
-
-
-
     </Grid>
 </Window>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DatabaseManager.ServiceReference1 {
+namespace AlarmDisplay.ServiceReference1 {
     using System.Runtime.Serialization;
     using System;
     
@@ -23,7 +23,7 @@ namespace DatabaseManager.ServiceReference1 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.ServiceReference1.Alarm[] AlarmsField;
+        private AlarmDisplay.ServiceReference1.Alarm[] AlarmsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double AnalogValueField;
@@ -50,7 +50,7 @@ namespace DatabaseManager.ServiceReference1 {
         private double ScanTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.ServiceReference1.States StatesField;
+        private AlarmDisplay.ServiceReference1.States StatesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TagNameField;
@@ -69,7 +69,7 @@ namespace DatabaseManager.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.ServiceReference1.Alarm[] Alarms {
+        public AlarmDisplay.ServiceReference1.Alarm[] Alarms {
             get {
                 return this.AlarmsField;
             }
@@ -186,7 +186,7 @@ namespace DatabaseManager.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.ServiceReference1.States States {
+        public AlarmDisplay.ServiceReference1.States States {
             get {
                 return this.StatesField;
             }
@@ -247,10 +247,10 @@ namespace DatabaseManager.ServiceReference1 {
         private System.DateTime DateTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.ServiceReference1.Priorities PrioritiesField;
+        private AlarmDisplay.ServiceReference1.Priorities PrioritiesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.ServiceReference1.State StateField;
+        private AlarmDisplay.ServiceReference1.State StateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TagNameField;
@@ -259,7 +259,7 @@ namespace DatabaseManager.ServiceReference1 {
         private double TresholdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private DatabaseManager.ServiceReference1.Types TypesField;
+        private AlarmDisplay.ServiceReference1.Types TypesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -285,7 +285,7 @@ namespace DatabaseManager.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.ServiceReference1.Priorities Priorities {
+        public AlarmDisplay.ServiceReference1.Priorities Priorities {
             get {
                 return this.PrioritiesField;
             }
@@ -298,7 +298,7 @@ namespace DatabaseManager.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.ServiceReference1.State State {
+        public AlarmDisplay.ServiceReference1.State State {
             get {
                 return this.StateField;
             }
@@ -337,7 +337,7 @@ namespace DatabaseManager.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public DatabaseManager.ServiceReference1.Types Types {
+        public AlarmDisplay.ServiceReference1.Types Types {
             get {
                 return this.TypesField;
             }
@@ -833,12 +833,12 @@ namespace DatabaseManager.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAuthenticationChannel : DatabaseManager.ServiceReference1.IAuthentication, System.ServiceModel.IClientChannel {
+    public interface IAuthenticationChannel : AlarmDisplay.ServiceReference1.IAuthentication, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AuthenticationClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference1.IAuthentication>, DatabaseManager.ServiceReference1.IAuthentication {
+    public partial class AuthenticationClient : System.ServiceModel.ClientBase<AlarmDisplay.ServiceReference1.IAuthentication>, AlarmDisplay.ServiceReference1.IAuthentication {
         
         public AuthenticationClient() {
         }
@@ -905,118 +905,118 @@ namespace DatabaseManager.ServiceReference1 {
     public interface IDatabaseManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAI", ReplyAction="http://tempuri.org/IDatabaseManager/AddAIResponse")]
-        void AddAI(DatabaseManager.ServiceReference1.AnalogInput AI);
+        void AddAI(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAI", ReplyAction="http://tempuri.org/IDatabaseManager/AddAIResponse")]
-        System.Threading.Tasks.Task AddAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI);
+        System.Threading.Tasks.Task AddAIAsync(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAO", ReplyAction="http://tempuri.org/IDatabaseManager/AddAOResponse")]
-        void AddAO(DatabaseManager.ServiceReference1.AnalogOutput AO);
+        void AddAO(AlarmDisplay.ServiceReference1.AnalogOutput AO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAO", ReplyAction="http://tempuri.org/IDatabaseManager/AddAOResponse")]
-        System.Threading.Tasks.Task AddAOAsync(DatabaseManager.ServiceReference1.AnalogOutput AO);
+        System.Threading.Tasks.Task AddAOAsync(AlarmDisplay.ServiceReference1.AnalogOutput AO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDI", ReplyAction="http://tempuri.org/IDatabaseManager/AddDIResponse")]
-        void AddDI(DatabaseManager.ServiceReference1.DigitalInput DI);
+        void AddDI(AlarmDisplay.ServiceReference1.DigitalInput DI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDI", ReplyAction="http://tempuri.org/IDatabaseManager/AddDIResponse")]
-        System.Threading.Tasks.Task AddDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI);
+        System.Threading.Tasks.Task AddDIAsync(AlarmDisplay.ServiceReference1.DigitalInput DI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDO", ReplyAction="http://tempuri.org/IDatabaseManager/AddDOResponse")]
-        void AddDO(DatabaseManager.ServiceReference1.DigitalOutput DO);
+        void AddDO(AlarmDisplay.ServiceReference1.DigitalOutput DO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddDO", ReplyAction="http://tempuri.org/IDatabaseManager/AddDOResponse")]
-        System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO);
+        System.Threading.Tasks.Task AddDOAsync(AlarmDisplay.ServiceReference1.DigitalOutput DO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeDO", ReplyAction="http://tempuri.org/IDatabaseManager/removeDOResponse")]
-        void removeDO(DatabaseManager.ServiceReference1.DigitalOutput DO);
+        void removeDO(AlarmDisplay.ServiceReference1.DigitalOutput DO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeDO", ReplyAction="http://tempuri.org/IDatabaseManager/removeDOResponse")]
-        System.Threading.Tasks.Task removeDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO);
+        System.Threading.Tasks.Task removeDOAsync(AlarmDisplay.ServiceReference1.DigitalOutput DO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeAO", ReplyAction="http://tempuri.org/IDatabaseManager/removeAOResponse")]
-        void removeAO(DatabaseManager.ServiceReference1.AnalogOutput AO);
+        void removeAO(AlarmDisplay.ServiceReference1.AnalogOutput AO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeAO", ReplyAction="http://tempuri.org/IDatabaseManager/removeAOResponse")]
-        System.Threading.Tasks.Task removeAOAsync(DatabaseManager.ServiceReference1.AnalogOutput AO);
+        System.Threading.Tasks.Task removeAOAsync(AlarmDisplay.ServiceReference1.AnalogOutput AO);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeAI", ReplyAction="http://tempuri.org/IDatabaseManager/removeAIResponse")]
-        void removeAI(DatabaseManager.ServiceReference1.AnalogInput AI);
+        void removeAI(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeAI", ReplyAction="http://tempuri.org/IDatabaseManager/removeAIResponse")]
-        System.Threading.Tasks.Task removeAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI);
+        System.Threading.Tasks.Task removeAIAsync(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeDI", ReplyAction="http://tempuri.org/IDatabaseManager/removeDIResponse")]
-        void removeDI(DatabaseManager.ServiceReference1.DigitalInput DI);
+        void removeDI(AlarmDisplay.ServiceReference1.DigitalInput DI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/removeDI", ReplyAction="http://tempuri.org/IDatabaseManager/removeDIResponse")]
-        System.Threading.Tasks.Task removeDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI);
+        System.Threading.Tasks.Task removeDIAsync(AlarmDisplay.ServiceReference1.DigitalInput DI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAO", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAOResponse")]
-        DatabaseManager.ServiceReference1.AnalogOutput[] LoadDataToGridAO();
+        AlarmDisplay.ServiceReference1.AnalogOutput[] LoadDataToGridAO();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAO", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAOResponse")]
-        System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.AnalogOutput[]> LoadDataToGridAOAsync();
+        System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.AnalogOutput[]> LoadDataToGridAOAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse")]
-        DatabaseManager.ServiceReference1.DigitalOutput[] LoadDataToGrid();
+        AlarmDisplay.ServiceReference1.DigitalOutput[] LoadDataToGrid();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGrid", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridResponse")]
-        System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalOutput[]> LoadDataToGridAsync();
+        System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.DigitalOutput[]> LoadDataToGridAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAI", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAIResponse")]
-        DatabaseManager.ServiceReference1.AnalogInput[] LoadDataToGridAI();
+        AlarmDisplay.ServiceReference1.AnalogInput[] LoadDataToGridAI();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAI", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAIResponse")]
-        System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.AnalogInput[]> LoadDataToGridAIAsync();
+        System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.AnalogInput[]> LoadDataToGridAIAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridDI", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridDIResponse")]
-        DatabaseManager.ServiceReference1.DigitalInput[] LoadDataToGridDI();
+        AlarmDisplay.ServiceReference1.DigitalInput[] LoadDataToGridDI();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridDI", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridDIResponse")]
-        System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalInput[]> LoadDataToGridDIAsync();
+        System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.DigitalInput[]> LoadDataToGridDIAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarmResponse")]
-        DatabaseManager.ServiceReference1.Alarm[] LoadDataToGridAlarm(DatabaseManager.ServiceReference1.AnalogInput AI);
+        AlarmDisplay.ServiceReference1.Alarm[] LoadDataToGridAlarm(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/LoadDataToGridAlarmResponse")]
-        System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.Alarm[]> LoadDataToGridAlarmAsync(DatabaseManager.ServiceReference1.AnalogInput AI);
+        System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.Alarm[]> LoadDataToGridAlarmAsync(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChanges", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesResponse")]
-        void SaveChanges(DatabaseManager.ServiceReference1.AnalogOutput AO, double change);
+        void SaveChanges(AlarmDisplay.ServiceReference1.AnalogOutput AO, double change);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChanges", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesResponse")]
-        System.Threading.Tasks.Task SaveChangesAsync(DatabaseManager.ServiceReference1.AnalogOutput AO, double change);
+        System.Threading.Tasks.Task SaveChangesAsync(AlarmDisplay.ServiceReference1.AnalogOutput AO, double change);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesDO", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesDOResponse")]
-        void SaveChangesDO(DatabaseManager.ServiceReference1.DigitalOutput DO, double change);
+        void SaveChangesDO(AlarmDisplay.ServiceReference1.DigitalOutput DO, double change);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesDO", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesDOResponse")]
-        System.Threading.Tasks.Task SaveChangesDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO, double change);
+        System.Threading.Tasks.Task SaveChangesDOAsync(AlarmDisplay.ServiceReference1.DigitalOutput DO, double change);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesAI", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesAIResponse")]
-        void SaveChangesAI(DatabaseManager.ServiceReference1.AnalogInput AI, bool change);
+        void SaveChangesAI(AlarmDisplay.ServiceReference1.AnalogInput AI, bool change);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesAI", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesAIResponse")]
-        System.Threading.Tasks.Task SaveChangesAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI, bool change);
+        System.Threading.Tasks.Task SaveChangesAIAsync(AlarmDisplay.ServiceReference1.AnalogInput AI, bool change);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesDI", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesDIResponse")]
-        void SaveChangesDI(DatabaseManager.ServiceReference1.DigitalInput DI, bool change);
+        void SaveChangesDI(AlarmDisplay.ServiceReference1.DigitalInput DI, bool change);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/SaveChangesDI", ReplyAction="http://tempuri.org/IDatabaseManager/SaveChangesDIResponse")]
-        System.Threading.Tasks.Task SaveChangesDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI, bool change);
+        System.Threading.Tasks.Task SaveChangesDIAsync(AlarmDisplay.ServiceReference1.DigitalInput DI, bool change);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/Simulation", ReplyAction="http://tempuri.org/IDatabaseManager/SimulationResponse")]
-        void Simulation(DatabaseManager.ServiceReference1.DigitalInput DI);
+        void Simulation(AlarmDisplay.ServiceReference1.DigitalInput DI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/Simulation", ReplyAction="http://tempuri.org/IDatabaseManager/SimulationResponse")]
-        System.Threading.Tasks.Task SimulationAsync(DatabaseManager.ServiceReference1.DigitalInput DI);
+        System.Threading.Tasks.Task SimulationAsync(AlarmDisplay.ServiceReference1.DigitalInput DI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/Simulation1", ReplyAction="http://tempuri.org/IDatabaseManager/Simulation1Response")]
-        void Simulation1(DatabaseManager.ServiceReference1.AnalogInput AI);
+        void Simulation1(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/Simulation1", ReplyAction="http://tempuri.org/IDatabaseManager/Simulation1Response")]
-        System.Threading.Tasks.Task Simulation1Async(DatabaseManager.ServiceReference1.AnalogInput AI);
+        System.Threading.Tasks.Task Simulation1Async(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/LoadThreadDi", ReplyAction="http://tempuri.org/IDatabaseManager/LoadThreadDiResponse")]
         void LoadThreadDi();
@@ -1103,16 +1103,16 @@ namespace DatabaseManager.ServiceReference1 {
         System.Threading.Tasks.Task ReadXMLAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/RemoveAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/RemoveAlarmResponse")]
-        void RemoveAlarm(DatabaseManager.ServiceReference1.Alarm alarm, DatabaseManager.ServiceReference1.AnalogInput AI);
+        void RemoveAlarm(AlarmDisplay.ServiceReference1.Alarm alarm, AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/RemoveAlarm", ReplyAction="http://tempuri.org/IDatabaseManager/RemoveAlarmResponse")]
-        System.Threading.Tasks.Task RemoveAlarmAsync(DatabaseManager.ServiceReference1.Alarm alarm, DatabaseManager.ServiceReference1.AnalogInput AI);
+        System.Threading.Tasks.Task RemoveAlarmAsync(AlarmDisplay.ServiceReference1.Alarm alarm, AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAlarmToAI", ReplyAction="http://tempuri.org/IDatabaseManager/AddAlarmToAIResponse")]
-        void AddAlarmToAI(DatabaseManager.ServiceReference1.Alarm alarm, DatabaseManager.ServiceReference1.AnalogInput AI);
+        void AddAlarmToAI(AlarmDisplay.ServiceReference1.Alarm alarm, AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/AddAlarmToAI", ReplyAction="http://tempuri.org/IDatabaseManager/AddAlarmToAIResponse")]
-        System.Threading.Tasks.Task AddAlarmToAIAsync(DatabaseManager.ServiceReference1.Alarm alarm, DatabaseManager.ServiceReference1.AnalogInput AI);
+        System.Threading.Tasks.Task AddAlarmToAIAsync(AlarmDisplay.ServiceReference1.Alarm alarm, AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ClearCollections", ReplyAction="http://tempuri.org/IDatabaseManager/ClearCollectionsResponse")]
         void ClearCollections();
@@ -1128,12 +1128,12 @@ namespace DatabaseManager.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IDatabaseManagerChannel : DatabaseManager.ServiceReference1.IDatabaseManager, System.ServiceModel.IClientChannel {
+    public interface IDatabaseManagerChannel : AlarmDisplay.ServiceReference1.IDatabaseManager, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class DatabaseManagerClient : System.ServiceModel.ClientBase<DatabaseManager.ServiceReference1.IDatabaseManager>, DatabaseManager.ServiceReference1.IDatabaseManager {
+    public partial class DatabaseManagerClient : System.ServiceModel.ClientBase<AlarmDisplay.ServiceReference1.IDatabaseManager>, AlarmDisplay.ServiceReference1.IDatabaseManager {
         
         public DatabaseManagerClient() {
         }
@@ -1154,155 +1154,155 @@ namespace DatabaseManager.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public void AddAI(DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public void AddAI(AlarmDisplay.ServiceReference1.AnalogInput AI) {
             base.Channel.AddAI(AI);
         }
         
-        public System.Threading.Tasks.Task AddAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public System.Threading.Tasks.Task AddAIAsync(AlarmDisplay.ServiceReference1.AnalogInput AI) {
             return base.Channel.AddAIAsync(AI);
         }
         
-        public void AddAO(DatabaseManager.ServiceReference1.AnalogOutput AO) {
+        public void AddAO(AlarmDisplay.ServiceReference1.AnalogOutput AO) {
             base.Channel.AddAO(AO);
         }
         
-        public System.Threading.Tasks.Task AddAOAsync(DatabaseManager.ServiceReference1.AnalogOutput AO) {
+        public System.Threading.Tasks.Task AddAOAsync(AlarmDisplay.ServiceReference1.AnalogOutput AO) {
             return base.Channel.AddAOAsync(AO);
         }
         
-        public void AddDI(DatabaseManager.ServiceReference1.DigitalInput DI) {
+        public void AddDI(AlarmDisplay.ServiceReference1.DigitalInput DI) {
             base.Channel.AddDI(DI);
         }
         
-        public System.Threading.Tasks.Task AddDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI) {
+        public System.Threading.Tasks.Task AddDIAsync(AlarmDisplay.ServiceReference1.DigitalInput DI) {
             return base.Channel.AddDIAsync(DI);
         }
         
-        public void AddDO(DatabaseManager.ServiceReference1.DigitalOutput DO) {
+        public void AddDO(AlarmDisplay.ServiceReference1.DigitalOutput DO) {
             base.Channel.AddDO(DO);
         }
         
-        public System.Threading.Tasks.Task AddDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO) {
+        public System.Threading.Tasks.Task AddDOAsync(AlarmDisplay.ServiceReference1.DigitalOutput DO) {
             return base.Channel.AddDOAsync(DO);
         }
         
-        public void removeDO(DatabaseManager.ServiceReference1.DigitalOutput DO) {
+        public void removeDO(AlarmDisplay.ServiceReference1.DigitalOutput DO) {
             base.Channel.removeDO(DO);
         }
         
-        public System.Threading.Tasks.Task removeDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO) {
+        public System.Threading.Tasks.Task removeDOAsync(AlarmDisplay.ServiceReference1.DigitalOutput DO) {
             return base.Channel.removeDOAsync(DO);
         }
         
-        public void removeAO(DatabaseManager.ServiceReference1.AnalogOutput AO) {
+        public void removeAO(AlarmDisplay.ServiceReference1.AnalogOutput AO) {
             base.Channel.removeAO(AO);
         }
         
-        public System.Threading.Tasks.Task removeAOAsync(DatabaseManager.ServiceReference1.AnalogOutput AO) {
+        public System.Threading.Tasks.Task removeAOAsync(AlarmDisplay.ServiceReference1.AnalogOutput AO) {
             return base.Channel.removeAOAsync(AO);
         }
         
-        public void removeAI(DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public void removeAI(AlarmDisplay.ServiceReference1.AnalogInput AI) {
             base.Channel.removeAI(AI);
         }
         
-        public System.Threading.Tasks.Task removeAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public System.Threading.Tasks.Task removeAIAsync(AlarmDisplay.ServiceReference1.AnalogInput AI) {
             return base.Channel.removeAIAsync(AI);
         }
         
-        public void removeDI(DatabaseManager.ServiceReference1.DigitalInput DI) {
+        public void removeDI(AlarmDisplay.ServiceReference1.DigitalInput DI) {
             base.Channel.removeDI(DI);
         }
         
-        public System.Threading.Tasks.Task removeDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI) {
+        public System.Threading.Tasks.Task removeDIAsync(AlarmDisplay.ServiceReference1.DigitalInput DI) {
             return base.Channel.removeDIAsync(DI);
         }
         
-        public DatabaseManager.ServiceReference1.AnalogOutput[] LoadDataToGridAO() {
+        public AlarmDisplay.ServiceReference1.AnalogOutput[] LoadDataToGridAO() {
             return base.Channel.LoadDataToGridAO();
         }
         
-        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.AnalogOutput[]> LoadDataToGridAOAsync() {
+        public System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.AnalogOutput[]> LoadDataToGridAOAsync() {
             return base.Channel.LoadDataToGridAOAsync();
         }
         
-        public DatabaseManager.ServiceReference1.DigitalOutput[] LoadDataToGrid() {
+        public AlarmDisplay.ServiceReference1.DigitalOutput[] LoadDataToGrid() {
             return base.Channel.LoadDataToGrid();
         }
         
-        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalOutput[]> LoadDataToGridAsync() {
+        public System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.DigitalOutput[]> LoadDataToGridAsync() {
             return base.Channel.LoadDataToGridAsync();
         }
         
-        public DatabaseManager.ServiceReference1.AnalogInput[] LoadDataToGridAI() {
+        public AlarmDisplay.ServiceReference1.AnalogInput[] LoadDataToGridAI() {
             return base.Channel.LoadDataToGridAI();
         }
         
-        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.AnalogInput[]> LoadDataToGridAIAsync() {
+        public System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.AnalogInput[]> LoadDataToGridAIAsync() {
             return base.Channel.LoadDataToGridAIAsync();
         }
         
-        public DatabaseManager.ServiceReference1.DigitalInput[] LoadDataToGridDI() {
+        public AlarmDisplay.ServiceReference1.DigitalInput[] LoadDataToGridDI() {
             return base.Channel.LoadDataToGridDI();
         }
         
-        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.DigitalInput[]> LoadDataToGridDIAsync() {
+        public System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.DigitalInput[]> LoadDataToGridDIAsync() {
             return base.Channel.LoadDataToGridDIAsync();
         }
         
-        public DatabaseManager.ServiceReference1.Alarm[] LoadDataToGridAlarm(DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public AlarmDisplay.ServiceReference1.Alarm[] LoadDataToGridAlarm(AlarmDisplay.ServiceReference1.AnalogInput AI) {
             return base.Channel.LoadDataToGridAlarm(AI);
         }
         
-        public System.Threading.Tasks.Task<DatabaseManager.ServiceReference1.Alarm[]> LoadDataToGridAlarmAsync(DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public System.Threading.Tasks.Task<AlarmDisplay.ServiceReference1.Alarm[]> LoadDataToGridAlarmAsync(AlarmDisplay.ServiceReference1.AnalogInput AI) {
             return base.Channel.LoadDataToGridAlarmAsync(AI);
         }
         
-        public void SaveChanges(DatabaseManager.ServiceReference1.AnalogOutput AO, double change) {
+        public void SaveChanges(AlarmDisplay.ServiceReference1.AnalogOutput AO, double change) {
             base.Channel.SaveChanges(AO, change);
         }
         
-        public System.Threading.Tasks.Task SaveChangesAsync(DatabaseManager.ServiceReference1.AnalogOutput AO, double change) {
+        public System.Threading.Tasks.Task SaveChangesAsync(AlarmDisplay.ServiceReference1.AnalogOutput AO, double change) {
             return base.Channel.SaveChangesAsync(AO, change);
         }
         
-        public void SaveChangesDO(DatabaseManager.ServiceReference1.DigitalOutput DO, double change) {
+        public void SaveChangesDO(AlarmDisplay.ServiceReference1.DigitalOutput DO, double change) {
             base.Channel.SaveChangesDO(DO, change);
         }
         
-        public System.Threading.Tasks.Task SaveChangesDOAsync(DatabaseManager.ServiceReference1.DigitalOutput DO, double change) {
+        public System.Threading.Tasks.Task SaveChangesDOAsync(AlarmDisplay.ServiceReference1.DigitalOutput DO, double change) {
             return base.Channel.SaveChangesDOAsync(DO, change);
         }
         
-        public void SaveChangesAI(DatabaseManager.ServiceReference1.AnalogInput AI, bool change) {
+        public void SaveChangesAI(AlarmDisplay.ServiceReference1.AnalogInput AI, bool change) {
             base.Channel.SaveChangesAI(AI, change);
         }
         
-        public System.Threading.Tasks.Task SaveChangesAIAsync(DatabaseManager.ServiceReference1.AnalogInput AI, bool change) {
+        public System.Threading.Tasks.Task SaveChangesAIAsync(AlarmDisplay.ServiceReference1.AnalogInput AI, bool change) {
             return base.Channel.SaveChangesAIAsync(AI, change);
         }
         
-        public void SaveChangesDI(DatabaseManager.ServiceReference1.DigitalInput DI, bool change) {
+        public void SaveChangesDI(AlarmDisplay.ServiceReference1.DigitalInput DI, bool change) {
             base.Channel.SaveChangesDI(DI, change);
         }
         
-        public System.Threading.Tasks.Task SaveChangesDIAsync(DatabaseManager.ServiceReference1.DigitalInput DI, bool change) {
+        public System.Threading.Tasks.Task SaveChangesDIAsync(AlarmDisplay.ServiceReference1.DigitalInput DI, bool change) {
             return base.Channel.SaveChangesDIAsync(DI, change);
         }
         
-        public void Simulation(DatabaseManager.ServiceReference1.DigitalInput DI) {
+        public void Simulation(AlarmDisplay.ServiceReference1.DigitalInput DI) {
             base.Channel.Simulation(DI);
         }
         
-        public System.Threading.Tasks.Task SimulationAsync(DatabaseManager.ServiceReference1.DigitalInput DI) {
+        public System.Threading.Tasks.Task SimulationAsync(AlarmDisplay.ServiceReference1.DigitalInput DI) {
             return base.Channel.SimulationAsync(DI);
         }
         
-        public void Simulation1(DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public void Simulation1(AlarmDisplay.ServiceReference1.AnalogInput AI) {
             base.Channel.Simulation1(AI);
         }
         
-        public System.Threading.Tasks.Task Simulation1Async(DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public System.Threading.Tasks.Task Simulation1Async(AlarmDisplay.ServiceReference1.AnalogInput AI) {
             return base.Channel.Simulation1Async(AI);
         }
         
@@ -1418,19 +1418,19 @@ namespace DatabaseManager.ServiceReference1 {
             return base.Channel.ReadXMLAsync();
         }
         
-        public void RemoveAlarm(DatabaseManager.ServiceReference1.Alarm alarm, DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public void RemoveAlarm(AlarmDisplay.ServiceReference1.Alarm alarm, AlarmDisplay.ServiceReference1.AnalogInput AI) {
             base.Channel.RemoveAlarm(alarm, AI);
         }
         
-        public System.Threading.Tasks.Task RemoveAlarmAsync(DatabaseManager.ServiceReference1.Alarm alarm, DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public System.Threading.Tasks.Task RemoveAlarmAsync(AlarmDisplay.ServiceReference1.Alarm alarm, AlarmDisplay.ServiceReference1.AnalogInput AI) {
             return base.Channel.RemoveAlarmAsync(alarm, AI);
         }
         
-        public void AddAlarmToAI(DatabaseManager.ServiceReference1.Alarm alarm, DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public void AddAlarmToAI(AlarmDisplay.ServiceReference1.Alarm alarm, AlarmDisplay.ServiceReference1.AnalogInput AI) {
             base.Channel.AddAlarmToAI(alarm, AI);
         }
         
-        public System.Threading.Tasks.Task AddAlarmToAIAsync(DatabaseManager.ServiceReference1.Alarm alarm, DatabaseManager.ServiceReference1.AnalogInput AI) {
+        public System.Threading.Tasks.Task AddAlarmToAIAsync(AlarmDisplay.ServiceReference1.Alarm alarm, AlarmDisplay.ServiceReference1.AnalogInput AI) {
             return base.Channel.AddAlarmToAIAsync(alarm, AI);
         }
         
@@ -1452,7 +1452,7 @@ namespace DatabaseManager.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ITrending", CallbackContract=typeof(DatabaseManager.ServiceReference1.ITrendingCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.ITrending", CallbackContract=typeof(AlarmDisplay.ServiceReference1.ITrendingCallback))]
     public interface ITrending {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ITrending/SubscriberInitialization", ReplyAction="http://tempuri.org/ITrending/SubscriberInitializationResponse")]
@@ -1466,16 +1466,16 @@ namespace DatabaseManager.ServiceReference1 {
     public interface ITrendingCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnValueReceived")]
-        void OnValueReceived(DatabaseManager.ServiceReference1.AnalogInput AI);
+        void OnValueReceived(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnValueReceived1")]
-        void OnValueReceived1(DatabaseManager.ServiceReference1.DigitalInput DI);
+        void OnValueReceived1(AlarmDisplay.ServiceReference1.DigitalInput DI);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnRemoveDI")]
-        void OnRemoveDI(DatabaseManager.ServiceReference1.DigitalInput DI);
+        void OnRemoveDI(AlarmDisplay.ServiceReference1.DigitalInput DI);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnRemoveAI")]
-        void OnRemoveAI(DatabaseManager.ServiceReference1.AnalogInput AI);
+        void OnRemoveAI(AlarmDisplay.ServiceReference1.AnalogInput AI);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnClearAI")]
         void OnClearAI();
@@ -1485,12 +1485,12 @@ namespace DatabaseManager.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ITrendingChannel : DatabaseManager.ServiceReference1.ITrending, System.ServiceModel.IClientChannel {
+    public interface ITrendingChannel : AlarmDisplay.ServiceReference1.ITrending, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class TrendingClient : System.ServiceModel.DuplexClientBase<DatabaseManager.ServiceReference1.ITrending>, DatabaseManager.ServiceReference1.ITrending {
+    public partial class TrendingClient : System.ServiceModel.DuplexClientBase<AlarmDisplay.ServiceReference1.ITrending>, AlarmDisplay.ServiceReference1.ITrending {
         
         public TrendingClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
@@ -1522,7 +1522,7 @@ namespace DatabaseManager.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IAlarmDisplay", CallbackContract=typeof(DatabaseManager.ServiceReference1.IAlarmDisplayCallback))]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IAlarmDisplay", CallbackContract=typeof(AlarmDisplay.ServiceReference1.IAlarmDisplayCallback))]
     public interface IAlarmDisplay {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmDisplay/SubscriberInitialization2", ReplyAction="http://tempuri.org/IAlarmDisplay/SubscriberInitialization2Response")]
@@ -1536,19 +1536,19 @@ namespace DatabaseManager.ServiceReference1 {
     public interface IAlarmDisplayCallback {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmDisplay/OnAlarmActivate")]
-        void OnAlarmActivate(DatabaseManager.ServiceReference1.Alarm alarm, int count);
+        void OnAlarmActivate(AlarmDisplay.ServiceReference1.Alarm alarm, int count);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmDisplay/OnAlarmStop")]
-        void OnAlarmStop(DatabaseManager.ServiceReference1.Alarm alarm);
+        void OnAlarmStop(AlarmDisplay.ServiceReference1.Alarm alarm);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IAlarmDisplayChannel : DatabaseManager.ServiceReference1.IAlarmDisplay, System.ServiceModel.IClientChannel {
+    public interface IAlarmDisplayChannel : AlarmDisplay.ServiceReference1.IAlarmDisplay, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class AlarmDisplayClient : System.ServiceModel.DuplexClientBase<DatabaseManager.ServiceReference1.IAlarmDisplay>, DatabaseManager.ServiceReference1.IAlarmDisplay {
+    public partial class AlarmDisplayClient : System.ServiceModel.DuplexClientBase<AlarmDisplay.ServiceReference1.IAlarmDisplay>, AlarmDisplay.ServiceReference1.IAlarmDisplay {
         
         public AlarmDisplayClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {

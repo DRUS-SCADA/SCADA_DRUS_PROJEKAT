@@ -19,6 +19,11 @@ namespace SCADACore
         TWO = 2,
         THREE = 3
     }
+    public enum State
+    {
+        IN,
+        OUT
+    }
     [DataContract]
     public class Alarm
     {
@@ -32,6 +37,10 @@ namespace SCADACore
         public double Treshold { get; set; }
         [DataMember]
         public string TagName { get; set; }
+        [DataMember]
+        public DateTime DateTime { get; set; }
+        [DataMember]
+        public State State { get; set; }
         public Alarm () { }
     }
 }

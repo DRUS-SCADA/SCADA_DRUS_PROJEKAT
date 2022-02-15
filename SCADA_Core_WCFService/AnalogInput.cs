@@ -10,6 +10,11 @@ using System.Threading.Tasks;
 
 namespace SCADACore
 {
+    public enum States
+    {
+        REGULAR,
+        ALARM
+    }
     [DataContract]
     public class AnalogInput
     {
@@ -34,6 +39,8 @@ namespace SCADACore
         public string Units { get; set; }
         [DataMember]
         public double AnalogValue { get; set; }
+        [DataMember]
+        public States States { get; set; }
         [DataMember]
         public ObservableCollection<Alarm> Alarms { get; set; }
 

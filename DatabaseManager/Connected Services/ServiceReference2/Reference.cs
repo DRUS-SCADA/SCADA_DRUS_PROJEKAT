@@ -50,6 +50,9 @@ namespace DatabaseManager.ServiceReference2 {
         private double ScanTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference2.States StatesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TagNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -183,6 +186,19 @@ namespace DatabaseManager.ServiceReference2 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference2.States States {
+            get {
+                return this.StatesField;
+            }
+            set {
+                if ((this.StatesField.Equals(value) != true)) {
+                    this.StatesField = value;
+                    this.RaisePropertyChanged("States");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string TagName {
             get {
                 return this.TagNameField;
@@ -228,7 +244,13 @@ namespace DatabaseManager.ServiceReference2 {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private DatabaseManager.ServiceReference2.Priorities PrioritiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private DatabaseManager.ServiceReference2.State StateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string TagNameField;
@@ -250,6 +272,19 @@ namespace DatabaseManager.ServiceReference2 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateTime {
+            get {
+                return this.DateTimeField;
+            }
+            set {
+                if ((this.DateTimeField.Equals(value) != true)) {
+                    this.DateTimeField = value;
+                    this.RaisePropertyChanged("DateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public DatabaseManager.ServiceReference2.Priorities Priorities {
             get {
                 return this.PrioritiesField;
@@ -258,6 +293,19 @@ namespace DatabaseManager.ServiceReference2 {
                 if ((this.PrioritiesField.Equals(value) != true)) {
                     this.PrioritiesField = value;
                     this.RaisePropertyChanged("Priorities");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public DatabaseManager.ServiceReference2.State State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((this.StateField.Equals(value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
                 }
             }
         }
@@ -312,6 +360,17 @@ namespace DatabaseManager.ServiceReference2 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="States", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    public enum States : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        REGULAR = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ALARM = 1,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Priorities", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
     public enum Priorities : int {
         
@@ -323,6 +382,17 @@ namespace DatabaseManager.ServiceReference2 {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         THREE = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="State", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    public enum State : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IN = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OUT = 1,
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
@@ -1448,6 +1518,64 @@ namespace DatabaseManager.ServiceReference2 {
         
         public System.Threading.Tasks.Task SubscriberInitializationAsync() {
             return base.Channel.SubscriberInitializationAsync();
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference2.IAlarmDisplay", CallbackContract=typeof(DatabaseManager.ServiceReference2.IAlarmDisplayCallback))]
+    public interface IAlarmDisplay {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmDisplay/SubscriberInitialization2", ReplyAction="http://tempuri.org/IAlarmDisplay/SubscriberInitialization2Response")]
+        void SubscriberInitialization2();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAlarmDisplay/SubscriberInitialization2", ReplyAction="http://tempuri.org/IAlarmDisplay/SubscriberInitialization2Response")]
+        System.Threading.Tasks.Task SubscriberInitialization2Async();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmDisplayCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmDisplay/OnAlarmActivate")]
+        void OnAlarmActivate(DatabaseManager.ServiceReference2.Alarm alarm, int count);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmDisplay/OnAlarmStop")]
+        void OnAlarmStop(DatabaseManager.ServiceReference2.Alarm alarm);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IAlarmDisplayChannel : DatabaseManager.ServiceReference2.IAlarmDisplay, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class AlarmDisplayClient : System.ServiceModel.DuplexClientBase<DatabaseManager.ServiceReference2.IAlarmDisplay>, DatabaseManager.ServiceReference2.IAlarmDisplay {
+        
+        public AlarmDisplayClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public AlarmDisplayClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public AlarmDisplayClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmDisplayClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public AlarmDisplayClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public void SubscriberInitialization2() {
+            base.Channel.SubscriberInitialization2();
+        }
+        
+        public System.Threading.Tasks.Task SubscriberInitialization2Async() {
+            return base.Channel.SubscriberInitialization2Async();
         }
     }
 }

@@ -16,10 +16,10 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Closing="WindowClosing"
-        Title="" Height="450" Width="825.301">
+        Title="Database manager" Height="450" Width="825.301">
     <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="2.75*" />
@@ -158,12 +158,12 @@
                             <ImageBrush x:Key="DetailsBtnImage" ImageSource="/Images/details.png"/>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="*"/>
-                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="1.3*"/>
+                            <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="1.1*"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="1.2*"/>
                             <!--<DataGridTextColumn Header="Scan time" Binding="{Binding ScanTime}" Width="*"/>-->
-                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAdress}" Width="*"/>
+                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAdress}" Width="1.1*"/>
                             <DataGridTextColumn Header="Units" Binding="{Binding Units}" Width="*"/>
-                            <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" Width="*"/>
+                            <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" Width="1.1*"/>
                             <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" Width="*"/>
                             <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"  IsReadOnly="False" Width="*" />
 

@@ -215,6 +215,9 @@
     <None Include="Connected Services\ServiceReference1\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference1\Trending_App.ServiceReference1.Alarm.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference1\Trending_App.ServiceReference1.AnalogInput.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
