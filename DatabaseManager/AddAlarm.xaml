@@ -24,14 +24,16 @@
             </Border.Background>
         </Border>
         <Label Content="ADD NEW ALARM" FontSize="25" FontStyle="Oblique" FontFamily="Helvetica" Foreground="White" HorizontalAlignment="Left" Margin="52,29,0,0" VerticalAlignment="Top" Width="218" Grid.RowSpan="2" Grid.Column="1"/>
-        <Label Content="Treshold:" HorizontalAlignment="Left" Foreground="White" FontFamily=" Helvetica" Margin="52,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.109,0.25" Grid.RowSpan="2" Grid.Column="1"/>
-        <Label Content="Type:" HorizontalAlignment="Left" Foreground="White" FontFamily="Helvetica" Margin="52,194,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1"/>
-        <TextBox Name="Treshold" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="23" Margin="149,118,0,0"   TextWrapping="Wrap" Text="{Binding Path=Treshold}" VerticalAlignment="Top" Width="120" Grid.RowSpan="2" Grid.Column="1"/>
-        <ComboBox Name="Type" SelectedItem="{Binding Path=Types}"  BorderBrush="White" HorizontalAlignment="Left" Margin="149,192,0,0" VerticalAlignment="Top" Width="120" Grid.RowSpan="2" Grid.Column="1"/>
+        <Label Content="Treshold:" HorizontalAlignment="Left" Foreground="White" FontFamily=" Helvetica" Margin="52,98,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.109,0.25" Grid.RowSpan="2" Grid.Column="1"/>
+        <Label Content="Type:" HorizontalAlignment="Left" Foreground="White" FontFamily="Helvetica" Margin="52,158,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1"/>
+        <TextBox Name="Treshold" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="23" Margin="150,98,0,0"   TextWrapping="Wrap" Text="{Binding Path=Treshold}" VerticalAlignment="Top" Width="120" Grid.RowSpan="2" Grid.Column="1"/>
+        <ComboBox Name="Type" SelectedItem="{Binding Path=Types}"  BorderBrush="White" HorizontalAlignment="Left" Margin="150,158,0,0" VerticalAlignment="Top" Width="120" Grid.RowSpan="2" Grid.Column="1"/>
         <Button Content="Add" Click="AlarmAdd" HorizontalAlignment="Left" Margin="52,351,0,0" VerticalAlignment="Top" Width="75" Grid.RowSpan="2" Grid.Column="1"/>
         <Button Content="Close" Click="CloseClick" Background="IndianRed" Style="{DynamicResource MaterialDesignRaisedButton}" HorizontalAlignment="Left" Margin="194,351,0,0" VerticalAlignment="Top" Width="75"  Grid.RowSpan="2" Grid.Column="1"/>
-        <Label Content="Priority:" HorizontalAlignment="Left" Foreground="White" FontFamily="Helvetica" Margin="52,273,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1"/>
-        <ComboBox Name="Priority" SelectedItem="{Binding Priorities}"  BorderBrush="White" HorizontalAlignment="Left" Margin="149,271,0,0" VerticalAlignment="Top" Width="120" Grid.RowSpan="2" Grid.Column="1"/>
+        <Label Content="Priority:" HorizontalAlignment="Left" Foreground="White" FontFamily="Helvetica" Margin="52,218,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.475,-0.875"/>
+        <ComboBox Name="Priority" SelectedItem="{Binding Priorities}"  BorderBrush="White" HorizontalAlignment="Left" Margin="150,218,0,0" VerticalAlignment="Top" Width="120" Grid.RowSpan="2" Grid.Column="1"/>
+        <Label Content="Message:" HorizontalAlignment="Left" Foreground="White" FontFamily="Helvetica" Margin="52,278,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Grid.Column="1" RenderTransformOrigin="0.475,-0.875"/>
+        <TextBox Name="Message" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="23" Margin="150,278,0,0"   TextWrapping="Wrap" Text="{Binding Message}" VerticalAlignment="Top" Width="120" Grid.RowSpan="2" Grid.Column="1"/>
 
     </Grid>
 </Window>

@@ -41,6 +41,5 @@ namespace Trending_App
         {
             this.Close();
         }
-        
     }
 }

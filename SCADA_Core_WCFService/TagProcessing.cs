@@ -509,6 +509,10 @@ namespace SCADACore
                         db.AITags.Add(tag);
                         db.SaveChanges();
                     }
+                    if (ai.Alarms == null)
+                    {
+                        ai.Alarms = new List<Alarm>();
+                    }
                     if(ai.Alarms.Count == 0)
                     {
                         ai.States = States.REGULAR;
@@ -544,6 +548,8 @@ namespace SCADACore
                                         ai.Alarms[a].State = State.IN;
                                         ai.Alarms[a].DateTime = DateTime.Now;
                                         activateAlarm?.Invoke(ai.Alarms[a], count);
+                                        AddAlarmToDB(ai.Alarms[a]);
+                                        WriteAlarmsToTXT(ai.Alarms[a]);
                                     }
                                 }
                             }else if (ai.Alarms[a].Types == Types.LOW)
@@ -556,6 +562,8 @@ namespace SCADACore
                                         ai.Alarms[a].State = State.IN;
                                         ai.Alarms[a].DateTime = DateTime.Now;
                                         activateAlarm?.Invoke(ai.Alarms[a], count);
+                                        AddAlarmToDB(ai.Alarms[a]);
+                                        WriteAlarmsToTXT(ai.Alarms[a]);
                                     }
                                 }
                             }
@@ -674,7 +682,18 @@ namespace SCADACore
                           new XAttribute("HighLimit", analogInput.HighLimit),
                           new XAttribute("LowLimit", analogInput.LowLimit),
                           new XAttribute("ScanTime", analogInput.ScanTime),
-                          new XAttribute("ONOFFscan", analogInput.ONOFF_scan)
+                          new XAttribute("ONOFFscan", analogInput.ONOFF_scan),
+                          (from alarm in analogInput.Alarms.ToList()
+                           select new  XElement("Alarm",
+                                new XAttribute("TagName", alarm.TagName),
+                                new XAttribute("Treshold", alarm.Treshold),
+                                new XAttribute("Types", alarm.Types),
+                                new XAttribute("Priorities", alarm.Priorities),
+                                new XAttribute("DateTime", alarm.DateTime),
+                                new XAttribute("State", alarm.State),
+                                new XAttribute("Message", alarm.Message)
+                                ))
+
                     )
                             )
                                          ),
@@ -728,6 +747,7 @@ namespace SCADACore
                 List<AnalogOutput> analogOutputs = new List<AnalogOutput>();
                 List<DigitalInput> digitalInputs = new List<DigitalInput>();
                 List<DigitalOutput> digitalOutputs = new List<DigitalOutput>();
+                
 
                 analogInputs = (from ai in element.Descendants("AnalogInput")
                                 select new AnalogInput
@@ -739,7 +759,18 @@ namespace SCADACore
                                     HighLimit = double.Parse(ai.Attribute("HighLimit").Value),
                                     LowLimit = double.Parse(ai.Attribute("LowLimit").Value),
                                     ScanTime = double.Parse(ai.Attribute("ScanTime").Value),
-                                    ONOFF_scan = bool.Parse(ai.Attribute("ONOFFscan").Value)
+                                    ONOFF_scan = bool.Parse(ai.Attribute("ONOFFscan").Value),
+                                    Alarms = (from alarm in element.Descendants("Alarm")
+                                     select new Alarm
+                                     {
+                                         TagName = alarm.Attribute("TagName").Value,
+                                         Treshold = double.Parse(alarm.Attribute("Treshold").Value),
+                                         DateTime = DateTime.Parse(alarm.Attribute("DateTime").Value),
+                                         Message = alarm.Attribute("Message").Value,
+                                         Priorities = (Priorities)Enum.Parse(typeof(Priorities), alarm.Attribute("Priorities").Value),
+                                         State = (State)Enum.Parse(typeof(State), alarm.Attribute("State").Value),
+                                         Types = (Types)Enum.Parse(typeof(Types), alarm.Attribute("Types").Value)
+                                     }).ToList()
                                 }).ToList();
 
                 digitalInputs = (from di in element.Descendants("DigitalInput")
@@ -807,6 +838,23 @@ namespace SCADACore
                         }
                     }
                 }
+            }
+        }
+        private void AddAlarmToDB(Alarm alarm)
+        {
+            using(var db = new AlarmContext())
+            {
+                db.Alarms.Add(alarm);
+                db.SaveChanges();
+            }
+        }
+        
+        private void WriteAlarmsToTXT(Alarm alarm)
+        {
+            string path = @"D:\alarmsLog.txt";
+            using (StreamWriter writetext = new StreamWriter(path, append:true))
+            {
+                writetext.WriteLine($"ALARM: Tag name: {alarm.TagName}, treshold: {alarm.Treshold},  type: {alarm.TypeString}, time: {alarm.DateTime}\n");
             }
         }
         #endregion

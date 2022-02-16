@@ -42,12 +42,12 @@ namespace SCADACore
         [DataMember]
         public States States { get; set; }
         [DataMember]
-        public ObservableCollection<Alarm> Alarms { get; set; }
+        public List<Alarm> Alarms { get; set; }
 
 
         public AnalogInput()
         {
-            this.Alarms = new ObservableCollection<Alarm>();
+            this.Alarms = new List<Alarm>();
         }
 
         public AnalogInput(string name, string description, string address, double scanTime, bool onoff, double low, double high, string units)

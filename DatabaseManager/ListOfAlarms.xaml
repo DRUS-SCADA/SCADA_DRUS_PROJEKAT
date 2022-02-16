@@ -8,14 +8,48 @@
         mc:Ignorable="d"
         Title="ListOfAlarms" Height="450" Width="800">
     <Grid>
-
         <Button Content="Close" Style="{DynamicResource MaterialDesignRaisedButton}" Background="IndianRed" HorizontalAlignment="Left" Margin="355,369,0,0" VerticalAlignment="Top" Width="90" Click="CloseClick" Height="41"/>
-        <DataGrid Name="dataAlarm" SelectedItem="{Binding SelectedAlarm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="326" Margin="38,24,0,0" VerticalAlignment="Top" Width="726">
+        <DataGrid Name="dataAlarm" SelectedItem="{Binding SelectedAlarm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" AutoGenerateColumns="False" Height="326" Margin="38,24,0,0" VerticalAlignment="Top" Width="726">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Types" Binding="{Binding Types}" Width="*"/>
-                <DataGridTextColumn Header="Treshold" Binding="{Binding Treshold}"   Width="*"/>
-                <DataGridTextColumn Header="Priorities" Binding="{Binding Priorities}" Width="*"/>
+                <DataGridTextColumn Header="Types"  Binding="{Binding Types}" Width="*">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="LightBlue"></Setter>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Treshold" Binding="{Binding Treshold}"   Width="*">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="LightBlue"></Setter>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Priorities" Binding="{Binding Priorities}" Width="*">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="LightBlue"></Setter>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Message" Binding="{Binding Message}" Width="*">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="LightBlue"></Setter>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
                 <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}">
+                            <Setter Property="Background" Value="LightBlue"></Setter>
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
@@ -28,7 +62,6 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

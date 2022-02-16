@@ -247,6 +247,9 @@ namespace AlarmDisplay.ServiceReference1 {
         private System.DateTime DateTimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private AlarmDisplay.ServiceReference1.Priorities PrioritiesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -280,6 +283,19 @@ namespace AlarmDisplay.ServiceReference1 {
                 if ((this.DateTimeField.Equals(value) != true)) {
                     this.DateTimeField = value;
                     this.RaisePropertyChanged("DateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
                 }
             }
         }

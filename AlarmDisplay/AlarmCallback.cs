@@ -15,13 +15,13 @@ namespace AlarmDisplay
         {
             for(int i = 0; i < count; i++)
             {
-                mw.History.Text += "ALARM" + " " + alarm.TagName + ": " + alarm.Types + " " + alarm.DateTime + "\n";
+                mw.History.Text += "ALARM" + " " + alarm.TagName + ": " + alarm.Types + " " + alarm.Message + " " + alarm.DateTime + "\n";
             }
             
         }
         public void OnAlarmStop(Alarm alarm)
         {
-            mw.History.Text += "REGULAR" + " " + alarm.TagName + ": " + alarm.Types + " " + alarm.DateTime  +"\n";
+            mw.History.Text += "REGULAR" + " " + alarm.TagName + ": " + alarm.Types + " " + alarm.Message + " " + alarm.DateTime  +"\n";
         }
     }
 }

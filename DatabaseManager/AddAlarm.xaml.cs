@@ -44,6 +44,7 @@ namespace DatabaseManager
                 {
                     string type = Type.Text;
                     string priority = Priority.Text;
+                    string message = Message.Text;
                     if (priority == "1")
                     {
                         helpEnum = Priorities.ONE;
@@ -62,7 +63,7 @@ namespace DatabaseManager
                     {
                         typeHelp = Types.LOW;
                     }
-                    Alarm alarm = new Alarm {TagName = SelectedAI.TagName, Treshold = treshold, Types = typeHelp, Priorities = helpEnum, State = State.OUT};
+                    Alarm alarm = new Alarm {TagName = SelectedAI.TagName, Treshold = treshold, Types = typeHelp, Priorities = helpEnum, State = State.OUT, Message = message };
                     MainWindow.proxy2.AddAlarmToAI(alarm, SelectedAI);
                     this.Close();
                 }
@@ -79,7 +80,7 @@ namespace DatabaseManager
         }
         private bool ValidateInput()
         {
-            if (Treshold.Text.Length == 0 || Type.Text.Length == 0 || Priority.Text.Length == 0  || Treshold.Text.Trim().Equals(""))
+            if (Treshold.Text.Length == 0 || Type.Text.Length == 0 || Priority.Text.Length == 0  || Message.Text.Length == 0 ||  Treshold.Text.Trim().Equals("") || Message.Text.Trim().Equals(""))
             {
                 if (Treshold.Text.Length == 0)
                 {
@@ -92,6 +93,10 @@ namespace DatabaseManager
                 if (Type.Text.Length == 0)
                 {
                     Type.BorderBrush = Brushes.Red;
+                }
+                if(Message.Text.Length == 0)
+                {
+                    Message.BorderBrush = Brushes.Red;
                 }
                 return false;
             }

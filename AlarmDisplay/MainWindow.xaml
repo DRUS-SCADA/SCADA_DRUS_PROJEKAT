@@ -9,10 +9,12 @@
         mc:Ignorable="d"
         Title="Alarms" Height="450" Width="800">
     <Grid>
-        <ScrollViewer VerticalScrollBarVisibility="Visible"  Height="400">
-            <TextBlock Name="History" FontFamily="Helvetica" Background="LightBlue" Foreground="DarkBlue" FontSize="15" Width="700" Height="310"/>
+        <ScrollViewer  VerticalScrollBarVisibility="Visible" >
+            <TextBlock Name="History" FontFamily="Helvetica" Background="LightBlue" Foreground="DarkBlue" FontSize="15" Width="auto" Height="auto"/>
         </ScrollViewer>
-        <Button Content="Close" Foreground="White" Click="CloseClick" Style="{DynamicResource MaterialDesignRaisedButton}"
-         HorizontalAlignment="Left" Background="IndianRed" Margin="368,378,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Content="Close" Foreground="White" Click="CloseClick" Style="{DynamicResource MaterialDesignRaisedButton}"
+         HorizontalAlignment="Left" Background="IndianRed" Margin="659,378,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Clear" Foreground="White" Click="ClearClick" Style="{DynamicResource MaterialDesignRaisedButton}"
+                HorizontalAlignment="Left" Background="CornflowerBlue" Margin="555,378,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

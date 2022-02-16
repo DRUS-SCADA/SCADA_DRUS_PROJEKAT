@@ -155,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Alarm.cs" />
+    <Compile Include="AlarmContext.cs" />
     <Compile Include="AnalogInput.cs" />
     <Compile Include="AnalogOutput.cs" />
     <Compile Include="DITag.cs" />

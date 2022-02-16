@@ -23,8 +23,8 @@ namespace Trending_App
                 {
                     if (i.TagName == AI.TagName)
                     {
-                            i.AnalogValue = AI.AnalogValue;
-                            break;
+                        i.AnalogValue = AI.AnalogValue;
+                        break;
                     }
                     y++;
                 }
@@ -65,12 +65,11 @@ namespace Trending_App
         }
         public void OnRemoveAI(AnalogInput AI)
         {
-            foreach (AnalogInput i in MainWindow.analogInputs)
+            foreach (AnalogInput i in MainWindow.analogInputs.ToList())
             {
                 if (i.TagName == AI.TagName)
                 {
-                    MainWindow.analogInputs.Remove(AI);
-                    MainWindow.analogInputs.Clear();
+                    MainWindow.analogInputs.Remove(i);
                     break;
                 }
             }
@@ -81,8 +80,7 @@ namespace Trending_App
             {
                 if (i.TagName == DI.TagName)
                 {
-                    MainWindow.digitalInputs.Remove(DI);
-                    MainWindow.digitalInputs.Clear();
+                    MainWindow.digitalInputs.Remove(i);
                     break;
                 }
             }
@@ -91,19 +89,15 @@ namespace Trending_App
         {
             foreach (var i in MainWindow.analogInputs.ToList())
             {
-                MainWindow.analogInputs.Remove(i); 
-                MainWindow.analogInputs.Clear();
+                MainWindow.analogInputs.Remove(i);
             }
-            
         }
         public void OnClearDI()
         {
             foreach (var i in MainWindow.digitalInputs.ToList())
             {
                 MainWindow.digitalInputs.Remove(i);
-                MainWindow.digitalInputs.Clear();
             }
-            
         }
     }
 }

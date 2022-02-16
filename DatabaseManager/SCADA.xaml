@@ -25,7 +25,7 @@
             <RowDefinition Height="2.75*" />
             <RowDefinition Height="0.5*" />
         </Grid.RowDefinitions>
-        <TabControl Name="Tab1" Grid.Row="0">
+        <TabControl  Name="Tab1" Grid.Row="0">
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -40,7 +40,7 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="SlateGray" />
+                                        <Setter TargetName="Border" Property="Background" Value="LightBlue" />
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">
                                         <Setter TargetName="Border" Property="Background" Value="Transparent" />
@@ -51,9 +51,9 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Name="DI" Header="Digital inputs">
+            <TabItem Name="DI" Header="Digital inputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
-                    <DataGrid Name="dataGrid"  AutoGenerateColumns="False"  Background="LightBlue" SelectedItem="{Binding SelectedDI}" IsReadOnly="True">
+                    <DataGrid Name="dataGrid"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False"  Background="LightBlue" SelectedItem="{Binding SelectedDI}" IsReadOnly="True">
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png" />
                         </DataGrid.Resources>
@@ -102,9 +102,9 @@
                 </StackPanel>
 
             </TabItem>
-            <TabItem Name="DO" Header="Digital outputs">
+            <TabItem Name="DO" Header="Digital outputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
-                    <DataGrid Name="dataGrid1"   CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedDO}" Background="LightBlue">
+                    <DataGrid Name="dataGrid1"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedDO}" Background="LightBlue">
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
                         </DataGrid.Resources>
@@ -150,9 +150,9 @@
                     </DataGrid>
                 </StackPanel>
             </TabItem>
-            <TabItem Name="AI" Header="Analog inputs">
+            <TabItem Name="AI" Header="Analog inputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
-                    <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="LightBlue"  IsReadOnly="True">
+                    <DataGrid Name="dataGrid2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="LightBlue"  IsReadOnly="True">
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="Images/deleteIcon.png"/>
                             <ImageBrush x:Key="DetailsBtnImage" ImageSource="/Images/details.png"/>
@@ -228,9 +228,9 @@
                     </DataGrid>
                 </StackPanel>
             </TabItem>
-            <TabItem Name="AO" Header="Analog outputs">
+            <TabItem Name="AO" Header="Analog outputs" FontFamily="Helvetica" FontWeight="DemiBold" >
                 <StackPanel>
-                    <DataGrid Name="dataGrid3" CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAO}" Background="LightBlue"  >
+                    <DataGrid Name="dataGrid3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAO}" Background="LightBlue"  >
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
                         </DataGrid.Resources>

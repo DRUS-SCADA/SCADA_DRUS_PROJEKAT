@@ -27,6 +27,7 @@
   <xs:complexType name="Alarm">
     <xs:sequence>
       <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Priorities" type="tns:Priorities" />
       <xs:element minOccurs="0" name="State" type="tns:State" />
       <xs:element minOccurs="0" name="TagName" nillable="true" type="xs:string" />

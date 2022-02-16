@@ -5,7 +5,6 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using DatabaseManager.ServiceReference2;
 
 namespace DatabaseManager
 {
@@ -14,8 +13,6 @@ namespace DatabaseManager
     /// </summary>
     public partial class App : Application
     {
-        public void App_Exit(object sender, ExitEventArgs e)
-        {
-        }
+
     }
 }

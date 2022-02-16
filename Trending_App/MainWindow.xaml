@@ -40,7 +40,7 @@
                                 </Border>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsSelected" Value="True">
-                                        <Setter TargetName="Border" Property="Background" Value="SlateGray" />
+                                        <Setter TargetName="Border" Property="Background" Value="LightBlue" />
                                     </Trigger>
                                     <Trigger Property="IsSelected" Value="False">
                                         <Setter TargetName="Border" Property="Background" Value="Transparent" />
@@ -51,7 +51,7 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Name="DI" Header="Digital inputs">
+            <TabItem Name="DI" Header="Digital inputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
                     <DataGrid Name="dataGrid"  AutoGenerateColumns="False" IsReadOnly="True" Background="LightBlue">
                         <DataGrid.Columns>
@@ -65,7 +65,7 @@
                 </StackPanel>
 
             </TabItem>
-            <TabItem Name="AI" Header="Analog inputs">
+            <TabItem Name="AI" Header="Analog inputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
                     <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="LightBlue"  IsReadOnly="True">
                         <DataGrid.Columns>

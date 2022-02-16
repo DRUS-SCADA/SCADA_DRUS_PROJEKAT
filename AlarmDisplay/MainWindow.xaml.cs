@@ -35,5 +35,9 @@ namespace AlarmDisplay
         {
             this.Close();
         }
+        private void ClearClick(object sender, RoutedEventArgs e)
+        {
+            this.History.Text = String.Empty;
+        }
     }
 }

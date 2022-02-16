@@ -49,7 +49,7 @@ namespace DatabaseManager
                     string units = UnitsBox.Text;
                     bool onoff = Convert.ToBoolean(ONOFF_scan.IsChecked);
                     SCADA.adressAI[combo] = true;
-                    AnalogInput analogInput = new AnalogInput { TagName = tag, Description = desc, HighLimit = high, LowLimit = low, IOAdress = combo, Units = units, ONOFF_scan = onoff, ScanTime = scanTime };
+                    AnalogInput analogInput = new AnalogInput { TagName = tag, Description = desc, HighLimit = high, LowLimit = low, IOAdress = combo, Units = units, ONOFF_scan = onoff, ScanTime = scanTime};
                     MainWindow.proxy2.AddAI(analogInput);
 
                     this.Close();

@@ -209,6 +209,7 @@ namespace DatabaseManager
             }else
             {
                 MessageBox.Show("Digital value must be 0 or 1");
+                SelectedDO.initial_Value = 0;
             }
         }
         private void SaveClickDI(object sender, RoutedEventArgs e)
