@@ -1141,6 +1141,24 @@ namespace AlarmDisplay.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ClearDictionaries", ReplyAction="http://tempuri.org/IDatabaseManager/ClearDictionariesResponse")]
         System.Threading.Tasks.Task ClearDictionariesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/clearDataAlarmDisplay", ReplyAction="http://tempuri.org/IDatabaseManager/clearDataAlarmDisplayResponse")]
+        void clearDataAlarmDisplay();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/clearDataAlarmDisplay", ReplyAction="http://tempuri.org/IDatabaseManager/clearDataAlarmDisplayResponse")]
+        System.Threading.Tasks.Task clearDataAlarmDisplayAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ShutdownAlarmDisplay", ReplyAction="http://tempuri.org/IDatabaseManager/ShutdownAlarmDisplayResponse")]
+        void ShutdownAlarmDisplay();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ShutdownAlarmDisplay", ReplyAction="http://tempuri.org/IDatabaseManager/ShutdownAlarmDisplayResponse")]
+        System.Threading.Tasks.Task ShutdownAlarmDisplayAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ShutdownTrendingApp", ReplyAction="http://tempuri.org/IDatabaseManager/ShutdownTrendingAppResponse")]
+        void ShutdownTrendingApp();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/ShutdownTrendingApp", ReplyAction="http://tempuri.org/IDatabaseManager/ShutdownTrendingAppResponse")]
+        System.Threading.Tasks.Task ShutdownTrendingAppAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1465,6 +1483,30 @@ namespace AlarmDisplay.ServiceReference1 {
         public System.Threading.Tasks.Task ClearDictionariesAsync() {
             return base.Channel.ClearDictionariesAsync();
         }
+        
+        public void clearDataAlarmDisplay() {
+            base.Channel.clearDataAlarmDisplay();
+        }
+        
+        public System.Threading.Tasks.Task clearDataAlarmDisplayAsync() {
+            return base.Channel.clearDataAlarmDisplayAsync();
+        }
+        
+        public void ShutdownAlarmDisplay() {
+            base.Channel.ShutdownAlarmDisplay();
+        }
+        
+        public System.Threading.Tasks.Task ShutdownAlarmDisplayAsync() {
+            return base.Channel.ShutdownAlarmDisplayAsync();
+        }
+        
+        public void ShutdownTrendingApp() {
+            base.Channel.ShutdownTrendingApp();
+        }
+        
+        public System.Threading.Tasks.Task ShutdownTrendingAppAsync() {
+            return base.Channel.ShutdownTrendingAppAsync();
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1498,6 +1540,9 @@ namespace AlarmDisplay.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnClearDI")]
         void OnClearDI();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/ShutdownTrending")]
+        void ShutdownTrending();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1556,6 +1601,12 @@ namespace AlarmDisplay.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmDisplay/OnAlarmStop")]
         void OnAlarmStop(AlarmDisplay.ServiceReference1.Alarm alarm);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmDisplay/ClearAlarms")]
+        void ClearAlarms();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IAlarmDisplay/ShutdownAlarm")]
+        void ShutdownAlarm();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

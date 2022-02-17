@@ -23,5 +23,13 @@ namespace AlarmDisplay
         {
             mw.History.Text += "REGULAR" + " " + alarm.TagName + ": " + alarm.Types + " " + alarm.Message + " " + alarm.DateTime  +"\n";
         }
+        public void ClearAlarms()
+        {
+            mw.History.Text = String.Empty;
+        }
+        public void ShutdownAlarm()
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

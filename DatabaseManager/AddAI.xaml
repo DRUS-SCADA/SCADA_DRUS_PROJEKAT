@@ -15,7 +15,7 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Label Content="ADD ANALOG OUTPUT" FontSize="25" FontFamily="Helvetica"  Foreground="White" FontStyle="Oblique" HorizontalAlignment="Left" Margin="88,22,0,0" VerticalAlignment="Top" Width="273" Height="52"/>
+        <Label Content="ADD ANALOG INPUT" FontSize="25" FontFamily="Helvetica"  Foreground="White" FontStyle="Oblique" HorizontalAlignment="Left" Margin="88,22,0,0" VerticalAlignment="Top" Width="273" Height="52"/>
         <TextBox Name="Idbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,96,0,0" TextWrapping="Wrap" Text="{Binding Path=TagName}" VerticalAlignment="Top" Width="184"/>
         <Label Content="Tag Name:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,96,0,0" VerticalAlignment="Top" Height="37" Width="84"/>
         <Label Content="Description:" FontFamily="Helvetica" FontSize="16" Foreground="White"  HorizontalAlignment="Left" Margin="84,156,0,0" VerticalAlignment="Top"/>

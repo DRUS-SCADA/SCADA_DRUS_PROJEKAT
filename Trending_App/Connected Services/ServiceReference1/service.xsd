@@ -531,6 +531,36 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="clearDataAlarmDisplay">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="clearDataAlarmDisplayResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShutdownAlarmDisplay">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShutdownAlarmDisplayResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShutdownTrendingApp">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShutdownTrendingAppResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SubscriberInitialization">
     <xs:complexType>
       <xs:sequence />
@@ -579,6 +609,11 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="ShutdownTrending">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SubscriberInitialization2">
     <xs:complexType>
       <xs:sequence />
@@ -602,6 +637,16 @@
       <xs:sequence>
         <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="alarm" nillable="true" type="q46:Alarm" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClearAlarms">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShutdownAlarm">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -99,5 +99,9 @@ namespace Trending_App
                 MainWindow.digitalInputs.Remove(i);
             }
         }
+        public void ShutdownTrending()
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

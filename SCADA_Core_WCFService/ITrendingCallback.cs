@@ -21,5 +21,7 @@ namespace SCADACore
         void OnClearAI();
         [OperationContract(IsOneWay = true)]
         void OnClearDI();
+        [OperationContract(IsOneWay = true)]
+        void ShutdownTrending();
     }
 }

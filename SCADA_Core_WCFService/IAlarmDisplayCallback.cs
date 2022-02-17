@@ -13,5 +13,9 @@ namespace SCADACore
         void OnAlarmActivate(Alarm alarm, int count);
         [OperationContract(IsOneWay = true)]
         void OnAlarmStop(Alarm alarm);
+        [OperationContract(IsOneWay = true)]
+        void ClearAlarms();
+        [OperationContract(IsOneWay = true)]
+        void ShutdownAlarm();
     }
 }

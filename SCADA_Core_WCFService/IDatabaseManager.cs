@@ -84,5 +84,11 @@ namespace SCADACore
         void ClearCollections();
         [OperationContract]
         void ClearDictionaries();
+        [OperationContract]
+        void clearDataAlarmDisplay();
+        [OperationContract]
+        void ShutdownAlarmDisplay();
+        [OperationContract]
+        void ShutdownTrendingApp();
     }
 }

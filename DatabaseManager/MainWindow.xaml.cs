@@ -87,6 +87,8 @@ namespace DatabaseManager
         }
         private void WindowClosing(object sender, CancelEventArgs e)
         {
+            MainWindow.proxy2.ShutdownAlarmDisplay();
+            MainWindow.proxy2.ShutdownTrendingApp();
             Application.Current.Shutdown();
         }
         

@@ -161,6 +161,7 @@
     <Compile Include="DITag.cs" />
     <Compile Include="IAlarmDisplay.cs" />
     <Compile Include="IAlarmDisplayCallback.cs" />
+    <Compile Include="IReportManager.cs" />
     <Compile Include="ITrending.cs" />
     <Compile Include="ITrendingCallback.cs" />
     <Compile Include="DigitalInput.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AITag.cs" />
+    <Compile Include="ReportManager.cs" />
     <Compile Include="TagContext.cs" />
     <Compile Include="TagProcessing.cs" />
     <Compile Include="User.cs" />

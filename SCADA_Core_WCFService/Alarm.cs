@@ -54,6 +54,12 @@ namespace SCADACore
             get { return Types.ToString(); }
             private set { Types = value.ParseEnum<Types>(); }
         }
+        [Column("Priorities")]
+        public string PriorityString
+        {
+            get { return Priorities.ToString(); }
+            private set { Priorities = value.ParseEnum<Priorities>(); }
+        }
         public Alarm () { }
     }
     public static class StringExtensions

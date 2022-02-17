@@ -32,8 +32,11 @@ namespace SCADACore
         delegate void RemoveHandler(AnalogInput AI);
         delegate void RemoveHandler1(DigitalInput DI);
         delegate void ClearGrid();
+        delegate void ClearGridAlarm();
         delegate void AlarmActivate(Alarm alarm, int count);
         delegate void AlarmStop(Alarm alarm);
+        delegate void ShutdownTrending();
+        delegate void ShutdownDisplay();
         static event AlarmActivate activateAlarm = null;
         static event AlarmStop stopAlarm = null;
         static event ValueHandler valueReceived = null;
@@ -41,10 +44,14 @@ namespace SCADACore
         static event RemoveHandler valueRemoved = null;
         static event RemoveHandler1 valueRemoved1 = null;
         static event ClearGrid clearGrid = null;
+        static event ClearGridAlarm clearGridAlarm = null;
+        static event ShutdownTrending trendingClose = null;
+        static event ShutdownDisplay displayClose = null;
         public static ObservableCollection<AnalogInput> analogInputsObservable = new ObservableCollection<AnalogInput>();
         public static ObservableCollection<AnalogOutput> analogOutputsObservable = new ObservableCollection<AnalogOutput>();
         public static ObservableCollection<DigitalInput> digitalInputsObservable = new ObservableCollection<DigitalInput>();
         public static ObservableCollection<DigitalOutput> digitalOutputsObservable = new ObservableCollection<DigitalOutput>();
+        public static ObservableCollection<Alarm> AlarmObservable = new ObservableCollection<Alarm>();
 
         #region IAuthentication
 
@@ -74,7 +81,6 @@ namespace SCADACore
         {
             string encryptedPassword = EncryptData(password);
             string encryptedUsername = EncryptData(username);
-
             bool help_variable = false;
 
             using (var db = new UserContext())
@@ -187,13 +193,13 @@ namespace SCADACore
             string[] arrValues = valueFromDatabase.Split(':');
             string encryptedDbValue = arrValues[0];
             string salt = arrValues[1];
-
             byte[] saltedValue = Encoding.UTF8.GetBytes(salt + valuteToValidate);
+
             using (var sha = new SHA256Managed())
             {
                 byte[] hash = sha.ComputeHash(saltedValue);
-
                 string enteredValueToValidate = Convert.ToBase64String(hash);
+
                 return encryptedDbValue.Equals(enteredValueToValidate);
             }
         }
@@ -203,8 +209,8 @@ namespace SCADACore
             RNGCryptoServiceProvider crypto = new RNGCryptoServiceProvider();
             byte[] randVal = new byte[32];
             crypto.GetBytes(randVal);
-
             string randStr = Convert.ToBase64String(randVal);
+
             return username + randStr;
         }
 
@@ -240,9 +246,39 @@ namespace SCADACore
             dictDi.Add(DI.TagName, thread);
             thread.Start();
         }
+        private void AddDItoDatabase(DITag tag)
+        {
+            using (var db = new TagContext())
+            {
+                db.DITags.Add(tag);
+                db.SaveChanges();
+            }
+        }
+        private void AddAItoDatabase(AITag tag)
+        {
+            using (var db = new TagContext())
+            {
+                db.AITags.Add(tag);
+                db.SaveChanges();
+            }
+        }
         #endregion
 
         #region HelpMethods
+        private void RemoveAlarmsAI(AnalogInput analogInput)
+        {
+            foreach(var i in analogInputsObservable.ToList())
+            {
+                foreach (var j in AlarmObservable.ToList())
+                {
+                    if (i.TagName == j.TagName)
+                    {
+                        AlarmObservable.Remove(j);
+                    }
+                }
+            }
+        }
+
         public void ClearCollections()
         {
             foreach (var i in analogInputsObservable.ToList())
@@ -261,6 +297,10 @@ namespace SCADACore
             {
                 digitalOutputsObservable.Remove(i);
             }
+            foreach (var i in AlarmObservable.ToList())
+            {
+                AlarmObservable.Remove(i);
+            }
         }
         public void ClearDictionaries()
         {
@@ -278,7 +318,6 @@ namespace SCADACore
         public IEnumerable<DigitalOutput> LoadDataToGrid()
         {
             return digitalOutputsObservable;
-            
         }
         public IEnumerable<AnalogOutput> LoadDataToGridAO()
         {
@@ -444,6 +483,7 @@ namespace SCADACore
         {
             dictAi[AI.TagName].Abort();
             dictAi.Remove(AI.TagName);
+            RemoveAlarmsAI(AI);
             foreach (var i in analogInputsObservable.ToList())
             {
                 if (i.TagName == AI.TagName)
@@ -480,17 +520,13 @@ namespace SCADACore
             while (true)
             {
                 di.digitalValue = PLC.GetValue(di.IOAdress);
-                Thread.Sleep(Convert.ToInt32(di.ScanTime) * 1000);
                 if (di.ONOFF_scan == true)
                 {
                     valueReceived1?.Invoke(di);
                     DITag tag = new DITag { Value = di.digitalValue, TagName = di.TagName, TimeStamp = DateTime.Now };
-                    using (var db = new TagContext())
-                    {
-                        db.DITags.Add(tag);
-                        db.SaveChanges();
-                    }
+                    AddDItoDatabase(tag);
                 }
+                Thread.Sleep(Convert.ToInt32(di.ScanTime) * 1000);
             }
         }
 
@@ -499,16 +535,11 @@ namespace SCADACore
             while (true)
             {
                 ai.AnalogValue = PLC.GetValue(ai.IOAdress);
-                Thread.Sleep(Convert.ToInt32(ai.ScanTime) * 1000);
                 if (ai.ONOFF_scan == true)
                 {
                     valueReceived?.Invoke(ai);
                     AITag tag = new AITag { Value = ai.AnalogValue, TagName = ai.TagName, TimeStamp = DateTime.Now };
-                    using (var db = new TagContext())
-                    {
-                        db.AITags.Add(tag);
-                        db.SaveChanges();
-                    }
+                    AddAItoDatabase(tag);
                     if (ai.Alarms == null)
                     {
                         ai.Alarms = new List<Alarm>();
@@ -579,6 +610,7 @@ namespace SCADACore
                         }
                     }
                 }
+                Thread.Sleep(Convert.ToInt32(ai.ScanTime) * 1000);
             }
         }
 
@@ -613,28 +645,51 @@ namespace SCADACore
             valueRemoved1 += proxy.OnRemoveDI;
             clearGrid += proxy.OnClearAI;
             clearGrid += proxy.OnClearDI;
+            trendingClose += proxy.ShutdownTrending;
         }
         public void clearData()
         {
             clearGrid?.Invoke();
+        }
+        public void clearDataAlarmDisplay()
+        {
+            clearGridAlarm?.Invoke();
+        }
+        public void ShutdownTrendingApp()
+        {
+            trendingClose?.Invoke();
+        }
+        public void ShutdownAlarmDisplay()
+        {
+            displayClose?.Invoke();
         }
         public void SubscriberInitialization2()
         {
             proxy2 = OperationContext.Current.GetCallbackChannel<IAlarmDisplayCallback>();
             activateAlarm += proxy2.OnAlarmActivate;
             stopAlarm += proxy2.OnAlarmStop;
+            clearGridAlarm += proxy2.ClearAlarms;
+            displayClose += proxy2.ShutdownAlarm;
         }
 
         #endregion
 
         #region XML
-        private void UpdateAIxml(List<AnalogInput>analogInputs)
+        private void UpdateAIxml(List<AnalogInput>analogInputs, List<Alarm>alarms)
         {
             if (analogInputsObservable.Count == 0)
             {
                 foreach (var i in analogInputs)
                 {
                     analogInputsObservable.Add(i);
+                    i.Alarms = new List<Alarm>();
+                    foreach (var j in alarms)
+                    {
+                        if(i.TagName == j.TagName)
+                        {
+                            i.Alarms.Add(j);
+                        }
+                    }
                 }
             }
         }
@@ -668,6 +723,16 @@ namespace SCADACore
                 }
             }
         }
+        private void UpdateALARMxml(List<Alarm> alarms)
+        {
+            if (AlarmObservable.Count == 0)
+            {
+                foreach (var i in alarms)
+                {
+                    AlarmObservable.Add(i);
+                }
+            }
+        }
         public void WriteXML()
         {
             XDocument document = new XDocument(
@@ -683,17 +748,7 @@ namespace SCADACore
                           new XAttribute("LowLimit", analogInput.LowLimit),
                           new XAttribute("ScanTime", analogInput.ScanTime),
                           new XAttribute("ONOFFscan", analogInput.ONOFF_scan),
-                          (from alarm in analogInput.Alarms.ToList()
-                           select new  XElement("Alarm",
-                                new XAttribute("TagName", alarm.TagName),
-                                new XAttribute("Treshold", alarm.Treshold),
-                                new XAttribute("Types", alarm.Types),
-                                new XAttribute("Priorities", alarm.Priorities),
-                                new XAttribute("DateTime", alarm.DateTime),
-                                new XAttribute("State", alarm.State),
-                                new XAttribute("Message", alarm.Message)
-                                ))
-
+                          new XAttribute("States", analogInput.States)
                     )
                             )
                                          ),
@@ -730,7 +785,19 @@ namespace SCADACore
                           new XAttribute("InitialValue", digitalOutput.initial_Value)
                     )
                             )
-                                         )
+                                         ),
+                new XElement ("Alarms",
+                    (from alarm in AlarmObservable.ToList()
+                     select new XElement("Alarm",
+                          new XAttribute("TagName", alarm.TagName),
+                          new XAttribute("Treshold", alarm.Treshold),
+                          new XAttribute("Types", alarm.Types),
+                          new XAttribute("Priorities", alarm.Priorities),
+                          new XAttribute("DateTime", alarm.DateTime),
+                          new XAttribute("State", alarm.State),
+                          new XAttribute("Message", alarm.Message)
+                          )))
+
                                                 ));
             
             document.Save(@"D:\scadaConfig.xml");
@@ -747,7 +814,8 @@ namespace SCADACore
                 List<AnalogOutput> analogOutputs = new List<AnalogOutput>();
                 List<DigitalInput> digitalInputs = new List<DigitalInput>();
                 List<DigitalOutput> digitalOutputs = new List<DigitalOutput>();
-                
+                List<Alarm> alarms = new List<Alarm>();
+
 
                 analogInputs = (from ai in element.Descendants("AnalogInput")
                                 select new AnalogInput
@@ -760,17 +828,7 @@ namespace SCADACore
                                     LowLimit = double.Parse(ai.Attribute("LowLimit").Value),
                                     ScanTime = double.Parse(ai.Attribute("ScanTime").Value),
                                     ONOFF_scan = bool.Parse(ai.Attribute("ONOFFscan").Value),
-                                    Alarms = (from alarm in element.Descendants("Alarm")
-                                     select new Alarm
-                                     {
-                                         TagName = alarm.Attribute("TagName").Value,
-                                         Treshold = double.Parse(alarm.Attribute("Treshold").Value),
-                                         DateTime = DateTime.Parse(alarm.Attribute("DateTime").Value),
-                                         Message = alarm.Attribute("Message").Value,
-                                         Priorities = (Priorities)Enum.Parse(typeof(Priorities), alarm.Attribute("Priorities").Value),
-                                         State = (State)Enum.Parse(typeof(State), alarm.Attribute("State").Value),
-                                         Types = (Types)Enum.Parse(typeof(Types), alarm.Attribute("Types").Value)
-                                     }).ToList()
+                                    States = (States)Enum.Parse(typeof(States), ai.Attribute("States").Value)
                                 }).ToList();
 
                 digitalInputs = (from di in element.Descendants("DigitalInput")
@@ -802,8 +860,22 @@ namespace SCADACore
                                       IO_Adress = doo.Attribute("IOAdress").Value,
                                       initial_Value = double.Parse(doo.Attribute("InitialValue").Value)
                                   }).ToList();
+
+                alarms = (from alarm in element.Descendants("Alarm")
+                          select new Alarm
+                          {
+                              TagName = alarm.Attribute("TagName").Value,
+                              Treshold = double.Parse(alarm.Attribute("Treshold").Value),
+                              DateTime = DateTime.Parse(alarm.Attribute("DateTime").Value),
+                              Message = alarm.Attribute("Message").Value,
+                              Priorities = (Priorities)Enum.Parse(typeof(Priorities), alarm.Attribute("Priorities").Value),
+                              State = (State)Enum.Parse(typeof(State), alarm.Attribute("State").Value),
+                              Types = (Types)Enum.Parse(typeof(Types), alarm.Attribute("Types").Value)
+                          }).ToList();
+
                 //Help methods
-                UpdateAIxml(analogInputs);
+                UpdateALARMxml(alarms);
+                UpdateAIxml(analogInputs, alarms);
                 UpdateAOxml(analogOutputs);
                 UpdateDIxml(digitalInputs);
                 UpdateDOxml(digitalOutputs);
@@ -819,6 +891,7 @@ namespace SCADACore
                 if(i.TagName == analogInput.TagName)
                 {
                     i.Alarms.Add(alarm);
+                    AlarmObservable.Add(alarm);
                     break;
                 }
             }
@@ -834,6 +907,7 @@ namespace SCADACore
                         if(j.TagName == alarm.TagName && j.Priorities==alarm.Priorities && j.Types==alarm.Types && j.Treshold == alarm.Treshold)
                         {
                             i.Alarms.Remove(j);
+                            AlarmObservable.Remove(alarm);
                             break;
                         }
                     }
@@ -858,5 +932,6 @@ namespace SCADACore
             }
         }
         #endregion
+
     }
 }

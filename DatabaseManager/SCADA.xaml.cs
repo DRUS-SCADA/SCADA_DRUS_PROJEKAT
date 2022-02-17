@@ -226,6 +226,7 @@ namespace DatabaseManager
                 MainWindow.proxy2.ClearDictionaries();
                 MainWindow.proxy2.WriteXML();
                 MainWindow.proxy2.clearData();
+                MainWindow.proxy2.clearDataAlarmDisplay();
                 MainWindow.proxy2.ClearCollections();
                 mw.Show();
             }else
@@ -237,6 +238,7 @@ namespace DatabaseManager
                 adressDO = MainWindow.proxy2.loadAdressDOfree(adressDO);
                 MainWindow.proxy2.ClearCollections();
                 MainWindow.proxy2.ClearDictionaries();
+                MainWindow.proxy2.clearDataAlarmDisplay();
                 MainWindow.proxy2.WriteXML();
                 mw.Show();
             }
