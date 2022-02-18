@@ -1,12 +1,85 @@
 ﻿<Window x:Class="ReportManager.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:iconPacks ="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReportManager"
         mc:Ignorable="d"
-        Title="ReportManager" Height="450" Width="800">
+        Title="ReportManager" Height="760" Width="805">
     <Grid>
-        
+        <Border CornerRadius="10" Margin="0,0,0.4,-88.6">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="DeepSkyBlue" Offset="0.0"/>
+                    <GradientStop Color="Lavender" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="400">
+            <Label Content="REPORT 1" FontFamily="helvetica" Foreground="DarkSlateGray" FontSize="25" Margin="141.2,20.2,134.2,142.2"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="400" Margin="400,0,-6.4,0">
+            <Label Content="REPORT 2" FontFamily="helvetica" Foreground="DarkSlateGray" FontSize="25" Margin="141.2,20.2,134.2,142.2"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="278" VerticalAlignment="Top" Width="400" Margin="0,200,0,0">
+            <Label Content="REPORT 3" FontFamily="helvetica" Foreground="DarkSlateGray" FontSize="25" Margin="141.2,20.2,134.2,223.6"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="278" VerticalAlignment="Top" Width="400" Margin="400,200,-1.6,0">
+            <Label Content="REPORT 4" FontFamily="helvetica" Foreground="DarkSlateGray" FontSize="25" Margin="141.2,20.2,134.2,223.6"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="400" Margin="0,478,0,-7.6">
+            <Label Content="REPORT 5" FontFamily="helvetica" Foreground="DarkSlateGray" FontSize="25" Margin="141.2,20.2,134.2,145.2"/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="200" VerticalAlignment="Top" Width="400" Margin="400,478,-1.6,-7.6">
+            <Label Content="REPORT 6" FontFamily="helvetica" Foreground="DarkSlateGray" FontSize="25" Margin="141.2,20.2,134.2,145.2"/>
+        </Border>
+        <Button Content="Close" Click="CloseClick" Background="IndianRed" HorizontalAlignment="Left" Margin="344,691,0,0"  VerticalAlignment="Top" Width="115" Height="29"/>
+        <ComboBox Name="Report1" HorizontalAlignment="Left" Margin="251,75,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Get all alarms in past:" FontSize="18" HorizontalAlignment="Left" Margin="31,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.796,-1.656" Width="179"/>
+        <Button Name ="Report1Button" Click="ReportClick" Tag="1" Margin="169,121,551.4,554.4" Background="Transparent" Height="Auto" Width=" auto">
+            <Button.Content>
+                <iconPacks:PackIconMaterial Kind="NoteSearch" RenderTransformOrigin="-26.675,-9.219" Height="30" Width="30"/>
+            </Button.Content>
+        </Button>
+        <ComboBox Name="Report2"  HorizontalAlignment="Left" Margin="652,75,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Get all alarms with priority: " HorizontalAlignment="Left" FontSize="18" Margin="405,68,0,0" VerticalAlignment="Top" Width="223"/>
+        <Button Name="Report2Button" Click ="ReportClick" Tag="2" Height="Auto" Width="auto" Background="Transparent" Margin="573,121,147.4,554.4">
+            <Button.Content>
+                <iconPacks:PackIconMaterial Kind="NoteSearch" RenderTransformOrigin="-26.675,-9.219" Height="30" Width="30"/>
+            </Button.Content>
+        </Button>
+        <ComboBox Name="Report3tagValues" HorizontalAlignment="Left" Margin="251,353,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox Name ="Report3tag" HorizontalAlignment="Left" Margin="251,297,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Get tag values in past:" FontSize="18" HorizontalAlignment="Left" Margin="28,346,0,0" VerticalAlignment="Top"/>
+        <Label Content="Select tag:" FontSize="18" HorizontalAlignment="Left" Margin="28,290,0,0" VerticalAlignment="Top" Width="104"/>
+        <Button  Name ="Report3Button"  Click="ReportClick" Tag="3" Background="Transparent" Width="auto" Margin="169,400,551.4,275.4" Height="Auto">
+            <Button.Content>
+                <iconPacks:PackIconMaterial Kind="NoteSearch" RenderTransformOrigin="-26.675,-9.219" Height="30" Width="30"/>
+            </Button.Content>
+        </Button>
+        <ComboBox Name="Report4tag"  HorizontalAlignment="Left" Margin="628,297,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Select tag:" FontSize="18" HorizontalAlignment="Left" Margin="428,290,0,0" VerticalAlignment="Top"/>
+        <Label Content="Select tag name:" FontSize="18" HorizontalAlignment="Left" Margin="428,344,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.511,0.867"/>
+        <TextBox Name="Report4tagName" HorizontalAlignment="Left" FontSize="18"  Height="34" Margin="628,344,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.414,0.517"/>
+        <Button Name="Report4Button" Click="ReportClick" Tag="4" Height="Auto" Width="auto" Background="Transparent" Margin="573,400,147.4,275.4">
+            <Button.Content>
+                <iconPacks:PackIconMaterial Kind="NoteSearch" RenderTransformOrigin="-26.675,-9.219" Height="30" Width="30"/>
+            </Button.Content>
+        </Button>
+        <Label Content="Get all digital values" FontSize="18" HorizontalAlignment="Left" Margin="442,572,0,0" VerticalAlignment="Top"/>
+        <Label Content="Get all analog values"  FontSize="18" HorizontalAlignment="Left" Margin="28,572,0,0" VerticalAlignment="Top"/>
+        <Button Name ="Report5Button" Click ="ReportClick" Tag="5" Background="Transparent" Height="Auto" Width="auto" Margin="251,559,469.4,116.4">
+            <Button.Content>
+                <iconPacks:PackIconMaterial Kind="NoteSearch" RenderTransformOrigin="-26.675,-9.219" Height="30" Width="30"/>
+            </Button.Content>
+        </Button>
+        <Button Name="Report6Button" Click ="ReportClick" Tag="6" Background="Transparent" Height="Auto" Width="auto" Margin="670,559,50.4,116.4">
+            <Button.Content>
+                <iconPacks:PackIconMaterial Kind="NoteSearch" RenderTransformOrigin="-26.675,-9.219" Height="30" Width="30"/>
+            </Button.Content>
+        </Button>
     </Grid>
 </Window>

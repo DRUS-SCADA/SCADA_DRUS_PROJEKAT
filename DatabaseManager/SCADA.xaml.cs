@@ -192,7 +192,13 @@ namespace DatabaseManager
         private void SaveClick(object sender, RoutedEventArgs e)
         {
             double change = SelectedAO.InitialValue;
-            MainWindow.proxy2.SaveChanges(SelectedAO, change);
+            if(change > SelectedAO.HighLimit || change < SelectedAO.LowLimit)
+            {
+                MessageBox.Show($"Initial value must be between {SelectedAO.LowLimit} and {SelectedAO.HighLimit} ");
+            }else
+            {
+                MainWindow.proxy2.SaveChanges(SelectedAO, change);
+            }
         }
 
         private void SaveClickAI(object sender, RoutedEventArgs e)

@@ -9,47 +9,473 @@
 //------------------------------------------------------------------------------
 
 namespace ReportManager.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Alarm", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    [System.SerializableAttribute()]
+    public partial class Alarm : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ReportManager.ServiceReference1.Priorities PrioritiesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ReportManager.ServiceReference1.State StateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double TresholdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ReportManager.ServiceReference1.Types TypesField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateTime {
+            get {
+                return this.DateTimeField;
+            }
+            set {
+                if ((this.DateTimeField.Equals(value) != true)) {
+                    this.DateTimeField = value;
+                    this.RaisePropertyChanged("DateTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ReportManager.ServiceReference1.Priorities Priorities {
+            get {
+                return this.PrioritiesField;
+            }
+            set {
+                if ((this.PrioritiesField.Equals(value) != true)) {
+                    this.PrioritiesField = value;
+                    this.RaisePropertyChanged("Priorities");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ReportManager.ServiceReference1.State State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((this.StateField.Equals(value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Treshold {
+            get {
+                return this.TresholdField;
+            }
+            set {
+                if ((this.TresholdField.Equals(value) != true)) {
+                    this.TresholdField = value;
+                    this.RaisePropertyChanged("Treshold");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ReportManager.ServiceReference1.Types Types {
+            get {
+                return this.TypesField;
+            }
+            set {
+                if ((this.TypesField.Equals(value) != true)) {
+                    this.TypesField = value;
+                    this.RaisePropertyChanged("Types");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Priorities", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    public enum Priorities : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        ONE = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        TWO = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        THREE = 3,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="State", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    public enum State : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IN = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        OUT = 1,
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Types", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    public enum Types : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        LOW = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        HIGH = 1,
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Tag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    [System.SerializableAttribute()]
+    public partial class Tag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ReportManager.ServiceReference1.AITag[] analogInputsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private ReportManager.ServiceReference1.DITag[] digitalInputsField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ReportManager.ServiceReference1.AITag[] analogInputs {
+            get {
+                return this.analogInputsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.analogInputsField, value) != true)) {
+                    this.analogInputsField = value;
+                    this.RaisePropertyChanged("analogInputs");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public ReportManager.ServiceReference1.DITag[] digitalInputs {
+            get {
+                return this.digitalInputsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.digitalInputsField, value) != true)) {
+                    this.digitalInputsField = value;
+                    this.RaisePropertyChanged("digitalInputs");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AITag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    [System.SerializableAttribute()]
+    public partial class AITag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeStampField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeStamp {
+            get {
+                return this.TimeStampField;
+            }
+            set {
+                if ((this.TimeStampField.Equals(value) != true)) {
+                    this.TimeStampField = value;
+                    this.RaisePropertyChanged("TimeStamp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DITag", Namespace="http://schemas.datacontract.org/2004/07/SCADACore")]
+    [System.SerializableAttribute()]
+    public partial class DITag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeStampField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeStamp {
+            get {
+                return this.TimeStampField;
+            }
+            set {
+                if ((this.TimeStampField.Equals(value) != true)) {
+                    this.TimeStampField = value;
+                    this.RaisePropertyChanged("TimeStamp");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IReportManager")]
     public interface IReportManager {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report1", ReplyAction="http://tempuri.org/IReportManager/Report1Response")]
-        void Report1(double time);
+        ReportManager.ServiceReference1.Alarm[] Report1(double time);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report1", ReplyAction="http://tempuri.org/IReportManager/Report1Response")]
-        System.Threading.Tasks.Task Report1Async(double time);
+        System.Threading.Tasks.Task<ReportManager.ServiceReference1.Alarm[]> Report1Async(double time);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report2", ReplyAction="http://tempuri.org/IReportManager/Report2Response")]
-        void Report2(string priority);
+        ReportManager.ServiceReference1.Alarm[] Report2(string priority);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report2", ReplyAction="http://tempuri.org/IReportManager/Report2Response")]
-        System.Threading.Tasks.Task Report2Async(string priority);
+        System.Threading.Tasks.Task<ReportManager.ServiceReference1.Alarm[]> Report2Async(string priority);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report3", ReplyAction="http://tempuri.org/IReportManager/Report3Response")]
-        void Report3(string tag, double time);
+        ReportManager.ServiceReference1.Tag Report3(string tag, double time);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report3", ReplyAction="http://tempuri.org/IReportManager/Report3Response")]
-        System.Threading.Tasks.Task Report3Async(string tag, double time);
+        System.Threading.Tasks.Task<ReportManager.ServiceReference1.Tag> Report3Async(string tag, double time);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report4", ReplyAction="http://tempuri.org/IReportManager/Report4Response")]
-        void Report4();
+        ReportManager.ServiceReference1.AITag[] Report4();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report4", ReplyAction="http://tempuri.org/IReportManager/Report4Response")]
-        System.Threading.Tasks.Task Report4Async();
+        System.Threading.Tasks.Task<ReportManager.ServiceReference1.AITag[]> Report4Async();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report5", ReplyAction="http://tempuri.org/IReportManager/Report5Response")]
-        void Report5();
+        ReportManager.ServiceReference1.DITag[] Report5();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report5", ReplyAction="http://tempuri.org/IReportManager/Report5Response")]
-        System.Threading.Tasks.Task Report5Async();
+        System.Threading.Tasks.Task<ReportManager.ServiceReference1.DITag[]> Report5Async();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report6", ReplyAction="http://tempuri.org/IReportManager/Report6Response")]
-        void Report6(string tagName, string tag);
+        ReportManager.ServiceReference1.Tag Report6(string tagName, string tag);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report6", ReplyAction="http://tempuri.org/IReportManager/Report6Response")]
-        System.Threading.Tasks.Task Report6Async(string tagName, string tag);
+        System.Threading.Tasks.Task<ReportManager.ServiceReference1.Tag> Report6Async(string tagName, string tag);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -79,51 +505,51 @@ namespace ReportManager.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public void Report1(double time) {
-            base.Channel.Report1(time);
+        public ReportManager.ServiceReference1.Alarm[] Report1(double time) {
+            return base.Channel.Report1(time);
         }
         
-        public System.Threading.Tasks.Task Report1Async(double time) {
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference1.Alarm[]> Report1Async(double time) {
             return base.Channel.Report1Async(time);
         }
         
-        public void Report2(string priority) {
-            base.Channel.Report2(priority);
+        public ReportManager.ServiceReference1.Alarm[] Report2(string priority) {
+            return base.Channel.Report2(priority);
         }
         
-        public System.Threading.Tasks.Task Report2Async(string priority) {
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference1.Alarm[]> Report2Async(string priority) {
             return base.Channel.Report2Async(priority);
         }
         
-        public void Report3(string tag, double time) {
-            base.Channel.Report3(tag, time);
+        public ReportManager.ServiceReference1.Tag Report3(string tag, double time) {
+            return base.Channel.Report3(tag, time);
         }
         
-        public System.Threading.Tasks.Task Report3Async(string tag, double time) {
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference1.Tag> Report3Async(string tag, double time) {
             return base.Channel.Report3Async(tag, time);
         }
         
-        public void Report4() {
-            base.Channel.Report4();
+        public ReportManager.ServiceReference1.AITag[] Report4() {
+            return base.Channel.Report4();
         }
         
-        public System.Threading.Tasks.Task Report4Async() {
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference1.AITag[]> Report4Async() {
             return base.Channel.Report4Async();
         }
         
-        public void Report5() {
-            base.Channel.Report5();
+        public ReportManager.ServiceReference1.DITag[] Report5() {
+            return base.Channel.Report5();
         }
         
-        public System.Threading.Tasks.Task Report5Async() {
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference1.DITag[]> Report5Async() {
             return base.Channel.Report5Async();
         }
         
-        public void Report6(string tagName, string tag) {
-            base.Channel.Report6(tagName, tag);
+        public ReportManager.ServiceReference1.Tag Report6(string tagName, string tag) {
+            return base.Channel.Report6(tagName, tag);
         }
         
-        public System.Threading.Tasks.Task Report6Async(string tagName, string tag) {
+        public System.Threading.Tasks.Task<ReportManager.ServiceReference1.Tag> Report6Async(string tagName, string tag) {
             return base.Channel.Report6Async(tagName, tag);
         }
     }

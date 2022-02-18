@@ -588,6 +588,7 @@ namespace SCADACore
                                 if(ai.AnalogValue < ai.Alarms[a].Treshold)
                                 {
                                     isAlarm[a] = true;
+
                                     if(ai.Alarms[a].State == State.OUT)
                                     {
                                         ai.Alarms[a].State = State.IN;
@@ -608,6 +609,14 @@ namespace SCADACore
                                 }
                             }
                         }
+                    }
+                    if (isAlarm.Any(x => x))
+                    {
+                        ai.States = States.ALARM;
+                    }
+                    else
+                    {
+                        ai.States = States.REGULAR;
                     }
                 }
                 Thread.Sleep(Convert.ToInt32(ai.ScanTime) * 1000);

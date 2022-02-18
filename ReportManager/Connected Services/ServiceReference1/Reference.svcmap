@@ -25,6 +25,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="f709dce6-4e8c-45d9-b571-3e7b821a4ef9" SourceId="1" SourceUrl="http://localhost:8000/ReportManagerService/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="a06dba2e-9552-4d81-85c9-c94899038909" SourceId="1" SourceUrl="http://localhost:8000/ReportManagerService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="33e467c4-c414-42ba-9404-8b4086114734" SourceId="1" SourceUrl="http://localhost:8000/ReportManagerService/mex" />
+    <MetadataFile FileName="SCADACore.xsd" MetadataType="Schema" ID="1c38fcb2-5405-47c7-b776-d82dbd973ac1" SourceId="1" SourceUrl="http://localhost:8000/ReportManagerService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

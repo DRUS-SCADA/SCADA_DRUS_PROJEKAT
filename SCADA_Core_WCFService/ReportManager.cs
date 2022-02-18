@@ -8,7 +8,7 @@ namespace SCADACore
 {
     public class ReportManager : IReportManager
     {
-        public void Report1(double time)
+        public List<Alarm> Report1(double time)
         {
             DateTime time1 = DateTime.Now;
             DateTime time2 = time1.AddMinutes(time);
@@ -20,8 +20,9 @@ namespace SCADACore
                             select alarm).ToList();
                 report1 = data.OrderByDescending(x => x.Priorities).ThenByDescending(x => x.DateTime.Date).ThenByDescending(x => x.DateTime.TimeOfDay).ToList();
             }
+            return report1;
         }
-        public void Report2(string priority)
+        public List<Alarm> Report2(string priority)
         {
             List<Alarm> report2 = new List<Alarm>();
             using (var db = new AlarmContext())
@@ -31,9 +32,11 @@ namespace SCADACore
                             select alarm).ToList();
                 report2 = data.OrderByDescending(x => x.DateTime.Date).ThenByDescending(x => x.DateTime.TimeOfDay).ToList();
             }
+            return report2;
         }
-        public void Report3(string tag, double time)
+        public Tag Report3(string tag, double time)
         {
+            Tag tag1 = new Tag();
             DateTime time1 = DateTime.Now;
             DateTime time2 = time1.AddMinutes(time);
             if (tag == "Analog input")
@@ -47,6 +50,7 @@ namespace SCADACore
                                 select ai).ToList();
                     aITags = data.OrderByDescending(x => x.TimeStamp).ToList();
                 }
+                tag1.analogInputs = aITags;
             }
             else if (tag == "Digital input")
             {
@@ -59,9 +63,11 @@ namespace SCADACore
                                 select di).ToList();
                     dITags = data.OrderByDescending(x => x.TimeStamp).ToList();
                 }
+                tag1.digitalInputs = dITags;
             }
+            return tag1;
         }
-        public void Report4()
+        public List<AITag> Report4()
         {
             List<AITag> aITags = new List<AITag>();
             using (var db = new TagContext())
@@ -70,8 +76,9 @@ namespace SCADACore
                             select ai).ToList();
                 aITags = data.OrderByDescending(x => x.TagName).ThenByDescending(x => x.TimeStamp.Date).ThenByDescending(x => x.TimeStamp.TimeOfDay).ToList();
             }
+            return aITags;
         }
-        public void Report5()
+        public List<DITag> Report5()
         {
             List<DITag> dITags = new List<DITag>();
             using (var db = new TagContext())
@@ -80,9 +87,11 @@ namespace SCADACore
                             select di).ToList();
                 dITags = data.OrderByDescending(x => x.TagName).ThenByDescending(x => x.TimeStamp.Date).ThenByDescending(x => x.TimeStamp.TimeOfDay).ToList();
             }
+            return dITags;
         }
-        public void Report6(string tagName, string tag)
+        public Tag Report6(string tagName, string tag)
         {
+            Tag tag1 = new Tag();
             if(tag == "Analog input")
             {
                 List<AITag> aITags = new List<AITag>();
@@ -93,6 +102,7 @@ namespace SCADACore
                                 select ai).ToList();
                     aITags = data.OrderByDescending(x => x.Value).ToList();
                 }
+                tag1.analogInputs = aITags;
             }
             else if(tag == "Digital input")
             {
@@ -104,7 +114,9 @@ namespace SCADACore
                                 select di).ToList();
                     dITags = data.OrderByDescending(x => x.Value).ToList();
                 }
+                tag1.digitalInputs = dITags;
             }
+            return tag1;
         }
 
     }

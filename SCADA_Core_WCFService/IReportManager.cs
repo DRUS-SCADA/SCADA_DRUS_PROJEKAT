@@ -11,16 +11,16 @@ namespace SCADACore
     public interface IReportManager
     {
         [OperationContract]
-        void Report1(double time);
+        List<Alarm> Report1(double time);
         [OperationContract]
-        void Report2(string priority);
+        List<Alarm> Report2(string priority);
         [OperationContract]
-        void Report3(string tag, double time);
+        Tag Report3(string tag, double time);
         [OperationContract]
-        void Report4();
+        List<AITag> Report4();
         [OperationContract]
-        void Report5();
+        List<DITag> Report5();
         [OperationContract]
-        void Report6(string tagName,string tag);
+        Tag Report6(string tagName,string tag);
     }
 }
