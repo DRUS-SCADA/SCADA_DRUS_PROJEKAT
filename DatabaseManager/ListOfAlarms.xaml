@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatabaseManager"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="ListOfAlarms" Height="450" Width="800">
     <Grid>
         <Button Content="Close" Style="{DynamicResource MaterialDesignRaisedButton}" Background="IndianRed" HorizontalAlignment="Left" Margin="355,369,0,0" VerticalAlignment="Top" Width="90" Click="CloseClick" Height="41"/>

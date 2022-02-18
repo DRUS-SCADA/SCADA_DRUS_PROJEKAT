@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ReportManager"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Closing="Window_Closing"
         Title="Reports" Height="450" Width="800">
-    <Grid Background="LightBlue">
-        <ScrollViewer Width="648" Height="300" VerticalScrollBarVisibility="Visible"  >
-            <TextBlock Name="ReportsList" FontFamily="Helvetica" Background="White" Foreground="DarkBlue" FontSize="15" Width="650" Height="315"/>
+    <Grid Background="LightBlue" Margin="0,0,-0.4,-4">
+        <ScrollViewer HorizontalAlignment="Left" VirtualizingPanel.ScrollUnit="Item" CanContentScroll="True" Width="648" Height="auto" VerticalScrollBarVisibility="Visible" >
+            <TextBlock   IsEnabled="True" Name="ReportsList" FontFamily="Helvetica" Background="White" Foreground="DarkBlue" FontSize="15" Width="648" Height="auto"/>
         </ScrollViewer>
         <Button Content="Close" Foreground="White" Click="CloseClick" Style="{DynamicResource MaterialDesignRaisedButton}"
-         HorizontalAlignment="Left" Background="IndianRed" Margin="433,378,0,0" VerticalAlignment="Top" Width="75"/>
+         HorizontalAlignment="Left" Background="IndianRed" Margin="682,363,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Clear" Foreground="White" Click="ClearClick" Style="{DynamicResource MaterialDesignRaisedButton}"
-                HorizontalAlignment="Left" Background="CornflowerBlue" Margin="291,378,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-3.051,0.438"/>
-        <Label Content="Reports" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="363,19,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,1.383" Width="86"/>
-        
+                HorizontalAlignment="Left" Background="CornflowerBlue" Margin="682,303,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-3.051,0.438"/>
+        <Label Content="Reports" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="671,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,1.383" Width="86"/>
+
     </Grid>
 </Window>

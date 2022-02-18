@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:DatabaseManager"
         mc:Ignorable="d"
-        WindowStartupLocation="Manual" 
+        WindowStartupLocation="CenterScreen" 
         Closing="WindowClosing"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"

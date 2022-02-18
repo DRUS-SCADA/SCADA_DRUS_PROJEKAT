@@ -48,7 +48,7 @@ namespace SCADACore
                     var data = (from ai in db.AITags
                                 where ai.TimeStamp > time2
                                 select ai).ToList();
-                    aITags = data.OrderByDescending(x => x.TimeStamp).ToList();
+                    aITags = data.OrderByDescending(x => x.TimeStamp).ThenByDescending(x => x.TagName).ToList();
                 }
                 tag1.analogInputs = aITags;
             }
@@ -59,9 +59,9 @@ namespace SCADACore
                 using (var db = new TagContext())
                 {
                     var data = (from di in db.DITags
-                                where di.TimeStamp>time2
+                                where di.TimeStamp > time2
                                 select di).ToList();
-                    dITags = data.OrderByDescending(x => x.TimeStamp).ToList();
+                    dITags = data.OrderByDescending(x => x.TimeStamp).ThenByDescending(x => x.TagName).ToList();
                 }
                 tag1.digitalInputs = dITags;
             }

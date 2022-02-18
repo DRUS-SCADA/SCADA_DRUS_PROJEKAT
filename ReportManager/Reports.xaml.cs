@@ -22,6 +22,8 @@ namespace ReportManager
     {
         MainWindow mw = (MainWindow)Application.Current.MainWindow;
         List<Alarm> alarms = new List<Alarm>();
+        List<AITag> AITags = new List<AITag>();
+        List<DITag> DITags = new List<DITag>();
         public Reports(string buttonNumber)
         {
             InitializeComponent();
@@ -40,6 +42,12 @@ namespace ReportManager
             }else if(buttonNumber == "4")
             {
                 WriteReport4();
+            }else if(buttonNumber == "5")
+            {
+                WriteReport5();
+            }else
+            {
+                WriteReport6();
             }
         }
         private void WriteReport1()
@@ -64,7 +72,7 @@ namespace ReportManager
             alarms = MainWindow.proxy.Report1(time).ToList();
             foreach (var i in alarms)
             {
-                ReportsList.Text += i.TagName + " " + i.Priorities + " " + i.Treshold + " " + i.Types + " " + i.DateTime + "\n";
+                ReportsList.Text += $"{i.Types} {i.TagName} at {i.DateTime} with treshold {i.Treshold} and priority {i.Priorities}\n";
             }
         }
         private void WriteReport2()
@@ -85,7 +93,7 @@ namespace ReportManager
             alarms = MainWindow.proxy.Report2(priority).ToList();
             foreach (var i in alarms)
             {
-                ReportsList.Text += i.TagName + " " + i.Priorities + " " + i.Treshold + " " + i.Types + " " + i.DateTime + "\n";
+                ReportsList.Text += $"{i.Types} {i.TagName} at {i.DateTime} with treshold {i.Treshold} and priority {i.Priorities}\n";
             }
         }
         private void WriteReport3()
@@ -107,18 +115,20 @@ namespace ReportManager
             {
                 time = -44640;
             }
+
             Tag tag1 = new Tag();
             tag1 = MainWindow.proxy.Report3(mw.Report3tag.Text, time);
+
             if(mw.Report3tag.Text == "Analog input")
                 foreach(var i in tag1.analogInputs)
                 {
-                    ReportsList.Text += i.TagName + " " + i.TimeStamp + " " + i.Value + "\n";
+                    ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)} at {i.TimeStamp}\n";
                 }
             else if (mw.Report3tag.Text == "Digital input")
             {
                 foreach (var i in tag1.digitalInputs)
                 {
-                    ReportsList.Text += i.TagName + " " + i.TimeStamp + " " + i.Value + "\n";
+                    ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)} at {i.TimeStamp}\n";
                 }
             }
         }
@@ -131,15 +141,31 @@ namespace ReportManager
             {
                 foreach (var i in tag1.analogInputs)
                 {
-                    ReportsList.Text += i.TagName + " " + i.TimeStamp + " " + i.Value + "\n";
+                    ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)} at {i.TimeStamp}\n";
                 }
             }
             else if (mw.Report4tag.Text == "Digital input")
             {
                 foreach (var i in tag1.digitalInputs)
                 {
-                    ReportsList.Text += i.TagName + " " + i.TimeStamp + " " + i.Value + "\n";
+                    ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)} at {i.TimeStamp}\n";
                 }
+            }
+        }
+        private void WriteReport5()
+        {
+            AITags = MainWindow.proxy.Report4().ToList();
+            foreach(var i in AITags)
+            {
+                ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)} at {i.TimeStamp}\n";
+            }
+        }
+        private void WriteReport6()
+        {
+            DITags = MainWindow.proxy.Report5().ToList();
+            foreach (var i in DITags)
+            {
+                ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)}s at {i.TimeStamp}\n";
             }
         }
         private void CloseClick(object sender, RoutedEventArgs e)

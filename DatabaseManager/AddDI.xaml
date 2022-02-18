@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DatabaseManager"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        WindowStartupLocation="Manual" 
+        WindowStartupLocation="CenterScreen" 
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"

@@ -7,15 +7,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AlarmDisplay"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Alarms" Height="450" Width="800">
     <Grid Background="LightBlue">
-        <ScrollViewer Width="648" Height="314" VerticalScrollBarVisibility="Visible" >
-            <TextBlock Name="History" FontFamily="Helvetica" Background="White" Foreground="DarkBlue" FontSize="15" Width="650" Height="315"/>
+        <ScrollViewer HorizontalAlignment="Left" Width="648" Height="auto" VerticalScrollBarVisibility="Visible" >
+            <TextBlock Name="History" FontFamily="Helvetica" Background="White" Foreground="DarkBlue" FontSize="15" Width="650" Height="auto"/>
         </ScrollViewer>
         <Button Content="Close" Foreground="White" Click="CloseClick" Style="{DynamicResource MaterialDesignRaisedButton}"
-         HorizontalAlignment="Left" Background="IndianRed" Margin="433,378,0,0" VerticalAlignment="Top" Width="75"/>
+         HorizontalAlignment="Left" Background="IndianRed" Margin="681,350,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Clear" Foreground="White" Click="ClearClick" Style="{DynamicResource MaterialDesignRaisedButton}"
-                HorizontalAlignment="Left" Background="CornflowerBlue" Margin="291,378,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-3.051,0.438"/>
-        <Label Content="Alarm history" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="327,19,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,1.383" Width="144"/>
+                HorizontalAlignment="Left" Background="CornflowerBlue" Margin="681,289,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-3.051,0.438"/>
+        <Label Content="Alarm history" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="640,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,1.383" Width="144"/>
     </Grid>
 </Window>
