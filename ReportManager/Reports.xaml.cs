@@ -165,7 +165,7 @@ namespace ReportManager
             DITags = MainWindow.proxy.Report5().ToList();
             foreach (var i in DITags)
             {
-                ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)}s at {i.TimeStamp}\n";
+                ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)} at {i.TimeStamp}\n";
             }
         }
         private void CloseClick(object sender, RoutedEventArgs e)
