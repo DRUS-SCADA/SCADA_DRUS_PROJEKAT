@@ -8,8 +8,8 @@
         Closing="Window_Closing"
         Title="Reports" Height="450" Width="800">
     <Grid Background="LightBlue">
-        <ScrollViewer Width="648" Height="314" VerticalScrollBarVisibility="Visible" >
-            <TextBlock Name="ReportsList" FontFamily="Helvetica" Background="White" Foreground="DarkBlue" FontSize="15" Width="648" Height="314"/>
+        <ScrollViewer Width="648" Height="300" VerticalScrollBarVisibility="Visible"  >
+            <TextBlock Name="ReportsList" FontFamily="Helvetica" Background="White" Foreground="DarkBlue" FontSize="15" Width="650" Height="315"/>
         </ScrollViewer>
         <Button Content="Close" Foreground="White" Click="CloseClick" Style="{DynamicResource MaterialDesignRaisedButton}"
          HorizontalAlignment="Left" Background="IndianRed" Margin="433,378,0,0" VerticalAlignment="Top" Width="75"/>

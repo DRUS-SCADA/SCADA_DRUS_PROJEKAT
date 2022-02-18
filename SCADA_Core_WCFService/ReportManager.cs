@@ -98,7 +98,7 @@ namespace SCADACore
                 using (var db = new TagContext())
                 {
                     var data = (from ai in db.AITags
-                                where ai.TagName == tagName
+                                where ai.TagName.ToLower() == tagName
                                 select ai).ToList();
                     aITags = data.OrderByDescending(x => x.Value).ToList();
                 }
@@ -118,6 +118,5 @@ namespace SCADACore
             }
             return tag1;
         }
-
     }
 }
