@@ -39,13 +39,16 @@ namespace ReportManager
             else if(buttonNumber == "3")
             {
                 WriteReport3();
-            }else if(buttonNumber == "4")
+            }
+            else if(buttonNumber == "4")
             {
                 WriteReport4();
-            }else if(buttonNumber == "5")
+            }
+            else if(buttonNumber == "5")
             {
                 WriteReport5();
-            }else
+            }
+            else
             {
                 WriteReport6();
             }
@@ -128,7 +131,7 @@ namespace ReportManager
             {
                 foreach (var i in tag1.digitalInputs)
                 {
-                    ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)} at {i.TimeStamp}\n";
+                    ReportsList.Text += $"Tag: {i.TagName} had value {i.Value} at {i.TimeStamp}\n";
                 }
             }
         }
@@ -148,7 +151,7 @@ namespace ReportManager
             {
                 foreach (var i in tag1.digitalInputs)
                 {
-                    ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)} at {i.TimeStamp}\n";
+                    ReportsList.Text += $"Tag: {i.TagName} had value {i.Value} at {i.TimeStamp}\n";
                 }
             }
         }
@@ -165,7 +168,7 @@ namespace ReportManager
             DITags = MainWindow.proxy.Report5().ToList();
             foreach (var i in DITags)
             {
-                ReportsList.Text += $"Tag: {i.TagName} had value {string.Format("{0:.##}", i.Value)} at {i.TimeStamp}\n";
+                ReportsList.Text += $"Tag: {i.TagName} had value {i.Value} at {i.TimeStamp}\n";
             }
         }
         private void CloseClick(object sender, RoutedEventArgs e)
