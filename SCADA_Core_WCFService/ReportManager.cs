@@ -118,5 +118,41 @@ namespace SCADACore
             }
             return tag1;
         }
+        public bool IsFoundInputAI(string tagName)
+        {
+            using (var db = new TagContext())
+            {
+                var data = (from ai in db.AITags
+                            where ai.TagName == tagName
+                            select ai.TagName).FirstOrDefault();
+
+                if (data == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+        public bool IsFoundInputDI(string tagName)
+        {
+            using (var db = new TagContext())
+            {
+                var data = (from di in db.AITags
+                            where di.TagName == tagName
+                            select di.TagName).FirstOrDefault();
+
+                if (data == null)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
     }
 }

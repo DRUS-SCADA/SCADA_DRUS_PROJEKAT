@@ -1543,6 +1543,9 @@ namespace Trending_App.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/ShutdownTrending")]
         void ShutdownTrending();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/ITrending/OnStateChanged")]
+        void OnStateChanged(Trending_App.ServiceReference1.AnalogInput analogInput);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

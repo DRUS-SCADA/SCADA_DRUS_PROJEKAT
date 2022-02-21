@@ -476,6 +476,18 @@ namespace ReportManager.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/Report6", ReplyAction="http://tempuri.org/IReportManager/Report6Response")]
         System.Threading.Tasks.Task<ReportManager.ServiceReference1.Tag> Report6Async(string tagName, string tag);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/IsFoundInputAI", ReplyAction="http://tempuri.org/IReportManager/IsFoundInputAIResponse")]
+        bool IsFoundInputAI(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/IsFoundInputAI", ReplyAction="http://tempuri.org/IReportManager/IsFoundInputAIResponse")]
+        System.Threading.Tasks.Task<bool> IsFoundInputAIAsync(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/IsFoundInputDI", ReplyAction="http://tempuri.org/IReportManager/IsFoundInputDIResponse")]
+        bool IsFoundInputDI(string tagName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReportManager/IsFoundInputDI", ReplyAction="http://tempuri.org/IReportManager/IsFoundInputDIResponse")]
+        System.Threading.Tasks.Task<bool> IsFoundInputDIAsync(string tagName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -551,6 +563,22 @@ namespace ReportManager.ServiceReference1 {
         
         public System.Threading.Tasks.Task<ReportManager.ServiceReference1.Tag> Report6Async(string tagName, string tag) {
             return base.Channel.Report6Async(tagName, tag);
+        }
+        
+        public bool IsFoundInputAI(string tagName) {
+            return base.Channel.IsFoundInputAI(tagName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsFoundInputAIAsync(string tagName) {
+            return base.Channel.IsFoundInputAIAsync(tagName);
+        }
+        
+        public bool IsFoundInputDI(string tagName) {
+            return base.Channel.IsFoundInputDI(tagName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsFoundInputDIAsync(string tagName) {
+            return base.Channel.IsFoundInputDIAsync(tagName);
         }
     }
 }

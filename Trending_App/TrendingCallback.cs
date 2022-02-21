@@ -28,7 +28,7 @@ namespace Trending_App
                     }
                     y++;
                 }
-                if (x==y)
+                if (x == y)
                 {
                     MainWindow.analogInputs.Add(AI);
                 }
@@ -97,6 +97,20 @@ namespace Trending_App
             foreach (var i in MainWindow.digitalInputs.ToList())
             {
                 MainWindow.digitalInputs.Remove(i);
+            }
+        }
+        public void OnStateChanged(AnalogInput analogInput)
+        {
+            if(MainWindow.analogInputs.Count != 0)
+            {
+                foreach (AnalogInput i in MainWindow.analogInputs)
+                {
+                    if (i.TagName == analogInput.TagName)
+                    {
+                        i.States = analogInput.States;
+                        break;
+                    }
+                }
             }
         }
         public void ShutdownTrending()

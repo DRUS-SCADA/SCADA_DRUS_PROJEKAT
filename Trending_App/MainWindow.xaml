@@ -68,6 +68,18 @@
             <TabItem Name="AI" Header="Analog inputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
                     <DataGrid Name="dataGrid2"  AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="LightBlue"  IsReadOnly="True">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding States}" Value="ALARM">
+                                        <Setter Property="Background" Value="OrangeRed"></Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding States}" Value="REGULAR">
+                                        <Setter Property="Background" Value="LightGreen"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
@@ -77,7 +89,6 @@
                             <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" Width="*"/>
                             <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" Width="*"/>
                             <DataGridTextColumn Header="Value" Binding="{Binding AnalogValue,StringFormat=N2}" Width="*"/>
-
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

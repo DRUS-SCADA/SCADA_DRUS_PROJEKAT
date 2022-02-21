@@ -153,18 +153,6 @@
             <TabItem Name="AI" Header="Analog inputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
                     <DataGrid Name="dataGrid2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="LightBlue"  IsReadOnly="True">
-                        <DataGrid.RowStyle>
-                            <Style TargetType="DataGridRow">
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding States, NotifyOnTargetUpdated=True}" Value="ALARM">
-                                        <Setter Property="Background" Value="OrangeRed"></Setter>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding States, NotifyOnTargetUpdated=True}" Value="REGULAR">
-                                        <Setter Property="Background" Value="LightGreen"></Setter>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </DataGrid.RowStyle>
                         <DataGrid.Resources>
                             <ImageBrush x:Key="DeleteBtnImage" ImageSource="Images/deleteIcon.png"/>
                             <ImageBrush x:Key="DetailsBtnImage" ImageSource="/Images/details.png"/>

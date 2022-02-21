@@ -23,5 +23,7 @@ namespace SCADACore
         void OnClearDI();
         [OperationContract(IsOneWay = true)]
         void ShutdownTrending();
+        [OperationContract(IsOneWay = true)]
+        void OnStateChanged(AnalogInput analogInput);
     }
 }

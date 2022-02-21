@@ -43,6 +43,18 @@
   <wsdl:message name="IReportManager_Report6_OutputMessage">
     <wsdl:part name="parameters" element="tns:Report6Response" />
   </wsdl:message>
+  <wsdl:message name="IReportManager_IsFoundInputAI_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsFoundInputAI" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_IsFoundInputAI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsFoundInputAIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_IsFoundInputDI_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsFoundInputDI" />
+  </wsdl:message>
+  <wsdl:message name="IReportManager_IsFoundInputDI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsFoundInputDIResponse" />
+  </wsdl:message>
   <wsdl:portType name="IReportManager">
     <wsdl:operation name="Report1">
       <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/Report1" message="tns:IReportManager_Report1_InputMessage" />
@@ -67,6 +79,14 @@
     <wsdl:operation name="Report6">
       <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/Report6" message="tns:IReportManager_Report6_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IReportManager/Report6Response" message="tns:IReportManager_Report6_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFoundInputAI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/IsFoundInputAI" message="tns:IReportManager_IsFoundInputAI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportManager/IsFoundInputAIResponse" message="tns:IReportManager_IsFoundInputAI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsFoundInputDI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReportManager/IsFoundInputDI" message="tns:IReportManager_IsFoundInputDI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReportManager/IsFoundInputDIResponse" message="tns:IReportManager_IsFoundInputDI_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IReportManager" type="tns:IReportManager">
@@ -118,6 +138,24 @@
     </wsdl:operation>
     <wsdl:operation name="Report6">
       <soap:operation soapAction="http://tempuri.org/IReportManager/Report6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFoundInputAI">
+      <soap:operation soapAction="http://tempuri.org/IReportManager/IsFoundInputAI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsFoundInputDI">
+      <soap:operation soapAction="http://tempuri.org/IReportManager/IsFoundInputDI" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

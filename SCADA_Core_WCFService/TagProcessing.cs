@@ -37,6 +37,7 @@ namespace SCADACore
         delegate void AlarmStop(Alarm alarm);
         delegate void ShutdownTrending();
         delegate void ShutdownDisplay();
+        delegate void ChangingStates(AnalogInput analogInput);
         static event AlarmActivate activateAlarm = null;
         static event AlarmStop stopAlarm = null;
         static event ValueHandler valueReceived = null;
@@ -47,6 +48,7 @@ namespace SCADACore
         static event ClearGridAlarm clearGridAlarm = null;
         static event ShutdownTrending trendingClose = null;
         static event ShutdownDisplay displayClose = null;
+        static event ChangingStates statesColors = null;
         public static ObservableCollection<AnalogInput> analogInputsObservable = new ObservableCollection<AnalogInput>();
         public static ObservableCollection<AnalogOutput> analogOutputsObservable = new ObservableCollection<AnalogOutput>();
         public static ObservableCollection<DigitalInput> digitalInputsObservable = new ObservableCollection<DigitalInput>();
@@ -613,10 +615,12 @@ namespace SCADACore
                     if (isAlarm.Any(x => x))
                     {
                         ai.States = States.ALARM;
+                        statesColors?.Invoke(ai);
                     }
                     else
                     {
                         ai.States = States.REGULAR;
+                        statesColors?.Invoke(ai);
                     }
                 }
                 Thread.Sleep(Convert.ToInt32(ai.ScanTime) * 1000);
@@ -655,6 +659,7 @@ namespace SCADACore
             clearGrid += proxy.OnClearAI;
             clearGrid += proxy.OnClearDI;
             trendingClose += proxy.ShutdownTrending;
+            statesColors += proxy.OnStateChanged;
         }
         public void clearData()
         {

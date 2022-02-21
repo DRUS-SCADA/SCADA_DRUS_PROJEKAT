@@ -25,6 +25,7 @@ namespace ReportManager
         public MainWindow()
         {
             InitializeComponent();
+            
             this.Report1.ItemsSource = new List<string> { "1 hour", "1 day", "1 week", "1 month" };
             this.Report2.ItemsSource = new List<string> { "1", "2", "3"};
             this.Report3tag.ItemsSource = new List<string> { "Analog input", "Digital input" };
@@ -41,6 +42,7 @@ namespace ReportManager
                     Reports reports = new Reports("1");
                     reports.Show();
                     this.Hide();
+                    DeleteBoxes();
                 }
                 else
                 {
@@ -54,6 +56,7 @@ namespace ReportManager
                     Reports reports = new Reports("2");
                     reports.Show();
                     this.Hide();
+                    DeleteBoxes();
                 }
                 else
                 {
@@ -67,6 +70,7 @@ namespace ReportManager
                     Reports reports = new Reports("3");
                     reports.Show();
                     this.Hide();
+                    DeleteBoxes();
                 }
                 else
                 {
@@ -77,9 +81,36 @@ namespace ReportManager
             {
                 if (ValidateInputReport4())
                 {
-                    Reports reports = new Reports("4");
-                    reports.Show();
-                    this.Hide();
+                    if (Report4tag.Text == "Analog input")
+                    {
+                        if (proxy.IsFoundInputAI(Report4tagName.Text))
+                        {
+                            Reports reports = new Reports("4");
+                            reports.Show();
+                            this.Hide();
+                            DeleteBoxes();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Input with that tag name doesn't exist!");
+                        }
+
+                    }
+                    else if (Report4tag.Text == "Digital input")
+                    {
+
+                        if (proxy.IsFoundInputDI(Report4tagName.Text))
+                        {
+                            Reports reports = new Reports("4");
+                            reports.Show();
+                            this.Hide();
+                            DeleteBoxes();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Input with that tag name doesn't exist!");
+                        }
+                    }
                 }
                 else
                 {
@@ -164,6 +195,15 @@ namespace ReportManager
             {
                 return true;
             }
+        }
+        private void DeleteBoxes()
+        {
+            Report1.Text = string.Empty;
+            Report2.Text = string.Empty;
+            Report3tag.Text = string.Empty;
+            Report3tagValues.Text = string.Empty;
+            Report4tag.Text = string.Empty;
+            Report4tagName.Text = string.Empty;
         }
     }
 }

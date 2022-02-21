@@ -22,5 +22,9 @@ namespace SCADACore
         List<DITag> Report5();
         [OperationContract]
         Tag Report6(string tagName,string tag);
+        [OperationContract]
+        bool IsFoundInputAI(string tagName);
+        [OperationContract]
+        bool IsFoundInputDI(string tagName);
     }
 }
