@@ -195,7 +195,9 @@ namespace DatabaseManager
             if(change > SelectedAO.HighLimit || change < SelectedAO.LowLimit)
             {
                 MessageBox.Show($"Initial value must be between {SelectedAO.LowLimit} and {SelectedAO.HighLimit} ");
-            }else
+                SelectedAO.InitialValue = SelectedAO.LowLimit;
+            }
+            else
             {
                 MainWindow.proxy2.SaveChanges(SelectedAO, change);
             }

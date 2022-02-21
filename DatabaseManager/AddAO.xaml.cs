@@ -49,12 +49,20 @@ namespace DatabaseManager
                     string tag = Idbox.Text;
                     string desc = Descriptionbox.Text;
                     string combo = IoCombo.Text;
-                    SCADA.adressAO[combo] = true;
-                    AnalogOutput analogOutput = new AnalogOutput { TagName = tag, Description = desc, HighLimit = high, LowLimit = low, InitialValue = initialValue, IOAdress = combo };
-                    MainWindow.proxy2.AddAO(analogOutput);
-
-                    this.Close();
-                }else
+                    
+                    if(initialValue < low || initialValue > high)
+                    {
+                        MessageBox.Show($"Initial value must be between {low} and {high} ");
+                    }
+                    else
+                    {
+                        SCADA.adressAO[combo] = true; 
+                        AnalogOutput analogOutput = new AnalogOutput { TagName = tag, Description = desc, HighLimit = high, LowLimit = low, InitialValue = initialValue, IOAdress = combo };
+                        MainWindow.proxy2.AddAO(analogOutput);
+                        this.Close();
+                    }
+                }
+                else
                 {
                     Valuebox.BorderBrush = Brushes.Red;
                     HighLimit.BorderBrush = Brushes.Red;
