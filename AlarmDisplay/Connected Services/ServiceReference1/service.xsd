@@ -614,6 +614,13 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="OnStateChanged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="analogInput" nillable="true" type="q45:AnalogInput" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SubscriberInitialization2">
     <xs:complexType>
       <xs:sequence />
@@ -627,7 +634,7 @@
   <xs:element name="OnAlarmActivate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="alarm" nillable="true" type="q45:Alarm" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="alarm" nillable="true" type="q46:Alarm" />
         <xs:element minOccurs="0" name="count" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -635,7 +642,7 @@
   <xs:element name="OnAlarmStop">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="alarm" nillable="true" type="q46:Alarm" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/SCADACore" minOccurs="0" name="alarm" nillable="true" type="q47:Alarm" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

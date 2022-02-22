@@ -536,7 +536,19 @@ namespace SCADACore
         {
             while (true)
             {
-                ai.AnalogValue = PLC.GetValue(ai.IOAdress);
+                var Value = PLC.GetValue(ai.IOAdress);
+                if (Value >= ai.LowLimit && Value <= ai.HighLimit)
+                {
+                    ai.AnalogValue = Value;
+                }
+                else if (Value < ai.LowLimit)
+                {
+                    ai.AnalogValue = ai.LowLimit;
+                }
+                else
+                {
+                    ai.AnalogValue = ai.HighLimit;
+                }
                 if (ai.ONOFF_scan == true)
                 {
                     valueReceived?.Invoke(ai);
