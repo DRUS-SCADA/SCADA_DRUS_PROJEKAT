@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RealTimeDriver.ServiceReference1;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,35 +22,38 @@ namespace RealTimeDriver
     /// </summary>
     public partial class MainWindow : Window
     {
-        private object locker = new object();
+        RealTimeDriverClient proxy = new RealTimeDriverClient();
+        private Thread t1;
         public MainWindow()
         {
             InitializeComponent();
             this.AddressCombo.ItemsSource = new List<string> { "ADDR013", "ADDR014", "ADDR015", "ADDR016" };
-            Value.Text = "0";
             this.DataContext = this;
         }
 
         private void StartClick(object sender, RoutedEventArgs e)
         {
+            double limitHigh = Convert.ToDouble(HighLimit.Text);
+            double limitLow = Convert.ToDouble(LowLimit.Text);
+            string address = AddressCombo.Text;
+
+            t1 = new Thread(() => GeneratingSignals(limitHigh, limitLow,address));
+            t1.Start();
+        }
+        private void GeneratingSignals(double high, double low, string address)
+        {
+            Random random = new Random();
             while (true)
             {
-                lock(locker)
-                {
-                    Thread.Sleep(3000);
-                    double Value1 = GetRandomNumber(Convert.ToDouble(LowLimit.Text), Convert.ToDouble(HighLimit.Text));
-                    Value.Text = Convert.ToString(Value1);
-                }
+                Thread.Sleep(100);
+                double Value1 = random.NextDouble() * (high - low) + low;
+                proxy.SendMessage(Value1, address);
             }
         }
         private void CloseClick(object sender, RoutedEventArgs e)
         {
+            t1.Abort();
             this.Close();
-        }
-        private double GetRandomNumber(double minimum, double maximum)
-        {
-            Random random = new Random();
-            return random.NextDouble() * (maximum - minimum) + minimum;
         }
     }
 }

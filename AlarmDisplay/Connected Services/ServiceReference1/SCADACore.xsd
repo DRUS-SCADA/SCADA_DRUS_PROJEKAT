@@ -6,6 +6,7 @@
       <xs:element minOccurs="0" name="Alarms" nillable="true" type="tns:ArrayOfAlarm" />
       <xs:element minOccurs="0" name="AnalogValue" type="xs:double" />
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DriverString" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="HighLimit" type="xs:double" />
       <xs:element minOccurs="0" name="IOAdress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />

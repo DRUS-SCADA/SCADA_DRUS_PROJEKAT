@@ -158,13 +158,11 @@
                             <ImageBrush x:Key="DetailsBtnImage" ImageSource="/Images/details.png"/>
                         </DataGrid.Resources>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="1.1*"/>
-                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="1.2*"/>
-                            <!--<DataGridTextColumn Header="Scan time" Binding="{Binding ScanTime}" Width="*"/>-->
-                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAdress}" Width="1.1*"/>
+                            <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="*"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
+                            <DataGridTextColumn Header="Driver" Binding="{Binding DriverString}" Width="*"/>
+                            <DataGridTextColumn Header="IO Adress" Binding="{Binding IOAdress}" Width="*"/>
                             <DataGridTextColumn Header="Units" Binding="{Binding Units}" Width="*"/>
-                            <DataGridTextColumn Header="High limit" Binding="{Binding HighLimit}" Width="1.1*"/>
-                            <DataGridTextColumn Header="Low limit" Binding="{Binding LowLimit}" Width="*"/>
                             <DataGridCheckBoxColumn Header="Scan" Binding="{Binding ONOFF_scan, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"  IsReadOnly="False" Width="*" />
 
                             <DataGridTemplateColumn Width="1.8*">

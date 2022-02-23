@@ -536,19 +536,40 @@ namespace SCADACore
         {
             while (true)
             {
-                var Value = PLC.GetValue(ai.IOAdress);
-                if (Value >= ai.LowLimit && Value <= ai.HighLimit)
+                double Value;
+                if (ai.DriverString == "RTU")
                 {
-                    ai.AnalogValue = Value;
+                    Value = RealTimeDriver.RTU.GetValue(ai.IOAdress);
+                    if (Value >= ai.LowLimit && Value <= ai.HighLimit)
+                    {
+                        ai.AnalogValue = Value;
+                    }
+                    else if (Value < ai.LowLimit)
+                    {
+                        ai.AnalogValue = ai.LowLimit;
+                    }
+                    else
+                    {
+                        ai.AnalogValue = ai.HighLimit;
+                    }
                 }
-                else if (Value < ai.LowLimit)
+                else if (ai.DriverString == "SIMULATION")
                 {
-                    ai.AnalogValue = ai.LowLimit;
+                    Value  = PLC.GetValue(ai.IOAdress);
+                    if (Value >= ai.LowLimit && Value <= ai.HighLimit)
+                    {
+                        ai.AnalogValue = Value;
+                    }
+                    else if (Value < ai.LowLimit)
+                    {
+                        ai.AnalogValue = ai.LowLimit;
+                    }
+                    else
+                    {
+                        ai.AnalogValue = ai.HighLimit;
+                    }
                 }
-                else
-                {
-                    ai.AnalogValue = ai.HighLimit;
-                }
+                
                 if (ai.ONOFF_scan == true)
                 {
                     valueReceived?.Invoke(ai);
@@ -765,6 +786,7 @@ namespace SCADACore
                 new XElement("RootName",
                 new XElement("AnalogInputs",
                     (from analogInput in analogInputsObservable.ToList()
+                     where analogInput.DriverString == "SIMULATION"
                      select new XElement("AnalogInput",
                           new XAttribute("TagName", analogInput.TagName),
                           new XAttribute("Description", analogInput.Description),

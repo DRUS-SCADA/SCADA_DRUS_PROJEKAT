@@ -15,6 +15,11 @@ namespace SCADACore
         REGULAR,
         ALARM
     }
+    public enum Driver
+    {
+        SIMULATION,
+        RTU
+    }
     [DataContract]
     public class AnalogInput
     {
@@ -43,6 +48,13 @@ namespace SCADACore
         public States States { get; set; }
         [DataMember]
         public List<Alarm> Alarms { get; set; }
+        public Driver Driver { get; set; }
+        [DataMember]
+        public string DriverString
+        {
+            get { return Driver.ToString(); }
+            private set { Driver = value.ParseEnum<Driver>(); }
+        }
 
 
         public AnalogInput()
@@ -62,4 +74,5 @@ namespace SCADACore
             this.Units = units;
         }
     }
+
 }

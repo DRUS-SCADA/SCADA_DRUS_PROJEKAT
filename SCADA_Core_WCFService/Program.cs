@@ -13,9 +13,11 @@ namespace SCADACore
         {
             ServiceHost svc = new ServiceHost(typeof(TagProcessing));
             ServiceHost svc1 = new ServiceHost(typeof(ReportManager));
+            ServiceHost svc2 = new ServiceHost(typeof(RealTimeDriver));
 
             svc.Open();
             svc1.Open();
+            svc2.Open();
 
             Console.WriteLine("Press enter to exit!");
 
@@ -23,6 +25,7 @@ namespace SCADACore
 
             svc.Close();
             svc1.Close();
+            svc2.Close();
         }
     }
 }

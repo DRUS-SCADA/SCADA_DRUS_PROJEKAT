@@ -31,8 +31,10 @@ namespace DatabaseManager
                     IOAdress.Add(d);
                 }
             }
-            this.IoCombo.ItemsSource = IOAdress;
+            this.DriverCombo.ItemsSource = new List<string>() { "SIMULATION", "RTU" };
+
         }
+        
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
@@ -48,8 +50,9 @@ namespace DatabaseManager
                     string combo = IoCombo.Text;
                     string units = UnitsBox.Text;
                     bool onoff = Convert.ToBoolean(ONOFF_scan.IsChecked);
+                    string driver = DriverCombo.Text;
                     SCADA.adressAI[combo] = true;
-                    AnalogInput analogInput = new AnalogInput { TagName = tag, Description = desc, HighLimit = high, LowLimit = low, IOAdress = combo, Units = units, ONOFF_scan = onoff, ScanTime = scanTime};
+                    AnalogInput analogInput = new AnalogInput { TagName = tag, Description = desc, HighLimit = high, LowLimit = low, IOAdress = combo, DriverString = driver, Units = units, ONOFF_scan = onoff, ScanTime = scanTime};
                     MainWindow.proxy2.AddAI(analogInput);
 
                     this.Close();
@@ -101,10 +104,25 @@ namespace DatabaseManager
                 return true;
             }
         }
-        
+        private void DriverCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (DriverCombo.SelectedItem.ToString())
+            {
+                case "SIMULATION":
+                    this.IoCombo.ItemsSource = IOAdress;
+                    break;
+                case "RTU":
+                    this.IoCombo.ItemsSource = new List<string>() { "ADDR013", "ADDR014", "ADDR015", "ADDR016" };
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void Close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
+
     }
 }

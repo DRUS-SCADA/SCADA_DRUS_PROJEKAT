@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:DatabaseManager"
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="AddAI" Height="650" Width="450">
+        Title="AddAI" Height="700" Width="450">
     <Grid >
-        <Border CornerRadius="10" Margin="-12,0,0,0">
+        <Border CornerRadius="10" Margin="0,0,0.2,0.4">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="DeepSkyBlue" Offset="0.0"/>
@@ -16,27 +16,29 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Label Content="ADD ANALOG INPUT" FontSize="25" FontFamily="Helvetica"  Foreground="White" FontStyle="Oblique" HorizontalAlignment="Left" Margin="88,22,0,0" VerticalAlignment="Top" Width="273" Height="52"/>
-        <TextBox Name="Idbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,96,0,0" TextWrapping="Wrap" Text="{Binding Path=TagName}" VerticalAlignment="Top" Width="184"/>
-        <Label Content="Tag Name:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,96,0,0" VerticalAlignment="Top" Height="37" Width="84"/>
-        <Label Content="Description:" FontFamily="Helvetica" FontSize="16" Foreground="White"  HorizontalAlignment="Left" Margin="84,156,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="Descriptionbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,156,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="184"/>
-        <Label Content="IO Adress:"  FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,216,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="IoCombo" SelectedItem="{Binding Path=IOAdress}" HorizontalAlignment="Left" BorderBrush="White" Margin="177,216,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
-        <Label Content="Units:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,276,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="UnitsBox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,276,0,0" TextWrapping="Wrap" Text="{Binding Path=Units}" VerticalAlignment="Top" Width="184"/>
-        <Label Content="Low Limit:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,336,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="LowLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,336,0,0" TextWrapping="Wrap" Text="{Binding Path=LowLimit}" VerticalAlignment="Top" Width="184"/>
-        <Label Content="High Limit:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,396,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="HighLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,396,0,0" TextWrapping="Wrap" Text="{Binding Path=HighLimit}" VerticalAlignment="Top" Width="184"/>
-        <Label Content="Scan time:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,456,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="ScanTime" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,456,0,0" TextWrapping="Wrap" Text="{Binding Path=ScanTime}" VerticalAlignment="Top" Width="184"/>
-        <Label Content="Scan:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,516,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="ONOFF_scan" IsChecked="{Binding Path= ONOFF_scan}" Content="ON/OFF" Foreground="White" Margin="177,516,174.2,74"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="84,573,0,0" VerticalAlignment="Top" Width="84" Click="Add_Click" RenderTransformOrigin="-0.393,1.397"/>
+        <Label Content="ADD ANALOG INPUT" FontSize="25" FontFamily="Helvetica"  Foreground="White" FontStyle="Oblique" HorizontalAlignment="Left" Margin="88,26,0,0" VerticalAlignment="Top" Width="273" Height="52"/>
+        <TextBox Name="Idbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,83,0,0" TextWrapping="Wrap" Text="{Binding Path=TagName}" VerticalAlignment="Top" Width="184"/>
+        <Label Content="Tag Name:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,94,0,0" VerticalAlignment="Top" Height="26" Width="84"/>
+        <Label Content="Description:" FontFamily="Helvetica" FontSize="16" Foreground="White"  HorizontalAlignment="Left" Margin="84,153,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="Descriptionbox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,143,0,0" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Width="184"/>
+        <Label Content="IO Adress:"  FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,273,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="IoCombo" SelectedItem="{Binding Path=IOAdress}" HorizontalAlignment="Left" BorderBrush="White" Margin="177,263,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
+        <Label Content="Units:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,333,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="UnitsBox" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,323,0,0" TextWrapping="Wrap" Text="{Binding Path=Units}" VerticalAlignment="Top" Width="184"/>
+        <Label Content="Low Limit:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,393,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="LowLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,383,0,0" TextWrapping="Wrap" Text="{Binding Path=LowLimit}" VerticalAlignment="Top" Width="184"/>
+        <Label Content="High Limit:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,453,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="HighLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,443,0,0" TextWrapping="Wrap" Text="{Binding Path=HighLimit}" VerticalAlignment="Top" Width="184"/>
+        <Label Content="Scan time:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,513,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="ScanTime" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="37" Margin="177,503,0,0" TextWrapping="Wrap" Text="{Binding Path=ScanTime}" VerticalAlignment="Top" Width="184"/>
+        <Label Content="Scan:" FontFamily="Helvetica" FontSize="16" Foreground="White" HorizontalAlignment="Left" Margin="84,563,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="ONOFF_scan" IsChecked="{Binding Path= ONOFF_scan}" Content="ON/OFF" Foreground="White" Margin="177,563,161.2,80.4"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="84,620,0,0" VerticalAlignment="Top" Width="84" Click="Add_Click" RenderTransformOrigin="-0.393,1.397"/>
         <Button Content="Cancel" Style="{DynamicResource MaterialDesignRaisedButton}"
-      HorizontalAlignment="Left" Background="IndianRed" Click="Close_Click" Margin="277,573,0,0" VerticalAlignment="Top" Width="84" />
+      HorizontalAlignment="Left" Background="IndianRed" Click="Close_Click" Margin="277,620,0,0" VerticalAlignment="Top" Width="84" />
+        <ComboBox Name="DriverCombo" SelectionChanged="DriverCombo_SelectionChanged"   HorizontalAlignment="Left" BorderBrush="White" Margin="177,203,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
+        <Label Content="Driver:" FontFamily="Helvetica" FontSize="16" Foreground="White"  HorizontalAlignment="Left" Margin="84,213,0,0" VerticalAlignment="Top"/>
 
-        
+
     </Grid>
 </Window>

@@ -32,6 +32,9 @@ namespace AlarmDisplay.ServiceReference1 {
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DriverStringField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double HighLimitField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -103,6 +106,19 @@ namespace AlarmDisplay.ServiceReference1 {
                 if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
                     this.DescriptionField = value;
                     this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DriverString {
+            get {
+                return this.DriverStringField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DriverStringField, value) != true)) {
+                    this.DriverStringField = value;
+                    this.RaisePropertyChanged("DriverString");
                 }
             }
         }
