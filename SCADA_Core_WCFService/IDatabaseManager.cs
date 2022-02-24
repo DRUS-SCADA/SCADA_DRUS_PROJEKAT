@@ -65,6 +65,8 @@ namespace SCADACore
         [OperationContract]
         Dictionary<string, bool> loadAdressAIfree(Dictionary<string, bool> AI);
         [OperationContract]
+        Dictionary<string, bool> loadAdressAIRTUfree(Dictionary<string, bool> AI);
+        [OperationContract]
         Dictionary<string, bool> loadAdressDIfree(Dictionary<string, bool> DI);
         [OperationContract]
         Dictionary<string, bool> loadAdressAOfree(Dictionary<string, bool> AO);

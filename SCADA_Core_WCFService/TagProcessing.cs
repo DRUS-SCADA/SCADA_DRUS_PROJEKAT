@@ -21,6 +21,7 @@ namespace SCADACore
 {
     public class TagProcessing : IAuthentication, IDatabaseManager, ITrending, IAlarmDisplay
     {
+        #region Init
         public static SimulationDriver PLC = new SimulationDriver();
         private static Dictionary<string, User> autentificated_users = new Dictionary<string, User>();
         public static Dictionary<string, Thread> dictDi = new Dictionary<string, Thread>();
@@ -54,6 +55,7 @@ namespace SCADACore
         public static ObservableCollection<DigitalInput> digitalInputsObservable = new ObservableCollection<DigitalInput>();
         public static ObservableCollection<DigitalOutput> digitalOutputsObservable = new ObservableCollection<DigitalOutput>();
         public static ObservableCollection<Alarm> AlarmObservable = new ObservableCollection<Alarm>();
+        #endregion
 
         #region IAuthentication
 
@@ -425,7 +427,23 @@ namespace SCADACore
         {
             foreach (var i in analogInputsObservable.ToList())
             {
-                AI[i.IOAdress] = false;
+                if(i.DriverString == "SIMULATION")
+                {
+                    AI[i.IOAdress] = false;
+                }
+                
+            }
+            return AI;
+        }
+        public Dictionary<string, bool> loadAdressAIRTUfree(Dictionary<string, bool> AI)
+        {
+            foreach (var i in analogInputsObservable.ToList())
+            {
+                if (i.DriverString == "RTU")
+                {
+                    AI[i.IOAdress] = false;
+                }
+
             }
             return AI;
         }
@@ -848,12 +866,12 @@ namespace SCADACore
 
                                                 ));
             
-            document.Save(@"D:\scadaConfig.xml");
+            document.Save(@"C:\scadaConfig.xml");
         }
 
         public void ReadXML()
         {
-            string path = @"D:\scadaConfig.xml";
+            string path = @"C:\scadaConfig.xml";
             
             if(File.Exists(path))
             {
@@ -939,7 +957,11 @@ namespace SCADACore
                 if(i.TagName == analogInput.TagName)
                 {
                     i.Alarms.Add(alarm);
-                    AlarmObservable.Add(alarm);
+                    if(i.DriverString == "SIMULATION")
+                    {
+                        AlarmObservable.Add(alarm);
+                    }
+                   
                     break;
                 }
             }
@@ -955,7 +977,11 @@ namespace SCADACore
                         if(j.TagName == alarm.TagName && j.Priorities==alarm.Priorities && j.Types==alarm.Types && j.Treshold == alarm.Treshold)
                         {
                             i.Alarms.Remove(j);
-                            AlarmObservable.Remove(alarm);
+                            if(i.DriverString == "SIMULATION")
+                            {
+                                AlarmObservable.Remove(alarm);
+                            }
+                            
                             break;
                         }
                     }
@@ -973,7 +999,7 @@ namespace SCADACore
         
         private void WriteAlarmsToTXT(Alarm alarm)
         {
-            string path = @"D:\alarmsLog.txt";
+            string path = @"C:\alarmsLog.txt";
             using (StreamWriter writetext = new StreamWriter(path, append:true))
             {
                 writetext.WriteLine($"ALARM: Tag name: {alarm.TagName}, treshold: {alarm.Treshold},  type: {alarm.TypeString}, time: {alarm.DateTime}\n");

@@ -21,6 +21,7 @@ namespace DatabaseManager
     public partial class AddAI : Window
     {
         public List<string> IOAdress = new List<string>();
+        public List<string> IOAdress_RTU = new List<string>();
         public AddAI()
         {
             InitializeComponent();
@@ -29,6 +30,14 @@ namespace DatabaseManager
                 if (SCADA.adressAI[d] == false)
                 {
                     IOAdress.Add(d);
+                }
+            }
+
+            foreach (var j in SCADA.adressAI_RTU.Keys)
+            {
+                if (SCADA.adressAI_RTU[j] == false)
+                {
+                    IOAdress_RTU.Add(j);
                 }
             }
             this.DriverCombo.ItemsSource = new List<string>() { "SIMULATION", "RTU" };
@@ -47,11 +56,18 @@ namespace DatabaseManager
                 {
                     string tag = Idbox.Text;
                     string desc = Descriptionbox.Text;
+                    string driver = DriverCombo.Text;
                     string combo = IoCombo.Text;
                     string units = UnitsBox.Text;
                     bool onoff = Convert.ToBoolean(ONOFF_scan.IsChecked);
-                    string driver = DriverCombo.Text;
-                    SCADA.adressAI[combo] = true;
+                    if (driver == "SIMULATION")
+                    {
+                        SCADA.adressAI[combo] = true;
+                    }
+                    else
+                    {
+                        SCADA.adressAI_RTU[combo] = true;
+                    }
                     AnalogInput analogInput = new AnalogInput { TagName = tag, Description = desc, HighLimit = high, LowLimit = low, IOAdress = combo, DriverString = driver, Units = units, ONOFF_scan = onoff, ScanTime = scanTime};
                     MainWindow.proxy2.AddAI(analogInput);
 
@@ -71,11 +87,15 @@ namespace DatabaseManager
         }
         private bool ValidateInput()
         {
-            if (Idbox.Text.Length == 0 || Descriptionbox.Text.Length == 0 || IoCombo.Text.Length == 0 || LowLimit.Text.Length == 0 || HighLimit.Text.Length == 0 || UnitsBox.Text.Length == 0 || ScanTime.Text.Length == 0 || Idbox.Text.Trim().Equals("") || Descriptionbox.Text.Trim().Equals("") || UnitsBox.Text.Trim().Equals(""))
+            if (Idbox.Text.Length == 0 || Descriptionbox.Text.Length == 0 || DriverCombo.Text.Length == 0 || IoCombo.Text.Length == 0 || LowLimit.Text.Length == 0 || HighLimit.Text.Length == 0 || UnitsBox.Text.Length == 0 || ScanTime.Text.Length == 0 || Idbox.Text.Trim().Equals("") || Descriptionbox.Text.Trim().Equals("") || UnitsBox.Text.Trim().Equals(""))
             {
                 if (Idbox.Text.Length == 0)
                 {
                     Idbox.BorderBrush = Brushes.Red;
+                }
+                if (DriverCombo.Text.Length == 0)
+                {
+                    DriverCombo.BorderBrush = Brushes.Red;
                 }
                 if (Descriptionbox.Text.Length == 0)
                 {
@@ -112,7 +132,7 @@ namespace DatabaseManager
                     this.IoCombo.ItemsSource = IOAdress;
                     break;
                 case "RTU":
-                    this.IoCombo.ItemsSource = new List<string>() { "ADDR013", "ADDR014", "ADDR015", "ADDR016" };
+                    this.IoCombo.ItemsSource = IOAdress_RTU;
                     break;
                 default:
                     break;

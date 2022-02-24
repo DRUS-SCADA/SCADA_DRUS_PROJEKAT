@@ -18,11 +18,11 @@
             </Border.Background>
         </Border>
         <ComboBox Name="AddressCombo" HorizontalAlignment="Left"  BorderBrush="White" Margin="172,91,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="LowLimit" HorizontalAlignment="Left" BorderBrush="White" Height="23" Margin="172,181,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="HighLimit" HorizontalAlignment="Left" BorderBrush="White" Height="23" Margin="172,271,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="LowLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="23" Margin="172,181,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="HighLimit" HorizontalAlignment="Left" BorderBrush="White" Background="Transparent" Foreground="White" Height="23" Margin="172,271,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120"/>
         <Button Content="Close" Click="CloseClick" Background="IndianRed" HorizontalAlignment="Left" Margin="245,363,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Content="Start" Click ="StartClick" HorizontalAlignment="Left" Margin="84,363,0,0" VerticalAlignment="Top" Width="75"/>
-        <Label Content="RTU" FontSize="30" Foreground="White" HorizontalAlignment="Left" Margin="172,23,0,0" VerticalAlignment="Top"/>
+        <Label Content="REAL TIME UNIT" FontSize="30" Foreground="White" HorizontalAlignment="Left" Margin="84,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Address:" Foreground="White" HorizontalAlignment="Left" Margin="84,92,0,0" VerticalAlignment="Top"/>
         <Label Content="Low limit:" Foreground="White" HorizontalAlignment="Left" Margin="84,180,0,0" VerticalAlignment="Top"/>
         <Label Content="High limit:"  Foreground="White" HorizontalAlignment="Left" Margin="84,270,0,0" VerticalAlignment="Top"/>

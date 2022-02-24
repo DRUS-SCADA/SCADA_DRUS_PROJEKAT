@@ -774,6 +774,12 @@
   <wsdl:message name="IDatabaseManager_loadAdressAIfree_OutputMessage">
     <wsdl:part name="parameters" element="tns:loadAdressAIfreeResponse" />
   </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAIRTUfree_InputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAIRTUfree" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseManager_loadAdressAIRTUfree_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loadAdressAIRTUfreeResponse" />
+  </wsdl:message>
   <wsdl:message name="IDatabaseManager_loadAdressDIfree_InputMessage">
     <wsdl:part name="parameters" element="tns:loadAdressDIfree" />
   </wsdl:message>
@@ -1030,6 +1036,10 @@
     <wsdl:operation name="loadAdressAIfree">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAIfree" message="tns:IDatabaseManager_loadAdressAIfree_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAIfreeResponse" message="tns:IDatabaseManager_loadAdressAIfree_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="loadAdressAIRTUfree">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAIRTUfree" message="tns:IDatabaseManager_loadAdressAIRTUfree_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressAIRTUfreeResponse" message="tns:IDatabaseManager_loadAdressAIRTUfree_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="loadAdressDIfree">
       <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseManager/loadAdressDIfree" message="tns:IDatabaseManager_loadAdressDIfree_InputMessage" />
@@ -1425,6 +1435,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="loadAdressAIRTUfree">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressAIRTUfree" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="loadAdressDIfree">
       <soap:operation soapAction="http://tempuri.org/IDatabaseManager/loadAdressDIfree" style="document" />
       <wsdl:input>
@@ -1669,7 +1688,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:4000/TrendingService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-OTKUK5C\Asus</Upn>
+          <Upn>DESKTOP-612HTRD\Windows10</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -1678,7 +1697,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:4000/AlarmService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-OTKUK5C\Asus</Upn>
+          <Upn>DESKTOP-612HTRD\Windows10</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

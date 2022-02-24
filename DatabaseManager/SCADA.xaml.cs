@@ -30,6 +30,7 @@ namespace DatabaseManager
 
         public static Dictionary<string, bool> adressAO = new Dictionary<string, bool> { ["ADDR005"] = false, ["ADDR006"] = false, ["ADDR007"] = false, ["ADDR008"] = false };
         public static Dictionary<string, bool> adressAI = new Dictionary<string, bool> { ["ADDR001"] = false, ["ADDR002"] = false, ["ADDR003"] = false, ["ADDR004"] = false };
+        public static Dictionary<string, bool> adressAI_RTU = new Dictionary<string, bool> { ["ADDR013"] = false, ["ADDR014"] = false, ["ADDR015"] = false, ["ADDR016"] = false };
         public static Dictionary<string, bool> adressDO = new Dictionary<string, bool> { ["ADDR011"] = false, ["ADDR012"] = false};
         public static Dictionary<string, bool> adressDI = new Dictionary<string, bool> { ["ADDR009"] = false, ["ADDR010"] = false};
 
@@ -172,8 +173,16 @@ namespace DatabaseManager
 
             if (mbr == MessageBoxResult.Yes)
             {
+                if(SelectedAI.DriverString == "SIMULATION")
+                {
+                    adressAI[SelectedAI.IOAdress] = false;
+                }
+                else
+                {
+                    adressAI_RTU[SelectedAI.IOAdress] = false;
+                }
+
                 MainWindow.proxy2.removeAI(SelectedAI);
-                adressAI[SelectedAI.IOAdress] = false;
                 dataGrid2.ItemsSource = MainWindow.proxy2.LoadDataToGridAI();
             }
         }
@@ -231,6 +240,7 @@ namespace DatabaseManager
             MessageBoxResult mbr2 = MessageBox.Show("Do you want to save data? ", "Save", MessageBoxButton.YesNo);
             if (mbr2 == MessageBoxResult.Yes)
             {
+                adressAI_RTU = MainWindow.proxy2.loadAdressAIRTUfree(adressAI_RTU);
                 MainWindow.proxy2.ClearDictionaries();
                 MainWindow.proxy2.WriteXML();
                 MainWindow.proxy2.clearData();
@@ -241,6 +251,7 @@ namespace DatabaseManager
             else
             {
                 adressAI = MainWindow.proxy2.loadAdressAIfree(adressAI);
+                adressAI_RTU = MainWindow.proxy2.loadAdressAIRTUfree(adressAI_RTU);
                 adressAO = MainWindow.proxy2.loadAdressAOfree(adressAO);
                 adressDI = MainWindow.proxy2.loadAdressDIfree(adressDI);
                 adressDO = MainWindow.proxy2.loadAdressDOfree(adressDO);

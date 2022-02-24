@@ -36,7 +36,7 @@
         <Button Content="Add" HorizontalAlignment="Left" Margin="84,620,0,0" VerticalAlignment="Top" Width="84" Click="Add_Click" RenderTransformOrigin="-0.393,1.397"/>
         <Button Content="Cancel" Style="{DynamicResource MaterialDesignRaisedButton}"
       HorizontalAlignment="Left" Background="IndianRed" Click="Close_Click" Margin="277,620,0,0" VerticalAlignment="Top" Width="84" />
-        <ComboBox Name="DriverCombo" SelectionChanged="DriverCombo_SelectionChanged"   HorizontalAlignment="Left" BorderBrush="White" Margin="177,203,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
+        <ComboBox Name="DriverCombo" SelectedItem="{Binding Path=DriverString}" SelectionChanged="DriverCombo_SelectionChanged"   HorizontalAlignment="Left" BorderBrush="White" Margin="177,203,0,0" VerticalAlignment="Top" Width="184" Height="37" RenderTransformOrigin="0.494,0.412"/>
         <Label Content="Driver:" FontFamily="Helvetica" FontSize="16" Foreground="White"  HorizontalAlignment="Left" Margin="84,213,0,0" VerticalAlignment="Top"/>
 
 

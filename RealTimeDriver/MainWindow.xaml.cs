@@ -33,12 +33,27 @@ namespace RealTimeDriver
 
         private void StartClick(object sender, RoutedEventArgs e)
         {
-            double limitHigh = Convert.ToDouble(HighLimit.Text);
-            double limitLow = Convert.ToDouble(LowLimit.Text);
-            string address = AddressCombo.Text;
-
-            t1 = new Thread(() => GeneratingSignals(limitHigh, limitLow,address));
-            t1.Start();
+            
+            if (ValidateInput())
+            {
+                double limitHigh;
+                double limitLow;
+                if (Double.TryParse(HighLimit.Text, out limitHigh) && Double.TryParse(LowLimit.Text, out limitLow))
+                {
+                    string address = AddressCombo.Text;
+                    t1 = new Thread(() => GeneratingSignals(limitHigh, limitLow, address));
+                    t1.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Inputs must be number");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Inputs are not valid");
+            }
+           
         }
         private void GeneratingSignals(double high, double low, string address)
         {
@@ -54,6 +69,31 @@ namespace RealTimeDriver
         {
             t1.Abort();
             this.Close();
+        }
+
+        private bool ValidateInput()
+        {
+            if (HighLimit.Text.Length == 0 || LowLimit.Text.Length == 0 || AddressCombo.Text.Length == 0 )
+            {
+                if (HighLimit.Text.Length == 0)
+                {
+                    HighLimit.BorderBrush = Brushes.Red;
+                }
+                if (LowLimit.Text.Length == 0)
+                {
+                    LowLimit.BorderBrush = Brushes.Red;
+                }
+                if (AddressCombo.Text.Length == 0)
+                {
+                    AddressCombo.BorderBrush = Brushes.Red;
+                }
+               
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

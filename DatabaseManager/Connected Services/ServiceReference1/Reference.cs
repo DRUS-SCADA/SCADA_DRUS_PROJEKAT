@@ -1098,6 +1098,12 @@ namespace DatabaseManager.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAIfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAIfreeResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAIfreeAsync(System.Collections.Generic.Dictionary<string, bool> AI);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAIRTUfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAIRTUfreeResponse")]
+        System.Collections.Generic.Dictionary<string, bool> loadAdressAIRTUfree(System.Collections.Generic.Dictionary<string, bool> AI);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressAIRTUfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressAIRTUfreeResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAIRTUfreeAsync(System.Collections.Generic.Dictionary<string, bool> AI);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDatabaseManager/loadAdressDIfree", ReplyAction="http://tempuri.org/IDatabaseManager/loadAdressDIfreeResponse")]
         System.Collections.Generic.Dictionary<string, bool> loadAdressDIfree(System.Collections.Generic.Dictionary<string, bool> DI);
         
@@ -1418,6 +1424,14 @@ namespace DatabaseManager.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAIfreeAsync(System.Collections.Generic.Dictionary<string, bool> AI) {
             return base.Channel.loadAdressAIfreeAsync(AI);
+        }
+        
+        public System.Collections.Generic.Dictionary<string, bool> loadAdressAIRTUfree(System.Collections.Generic.Dictionary<string, bool> AI) {
+            return base.Channel.loadAdressAIRTUfree(AI);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<string, bool>> loadAdressAIRTUfreeAsync(System.Collections.Generic.Dictionary<string, bool> AI) {
+            return base.Channel.loadAdressAIRTUfreeAsync(AI);
         }
         
         public System.Collections.Generic.Dictionary<string, bool> loadAdressDIfree(System.Collections.Generic.Dictionary<string, bool> DI) {
