@@ -1688,7 +1688,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:4000/TrendingService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-612HTRD\Windows10</Upn>
+          <Upn>DESKTOP-OTKUK5C\Asus</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>
@@ -1697,7 +1697,7 @@
       <wsa10:EndpointReference>
         <wsa10:Address>http://localhost:4000/AlarmService</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
-          <Upn>DESKTOP-612HTRD\Windows10</Upn>
+          <Upn>DESKTOP-OTKUK5C\Asus</Upn>
         </Identity>
       </wsa10:EndpointReference>
     </wsdl:port>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -24,16 +25,18 @@ namespace RealTimeDriver
     {
         RealTimeDriverClient proxy = new RealTimeDriverClient();
         private Thread t1;
+        public static string ContainerName { get; private set; }
         public MainWindow()
         {
             InitializeComponent();
+            //proxy.makeDB();
+            ContainerName = "KeyContainer";
             this.AddressCombo.ItemsSource = new List<string> { "ADDR013", "ADDR014", "ADDR015", "ADDR016" };
             this.DataContext = this;
         }
 
         private void StartClick(object sender, RoutedEventArgs e)
         {
-            
             if (ValidateInput())
             {
                 double limitHigh;
@@ -43,6 +46,7 @@ namespace RealTimeDriver
                     string address = AddressCombo.Text;
                     t1 = new Thread(() => GeneratingSignals(limitHigh, limitLow, address));
                     t1.Start();
+                    proxy.changeAddress(address);
                 }
                 else
                 {
@@ -62,12 +66,14 @@ namespace RealTimeDriver
             {
                 Thread.Sleep(100);
                 double Value1 = random.NextDouble() * (high - low) + low;
-                proxy.SendMessage(Value1, address);
+                byte[] signature = SignMessage(Value1, out byte[] hash);
+                proxy.SendMessage(Value1, address, signature);
             }
         }
         private void CloseClick(object sender, RoutedEventArgs e)
         {
             t1.Abort();
+            proxy.freeAddress(AddressCombo.Text);
             this.Close();
         }
 
@@ -93,6 +99,23 @@ namespace RealTimeDriver
             else
             {
                 return true;
+            }
+        }
+        private static byte[] SignMessage(double message, out byte[] hashValue)
+        {
+            using (SHA256 sha = SHA256Managed.Create())
+            {
+                string message1 = message.ToString();
+                hashValue = sha.ComputeHash(Encoding.UTF8.GetBytes(message1));
+
+                CspParameters csp = new CspParameters();
+                csp.KeyContainerName = ContainerName;
+
+                RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(csp);
+                var formatter = new RSAPKCS1SignatureFormatter(rsa);
+                formatter.SetHashAlgorithm("SHA256");
+
+                return formatter.CreateSignature(hashValue);
             }
         }
     }

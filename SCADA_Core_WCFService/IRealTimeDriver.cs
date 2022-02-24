@@ -11,6 +11,13 @@ namespace SCADACore
     public interface IRealTimeDriver
     {
         [OperationContract]
-        void SendMessage(double number, string address);
+        void SendMessage(double number, string address, byte[] signature);
+        [OperationContract]
+        void changeAddress(string address);
+        [OperationContract]
+        void freeAddress(string addresss);
+        [OperationContract]
+        void makeDB();
+
     }
 }

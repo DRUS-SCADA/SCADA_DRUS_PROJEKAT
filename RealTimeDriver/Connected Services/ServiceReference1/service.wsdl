@@ -12,16 +12,73 @@
   <wsdl:message name="IRealTimeDriver_SendMessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:SendMessageResponse" />
   </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_changeAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:changeAddress" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_changeAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:changeAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_freeAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:freeAddress" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_freeAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:freeAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_makeDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:makeDB" />
+  </wsdl:message>
+  <wsdl:message name="IRealTimeDriver_makeDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:makeDBResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRealTimeDriver">
     <wsdl:operation name="SendMessage">
       <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/SendMessage" message="tns:IRealTimeDriver_SendMessage_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/SendMessageResponse" message="tns:IRealTimeDriver_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="changeAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/changeAddress" message="tns:IRealTimeDriver_changeAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/changeAddressResponse" message="tns:IRealTimeDriver_changeAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="freeAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/freeAddress" message="tns:IRealTimeDriver_freeAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/freeAddressResponse" message="tns:IRealTimeDriver_freeAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="makeDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/makeDB" message="tns:IRealTimeDriver_makeDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/makeDBResponse" message="tns:IRealTimeDriver_makeDB_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRealTimeDriver" type="tns:IRealTimeDriver">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="SendMessage">
       <soap:operation soapAction="http://tempuri.org/IRealTimeDriver/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeAddress">
+      <soap:operation soapAction="http://tempuri.org/IRealTimeDriver/changeAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="freeAddress">
+      <soap:operation soapAction="http://tempuri.org/IRealTimeDriver/freeAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="makeDB">
+      <soap:operation soapAction="http://tempuri.org/IRealTimeDriver/makeDB" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -16,10 +16,28 @@ namespace RealTimeDriver.ServiceReference1 {
     public interface IRealTimeDriver {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SendMessage", ReplyAction="http://tempuri.org/IRealTimeDriver/SendMessageResponse")]
-        void SendMessage(double number, string address);
+        void SendMessage(double number, string address, byte[] signature);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/SendMessage", ReplyAction="http://tempuri.org/IRealTimeDriver/SendMessageResponse")]
-        System.Threading.Tasks.Task SendMessageAsync(double number, string address);
+        System.Threading.Tasks.Task SendMessageAsync(double number, string address, byte[] signature);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/changeAddress", ReplyAction="http://tempuri.org/IRealTimeDriver/changeAddressResponse")]
+        void changeAddress(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/changeAddress", ReplyAction="http://tempuri.org/IRealTimeDriver/changeAddressResponse")]
+        System.Threading.Tasks.Task changeAddressAsync(string address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/freeAddress", ReplyAction="http://tempuri.org/IRealTimeDriver/freeAddressResponse")]
+        void freeAddress(string addresss);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/freeAddress", ReplyAction="http://tempuri.org/IRealTimeDriver/freeAddressResponse")]
+        System.Threading.Tasks.Task freeAddressAsync(string addresss);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/makeDB", ReplyAction="http://tempuri.org/IRealTimeDriver/makeDBResponse")]
+        void makeDB();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRealTimeDriver/makeDB", ReplyAction="http://tempuri.org/IRealTimeDriver/makeDBResponse")]
+        System.Threading.Tasks.Task makeDBAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +67,36 @@ namespace RealTimeDriver.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public void SendMessage(double number, string address) {
-            base.Channel.SendMessage(number, address);
+        public void SendMessage(double number, string address, byte[] signature) {
+            base.Channel.SendMessage(number, address, signature);
         }
         
-        public System.Threading.Tasks.Task SendMessageAsync(double number, string address) {
-            return base.Channel.SendMessageAsync(number, address);
+        public System.Threading.Tasks.Task SendMessageAsync(double number, string address, byte[] signature) {
+            return base.Channel.SendMessageAsync(number, address, signature);
+        }
+        
+        public void changeAddress(string address) {
+            base.Channel.changeAddress(address);
+        }
+        
+        public System.Threading.Tasks.Task changeAddressAsync(string address) {
+            return base.Channel.changeAddressAsync(address);
+        }
+        
+        public void freeAddress(string addresss) {
+            base.Channel.freeAddress(addresss);
+        }
+        
+        public System.Threading.Tasks.Task freeAddressAsync(string addresss) {
+            return base.Channel.freeAddressAsync(addresss);
+        }
+        
+        public void makeDB() {
+            base.Channel.makeDB();
+        }
+        
+        public System.Threading.Tasks.Task makeDBAsync() {
+            return base.Channel.makeDBAsync();
         }
     }
 }

@@ -154,6 +154,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddressContext.cs" />
     <Compile Include="Alarm.cs" />
     <Compile Include="AlarmContext.cs" />
     <Compile Include="AnalogInput.cs" />
@@ -175,6 +176,7 @@
     <Compile Include="RealTimeDriver.cs" />
     <Compile Include="RealTimeUnit.cs" />
     <Compile Include="ReportManager.cs" />
+    <Compile Include="RTUAddress.cs" />
     <Compile Include="Tag.cs" />
     <Compile Include="TagContext.cs" />
     <Compile Include="TagProcessing.cs" />
