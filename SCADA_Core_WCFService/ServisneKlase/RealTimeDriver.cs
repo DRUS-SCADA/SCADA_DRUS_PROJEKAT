@@ -11,6 +11,15 @@ namespace SCADACore
     {
         public static RealTimeUnit RTU = new RealTimeUnit();
         public static string ContainerName { get; private set; }
+
+        public static Dictionary<string, bool> RTU_adress = new Dictionary<string, bool>()
+        {
+            {"ADDR013", false},
+            {"ADDR014", false},
+            {"ADDR015", false},
+            {"ADDR016", false},
+
+        };
        
         public void SendMessage(double number, string address, byte[] signature)
         {
@@ -46,48 +55,39 @@ namespace SCADACore
                 return sha.ComputeHash(Encoding.UTF8.GetBytes(value));
             }
         }
+
         public void changeAddress(string address)
         {
-            using (var db = new AddressContext())
-            {
-                foreach (var i in db.RTUAddresses)
-                {
-                    if (i.address == address)
-                    {
-                        i.isFree = false;
-                    }
-                }
-                db.SaveChanges();
-            }
+
+            RTU_adress[address] = true;
+
+
         }
         public void freeAddress(string address)
         {
-            using(var db = new AddressContext())
+
+
+            if (RTU_adress[address] == true)
             {
-                foreach (var i in db.RTUAddresses)
-                {
-                    if(i.address == address)
-                    {
-                        i.isFree = true;
-                    }
-                }
-                db.SaveChanges();
+                RTU_adress[address] = false;
             }
+
+
         }
-        public void makeDB()
+
+        public List<string> GetAddress()
         {
-            using (var db = new AddressContext())
+            List<string> updatedList = new List<string>();
+            foreach (var i in RTU_adress.Keys)
             {
-                RTUAddress rtu = new RTUAddress() { address = "ADDR013", isFree = false };
-                RTUAddress rtu2 = new RTUAddress() { address = "ADDR014", isFree = false };
-                RTUAddress rtu3 = new RTUAddress() { address = "ADDR015", isFree = false };
-                RTUAddress rtu4 = new RTUAddress() { address = "ADDR016", isFree = false };
-                db.RTUAddresses.Add(rtu);
-                db.RTUAddresses.Add(rtu2);
-                db.RTUAddresses.Add(rtu3);
-                db.RTUAddresses.Add(rtu4);
-                db.SaveChanges();
+                if (RTU_adress[i] == false)
+                {
+                    updatedList.Add(i);
+                }
             }
+
+            return updatedList;
         }
+
     }
 }

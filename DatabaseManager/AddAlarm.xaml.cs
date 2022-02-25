@@ -71,11 +71,16 @@ namespace DatabaseManager
                 {
                     Treshold.BorderBrush = Brushes.Red;
                     MessageBox.Show("Treshold must be a number!");
+                    Treshold.ClearValue(Border.BorderBrushProperty);
                 }
             }
             else
             {
                 MessageBox.Show("Inputs are not valid!");
+                Treshold.ClearValue(Border.BorderBrushProperty);
+                Priority.ClearValue(Border.BorderBrushProperty);
+                Type.ClearValue(Border.BorderBrushProperty);
+                Message.ClearValue(Border.BorderBrushProperty);
             }
         }
         private bool ValidateInput()

@@ -78,10 +78,21 @@ namespace DatabaseManager
                     LowLimit.BorderBrush = Brushes.Red;
                     ScanTime.BorderBrush = Brushes.Red;
                     MessageBox.Show("Inputs must be a number!");
+                    HighLimit.ClearValue(Border.BorderBrushProperty);
+                    LowLimit.ClearValue(Border.BorderBrushProperty);
+                    ScanTime.ClearValue(Border.BorderBrushProperty);
                 }
             }else
             {
                 MessageBox.Show("Inputs are not valid!");
+                Idbox.ClearValue(Border.BorderBrushProperty);
+                Descriptionbox.ClearValue(Border.BorderBrushProperty);
+                IoCombo.ClearValue(Border.BorderBrushProperty);
+                DriverCombo.ClearValue(Border.BorderBrushProperty);
+                HighLimit.ClearValue(Border.BorderBrushProperty);
+                LowLimit.ClearValue(Border.BorderBrushProperty);
+                UnitsBox.ClearValue(Border.BorderBrushProperty);
+                ScanTime.ClearValue(Border.BorderBrushProperty);
             }
             
         }

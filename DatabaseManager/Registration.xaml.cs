@@ -59,6 +59,12 @@ namespace DatabaseManager
             }else
             {
                 MessageBox.Show("Inputs are not valid!");
+                FirstName.ClearValue(Border.BorderBrushProperty);
+                LastName.ClearValue(Border.BorderBrushProperty);
+                username.ClearValue(Border.BorderBrushProperty);
+                Password.ClearValue(Border.BorderBrushProperty);
+                ConfirmPassword.ClearValue(Border.BorderBrushProperty);
+                
             }
          
             

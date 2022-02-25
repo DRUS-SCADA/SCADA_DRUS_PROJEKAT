@@ -154,34 +154,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressContext.cs" />
-    <Compile Include="Alarm.cs" />
-    <Compile Include="AlarmContext.cs" />
-    <Compile Include="AnalogInput.cs" />
-    <Compile Include="AnalogOutput.cs" />
-    <Compile Include="DITag.cs" />
-    <Compile Include="IAlarmDisplay.cs" />
-    <Compile Include="IAlarmDisplayCallback.cs" />
-    <Compile Include="IRealTimeDriver.cs" />
-    <Compile Include="IReportManager.cs" />
-    <Compile Include="ITrending.cs" />
-    <Compile Include="ITrendingCallback.cs" />
-    <Compile Include="DigitalInput.cs" />
-    <Compile Include="DigitalOutput.cs" />
-    <Compile Include="IAuthentication.cs" />
-    <Compile Include="IDatabaseManager.cs" />
+    <Compile Include="Modeli\Alarm.cs" />
+    <Compile Include="Baza\AlarmContext.cs" />
+    <Compile Include="Modeli\AnalogInput.cs" />
+    <Compile Include="Modeli\AnalogOutput.cs" />
+    <Compile Include="Modeli\DITag.cs" />
+    <Compile Include="Servisni_ugovori\IAlarmDisplay.cs" />
+    <Compile Include="Servisni_ugovori\IAlarmDisplayCallback.cs" />
+    <Compile Include="Servisni_ugovori\IRealTimeDriver.cs" />
+    <Compile Include="Servisni_ugovori\IReportManager.cs" />
+    <Compile Include="Servisni_ugovori\ITrending.cs" />
+    <Compile Include="Servisni_ugovori\ITrendingCallback.cs" />
+    <Compile Include="Modeli\DigitalInput.cs" />
+    <Compile Include="Modeli\DigitalOutput.cs" />
+    <Compile Include="Servisni_ugovori\IAuthentication.cs" />
+    <Compile Include="Servisni_ugovori\IDatabaseManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="AITag.cs" />
-    <Compile Include="RealTimeDriver.cs" />
-    <Compile Include="RealTimeUnit.cs" />
-    <Compile Include="ReportManager.cs" />
-    <Compile Include="RTUAddress.cs" />
-    <Compile Include="Tag.cs" />
-    <Compile Include="TagContext.cs" />
-    <Compile Include="TagProcessing.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserContext.cs" />
+    <Compile Include="Modeli\AITag.cs" />
+    <Compile Include="ServisneKlase\RealTimeDriver.cs" />
+    <Compile Include="RealTimeUnitSimulation\RealTimeUnit.cs" />
+    <Compile Include="ServisneKlase\ReportManager.cs" />
+    <Compile Include="Modeli\Tag.cs" />
+    <Compile Include="Baza\TagContext.cs" />
+    <Compile Include="ServisneKlase\TagProcessing.cs" />
+    <Compile Include="Modeli\User.cs" />
+    <Compile Include="Baza\UserContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -193,6 +191,7 @@
       <Name>Simulation</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

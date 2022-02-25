@@ -4,6 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import namespace="http://tempuri.org/" />
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IRealTimeDriver_SendMessage_InputMessage">
@@ -24,11 +25,11 @@
   <wsdl:message name="IRealTimeDriver_freeAddress_OutputMessage">
     <wsdl:part name="parameters" element="tns:freeAddressResponse" />
   </wsdl:message>
-  <wsdl:message name="IRealTimeDriver_makeDB_InputMessage">
-    <wsdl:part name="parameters" element="tns:makeDB" />
+  <wsdl:message name="IRealTimeDriver_GetAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddress" />
   </wsdl:message>
-  <wsdl:message name="IRealTimeDriver_makeDB_OutputMessage">
-    <wsdl:part name="parameters" element="tns:makeDBResponse" />
+  <wsdl:message name="IRealTimeDriver_GetAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAddressResponse" />
   </wsdl:message>
   <wsdl:portType name="IRealTimeDriver">
     <wsdl:operation name="SendMessage">
@@ -43,9 +44,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/freeAddress" message="tns:IRealTimeDriver_freeAddress_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/freeAddressResponse" message="tns:IRealTimeDriver_freeAddress_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="makeDB">
-      <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/makeDB" message="tns:IRealTimeDriver_makeDB_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/makeDBResponse" message="tns:IRealTimeDriver_makeDB_OutputMessage" />
+    <wsdl:operation name="GetAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRealTimeDriver/GetAddress" message="tns:IRealTimeDriver_GetAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRealTimeDriver/GetAddressResponse" message="tns:IRealTimeDriver_GetAddress_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRealTimeDriver" type="tns:IRealTimeDriver">
@@ -77,8 +78,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="makeDB">
-      <soap:operation soapAction="http://tempuri.org/IRealTimeDriver/makeDB" style="document" />
+    <wsdl:operation name="GetAddress">
+      <soap:operation soapAction="http://tempuri.org/IRealTimeDriver/GetAddress" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

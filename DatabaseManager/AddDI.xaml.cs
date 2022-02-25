@@ -55,10 +55,18 @@ namespace DatabaseManager
                 {
                     Scanbox.BorderBrush = Brushes.Red;
                     MessageBox.Show("Scan time must be a number!");
+                    Scanbox.ClearValue(Border.BorderBrushProperty);
+
                 }
             }else
             {
                 MessageBox.Show("Inputs are not valid!");
+                Idbox.ClearValue(Border.BorderBrushProperty);
+                Descriptionbox.ClearValue(Border.BorderBrushProperty);
+                IOCombo.ClearValue(Border.BorderBrushProperty);
+                Scanbox.ClearValue(Border.BorderBrushProperty);
+
+
             }
         }
 

@@ -73,7 +73,7 @@ namespace SCADACore
                     db.Users.Add(user);
                     db.SaveChanges();
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     return "Neuspesno registrovanje";
                 }
@@ -98,7 +98,7 @@ namespace SCADACore
                             db.Users.Remove(user);
                             help_variable = true;
                         }
-                        catch (Exception e)
+                        catch (Exception)
                         {
                             help_variable = false;
                         }

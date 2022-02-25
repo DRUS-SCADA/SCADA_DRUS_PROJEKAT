@@ -62,7 +62,9 @@ namespace DatabaseManager
                 }
             }else
             {
-                MessageBox.Show("New password is incorrect");
+                MessageBox.Show("New password is not valid");
+                NewPassword.ClearValue(Border.BorderBrushProperty);
+                
             }
         }
 

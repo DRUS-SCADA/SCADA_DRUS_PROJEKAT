@@ -60,6 +60,11 @@ namespace DatabaseManager
             } else
             {
                 MessageBox.Show("Inputs are not valid!");
+                Idbox.ClearValue(Border.BorderBrushProperty);
+                Descriptionbox.ClearValue(Border.BorderBrushProperty);
+                IOcombo.ClearValue(Border.BorderBrushProperty);
+                Valuebox.ClearValue(Border.BorderBrushProperty);
+               
             }
         }
         private bool ValidateInput()

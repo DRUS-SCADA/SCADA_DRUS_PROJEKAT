@@ -26,12 +26,13 @@ namespace RealTimeDriver
         RealTimeDriverClient proxy = new RealTimeDriverClient();
         private Thread t1;
         public static string ContainerName { get; private set; }
+
+        private bool buttonWasClicked = false;
         public MainWindow()
         {
             InitializeComponent();
-            //proxy.makeDB();
             ContainerName = "KeyContainer";
-            this.AddressCombo.ItemsSource = new List<string> { "ADDR013", "ADDR014", "ADDR015", "ADDR016" };
+            this.AddressCombo.ItemsSource = proxy.GetAddress();
             this.DataContext = this;
         }
 
@@ -47,6 +48,7 @@ namespace RealTimeDriver
                     t1 = new Thread(() => GeneratingSignals(limitHigh, limitLow, address));
                     t1.Start();
                     proxy.changeAddress(address);
+                    buttonWasClicked = true;
                 }
                 else
                 {
@@ -56,6 +58,9 @@ namespace RealTimeDriver
             else
             {
                 MessageBox.Show("Inputs are not valid");
+                AddressCombo.ClearValue(Border.BorderBrushProperty);
+                HighLimit.ClearValue(Border.BorderBrushProperty);
+                LowLimit.ClearValue(Border.BorderBrushProperty);
             }
            
         }
@@ -72,9 +77,17 @@ namespace RealTimeDriver
         }
         private void CloseClick(object sender, RoutedEventArgs e)
         {
-            t1.Abort();
-            proxy.freeAddress(AddressCombo.Text);
-            this.Close();
+            if (buttonWasClicked == true)
+            {
+                t1.Abort();
+                proxy.freeAddress(AddressCombo.Text);
+                this.Close();
+            }
+            else
+            {
+                this.Close();
+            }
+
         }
 
         private bool ValidateInput()

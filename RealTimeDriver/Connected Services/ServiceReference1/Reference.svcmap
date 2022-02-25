@@ -25,6 +25,7 @@
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="83b18727-eb77-4ad4-b75b-b969f555355a" SourceId="1" SourceUrl="http://localhost:8000/RealTimeDriverService/mex" />
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="cd0a990e-4f48-4b76-97a6-ae60bb3ac28d" SourceId="1" SourceUrl="http://localhost:8000/RealTimeDriverService/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="9daabd64-6e43-49d8-b64c-57458726ba00" SourceId="1" SourceUrl="http://localhost:8000/RealTimeDriverService/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="8b53a9ed-286c-48fd-b50e-ae7d2aec4184" SourceId="1" SourceUrl="http://localhost:8000/RealTimeDriverService/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

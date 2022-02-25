@@ -25,6 +25,7 @@
             <RowDefinition Height="2.75*" />
             <RowDefinition Height="0.5*" />
         </Grid.RowDefinitions>
+
         <TabControl  Name="Tab1" Grid.Row="0">
             <TabControl.Resources>
                 <Style TargetType="TabItem">

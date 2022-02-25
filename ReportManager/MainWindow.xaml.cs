@@ -47,6 +47,7 @@ namespace ReportManager
                 else
                 {
                     MessageBox.Show("Inputs are not valid!");
+                    Report1.ClearValue(Border.BorderBrushProperty);
                 }
             }
             else if (tag.ToString() == "2")
@@ -61,6 +62,7 @@ namespace ReportManager
                 else
                 {
                     MessageBox.Show("Inputs are not valid!");
+                    Report2.ClearValue(Border.BorderBrushProperty);
                 }
             }
             else if (tag.ToString() == "3")
@@ -75,6 +77,8 @@ namespace ReportManager
                 else
                 {
                     MessageBox.Show("Inputs are not valid!");
+                    Report3tagValues.ClearValue(Border.BorderBrushProperty);
+                    Report3tag.ClearValue(Border.BorderBrushProperty);
                 }
             }
             else if (tag.ToString() == "4")
@@ -93,6 +97,7 @@ namespace ReportManager
                         else
                         {
                             MessageBox.Show("Input with that tag name doesn't exist!");
+                            
                         }
 
                     }
@@ -109,12 +114,15 @@ namespace ReportManager
                         else
                         {
                             MessageBox.Show("Input with that tag name doesn't exist!");
+                            
                         }
                     }
                 }
                 else
                 {
                     MessageBox.Show("Inputs are not valid!");
+                    Report4tagName.ClearValue(Border.BorderBrushProperty);
+                    Report4tag.ClearValue(Border.BorderBrushProperty);
                 }
             }
             else if (tag.ToString() == "5")

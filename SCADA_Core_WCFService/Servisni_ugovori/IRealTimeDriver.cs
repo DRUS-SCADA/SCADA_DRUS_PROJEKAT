@@ -17,7 +17,7 @@ namespace SCADACore
         [OperationContract]
         void freeAddress(string addresss);
         [OperationContract]
-        void makeDB();
+        List<string> GetAddress();
 
     }
 }
