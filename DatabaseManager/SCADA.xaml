@@ -55,9 +55,6 @@
             <TabItem Name="DI" Header="Digital inputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
                     <DataGrid Name="dataGrid"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False"  Background="LightBlue" SelectedItem="{Binding SelectedDI}" IsReadOnly="True">
-                        <DataGrid.Resources>
-                            <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png" />
-                        </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Tag name" Width="*" Binding="{Binding Path=TagName}"/>
                             <DataGridTextColumn Header="Description"  Width="*" Binding="{Binding Path=Description}"/>
@@ -106,9 +103,6 @@
             <TabItem Name="DO" Header="Digital outputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
                     <DataGrid Name="dataGrid1"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedDO}" Background="LightBlue">
-                        <DataGrid.Resources>
-                            <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
-                        </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Tag name" Binding="{Binding tag_name}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding description}" IsReadOnly="True" Width="*"/>
@@ -154,10 +148,6 @@
             <TabItem Name="AI" Header="Analog inputs" FontFamily="Helvetica" FontWeight="DemiBold">
                 <StackPanel>
                     <DataGrid Name="dataGrid2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAI}" Background="LightBlue"  IsReadOnly="True">
-                        <DataGrid.Resources>
-                            <ImageBrush x:Key="DeleteBtnImage" ImageSource="Images/deleteIcon.png"/>
-                            <ImageBrush x:Key="DetailsBtnImage" ImageSource="/Images/details.png"/>
-                        </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="*"/>
@@ -230,9 +220,6 @@
             <TabItem Name="AO" Header="Analog outputs" FontFamily="Helvetica" FontWeight="DemiBold" >
                 <StackPanel>
                     <DataGrid Name="dataGrid3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" CanUserAddRows="False" AutoGenerateColumns="False" SelectedItem="{Binding SelectedAO}" Background="LightBlue"  >
-                        <DataGrid.Resources>
-                            <ImageBrush x:Key="DeleteBtnImage" ImageSource="/Images/deleteIcon.png"/>
-                        </DataGrid.Resources>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Tag name" Binding="{Binding TagName}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="Description" Binding="{Binding Description}" IsReadOnly="True" Width="*"/>
