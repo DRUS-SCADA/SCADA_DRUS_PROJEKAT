@@ -340,9 +340,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\pass.png" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ServiceReference1\" />
     <WCFMetadataStorage Include="Connected Services\ServiceReference2\" />
   </ItemGroup>
@@ -357,17 +354,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\account_icon.png" />
-    <Resource Include="Images\password.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Alarmicon.jpg" />
-    <Resource Include="Images\deleteAlarm.png" />
-    <Resource Include="Images\deleteIcon.png" />
-    <Resource Include="Images\details.png" />
-    <Resource Include="Images\plusIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ServiceReference2\configuration91.svcinfo" />

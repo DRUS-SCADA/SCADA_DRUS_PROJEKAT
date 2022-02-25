@@ -62,7 +62,6 @@ namespace RealTimeDriver
                 HighLimit.ClearValue(Border.BorderBrushProperty);
                 LowLimit.ClearValue(Border.BorderBrushProperty);
             }
-           
         }
         private void GeneratingSignals(double high, double low, string address)
         {
@@ -87,7 +86,6 @@ namespace RealTimeDriver
             {
                 this.Close();
             }
-
         }
 
         private bool ValidateInput()
@@ -106,7 +104,6 @@ namespace RealTimeDriver
                 {
                     AddressCombo.BorderBrush = Brushes.Red;
                 }
-               
                 return false;
             }
             else
