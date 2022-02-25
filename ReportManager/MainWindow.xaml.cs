@@ -149,7 +149,8 @@ namespace ReportManager
             {
                 Report1.BorderBrush = Brushes.Red;
                 return false;
-            }else
+            }
+            else
             {
                 return true;
             }

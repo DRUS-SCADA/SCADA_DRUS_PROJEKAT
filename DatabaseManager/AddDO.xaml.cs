@@ -41,7 +41,6 @@ namespace DatabaseManager
         private void Close_click(object sender, RoutedEventArgs e)
         {
             this.Close();
-            
         }
 
         private void AddDO_Click(object sender, RoutedEventArgs e)
@@ -57,14 +56,14 @@ namespace DatabaseManager
                 MainWindow.proxy2.AddDO(digitalOutput);
 
                 this.Close();
-            } else
+            } 
+            else
             {
                 MessageBox.Show("Inputs are not valid!");
                 Idbox.ClearValue(Border.BorderBrushProperty);
                 Descriptionbox.ClearValue(Border.BorderBrushProperty);
                 IOcombo.ClearValue(Border.BorderBrushProperty);
                 Valuebox.ClearValue(Border.BorderBrushProperty);
-               
             }
         }
         private bool ValidateInput()

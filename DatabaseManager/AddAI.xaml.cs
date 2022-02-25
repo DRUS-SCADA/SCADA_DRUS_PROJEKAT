@@ -41,7 +41,6 @@ namespace DatabaseManager
                 }
             }
             this.DriverCombo.ItemsSource = new List<string>() { "SIMULATION", "RTU" };
-
         }
         
 

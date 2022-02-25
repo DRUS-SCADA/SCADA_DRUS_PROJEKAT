@@ -82,7 +82,6 @@ namespace DatabaseManager
                 HighLimit.ClearValue(Border.BorderBrushProperty);
                 LowLimit.ClearValue(Border.BorderBrushProperty);
             }
-            
         }
         private bool ValidateInput()
         {

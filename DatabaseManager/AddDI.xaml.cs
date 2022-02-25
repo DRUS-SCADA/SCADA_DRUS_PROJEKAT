@@ -58,15 +58,14 @@ namespace DatabaseManager
                     Scanbox.ClearValue(Border.BorderBrushProperty);
 
                 }
-            }else
+            }
+            else
             {
                 MessageBox.Show("Inputs are not valid!");
                 Idbox.ClearValue(Border.BorderBrushProperty);
                 Descriptionbox.ClearValue(Border.BorderBrushProperty);
                 IOCombo.ClearValue(Border.BorderBrushProperty);
                 Scanbox.ClearValue(Border.BorderBrushProperty);
-
-
             }
         }
 

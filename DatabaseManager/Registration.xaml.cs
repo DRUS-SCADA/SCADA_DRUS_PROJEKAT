@@ -64,10 +64,7 @@ namespace DatabaseManager
                 username.ClearValue(Border.BorderBrushProperty);
                 Password.ClearValue(Border.BorderBrushProperty);
                 ConfirmPassword.ClearValue(Border.BorderBrushProperty);
-                
             }
-         
-            
         }
 
         private void Close_Click(object sender, RoutedEventArgs e)

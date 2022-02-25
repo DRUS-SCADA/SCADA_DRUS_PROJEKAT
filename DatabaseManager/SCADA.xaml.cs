@@ -181,7 +181,6 @@ namespace DatabaseManager
                 {
                     adressAI_RTU[SelectedAI.IOAdress] = false;
                 }
-
                 MainWindow.proxy2.removeAI(SelectedAI);
                 dataGrid2.ItemsSource = MainWindow.proxy2.LoadDataToGridAI();
             }
